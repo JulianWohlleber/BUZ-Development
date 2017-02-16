@@ -2,25 +2,20 @@
 sketch = Framer.Importer.load("imported/Diagram-Test-1c copy@1x")
 
 
-
 `
 var socket = io.connect("/");
 var nachr
 socket.on("message",function(message){
-	console.log(message)
-	nachr = JSON.parse(message);`
-print message
+	nachr = JSON.parse(message);
+	console.log(nachr.data)`
+print nachr.data
 `});`
 
 print nachr
 
 votingNr = 0
+scenario = ""
 
-sketch.G1.scale = 0.29
-sketch.G2.scale = 0.29
-sketch.G3.scale = 0.29
-sketch.G4.scale = 0.29
-sketch.G5.scale = 0.29
 
 
 zero = 0.29
@@ -44,7 +39,6 @@ sketch.G15.scale = 0.6
 
 indicator = 0
 #this Crazy event can be used for realszenarios! (at least parts of it...)
-#!!!!!!!
 window.addEventListener "keydown", (ev) ->
 	votingNr++
 	switch ev. keyCode
