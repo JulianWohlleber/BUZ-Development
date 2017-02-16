@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Type=Application
+Exec="/home/julian/Desktop/autostart.sh"
+Terminal=true
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_IN]=LaunchScript
+Name=LaunchScript
+Comment[en_IN]=AnyComment
+Comment=AnyComment
