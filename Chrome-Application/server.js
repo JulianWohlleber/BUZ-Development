@@ -13,6 +13,9 @@ var votingFramer ={
     "fortress":"-"
   };
 
+var newScenarioFactors = {
+
+}
 //#########################Server Setup#########################################
 var app = express();
 app.use(express.static('./Scenarios.framer'));
@@ -34,7 +37,7 @@ io.sockets.on("connection",function(socket){
     socket.on("message",function(data){
         /*This event is triggered at the server side when client sends the data using socket.send() method */
         data = JSON.parse(data);
-
+        //connects votings to scenarios in votingFramer-obj
         if(data.scenario === "hightech"){
         votingFramer.hightech = data.votingAmount;
         }
@@ -48,7 +51,7 @@ io.sockets.on("connection",function(socket){
         votingFramer.fortress = data.votingAmount;
         }
         if(data.scenario === "null"){
-        //calculate averages of all four
+        //calculate averages when collective
           if(votingFramer.hightech !== "-"){
             scenarioFactors.hightech.votingAverage = (votingFramer.hightech + scenarioFactors.hightech.votingAverage * scenarioFactors.hightech.votingAmount)/(scenarioFactors.hightech.votingAmount+1);
             scenarioFactors.hightech.votingAmount++;
