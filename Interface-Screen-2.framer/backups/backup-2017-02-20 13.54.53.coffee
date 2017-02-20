@@ -110,6 +110,7 @@ SuperLayer_Virtual = new Layer
 myLastScenario = "Regional"
 
 Events.wrap(window).addEventListener "keydown", (event) ->
+	print "event",event
 	if event.keyCode is 39
 		if sceneSwitcher is 4
 			sceneSwitcher = 1
@@ -149,6 +150,8 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 		updateTrends(Color_Virtual, Amount_Of_Virtual, "SuperLayer_Virtual")
 		remove(Description_Regional, Description_Fortress, Description_Robotic)
 		remove(Title_Regional, Title_Fortress, Title_Robotic)
+
+
 
 updateTrends = (color, amountOfTrends, mySuperLayer) ->
 	

@@ -110,6 +110,7 @@ SuperLayer_Virtual = new Layer
 myLastScenario = "Regional"
 
 Events.wrap(window).addEventListener "keydown", (event) ->
+	print "event",event
 	if event.keyCode is 39
 		if sceneSwitcher is 4
 			sceneSwitcher = 1

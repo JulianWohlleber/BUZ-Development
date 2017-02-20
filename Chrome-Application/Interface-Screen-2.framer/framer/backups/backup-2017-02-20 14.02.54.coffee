@@ -110,6 +110,7 @@ SuperLayer_Virtual = new Layer
 myLastScenario = "Regional"
 
 Events.wrap(window).addEventListener "keydown", (event) ->
+	print "event",event
 	if event.keyCode is 39
 		if sceneSwitcher is 4
 			sceneSwitcher = 1
@@ -180,11 +181,8 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 		myLastScenario = "Virtual"
 		SuperLayer_Virtual = new Layer
 			backgroundColor: myTransparent
-# 			
-# 	for index in [0..(amountOfTrends - 1)]	
-# 		activeDot.states["dot" + (amountOfTrends - index)] = 
-# 			x: (Screen.width - horizontalMargin - (dotSpace * index))
-# 		dotStates.push("dot" + (index + 1))
+# 	
+# 	for index in [0..(amountOfTrends - 1)]
 # 		inActiveDot = new Layer
 # 			superLayer: mySuperLayer
 # 			x: (Screen.width - horizontalMargin - (dotSpace * index))
@@ -195,24 +193,40 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 # 			borderWidth: borderWidth
 # 			borderColor: color
 # 			backgroundColor: myTransparent
-# 	activeDot.backgroundColor = color
-# 	activeDot.x = (Screen.width - horizontalMargin - ((amountOfTrends - 1) * dotSpace))
-# 	dotStateNumber = 0
-# 	activeDot.states.next(dotStates[dotStateNumber])
-# 
-# 
-# 	activeDot.states.animationOptions = 
-# 		delay: trendAnimationDelay
-# 		time: trendAnimationTime
-# 
-# 	activeDot.states.next(dotStates[dotStateNumber])
-# 
-# 	activeDot.on Events.AnimationEnd, ->
-# 		if dotStateNumber < (amountOfDots-1)
-# 			dotStateNumber++
-# 		else
-# 			dotStateNumber = 0
-# 		activeDot.states.next(dotStates[(dotStateNumber)])
+
+		
+	for index in [0..(amountOfTrends - 1)]	
+		activeDot.states["dot" + (amountOfTrends - index)] = 
+			x: (Screen.width - horizontalMargin - (dotSpace * index))
+		dotStates.push("dot" + (index + 1))
+		inActiveDot = new Layer
+			x: (Screen.width - horizontalMargin - (dotSpace * index))
+			width: dotSize
+			height: dotSize
+			y: verticalMargin
+			borderRadius: circleRadius
+			borderWidth: borderWidth
+			borderColor: color
+			backgroundColor: myTransparent
+			
+	activeDot.backgroundColor = color
+	activeDot.x = (Screen.width - horizontalMargin - ((amountOfTrends - 1) * dotSpace))
+	dotStateNumber = 0
+	activeDot.states.next(dotStates[dotStateNumber])
+
+
+	activeDot.states.animationOptions = 
+		delay: trendAnimationDelay
+		time: trendAnimationTime
+
+	activeDot.states.next(dotStates[dotStateNumber])
+
+	activeDot.on Events.AnimationEnd, ->
+		if dotStateNumber < (amountOfDots-1)
+			dotStateNumber++
+		else
+			dotStateNumber = 0
+		activeDot.states.next(dotStates[(dotStateNumber)])
 
 
 

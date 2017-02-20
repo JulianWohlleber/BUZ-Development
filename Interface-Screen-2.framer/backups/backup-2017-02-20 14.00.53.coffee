@@ -110,6 +110,7 @@ SuperLayer_Virtual = new Layer
 myLastScenario = "Regional"
 
 Events.wrap(window).addEventListener "keydown", (event) ->
+	print "event",event
 	if event.keyCode is 39
 		if sceneSwitcher is 4
 			sceneSwitcher = 1
@@ -180,7 +181,20 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 		myLastScenario = "Virtual"
 		SuperLayer_Virtual = new Layer
 			backgroundColor: myTransparent
-# 			
+# 	
+# 	for index in [0..(amountOfTrends - 1)]
+# 		inActiveDot = new Layer
+# 			superLayer: mySuperLayer
+# 			x: (Screen.width - horizontalMargin - (dotSpace * index))
+# 			width: dotSize
+# 			height: dotSize
+# 			y: verticalMargin
+# 			borderRadius: circleRadius
+# 			borderWidth: borderWidth
+# 			borderColor: color
+# 			backgroundColor: myTransparent
+
+		
 # 	for index in [0..(amountOfTrends - 1)]	
 # 		activeDot.states["dot" + (amountOfTrends - index)] = 
 # 			x: (Screen.width - horizontalMargin - (dotSpace * index))
