@@ -5,7 +5,7 @@ sketch = Framer.Importer.load("imported/Untitled@1x")
 var socket = io.connect("/");
 socket.on("message",function(message){
 var dataServer = JSON.parse(message);`
-print dataServer.message
+print message
 `});`
 
 ###################Layers##################
