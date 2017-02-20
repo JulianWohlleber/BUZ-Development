@@ -97,7 +97,7 @@ activeDot = new Layer
 	backgroundColor: Color_Regional
 	borderRadius: 100
 
-#Setup ScenarioSuperLayer
+#Setup Scenarios
 SuperLayer_Regional = new Layer
 	backgroundColor: myTransparent
 SuperLayer_Fortress = new Layer
@@ -109,59 +109,7 @@ SuperLayer_Virtual = new Layer
 
 myLastScenario = "Regional"
 
-
-
-
-
-for index in [0..(amountOfTrends - 1)]	
-		activeDot.states["dot" + (amountOfTrends - index)] = 
-			x: (Screen.width - horizontalMargin - (dotSpace * index))
-		dotStates.push("dot" + (index + 1))
-		inActiveDot = new Layer
-			x: (Screen.width - horizontalMargin - (dotSpace * index))
-			width: dotSize
-			height: dotSize
-			y: verticalMargin
-			borderRadius: circleRadius
-			borderWidth: borderWidth
-			borderColor: color
-			backgroundColor: myTransparent
-		
-		if mySuperLayer is "SuperLayer_Regional"
-			inActiveDot.superLayer = SuperLayer_Regional
-		else if mySuperLayer is "SuperLayer_Fortress"
-			inActiveDot.superLayer = SuperLayer_Fortress
-		else if mySuperLayer is "SuperLayer_Robotic"
-			inActiveDot.superLayer = SuperLayer_Robotic
-		else if mySuperLayer is "SuperLayer_Virtual"
-			inActiveDot.superLayer = SuperLayer_Virtual
-		
-	activeDot.backgroundColor = color
-	activeDot.x = (Screen.width - horizontalMargin - ((amountOfTrends - 1) * dotSpace))
-	dotStateNumber = 0
-	activeDot.states.next(dotStates[dotStateNumber])
-
-
-	activeDot.states.animationOptions = 
-		delay: trendAnimationDelay
-		time: trendAnimationTime
-
-	activeDot.states.next(dotStates[dotStateNumber])
-
-	activeDot.on Events.AnimationEnd, ->
-		if dotStateNumber < (amountOfDots-1)
-			dotStateNumber++
-		else
-			dotStateNumber = 0
-		activeDot.states.next(dotStates[(dotStateNumber)])
-
-
-
-
-
-
 Events.wrap(window).addEventListener "keydown", (event) ->
-	print "event",event
 	if event.keyCode is 39
 		if sceneSwitcher is 4
 			sceneSwitcher = 1
@@ -204,9 +152,10 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 updateTrends = (color, amountOfTrends, mySuperLayer) ->
 	
-	print amountOfTrends
+	print myLastScenario
 	
 	if myLastScenario is "Regional"
+		print "oben"
 		SuperLayer_Regional.destroy()
 	if myLastScenario is "Fortress"
 		SuperLayer_Fortress.destroy()
@@ -232,20 +181,7 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 		myLastScenario = "Virtual"
 		SuperLayer_Virtual = new Layer
 			backgroundColor: myTransparent
-# 	
-# 	for index in [0..(amountOfTrends - 1)]
-# 		inActiveDot = new Layer
-# 			superLayer: mySuperLayer
-# 			x: (Screen.width - horizontalMargin - (dotSpace * index))
-# 			width: dotSize
-# 			height: dotSize
-# 			y: verticalMargin
-# 			borderRadius: circleRadius
-# 			borderWidth: borderWidth
-# 			borderColor: color
-# 			backgroundColor: myTransparent
-
-		
+			
 	for index in [0..(amountOfTrends - 1)]	
 		activeDot.states["dot" + (amountOfTrends - index)] = 
 			x: (Screen.width - horizontalMargin - (dotSpace * index))
@@ -259,21 +195,20 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 			borderWidth: borderWidth
 			borderColor: color
 			backgroundColor: myTransparent
-		
+
 		if mySuperLayer is "SuperLayer_Regional"
-			inActiveDot.superLayer = SuperLayer_Regional
+			inActiveDot.superlayer = "Regional"
 		else if mySuperLayer is "SuperLayer_Fortress"
-			inActiveDot.superLayer = SuperLayer_Fortress
+			inActiveDot.superlayer = "Fortress"
 		else if mySuperLayer is "SuperLayer_Robotic"
-			inActiveDot.superLayer = SuperLayer_Robotic
+			inActiveDot.superlayer = "Robotic"
 		else if mySuperLayer is "SuperLayer_Virtual"
-			inActiveDot.superLayer = SuperLayer_Virtual
-		
+			inActiveDot.superlayer = "Virtual"
+			
 	activeDot.backgroundColor = color
 	activeDot.x = (Screen.width - horizontalMargin - ((amountOfTrends - 1) * dotSpace))
 	dotStateNumber = 0
 	activeDot.states.next(dotStates[dotStateNumber])
-
 
 	activeDot.states.animationOptions = 
 		delay: trendAnimationDelay
