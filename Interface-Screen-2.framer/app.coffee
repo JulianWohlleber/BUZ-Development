@@ -1,7 +1,7 @@
 #imports
 ############################################################
 
-# Define and set custom device 
+# Define and set custom device
 Canvas.backgroundColor = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
@@ -22,9 +22,6 @@ myModule = require("myModule")
 
 horizontalMargin = 100
 verticalMargin = horizontalMargin/2
-myTransparent = "rgba(0)"
-
-
 
 #tests
 ############################################################
@@ -55,6 +52,7 @@ Color_Regional = "#65B531"
 Color_Fortress = "#E262BA"
 Color_Robotic = "#DAC531"
 Color_Virtual = "#4BA5AF"
+myTransparent = "rgba(0)"
 
 #Descriptions
 Description_Regional = sketch.Description_Regional
@@ -78,24 +76,8 @@ Title_Fortress.visible = false
 Title_Robotic.visible = false
 Title_Virtual.visible = false
 
-#Superlayer
-inActiveRegionalDots = new Layer
-	backgroundColor: myTransparent
-inActiveFortressDots = new Layer
-	backgroundColor: myTransparent
-inActiveRoboticDots = new Layer
-	backgroundColor: myTransparent
-inActiveVirtualDots = new Layer
-	backgroundColor: myTransparent
-
 #Layer
-activeDot = new Layer
-	x: (Screen.width)
-	y: verticalMargin
-	width: dotSize
-	height: dotSize
-	backgroundColor: Color_Regional
-	borderRadius: 100
+
 
 #Setup Scenarios
 SuperLayer_Regional = new Layer
@@ -107,23 +89,25 @@ SuperLayer_Robotic = new Layer
 SuperLayer_Virtual = new Layer
 	backgroundColor: myTransparent
 
+#Default Scenario
 myLastScenario = "Regional"
+defaultScenario = Color_Regional
+defaultTrendAmount = Amount_Of_Regional
+isDefault = true
+oldAmount = 0
+
+
+
 
 Events.wrap(window).addEventListener "keydown", (event) ->
-	if event.keyCode is 39
-		if sceneSwitcher is 4
-			sceneSwitcher = 1
-		else
-			sceneSwitcher++
-# 		print "right", sceneSwitcher
-	else if event.keyCode is 37
-		if sceneSwitcher is 1
+	if event.keyCode is 49
+		sceneSwitcher = 1
+	else if event.keyCode is 50
+		sceneSwitcher = 2
+	else if event.keyCode is 51
+			sceneSwitcher = 3
+	else if event.keyCode is 52
 			sceneSwitcher = 4
-		else 
-			sceneSwitcher--
-# 		print "left", sceneSwitcher
-	else
-		print "invalid input"
 
 	if sceneSwitcher is 1
 		display(Description_Regional)
@@ -150,10 +134,23 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 		remove(Description_Regional, Description_Fortress, Description_Robotic)
 		remove(Title_Regional, Title_Fortress, Title_Robotic)
 
+
 updateTrends = (color, amountOfTrends, mySuperLayer) ->
-	
 	print mySuperLayer
-	
+
+	# dotStates = []
+	# if isDefault == false
+	# 	print "before", activeDot.props
+	# 	activeDot.animationOptions = {}
+	# 	activeDot.ignoreEvents = true
+	# print "after", activeDot.props
+	activeDot = new Layer
+		x: Screen.width
+		y: verticalMargin
+		width: dotSize
+		height: dotSize
+		borderRadius: 100
+
 	if myLastScenario is "Regional"
 		SuperLayer_Regional.destroy()
 	if myLastScenario is "Fortress"
@@ -163,7 +160,7 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 	if myLastScenario is "Virtual"
 		SuperLayer_Virtual.destroy()
 
-	
+
 	if mySuperLayer is "SuperLayer_Regional"
 		myLastScenario = "Regional"
 		SuperLayer_Regional = new Layer
@@ -180,9 +177,13 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 		myLastScenario = "Virtual"
 		SuperLayer_Virtual = new Layer
 			backgroundColor: myTransparent
-			
-	for index in [0..(amountOfTrends - 1)]	
-		activeDot.states["dot" + (amountOfTrends - index)] = 
+
+	if isDefault == false
+		for index in [0..(oldAmount - 1)]
+			activeDot.states.remove("dot" + (index + 1))
+
+	for index in [0..(amountOfTrends - 1)]
+		activeDot.states["dot" + (amountOfTrends - index)] =
 			x: (Screen.width - horizontalMargin - (dotSpace * index))
 		dotStates.push("dot" + (index + 1))
 		inActiveDot = new Layer
@@ -203,25 +204,29 @@ updateTrends = (color, amountOfTrends, mySuperLayer) ->
 			inActiveDot.superLayer = SuperLayer_Robotic
 		else if mySuperLayer is "SuperLayer_Virtual"
 			inActiveDot.superLayer = SuperLayer_Virtual
-			
+
+	isDefault = false
 	activeDot.backgroundColor = color
 	activeDot.x = (Screen.width - horizontalMargin - ((amountOfTrends - 1) * dotSpace))
-	dotStateNumber = 0
-	activeDot.states.next(dotStates[dotStateNumber])
+	dotStateNumber = 1
+	oldAmount = amountOfTrends
 
-	activeDot.states.animationOptions = 
-		delay: trendAnimationDelay
-		time: trendAnimationTime
-
-	activeDot.states.next(dotStates[dotStateNumber])
-
+	activeDot.states.animationOptions =
+		#delay: trendAnimationDelay
+		#time: trendAnimationTime
+		delay: 1
+		time: 1
+	print "on animation", activeDot.props
+	activeDot.stateCycle(dotStates[dotStateNumber])
 	activeDot.on Events.AnimationEnd, ->
-		if dotStateNumber < (amountOfDots-1)
+		if dotStateNumber < (amountOfTrends - 1)
 			dotStateNumber++
+			print "delay ", activeDot.states.animationOptions.delay
+			print dotStateNumber, "statenumber"
+			activeDot.stateCycle(dotStates[(dotStateNumber)])
 		else
 			dotStateNumber = 0
-		activeDot.states.next(dotStates[(dotStateNumber)])
-
+			activeDot.stateCycle(dotStates[(dotStateNumber)])
 
 
 remove = (element1, element2, element3) ->
@@ -231,6 +236,3 @@ remove = (element1, element2, element3) ->
 
 display = (element) ->
 	element.visible = true
-
-
-
