@@ -1,13 +1,16 @@
-
+Canvas.backgroundColor = "#000000"Framer.Device.customize	screenWidth: 1920	screenHeight: 1080	deviceImage: "http://previews.123rf.com/images/jules_kitano/jules_kitano1004/jules_kitano100400016/6771018-Nahaufnahme-der-Pressspan-Textur--Lizenzfreie-Bilder.jpg"	deviceImageWidth: 2020	deviceImageHeight: 1480
 # # Import file "Prepare for Framer"
 sketch = Framer.Importer.load("imported/Prepare for Framer@1x")
 ################################variables and Settings########################################
 
-flipAnimationTime = 0.2
-dropAnimationTime = 0.6
+flipAnimationTime = 0.24
+dropAnimationTime = 0.55
+fontScalingAnimationTime = 3
+secondBulbDelay = 0.2
 
 flipArray = []
 diagramParts = []
+
 
 #########################################Layers##############################################
 bg = new Layer
@@ -63,27 +66,21 @@ blackDrop.visible = false
 
 ######################sketch################################
 sketch.KnotenpunktStadt.bringToFront()
-
-
 ################################### functions #######################################
 diagramHide = () ->
+	sketch.dia1Fonts.scale = 0.99
 	sketch.dia1Stadtbild.opacity = 0 #### = ScenarioViews
 	sketch.KnotenpunktStadt.opacity = 0
-	
-# 	#scales down diagramElements
-# 	for child in sketch.dia1Inner.subLayers
-# 		child.scale = 0
-# 	for child in sketch.dia1Middle.subLayers
-# 		child.scale = 0
-# 	for child in sketch.dia1Outer.subLayers
-# 		child.scale = 0
-	#scales Down diagram on its own
-	for child in sketch.dia1Bars.subLayers
-		child.scale = 0.1
-		child.opacity = 0
 	sketch.dia1Labels.opacity = 0
 	sketch.dia1Fonts.opacity = 0
 	sketch.diaBubble.scale = 0
+	sketch.diaBubble2.scale = 0
+
+	for layer, index in flipArray
+		layer.opacity = 0
+	for child in sketch.dia1Bars.subLayers
+		child.scale = 0.1
+		child.opacity = 0
 
 diagramView = (scenario) ->
 	if scenario = "Knotenpunkt"
@@ -110,13 +107,17 @@ blackDrop.onAnimationEnd ->
 	sketch.dia1Labels.opacity = 1
 	sketch.dia1Fonts.animate
 		opacity: 1
+		scale: 1
 		options: 
-			time: 4
-	sketch.diaBubble.scale = 0
+			time: fontScalingAnimationTime
+
+	sketch.diaBubble.scale = 0.2
 	sketch.KnotenpunktStadt.opacity = 1
 	sketch.diaBubble.animate
 		scale: 1
-			#scale single bars
+	sketch.diaBubble2.animate
+		scale: 1
+	#scale up single bars
 	for child, index in sketch.dia1Inner.subLayers
 			child.animate
 				scale: 1
@@ -139,52 +140,32 @@ blackDrop.onAnimationEnd ->
 				scale: 1
 				opacity: 1
 				options: 
-					delay: 0.5 + index*0.15
+					delay: 0.1 + index*0.10
 
 FallingDrop = () ->
 	blackDrop.opacity = 0.3
 	blackDrop.visible = true
 	blackDrop.animate
-		width: 10
-		height: 10
-		x: 1920/2
+		width: 0
+		height: 0
+		x: 1920/2 
 		y: 1080/2
 		opacity: 1
 		options: 
 			time: dropAnimationTime
-	blackDrop.onAnimationEnd ->
-		bulb = blackDrop.copy()
-		bulb.opacity = 0.5
-		blackDrop2 = blackDrop.copy()
-		whole = blackDrop.copy()
-		whole.backgroundColor = "white"
-		whole.width = 0
-		whole.height = 0
-		bulb.animate
-			width: 900
-			height: 900
-			x: 510
-			y: 90
-			opacity: 1
-		blackDrop2.animate
-			width: 900
-			height: 900
-			x: 510
-			y: 90
-			options:
-				delay: 0.2
-	
-		whole.animate
-			width: 200
-			height: 200
-			x: (1920-200)/2
-			y: 540-100
-			options:
-				delay: 0.5
 
-		whole.visible = false
+	blackDrop.onAnimationEnd ->
 		blackDrop.visible = false
-		bulb.visible = false
-		blackDrop2.visible = false
+# 		bulb = sketch.diaBubble
+# 		bulb.opacity = 0.5
+# 		blackDrop2 = sketch.diaBubble2
+# 		bulb.animate
+# 			scale: 1
+# 			opacity: 1
+		blackDrop2.animate
+			scale: 1
+			options:
+				delay: secondBulbDelay
+
 
 

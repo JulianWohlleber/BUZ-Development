@@ -1,14 +1,14 @@
 window.__imported__ = window.__imported__ || {};
 window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 	{
-		"objectId": "A872FEC8-6EA5-41B5-92CB-35733CB5F494",
+		"objectId": "5182ED40-7501-4A58-9770-7A4F6A6E1459",
 		"kind": "artboard",
 		"name": "KnotenpunktStadt",
 		"originalName": "KnotenpunktStadt",
 		"maskFrame": null,
 		"layerFrame": {
 			"x": -573,
-			"y": 1089,
+			"y": 2467,
 			"width": 1920,
 			"height": 1080
 		},
@@ -17,180 +17,54 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 		"backgroundColor": "rgba(254, 240, 236, 1)",
 		"children": [
 			{
-				"objectId": "633FC9AD-5F1D-43BE-8971-F8EB40AEFDB4",
+				"objectId": "157AAF8C-5617-423B-AA8B-32A899AC8B24",
 				"kind": "group",
 				"name": "whole",
 				"originalName": "whole",
 				"maskFrame": null,
 				"layerFrame": {
-					"x": 882,
-					"y": 462,
-					"width": 157,
-					"height": 157
+					"x": 881,
+					"y": 460,
+					"width": 159,
+					"height": 160
 				},
 				"visible": true,
 				"metadata": {
 					"opacity": 1
 				},
 				"image": {
-					"path": "images/Layer-whole-njmzrkm5.png",
+					"path": "images/Layer-whole-mtu3qufg.png",
 					"frame": {
-						"x": 882,
-						"y": 462,
-						"width": 157,
-						"height": 157
+						"x": 881,
+						"y": 460,
+						"width": 159,
+						"height": 160
 					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "61673928-8DBD-49EF-83F4-95C00CC1B02C",
-				"kind": "group",
-				"name": "dia1Labels",
-				"originalName": "dia1Labels",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 529,
-					"y": 153,
-					"width": 859,
-					"height": 822
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
 				},
 				"children": [
 					{
-						"objectId": "BF429719-E308-4160-866F-CFA7C75DE3A6",
+						"objectId": "68532148-4750-4C74-AF0E-5C2F65F0E17E",
 						"kind": "group",
-						"name": "dia1Wohnen",
-						"originalName": "dia1Wohnen",
+						"name": "Group",
+						"originalName": "Group",
 						"maskFrame": null,
 						"layerFrame": {
-							"x": 639,
-							"y": 153,
-							"width": 133,
-							"height": 108
+							"x": 884,
+							"y": 460,
+							"width": 154,
+							"height": 157
 						},
 						"visible": true,
 						"metadata": {
 							"opacity": 1
 						},
 						"image": {
-							"path": "images/Layer-dia1Wohnen-qky0mjk3.png",
+							"path": "images/Layer-Group-njg1mzix.png",
 							"frame": {
-								"x": 639,
-								"y": 153,
-								"width": 133,
-								"height": 108
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "E5BFC8D2-C28B-4ABA-AD77-F823DF1EAE36",
-						"kind": "group",
-						"name": "dia1Arbeit",
-						"originalName": "dia1Arbeit",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1148,
-							"y": 157,
-							"width": 113,
-							"height": 82
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-dia1Arbeit-rtvcrkm4.png",
-							"frame": {
-								"x": 1148,
-								"y": 157,
-								"width": 113,
-								"height": 82
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "946A29F0-DFDB-4193-B847-64461EEEF68F",
-						"kind": "group",
-						"name": "dia1Bildung",
-						"originalName": "dia1Bildung",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 529,
-							"y": 595,
-							"width": 67,
-							"height": 146
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-dia1Bildung-otq2qti5.png",
-							"frame": {
-								"x": 529,
-								"y": 595,
-								"width": 67,
-								"height": 146
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "CE69FAD8-4FD3-424D-9EC8-5442D54B0DED",
-						"kind": "group",
-						"name": "dia1SozialeGerechtigkeit",
-						"originalName": "dia1SozialeGerechtigkeit",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 747,
-							"y": 897,
-							"width": 420,
-							"height": 78
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-dia1SozialeGerechtigkeit-q0u2ouzb.png",
-							"frame": {
-								"x": 747,
-								"y": 897,
-								"width": 420,
-								"height": 78
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "691AA02D-4AF9-4EC8-9896-1D344C2EE2B1",
-						"kind": "group",
-						"name": "dia1Umwelt",
-						"originalName": "dia1Umwelt",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1323,
-							"y": 610,
-							"width": 65,
-							"height": 140
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-dia1Umwelt-njkxquew.png",
-							"frame": {
-								"x": 1323,
-								"y": 610,
-								"width": 65,
-								"height": 140
+								"x": 884,
+								"y": 460,
+								"width": 154,
+								"height": 157
 							}
 						},
 						"children": []
@@ -198,15 +72,15 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 				]
 			},
 			{
-				"objectId": "46C622BF-D64D-40EE-A553-7FFD06155698",
+				"objectId": "7091DFB1-0775-4DC3-B401-79706D76AFBB",
 				"kind": "group",
 				"name": "dia1Fonts",
 				"originalName": "dia1Fonts",
 				"maskFrame": null,
 				"layerFrame": {
-					"x": 83,
+					"x": 82,
 					"y": 69,
-					"width": 1796,
+					"width": 1797,
 					"height": 961
 				},
 				"visible": true,
@@ -214,18 +88,18 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 					"opacity": 1
 				},
 				"image": {
-					"path": "images/Layer-dia1Fonts-ndzdnjiy.png",
+					"path": "images/Layer-dia1Fonts-nza5murg.png",
 					"frame": {
-						"x": 83,
+						"x": 82,
 						"y": 69,
-						"width": 1796,
+						"width": 1797,
 						"height": 961
 					}
 				},
 				"children": []
 			},
 			{
-				"objectId": "D1182DB7-500E-4572-A74A-09D24EC8E23B",
+				"objectId": "16B23E0E-594C-410A-A163-87209B20BAC2",
 				"kind": "group",
 				"name": "dia1Bars",
 				"originalName": "dia1Bars",
@@ -242,7 +116,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 				},
 				"children": [
 					{
-						"objectId": "457C364D-D8FB-4E6E-AD09-4929A0DD2AC6",
+						"objectId": "91E8E42E-879D-4211-BA0A-396E466062F1",
 						"kind": "group",
 						"name": "dia1Inner",
 						"originalName": "dia1Inner",
@@ -259,7 +133,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-								"objectId": "A1865CA0-57F9-44F7-8CC6-9C2E23263783",
+								"objectId": "57A53C8B-9D61-4A47-8DE9-B2B46E7DF550",
 								"kind": "group",
 								"name": "dia1InnerBildung",
 								"originalName": "dia1InnerBildung",
@@ -275,7 +149,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1InnerBildung-qte4njvd.png",
+									"path": "images/Layer-dia1InnerBildung-ntdbntnd.png",
 									"frame": {
 										"x": 812,
 										"y": 492,
@@ -286,7 +160,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "E8F1A6CF-F9CE-4543-9525-3DF1ED08EC65",
+								"objectId": "DFCB9A6C-6216-40E7-A0C2-C3E15B1692C0",
 								"kind": "group",
 								"name": "dia1InnerSozialeGerechtigkeit",
 								"originalName": "dia1InnerSozialeGerechtigkeit",
@@ -302,7 +176,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1InnerSozialeGerechtigkeit-rthgmue2.png",
+									"path": "images/Layer-dia1InnerSozialeGerechtigkeit-rezdqjlb.png",
 									"frame": {
 										"x": 877,
 										"y": 548,
@@ -313,7 +187,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "32E79891-7B57-404E-9FC7-411C1087CC61",
+								"objectId": "FA8EFA57-70E0-4703-9385-A6549FDFD5A8",
 								"kind": "group",
 								"name": "dia1InnerUmwelt",
 								"originalName": "dia1InnerUmwelt",
@@ -329,7 +203,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1InnerUmwelt-mzjfnzk4.png",
+									"path": "images/Layer-dia1InnerUmwelt-rke4ruzb.png",
 									"frame": {
 										"x": 968,
 										"y": 511,
@@ -340,7 +214,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "6A911C06-D8CD-42BA-BED7-EA78534E5861",
+								"objectId": "C42378B7-2F3D-4E2E-BC6F-44A258DEAD97",
 								"kind": "group",
 								"name": "dia1InnerWohnen",
 								"originalName": "dia1InnerWohnen",
@@ -356,7 +230,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1InnerWohnen-nke5mtfd.png",
+									"path": "images/Layer-dia1InnerWohnen-qzqymzc4.png",
 									"frame": {
 										"x": 850,
 										"y": 425,
@@ -367,7 +241,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "60E4726C-FEDD-402C-B20A-2CCD13D8AA3B",
+								"objectId": "FF3A58F4-CED2-49C6-AC6C-1D4A080D0265",
 								"kind": "group",
 								"name": "dia1InnerArbeit",
 								"originalName": "dia1InnerArbeit",
@@ -383,7 +257,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1InnerArbeit-njbfndcy.png",
+									"path": "images/Layer-dia1InnerArbeit-rkyzqtu4.png",
 									"frame": {
 										"x": 958,
 										"y": 412,
@@ -396,7 +270,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 						]
 					},
 					{
-						"objectId": "6E9B4C1C-30C4-49BA-8686-15B15CF2DEF3",
+						"objectId": "38026AF1-18BA-435F-99B5-DD4EF37872EF",
 						"kind": "group",
 						"name": "dia1Middle",
 						"originalName": "dia1Middle",
@@ -413,7 +287,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-								"objectId": "53B3023E-E4ED-45AB-A26B-00CA61B980F5",
+								"objectId": "759262E7-3AF5-4F43-B2BC-6606C3C282BB",
 								"kind": "group",
 								"name": "dia1MiddleBildung",
 								"originalName": "dia1MiddleBildung",
@@ -429,7 +303,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1MiddleBildung-ntncmzay.png",
+									"path": "images/Layer-dia1MiddleBildung-nzu5mjyy.png",
 									"frame": {
 										"x": 733,
 										"y": 468,
@@ -440,7 +314,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "745BEDAA-2314-49F0-8503-3042EA0DDC76",
+								"objectId": "6C99DE13-1838-4562-8DCF-CF7250B7B8AB",
 								"kind": "group",
 								"name": "dia1MiddleSozialeGerechtigkeit",
 								"originalName": "dia1MiddleSozialeGerechtigkeit",
@@ -456,7 +330,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1MiddleSozialeGerechtigkeit-nzq1qkve.png",
+									"path": "images/Layer-dia1MiddleSozialeGerechtigkeit-nkm5ourf.png",
 									"frame": {
 										"x": 852,
 										"y": 555,
@@ -467,7 +341,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "53B46CDF-CF9E-4CD1-819A-CC67B67AFA0D",
+								"objectId": "EA37302A-9932-442F-B72F-DF06671245CC",
 								"kind": "group",
 								"name": "dia1MiddleWohnen",
 								"originalName": "dia1MiddleWohnen",
@@ -483,7 +357,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1MiddleWohnen-ntncndzd.png",
+									"path": "images/Layer-dia1MiddleWohnen-rueznzmw.png",
 									"frame": {
 										"x": 838,
 										"y": 411,
@@ -494,7 +368,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "9566182D-27CF-4080-872B-E80ADFFB7EAC",
+								"objectId": "23BF2B26-DC86-4229-98E0-6DA5AA90F2E6",
 								"kind": "group",
 								"name": "dia1MiddleUmwelt",
 								"originalName": "dia1MiddleUmwelt",
@@ -510,7 +384,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1MiddleUmwelt-otu2nje4.png",
+									"path": "images/Layer-dia1MiddleUmwelt-mjncrjjc.png",
 									"frame": {
 										"x": 972,
 										"y": 499,
@@ -521,7 +395,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "76E1EAE9-CF43-40D8-8572-9AD72E322368",
+								"objectId": "9B94A236-7E4A-469E-832D-4F395BBED372",
 								"kind": "group",
 								"name": "dia1MiddleArbeit",
 								"originalName": "dia1MiddleArbeit",
@@ -537,7 +411,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1MiddleArbeit-nzzfmuvb.png",
+									"path": "images/Layer-dia1MiddleArbeit-oui5neey.png",
 									"frame": {
 										"x": 957,
 										"y": 303,
@@ -550,7 +424,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 						]
 					},
 					{
-						"objectId": "844C32B3-B0D1-4A79-9A7D-91CD831F0098",
+						"objectId": "DC59DE14-655C-4B98-8E7A-FD87721FF3F8",
 						"kind": "group",
 						"name": "dia1Outer",
 						"originalName": "dia1Outer",
@@ -567,7 +441,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-								"objectId": "73D78043-7C0F-4E34-AEAE-FBC3A0F6D50B",
+								"objectId": "68085A11-1566-4ED3-95C8-0205530BFFA0",
 								"kind": "group",
 								"name": "dia1OuterBildung",
 								"originalName": "dia1OuterBildung",
@@ -583,7 +457,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1OuterBildung-nznenzgw.png",
+									"path": "images/Layer-dia1OuterBildung-njgwodvb.png",
 									"frame": {
 										"x": 643,
 										"y": 440,
@@ -594,7 +468,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "29860A55-4CD4-4C1F-B223-67EB517AB91A",
+								"objectId": "2BD284BC-DD1A-4A35-9163-316946D7EEEE",
 								"kind": "group",
 								"name": "dia1OuterSozialeGerechtigkeit",
 								"originalName": "dia1OuterSozialeGerechtigkeit",
@@ -610,7 +484,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1OuterSozialeGerechtigkeit-mjk4njbb.png",
+									"path": "images/Layer-dia1OuterSozialeGerechtigkeit-mkjemjg0.png",
 									"frame": {
 										"x": 798,
 										"y": 565,
@@ -621,7 +495,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "86E191F0-B6D9-49AC-8343-742404CBD93F",
+								"objectId": "57316624-CCBB-4931-A806-1551D4DF5326",
 								"kind": "group",
 								"name": "dia1OuterWohnen",
 								"originalName": "dia1OuterWohnen",
@@ -637,7 +511,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1OuterWohnen-odzfmtkx.png",
+									"path": "images/Layer-dia1OuterWohnen-ntczmty2.png",
 									"frame": {
 										"x": 752,
 										"y": 323,
@@ -648,7 +522,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "7B1E4434-5B8A-4333-81D2-22697A2D08C4",
+								"objectId": "8F9A9374-8BB1-4274-A5C1-A12B59B3A893",
 								"kind": "group",
 								"name": "dia1OuterUmwelt",
 								"originalName": "dia1OuterUmwelt",
@@ -664,7 +538,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1OuterUmwelt-n0ixrtq0.png",
+									"path": "images/Layer-dia1OuterUmwelt-oey5qtkz.png",
 									"frame": {
 										"x": 977,
 										"y": 482,
@@ -675,7 +549,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-								"objectId": "B0212618-014A-4C17-9F9F-E397C4519B4A",
+								"objectId": "93640C8F-AFE5-4C96-98A3-1DC67383EA72",
 								"kind": "group",
 								"name": "dia1OuterArbeit",
 								"originalName": "dia1OuterArbeit",
@@ -691,7 +565,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-dia1OuterArbeit-qjaymti2.png",
+									"path": "images/Layer-dia1OuterArbeit-otm2ndbd.png",
 									"frame": {
 										"x": 957,
 										"y": 175,
@@ -706,61 +580,234 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 				]
 			},
 			{
-				"objectId": "EB6050DE-C12E-4473-BE7F-62D092327F61",
+				"objectId": "B688FF1A-9082-462B-A237-C7D85D31D24B",
 				"kind": "group",
-				"name": "dia1Lining",
-				"originalName": "dia1Lining",
+				"name": "dia1Labels",
+				"originalName": "dia1Labels",
 				"maskFrame": null,
 				"layerFrame": {
-					"x": 524,
-					"y": 104,
-					"width": 872,
-					"height": 872
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 0.4796761775362319
-				},
-				"image": {
-					"path": "images/Layer-dia1Lining-rui2mduw.png",
-					"frame": {
-						"x": 524,
-						"y": 104,
-						"width": 872,
-						"height": 872
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "25C79136-CA12-4CF4-B855-4AF8A8387962",
-				"kind": "group",
-				"name": "diaBubble",
-				"originalName": "diaBubble",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 509,
-					"y": 89,
-					"width": 902,
-					"height": 902
+					"x": 529,
+					"y": 153,
+					"width": 859,
+					"height": 822
 				},
 				"visible": true,
 				"metadata": {
 					"opacity": 1
 				},
-				"image": {
-					"path": "images/Layer-diaBubble-mjvdnzkx.png",
-					"frame": {
-						"x": 509,
-						"y": 89,
-						"width": 902,
-						"height": 902
+				"children": [
+					{
+						"objectId": "6DC6EB34-5E6D-4352-86C4-E208EEAC5254",
+						"kind": "group",
+						"name": "dia1Wohnen",
+						"originalName": "dia1Wohnen",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 639,
+							"y": 153,
+							"width": 133,
+							"height": 108
+						},
+						"visible": true,
+						"metadata": {
+							"opacity": 1
+						},
+						"image": {
+							"path": "images/Layer-dia1Wohnen-nkrdnkvc.png",
+							"frame": {
+								"x": 639,
+								"y": 153,
+								"width": 133,
+								"height": 108
+							}
+						},
+						"children": []
+					},
+					{
+						"objectId": "91242212-A1AC-4890-8E06-269C6CF4E1DE",
+						"kind": "group",
+						"name": "dia1Arbeit",
+						"originalName": "dia1Arbeit",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 1148,
+							"y": 157,
+							"width": 113,
+							"height": 82
+						},
+						"visible": true,
+						"metadata": {
+							"opacity": 1
+						},
+						"image": {
+							"path": "images/Layer-dia1Arbeit-oteyndiy.png",
+							"frame": {
+								"x": 1148,
+								"y": 157,
+								"width": 113,
+								"height": 82
+							}
+						},
+						"children": []
+					},
+					{
+						"objectId": "47401383-88AB-4661-8052-7FA9F7B54746",
+						"kind": "group",
+						"name": "dia1Bildung",
+						"originalName": "dia1Bildung",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 529,
+							"y": 595,
+							"width": 67,
+							"height": 146
+						},
+						"visible": true,
+						"metadata": {
+							"opacity": 1
+						},
+						"image": {
+							"path": "images/Layer-dia1Bildung-ndc0mdez.png",
+							"frame": {
+								"x": 529,
+								"y": 595,
+								"width": 67,
+								"height": 146
+							}
+						},
+						"children": []
+					},
+					{
+						"objectId": "4C556645-3543-4076-831C-47B0131ED0BF",
+						"kind": "group",
+						"name": "dia1SozialeGerechtigkeit",
+						"originalName": "dia1SozialeGerechtigkeit",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 747,
+							"y": 897,
+							"width": 420,
+							"height": 78
+						},
+						"visible": true,
+						"metadata": {
+							"opacity": 1
+						},
+						"image": {
+							"path": "images/Layer-dia1SozialeGerechtigkeit-nem1nty2.png",
+							"frame": {
+								"x": 747,
+								"y": 897,
+								"width": 420,
+								"height": 78
+							}
+						},
+						"children": []
+					},
+					{
+						"objectId": "8FFF7C3E-06E9-43A7-9E6C-93C5A762936E",
+						"kind": "group",
+						"name": "dia1Umwelt",
+						"originalName": "dia1Umwelt",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 1323,
+							"y": 610,
+							"width": 65,
+							"height": 140
+						},
+						"visible": true,
+						"metadata": {
+							"opacity": 1
+						},
+						"image": {
+							"path": "images/Layer-dia1Umwelt-oezgrjdd.png",
+							"frame": {
+								"x": 1323,
+								"y": 610,
+								"width": 65,
+								"height": 140
+							}
+						},
+						"children": []
 					}
-				},
-				"children": []
+				]
 			},
 			{
-				"objectId": "042343BE-AC43-4936-A155-403C52077F2B",
+				"objectId": "F93E1795-CA7D-45A1-B050-284E9138EC23",
+				"kind": "group",
+				"name": "diaBubbles",
+				"originalName": "diaBubbles",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": 510,
+					"y": 90,
+					"width": 900,
+					"height": 900
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"children": [
+					{
+						"objectId": "68D985A8-419C-4464-997D-E012FBF5682A",
+						"kind": "group",
+						"name": "diaBubble",
+						"originalName": "diaBubble",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 510,
+							"y": 90,
+							"width": 900,
+							"height": 900
+						},
+						"visible": true,
+						"metadata": {
+							"opacity": 1
+						},
+						"image": {
+							"path": "images/Layer-diaBubble-njheotg1.png",
+							"frame": {
+								"x": 510,
+								"y": 90,
+								"width": 900,
+								"height": 900
+							}
+						},
+						"children": []
+					},
+					{
+						"objectId": "C1971038-D6D4-49B0-8011-25E318941897",
+						"kind": "group",
+						"name": "diaBubble2",
+						"originalName": "diaBubble2",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 510,
+							"y": 90,
+							"width": 900,
+							"height": 900
+						},
+						"visible": true,
+						"metadata": {
+							"opacity": 1
+						},
+						"image": {
+							"path": "images/Layer-diaBubble2-qze5nzew.png",
+							"frame": {
+								"x": 510,
+								"y": 90,
+								"width": 900,
+								"height": 900
+							}
+						},
+						"children": []
+					}
+				]
+			},
+			{
+				"objectId": "3DAF2C5C-126E-4867-A355-EF08685C1910",
 				"kind": "group",
 				"name": "dia1Stadtbild",
 				"originalName": "dia1Stadtbild",
@@ -776,7 +823,7 @@ window.__imported__["Prepare for Framer@1x/layers.json.js"] = [
 					"opacity": 1
 				},
 				"image": {
-					"path": "images/Layer-dia1Stadtbild-mdqymzqz.jpg",
+					"path": "images/Layer-dia1Stadtbild-m0rbrjjd.jpg",
 					"frame": {
 						"x": -487,
 						"y": -113,
