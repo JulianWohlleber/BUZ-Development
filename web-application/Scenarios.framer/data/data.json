@@ -1,0 +1,34 @@
+{
+  "elements" :[
+    {
+      "name":"peter",
+      "imageContent":"images/livingHouse.png",
+      "layer":"3",
+      "strom": [
+        "water",
+        "energy"
+      ],
+      "scenarios":{
+        "fortress": "0",
+        "liveable": "3",
+        "digital": "4",
+        "high-tech": "5"
+      }
+    },
+    {
+      "name":"peter2",
+      "imageContent":"images/livingHouse2.png",
+      "layer":"3",
+      "strom": [
+        "water",
+        "energy"
+      ],
+      "scenarios":{
+        "fortress": "0",
+        "liveable": "3",
+        "digital": "4",
+        "high-tech": "5"
+      }
+    }
+  ]
+}
