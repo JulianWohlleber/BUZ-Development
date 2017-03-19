@@ -1,110 +1,110 @@
 {
     "hightech":{
       "Arbeit":{
-        "society": 0.9,
-        "politics": 1,
-        "economy": 1
+        "Gesellschaft": 0.9,
+        "Politik": 1,
+        "Wirtschaft": 1
       },
       "Umwelt":{
-        "society": 0.4,
-        "politics": 0.5,
-        "economy": 0.2
+        "Gesellschaft": 0.4,
+        "Politik": 0.5,
+        "Wirtschaft": 0.2
       },
       "Bildung":{
-        "society": 0.7,
-        "politics": 0.7,
-        "economy": 0.6
+        "Gesellschaft": 0.7,
+        "Politik": 0.7,
+        "Wirtschaft": 0.6
       },
       "sozialG":{
-        "society": 0.4,
-        "politics": 0.4,
-        "economy": 0.3
+        "Gesellschaft": 0.4,
+        "Politik": 0.4,
+        "Wirtschaft": 0.3
       },
       "Wohnen":{
-        "society": 0.9,
-        "politics": 0.8,
-        "economy": 0.8
+        "Gesellschaft": 0.9,
+        "Politik": 0.8,
+        "Wirtschaft": 0.8
       }
     },
     "virtual":{
       "Arbeit":{
-        "society": 0.5,
-        "politics": 0.6,
-        "economy": 0.8
+        "Gesellschaft": 0.5,
+        "Politik": 0.6,
+        "Wirtschaft": 0.8
       },
       "Umwelt":{
-        "society": 0.2,
-        "politics": 0.9,
-        "economy": 0.6
+        "Gesellschaft": 0.2,
+        "Politik": 0.9,
+        "Wirtschaft": 0.6
       },
       "Bildung":{
-        "society": 0.7,
-        "politics": 0.7,
-        "economy": 0.6
+        "Gesellschaft": 0.7,
+        "Politik": 0.7,
+        "Wirtschaft": 0.6
       },
       "sozialG":{
-        "society": 0.6,
-        "politics": 0.5,
-        "economy": 0.4
+        "Gesellschaft": 0.6,
+        "Politik": 0.5,
+        "Wirtschaft": 0.4
       },
       "Wohnen":{
-        "society": 0.4,
-        "politics": 0.4,
-        "economy": 0.5
+        "Gesellschaft": 0.4,
+        "Politik": 0.4,
+        "Wirtschaft": 0.5
       }
     },
     "regional":{
       "Arbeit":{
-        "society": 0.3,
-        "politics": 0.4,
-        "economy": 0.5
+        "Gesellschaft": 0.3,
+        "Politik": 0.4,
+        "Wirtschaft": 0.5
       },
       "Umwelt":{
-        "society": 0.9,
-        "politics": 1,
-        "economy": 0.8
+        "Gesellschaft": 0.9,
+        "Politik": 1,
+        "Wirtschaft": 0.8
       },
       "Bildung":{
-        "society": 1,
-        "politics": 0.9,
-        "economy": 0.7
+        "Gesellschaft": 1,
+        "Politik": 0.9,
+        "Wirtschaft": 0.7
       },
       "sozialG":{
-        "society": 0.8,
-        "politics": 0.9,
-        "economy": 0.7
+        "Gesellschaft": 0.8,
+        "Politik": 0.9,
+        "Wirtschaft": 0.7
       },
       "Wohnen":{
-        "society": 0.3,
-        "politics": 0.2,
-        "economy": 0.4
+        "Gesellschaft": 0.3,
+        "Politik": 0.2,
+        "Wirtschaft": 0.4
       }
     },
     "fortress":{
       "Arbeit":{
-        "society": 1,
-        "politics": 0.8,
-        "economy": 0.7
+        "Gesellschaft": 1,
+        "Politik": 0.8,
+        "Wirtschaft": 0.7
       },
       "Umwelt":{
-        "society": 0,
-        "politics": 0.3,
-        "economy": 0.1
+        "Gesellschaft": 0,
+        "Politik": 0.3,
+        "Wirtschaft": 0.1
       },
       "Bildung":{
-        "society": 0.2,
-        "politics": 0.3,
-        "economy": 0.3
+        "Gesellschaft": 0.2,
+        "Politik": 0.3,
+        "Wirtschaft": 0.3
       },
       "sozialG":{
-        "society": 0.4,
-        "politics": 0.1,
-        "economy": 0
+        "Gesellschaft": 0.4,
+        "Politik": 0.1,
+        "Wirtschaft": 0
       },
       "Wohnen":{
-        "society": 0.3,
-        "politics": 0.2,
-        "economy": 0.4
+        "Gesellschaft": 0.3,
+        "Politik": 0.2,
+        "Wirtschaft": 0.4
       }
     }
   }
