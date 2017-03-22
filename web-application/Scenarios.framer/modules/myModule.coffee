@@ -1,10 +1,8 @@
-# Add the following line to your project in Framer Studio. 
-# myModule = require "myModule"
-# Reference the contents by name, like myModule.myFunction() or myModule.myVar
+regionalTrends = [
+	"I am a Test1",
+	"I am also a Test2",
+	"I am a Test3 aswell",
+	"Let me prove, I am a Test4"
+]
 
-exports.myVar = "myVariable"
-
-exports.myFunction = ->
-	print "myFunction is running"
-
-exports.myArray = [1, 2, 3]
+myArray = ["1", "1", "c"]
