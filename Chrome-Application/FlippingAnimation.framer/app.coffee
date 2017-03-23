@@ -108,7 +108,7 @@ blackDrop.onAnimationEnd ->
 	sketch.dia1Fonts.animate
 		opacity: 1
 		scale: 1
-		options: 
+		options:
 			time: fontScalingAnimationTime
 
 	sketch.diaBubble.scale = 0.2
@@ -121,25 +121,25 @@ blackDrop.onAnimationEnd ->
 	for child, index in sketch.dia1Inner.subLayers
 			child.animate
 				scale: 1
-				options: 
+				options:
 					delay: index*0.3
 	for child, index in sketch.dia1Middle.subLayers
 			child.animate
 				scale: 1
-				options: 
+				options:
 					delay: index*0.2
 	for child, index in sketch.dia1Outer.subLayers
 			child.animate
 				scale: 1
-				options: 
+				options:
 					delay: index*0.1
-	
+
 	#scale whole system
 	for child, index in sketch.dia1Bars.subLayers
 			child.animate
 				scale: 1
 				opacity: 1
-				options: 
+				options:
 					delay: 0.1 + index*0.10
 
 FallingDrop = () ->
@@ -148,24 +148,16 @@ FallingDrop = () ->
 	blackDrop.animate
 		width: 0
 		height: 0
-		x: 1920/2 
+		x: 1920/2
 		y: 1080/2
 		opacity: 1
-		options: 
+		options:
 			time: dropAnimationTime
 
 	blackDrop.onAnimationEnd ->
 		blackDrop.visible = false
 # 		bulb = sketch.diaBubble
 # 		bulb.opacity = 0.5
-# 		blackDrop2 = sketch.diaBubble2
 # 		bulb.animate
 # 			scale: 1
 # 			opacity: 1
-		blackDrop2.animate
-			scale: 1
-			options:
-				delay: secondBulbDelay
-
-
-

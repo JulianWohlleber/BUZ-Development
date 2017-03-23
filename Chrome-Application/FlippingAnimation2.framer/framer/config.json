@@ -1,0 +1,18 @@
+{
+  "orientation" : 0,
+  "updateDelay" : 5,
+  "contentScale" : 1,
+  "fullScreen" : false,
+  "sharedPrototype" : 0,
+  "propertyPanelToggleStates" : {
+    "Filters" : false
+  },
+  "deviceType" : "custom",
+  "projectId" : "3110BF9B-2F5D-4DC2-A9C5-C2F226968750",
+  "deviceOrientation" : 0,
+  "selectedHand" : "",
+  "foldedCodeRanges" : [
+    "{4657, 346}"
+  ],
+  "deviceScale" : "fit"
+}

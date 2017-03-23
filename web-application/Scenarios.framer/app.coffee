@@ -29,7 +29,7 @@ Rating = new Layer
 #
 voting = {
 	"scenario":"null",
-	"votingAmount": "-"
+	"votingNumber": "-"
 }
 
 
@@ -74,3 +74,11 @@ window.addEventListener "keydown", (ev) ->
 		when 51 then sendVotings(0) #key3
 		when 52 then sendVotings(1) #key4
 		when 53 then sendVotings(2) #key5
+
+		when 49 then myVoting = -2
+		when 50 then myVoting = -1
+		when 51 then myVoting = 0
+		when 52 then myVoting = 1
+		when 53 then myVoting = 2
+
+		sendVotings(myVoting)
