@@ -61,7 +61,7 @@ Trend = new Layer
 		"font-family": trendFont
 		"line-height": trendLineHeight
 		"font-weight": trendFontWeight
-	visible: false
+	visible: true
 
 Description_Regional = sketch.Description_Regional
 Description_Fortress = sketch.Description_Fortress
