@@ -3,15 +3,10 @@
 
 if (!window.Framer && window._bridge) {window._bridge('runtime.error', {message:'[framer.js] Framer library missing or corrupt. Select File → Update Framer Library.'})}
 if (DeviceComponent) {DeviceComponent.Devices["iphone-6-silver"].deviceImageJP2 = false};
-<<<<<<< Updated upstream
 if (window.Framer) {window.Framer.Defaults.DeviceView = {"deviceScale":"fit","selectedHand":"","deviceType":"custom","contentScale":1,"orientation":0};
 }
 if (window.Framer) {window.Framer.Defaults.DeviceComponent = {"deviceScale":"fit","selectedHand":"","deviceType":"custom","contentScale":1,"orientation":0};
-=======
-if (window.Framer) {window.Framer.Defaults.DeviceView = {"deviceScale":1,"selectedHand":"","deviceType":"fullscreen","contentScale":1,"orientation":0};
-}
-if (window.Framer) {window.Framer.Defaults.DeviceComponent = {"deviceScale":1,"selectedHand":"","deviceType":"fullscreen","contentScale":1,"orientation":0};
->>>>>>> Stashed changes
+
 }
 window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"FlippingAnimation3.framer"};
 
