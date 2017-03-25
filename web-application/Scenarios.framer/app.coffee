@@ -43,7 +43,7 @@ trendFontColor = "#404040"
 
 
 #Trends
-trendAnimationDelay = 4
+trendAnimationDelay = 7
 index = 0
 test = []
 currentSceneTrends = ""
@@ -61,9 +61,9 @@ Trend = new Layer
 		"line-height": trendLineHeight
 		"font-weight": trendFontWeight
 	visible: false
-	
-	
-	
+
+
+
 #Scenarios
 ############################################################
 
