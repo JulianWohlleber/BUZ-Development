@@ -24,7 +24,7 @@ myTrends = JSON.parse(myData)
 
 #Layout
 horizontalMargin = 71
-verticalMargin = horizontalMargin * 9/16
+verticalMargin = 41
 borderWidth = 3
 
 trendwidth = 600
