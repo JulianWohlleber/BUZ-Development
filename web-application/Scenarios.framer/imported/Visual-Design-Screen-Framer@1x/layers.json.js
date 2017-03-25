@@ -470,10 +470,10 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-								"objectId": "2F0A778A-B26C-450D-B5DA-EE5441C8EA9E",
+								"objectId": "28139D81-5EEB-4AA7-9D3C-E624A1AAB9CB",
 								"kind": "group",
-								"name": "Group_13",
-								"originalName": "Group 13",
+								"name": "Group_10",
+								"originalName": "Group 10",
 								"maskFrame": null,
 								"layerFrame": {
 									"x": 0,
@@ -486,7 +486,7 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-Group_13-mkywqtc3.png",
+									"path": "images/Layer-Group_10-mjgxmzle.png",
 									"frame": {
 										"x": 0,
 										"y": 0,
@@ -543,10 +543,10 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-								"objectId": "D350B3D1-3F56-4AC2-9508-D1B89CAF6D44",
+								"objectId": "9F4D0DBF-8866-4E7D-8EF0-B36F0F2FDB22",
 								"kind": "group",
-								"name": "Group_12",
-								"originalName": "Group 12",
+								"name": "Group_101",
+								"originalName": "Group 10",
 								"maskFrame": null,
 								"layerFrame": {
 									"x": 0,
@@ -559,7 +559,7 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-Group_12-rdm1meiz.png",
+									"path": "images/Layer-Group_10-ouy0rdbe.png",
 									"frame": {
 										"x": 0,
 										"y": 0,
@@ -616,10 +616,10 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-								"objectId": "2D0DDA43-91FA-4577-8843-67DF85AEA315",
+								"objectId": "3183AD27-6D51-410F-B2FD-6C26A91214DD",
 								"kind": "group",
-								"name": "Group_11",
-								"originalName": "Group 11",
+								"name": "Group_102",
+								"originalName": "Group 10",
 								"maskFrame": null,
 								"layerFrame": {
 									"x": 0,
@@ -632,7 +632,7 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-									"path": "images/Layer-Group_11-mkqwrerb.png",
+									"path": "images/Layer-Group_10-mze4m0fe.png",
 									"frame": {
 										"x": 0,
 										"y": 0,
@@ -691,7 +691,7 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							{
 								"objectId": "C67513D0-F92D-45F1-9B60-2820741CFCFB",
 								"kind": "group",
-								"name": "Group_10",
+								"name": "Group_103",
 								"originalName": "Group 10",
 								"maskFrame": null,
 								"layerFrame": {
