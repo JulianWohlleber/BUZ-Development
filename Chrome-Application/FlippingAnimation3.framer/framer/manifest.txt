@@ -1,0 +1,265 @@
+app.coffee
+framer/backups/backup-2017-03-23 10.49.20.coffee
+framer/coffee-script.js
+framer/config.json
+framer/framer.generated.js
+framer/framer.init.js
+framer/framer.js
+framer/framer.js.map
+framer/framer.modules.js
+framer/images/cursor-active.png
+framer/images/cursor-active@2x.png
+framer/images/cursor.png
+framer/images/cursor@2x.png
+framer/images/icon-120.png
+framer/images/icon-152.png
+framer/images/icon-180.png
+framer/images/icon-192.png
+framer/images/icon-76.png
+framer/metadata.json
+framer/preview.png
+framer/style.css
+framer/version
+images/Fill 1.svg
+imported/Prepare for Framer2@1x/images/Layer-dia1Arbeit-qtm4rdu0.png
+imported/Prepare for Framer2@1x/images/Layer-dia1Bildung-quy4rkfg.png
+imported/Prepare for Framer2@1x/images/Layer-dia1Center-nddbmee0.png
+imported/Prepare for Framer2@1x/images/Layer-dia1Center-otzfnki3.png
+imported/Prepare for Framer2@1x/images/Layer-dia1Fonts-n0yxodk2.png
+imported/Prepare for Framer2@1x/images/Layer-dia1InnerArbeit-otlfnzdd.png
+imported/Prepare for Framer2@1x/images/Layer-dia1InnerBildung-otdcqtkw.png
+imported/Prepare for Framer2@1x/images/Layer-dia1InnerSozialeGerechtigkeit-oeixruzb.png
+imported/Prepare for Framer2@1x/images/Layer-dia1InnerUmwelt-odu5otg3.png
+imported/Prepare for Framer2@1x/images/Layer-dia1InnerWohnen-nze0ndqx.png
+imported/Prepare for Framer2@1x/images/Layer-dia1MiddleArbeit-qureq0q1.png
+imported/Prepare for Framer2@1x/images/Layer-dia1MiddleBildung-mte2njmw.png
+imported/Prepare for Framer2@1x/images/Layer-dia1MiddleSozialeGerechtigkeit-oeiwqtyw.png
+imported/Prepare for Framer2@1x/images/Layer-dia1MiddleUmwelt-rdcwotzb.png
+imported/Prepare for Framer2@1x/images/Layer-dia1MiddleWohnen-meu2otvg.png
+imported/Prepare for Framer2@1x/images/Layer-dia1OuterArbeit-mda5nddc.png
+imported/Prepare for Framer2@1x/images/Layer-dia1OuterBildung-mjc1nue0.png
+imported/Prepare for Framer2@1x/images/Layer-dia1OuterSozialeGerechtigkeit-rtjcmza0.png
+imported/Prepare for Framer2@1x/images/Layer-dia1OuterUmwelt-mdy4nda2.png
+imported/Prepare for Framer2@1x/images/Layer-dia1OuterWohnen-mee0mke5.png
+imported/Prepare for Framer2@1x/images/Layer-dia1SozialeGerechtigkeit-rtzfnkiy.png
+imported/Prepare for Framer2@1x/images/Layer-dia1Stadtbild-n0qwqtre.jpg
+imported/Prepare for Framer2@1x/images/Layer-dia1Umwelt-rufcquyw.png
+imported/Prepare for Framer2@1x/images/Layer-dia1Wohnen-m0ixmjfb.png
+imported/Prepare for Framer2@1x/images/Layer-dia2Center-nzgwnju4.png
+imported/Prepare for Framer2@1x/images/Layer-dia2Center-rtm2oee5.png
+imported/Prepare for Framer2@1x/images/Layer-dia2InnerArbeit-njaxmtiy.png
+imported/Prepare for Framer2@1x/images/Layer-dia2InnerBildung-odu0mdmx.png
+imported/Prepare for Framer2@1x/images/Layer-dia2InnerSozialeGerechtigkeit-mtuwotne.png
+imported/Prepare for Framer2@1x/images/Layer-dia2InnerUmwelt-rjqyqtuy.png
+imported/Prepare for Framer2@1x/images/Layer-dia2InnerWohnen-ntbfnda5.png
+imported/Prepare for Framer2@1x/images/Layer-dia2MiddleArbeit-qum4qzng.png
+imported/Prepare for Framer2@1x/images/Layer-dia2MiddleBildung-qkeyquze.png
+imported/Prepare for Framer2@1x/images/Layer-dia2MiddleSozialeGerechtigkeit-rju4otky.png
+imported/Prepare for Framer2@1x/images/Layer-dia2MiddleUmwelt-ruu5qui5.png
+imported/Prepare for Framer2@1x/images/Layer-dia2MiddleWohnen-odg3ntq4.png
+imported/Prepare for Framer2@1x/images/Layer-dia2OuterArbeit-mzbbn0ex.png
+imported/Prepare for Framer2@1x/images/Layer-dia2OuterBildung-qje1rumy.png
+imported/Prepare for Framer2@1x/images/Layer-dia2OuterSozialeGerechtigkeit-reu0ruuw.png
+imported/Prepare for Framer2@1x/images/Layer-dia2OuterUmwelt-qzfdrezc.png
+imported/Prepare for Framer2@1x/images/Layer-dia2OuterWohnen-nevenkyy.png
+imported/Prepare for Framer2@1x/images/Layer-dia3Center-mdewmevb.png
+imported/Prepare for Framer2@1x/images/Layer-dia3Center-rjveq0q5.png
+imported/Prepare for Framer2@1x/images/Layer-dia3InnerArbeit-mzlcquzc.png
+imported/Prepare for Framer2@1x/images/Layer-dia3InnerBildung-mdcwmuu1.png
+imported/Prepare for Framer2@1x/images/Layer-dia3InnerSozialeGerechtigkeit-ndc1mtu0.png
+imported/Prepare for Framer2@1x/images/Layer-dia3InnerUmwelt-nzi0quvg.png
+imported/Prepare for Framer2@1x/images/Layer-dia3InnerWohnen-rjbboeey.png
+imported/Prepare for Framer2@1x/images/Layer-dia3MiddleArbeit-ndazqjbe.png
+imported/Prepare for Framer2@1x/images/Layer-dia3MiddleBildung-mtbemtvb.png
+imported/Prepare for Framer2@1x/images/Layer-dia3MiddleSozialeGerechtigkeit-muuxnzq1.png
+imported/Prepare for Framer2@1x/images/Layer-dia3MiddleUmwelt-ntyynzi3.png
+imported/Prepare for Framer2@1x/images/Layer-dia3MiddleWohnen-qzg0menf.png
+imported/Prepare for Framer2@1x/images/Layer-dia3OuterArbeit-nte0n0nd.png
+imported/Prepare for Framer2@1x/images/Layer-dia3OuterBildung-mzmxrtyw.png
+imported/Prepare for Framer2@1x/images/Layer-dia3OuterSozialeGerechtigkeit-mtc2otew.png
+imported/Prepare for Framer2@1x/images/Layer-dia3OuterUmwelt-muy2neyy.png
+imported/Prepare for Framer2@1x/images/Layer-dia3OuterWohnen-qke5nzjc.png
+imported/Prepare for Framer2@1x/images/Layer-dia4Center-qja1qzlg.png
+imported/Prepare for Framer2@1x/images/Layer-dia4Center-rkjdrdg1.png
+imported/Prepare for Framer2@1x/images/Layer-dia4InnerArbeit-nei4mdm1.png
+imported/Prepare for Framer2@1x/images/Layer-dia4InnerBildung-mjmzoumx.png
+imported/Prepare for Framer2@1x/images/Layer-dia4InnerSozialeGerechtigkeit-q0y0mtrd.png
+imported/Prepare for Framer2@1x/images/Layer-dia4InnerUmwelt-ntazq0vg.png
+imported/Prepare for Framer2@1x/images/Layer-dia4InnerWohnen-mje4odq2.png
+imported/Prepare for Framer2@1x/images/Layer-dia4MiddleArbeit-rjrenzvc.png
+imported/Prepare for Framer2@1x/images/Layer-dia4MiddleBildung-mdrbodm3.png
+imported/Prepare for Framer2@1x/images/Layer-dia4MiddleSozialeGerechtigkeit-ruq1oeyz.png
+imported/Prepare for Framer2@1x/images/Layer-dia4MiddleUmwelt-reixq0rb.png
+imported/Prepare for Framer2@1x/images/Layer-dia4MiddleWohnen-qkfbmtdg.png
+imported/Prepare for Framer2@1x/images/Layer-dia4OuterArbeit-qzfdrju2.png
+imported/Prepare for Framer2@1x/images/Layer-dia4OuterBildung-qzfeqziy.png
+imported/Prepare for Framer2@1x/images/Layer-dia4OuterSozialeGerechtigkeit-qjnemjld.png
+imported/Prepare for Framer2@1x/images/Layer-dia4OuterUmwelt-mkzcnku2.png
+imported/Prepare for Framer2@1x/images/Layer-dia4OuterWohnen-qky2qjzb.png
+imported/Prepare for Framer2@1x/images/Layer-dia5Center-nti0nta4.png
+imported/Prepare for Framer2@1x/images/Layer-dia5Center-ntlemuiw.png
+imported/Prepare for Framer2@1x/images/Layer-dia5InnerArbeit-mdzdmzrb.png
+imported/Prepare for Framer2@1x/images/Layer-dia5InnerBildung-quu0mkff.png
+imported/Prepare for Framer2@1x/images/Layer-dia5InnerSozialeGerechtigkeit-rendode0.png
+imported/Prepare for Framer2@1x/images/Layer-dia5InnerUmwelt-meu4oti4.png
+imported/Prepare for Framer2@1x/images/Layer-dia5InnerWohnen-qja0mum0.png
+imported/Prepare for Framer2@1x/images/Layer-dia5MiddleArbeit-nujenzmw.png
+imported/Prepare for Framer2@1x/images/Layer-dia5MiddleBildung-rtk4mtyy.png
+imported/Prepare for Framer2@1x/images/Layer-dia5MiddleSozialeGerechtigkeit-nuvbqzrc.png
+imported/Prepare for Framer2@1x/images/Layer-dia5MiddleUmwelt-nta1mtzd.png
+imported/Prepare for Framer2@1x/images/Layer-dia5MiddleWohnen-mzg1qki4.png
+imported/Prepare for Framer2@1x/images/Layer-dia5OuterArbeit-rkvdqtuw.png
+imported/Prepare for Framer2@1x/images/Layer-dia5OuterBildung-qkq4rtg1.png
+imported/Prepare for Framer2@1x/images/Layer-dia5OuterSozialeGerechtigkeit-n0qxrtrf.png
+imported/Prepare for Framer2@1x/images/Layer-dia5OuterUmwelt-meu0njy0.png
+imported/Prepare for Framer2@1x/images/Layer-dia5OuterWohnen-m0y4rjng.png
+imported/Prepare for Framer2@1x/images/Layer-diaBubble-rjkzmjq2.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerArbeitCanvas-n0e3qte3.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerArbeitCanvas-nduwqju3.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerArbeitCanvas-rdrcqzyw.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerArbeitCanvas-rtrerta1.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-mdkyqzg0.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-mtq5ntq1.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-ndkxmtc3.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-nju4rkm0.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-njzgrdg5.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-ody2meq4.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-otcwndm0.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-qtcwodqx.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerBildungCanvas-rjuwoda3.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerUmweltCanvas-nkvdq0i1.png
+imported/Prepare for Framer2@1x/images/Layer-diaInnerUmweltCanvas-odgzodmw.png
+imported/Prepare for Framer2@1x/layers.json
+imported/Prepare for Framer2@1x/layers.json.js
+imported/Prepare for Framer3@1x/images/Layer-dia1Arbeit-qtm4rdu0.png
+imported/Prepare for Framer3@1x/images/Layer-dia1Bildung-quy4rkfg.png
+imported/Prepare for Framer3@1x/images/Layer-dia1Fonts-n0yxodk2.png
+imported/Prepare for Framer3@1x/images/Layer-dia1InnerArbeit-otlfnzdd.png
+imported/Prepare for Framer3@1x/images/Layer-dia1InnerBildung-otdcqtkw.png
+imported/Prepare for Framer3@1x/images/Layer-dia1InnerSozialeGerechtigkeit-oeixruzb.png
+imported/Prepare for Framer3@1x/images/Layer-dia1InnerUmwelt-odu5otg3.png
+imported/Prepare for Framer3@1x/images/Layer-dia1InnerWohnen-nze0ndqx.png
+imported/Prepare for Framer3@1x/images/Layer-dia1MiddleArbeit-qureq0q1.png
+imported/Prepare for Framer3@1x/images/Layer-dia1MiddleBildung-mte2njmw.png
+imported/Prepare for Framer3@1x/images/Layer-dia1MiddleSozialeGerechtigkeit-oeiwqtyw.png
+imported/Prepare for Framer3@1x/images/Layer-dia1MiddleUmwelt-rdcwotzb.png
+imported/Prepare for Framer3@1x/images/Layer-dia1MiddleWohnen-meu2otvg.png
+imported/Prepare for Framer3@1x/images/Layer-dia1OuterArbeit-mda5nddc.png
+imported/Prepare for Framer3@1x/images/Layer-dia1OuterBildung-mjc1nue0.png
+imported/Prepare for Framer3@1x/images/Layer-dia1OuterSozialeGerechtigkeit-rtjcmza0.png
+imported/Prepare for Framer3@1x/images/Layer-dia1OuterUmwelt-mdy4nda2.png
+imported/Prepare for Framer3@1x/images/Layer-dia1OuterWohnen-mee0mke5.png
+imported/Prepare for Framer3@1x/images/Layer-dia1SozialeGerechtigkeit-rtzfnkiy.png
+imported/Prepare for Framer3@1x/images/Layer-dia1Stadtbild-n0qwqtre.jpg
+imported/Prepare for Framer3@1x/images/Layer-dia1Umwelt-rufcquyw.png
+imported/Prepare for Framer3@1x/images/Layer-dia1Wohnen-m0ixmjfb.png
+imported/Prepare for Framer3@1x/images/Layer-dia2InnerArbeit-njaxmtiy.png
+imported/Prepare for Framer3@1x/images/Layer-dia2InnerBildung-odu0mdmx.png
+imported/Prepare for Framer3@1x/images/Layer-dia2InnerSozialeGerechtigkeit-mtuwotne.png
+imported/Prepare for Framer3@1x/images/Layer-dia2InnerUmwelt-rjqyqtuy.png
+imported/Prepare for Framer3@1x/images/Layer-dia2InnerWohnen-ntbfnda5.png
+imported/Prepare for Framer3@1x/images/Layer-dia2MiddleArbeit-qum4qzng.png
+imported/Prepare for Framer3@1x/images/Layer-dia2MiddleBildung-qkeyquze.png
+imported/Prepare for Framer3@1x/images/Layer-dia2MiddleSozialeGerechtigkeit-rju4otky.png
+imported/Prepare for Framer3@1x/images/Layer-dia2MiddleUmwelt-ruu5qui5.png
+imported/Prepare for Framer3@1x/images/Layer-dia2MiddleWohnen-odg3ntq4.png
+imported/Prepare for Framer3@1x/images/Layer-dia2OuterArbeit-mzbbn0ex.png
+imported/Prepare for Framer3@1x/images/Layer-dia2OuterBildung-qje1rumy.png
+imported/Prepare for Framer3@1x/images/Layer-dia2OuterSozialeGerechtigkeit-reu0ruuw.png
+imported/Prepare for Framer3@1x/images/Layer-dia2OuterUmwelt-qzfdrezc.png
+imported/Prepare for Framer3@1x/images/Layer-dia2OuterWohnen-nevenkyy.png
+imported/Prepare for Framer3@1x/images/Layer-dia3InnerArbeit-mzlcquzc.png
+imported/Prepare for Framer3@1x/images/Layer-dia3InnerBildung-mdcwmuu1.png
+imported/Prepare for Framer3@1x/images/Layer-dia3InnerSozialeGerechtigkeit-ndc1mtu0.png
+imported/Prepare for Framer3@1x/images/Layer-dia3InnerUmwelt-nzi0quvg.png
+imported/Prepare for Framer3@1x/images/Layer-dia3InnerWohnen-rjbboeey.png
+imported/Prepare for Framer3@1x/images/Layer-dia3MiddleArbeit-ndazqjbe.png
+imported/Prepare for Framer3@1x/images/Layer-dia3MiddleBildung-mtbemtvb.png
+imported/Prepare for Framer3@1x/images/Layer-dia3MiddleSozialeGerechtigkeit-muuxnzq1.png
+imported/Prepare for Framer3@1x/images/Layer-dia3MiddleUmwelt-ntyynzi3.png
+imported/Prepare for Framer3@1x/images/Layer-dia3MiddleWohnen-qzg0menf.png
+imported/Prepare for Framer3@1x/images/Layer-dia3OuterArbeit-nte0n0nd.png
+imported/Prepare for Framer3@1x/images/Layer-dia3OuterBildung-mzmxrtyw.png
+imported/Prepare for Framer3@1x/images/Layer-dia3OuterSozialeGerechtigkeit-mtc2otew.png
+imported/Prepare for Framer3@1x/images/Layer-dia3OuterUmwelt-muy2neyy.png
+imported/Prepare for Framer3@1x/images/Layer-dia3OuterWohnen-qke5nzjc.png
+imported/Prepare for Framer3@1x/images/Layer-dia4InnerArbeit-nei4mdm1.png
+imported/Prepare for Framer3@1x/images/Layer-dia4InnerBildung-mjmzoumx.png
+imported/Prepare for Framer3@1x/images/Layer-dia4InnerSozialeGerechtigkeit-q0y0mtrd.png
+imported/Prepare for Framer3@1x/images/Layer-dia4InnerUmwelt-ntazq0vg.png
+imported/Prepare for Framer3@1x/images/Layer-dia4InnerWohnen-mje4odq2.png
+imported/Prepare for Framer3@1x/images/Layer-dia4MiddleArbeit-rjrenzvc.png
+imported/Prepare for Framer3@1x/images/Layer-dia4MiddleBildung-mdrbodm3.png
+imported/Prepare for Framer3@1x/images/Layer-dia4MiddleSozialeGerechtigkeit-ruq1oeyz.png
+imported/Prepare for Framer3@1x/images/Layer-dia4MiddleUmwelt-reixq0rb.png
+imported/Prepare for Framer3@1x/images/Layer-dia4MiddleWohnen-qkfbmtdg.png
+imported/Prepare for Framer3@1x/images/Layer-dia4OuterArbeit-qzfdrju2.png
+imported/Prepare for Framer3@1x/images/Layer-dia4OuterBildung-qzfeqziy.png
+imported/Prepare for Framer3@1x/images/Layer-dia4OuterSozialeGerechtigkeit-qjnemjld.png
+imported/Prepare for Framer3@1x/images/Layer-dia4OuterUmwelt-mkzcnku2.png
+imported/Prepare for Framer3@1x/images/Layer-dia4OuterWohnen-qky2qjzb.png
+imported/Prepare for Framer3@1x/images/Layer-dia5InnerArbeit-mdzdmzrb.png
+imported/Prepare for Framer3@1x/images/Layer-dia5InnerBildung-quu0mkff.png
+imported/Prepare for Framer3@1x/images/Layer-dia5InnerSozialeGerechtigkeit-rendode0.png
+imported/Prepare for Framer3@1x/images/Layer-dia5InnerUmwelt-meu4oti4.png
+imported/Prepare for Framer3@1x/images/Layer-dia5InnerWohnen-qja0mum0.png
+imported/Prepare for Framer3@1x/images/Layer-dia5MiddleArbeit-nujenzmw.png
+imported/Prepare for Framer3@1x/images/Layer-dia5MiddleBildung-rtk4mtyy.png
+imported/Prepare for Framer3@1x/images/Layer-dia5MiddleSozialeGerechtigkeit-nuvbqzrc.png
+imported/Prepare for Framer3@1x/images/Layer-dia5MiddleUmwelt-nta1mtzd.png
+imported/Prepare for Framer3@1x/images/Layer-dia5MiddleWohnen-mzg1qki4.png
+imported/Prepare for Framer3@1x/images/Layer-dia5OuterArbeit-rkvdqtuw.png
+imported/Prepare for Framer3@1x/images/Layer-dia5OuterBildung-qkq4rtg1.png
+imported/Prepare for Framer3@1x/images/Layer-dia5OuterSozialeGerechtigkeit-n0qxrtrf.png
+imported/Prepare for Framer3@1x/images/Layer-dia5OuterUmwelt-meu0njy0.png
+imported/Prepare for Framer3@1x/images/Layer-dia5OuterWohnen-m0y4rjng.png
+imported/Prepare for Framer3@1x/images/Layer-diaBubble-rjkzmjq2.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerArbeitCanvas-n0e3qte3.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerArbeitCanvas-nduwqju3.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerArbeitCanvas-rdrcqzyw.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerArbeitCanvas-rtrerta1.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-mdkyqzg0.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-mtq5ntq1.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-ndkxmtc3.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-nju4rkm0.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-njzgrdg5.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-ody2meq4.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-otcwndm0.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-qtcwodqx.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerBildungCanvas-rjuwoda3.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerUmweltCanvas-nkvdq0i1.png
+imported/Prepare for Framer3@1x/images/Layer-diaInnerUmweltCanvas-odgzodmw.png
+imported/Prepare for Framer3@1x/images/Layer-whole-otvdntq3.png
+imported/Prepare for Framer3@1x/images/Layer-whole-rkffntfe.png
+imported/Prepare for Framer3@1x/layers.json
+imported/Prepare for Framer3@1x/layers.json.js
+imported/Prepare for Framer@1x/images/Layer-dia1Arbeit-oteyndiy.png
+imported/Prepare for Framer@1x/images/Layer-dia1Bildung-ndc0mdez.png
+imported/Prepare for Framer@1x/images/Layer-dia1Fonts-nza5murg.png
+imported/Prepare for Framer@1x/images/Layer-dia1InnerArbeit-rkyzqtu4.png
+imported/Prepare for Framer@1x/images/Layer-dia1InnerBildung-ntdbntnd.png
+imported/Prepare for Framer@1x/images/Layer-dia1InnerSozialeGerechtigkeit-rezdqjlb.png
+imported/Prepare for Framer@1x/images/Layer-dia1InnerUmwelt-rke4ruzb.png
+imported/Prepare for Framer@1x/images/Layer-dia1InnerWohnen-qzqymzc4.png
+imported/Prepare for Framer@1x/images/Layer-dia1MiddleArbeit-oui5neey.png
+imported/Prepare for Framer@1x/images/Layer-dia1MiddleBildung-nzu5mjyy.png
+imported/Prepare for Framer@1x/images/Layer-dia1MiddleSozialeGerechtigkeit-nkm5ourf.png
+imported/Prepare for Framer@1x/images/Layer-dia1MiddleUmwelt-mjncrjjc.png
+imported/Prepare for Framer@1x/images/Layer-dia1MiddleWohnen-rueznzmw.png
+imported/Prepare for Framer@1x/images/Layer-dia1OuterArbeit-otm2ndbd.png
+imported/Prepare for Framer@1x/images/Layer-dia1OuterBildung-njgwodvb.png
+imported/Prepare for Framer@1x/images/Layer-dia1OuterSozialeGerechtigkeit-mkjemjg0.png
+imported/Prepare for Framer@1x/images/Layer-dia1OuterUmwelt-oey5qtkz.png
+imported/Prepare for Framer@1x/images/Layer-dia1OuterWohnen-ntczmty2.png
+imported/Prepare for Framer@1x/images/Layer-dia1SozialeGerechtigkeit-nem1nty2.png
+imported/Prepare for Framer@1x/images/Layer-dia1Stadtbild-m0rbrjjd.jpg
+imported/Prepare for Framer@1x/images/Layer-dia1Umwelt-oezgrjdd.png
+imported/Prepare for Framer@1x/images/Layer-dia1Wohnen-nkrdnkvc.png
+imported/Prepare for Framer@1x/images/Layer-diaBubble-njheotg1.png
+imported/Prepare for Framer@1x/images/Layer-diaBubble2-qze5nzew.png
+imported/Prepare for Framer@1x/images/Layer-Group-njg1mzix.png
+imported/Prepare for Framer@1x/images/Layer-whole-mtu3qufg.png
+imported/Prepare for Framer@1x/layers.json
+imported/Prepare for Framer@1x/layers.json.js
+index.html
+modules/myModule.coffee
