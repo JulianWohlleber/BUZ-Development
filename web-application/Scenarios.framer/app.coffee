@@ -1,89 +1,3 @@
-<<<<<<< HEAD
-# Import file "Untitled"
-sketch = Framer.Importer.load("imported/Untitled@1x")
-
-`
-var socket = io.connect("/");
-socket.on("message",function(message){
-var dataServer = JSON.parse(message);`
-print message
-`});`
-
-###################Layers##################
-
-kollektivesStadtbild = new Layer
-	backgroundColor: "red"
-	opacity: 0.4
-	width: 80
-	height: 80
-	x: 610
-	y: 150
-	borderRadius: 100
-sketch.Scenarios.center()
-
-Rating = new Layer
-	width: 0
-	height: 50
-	backgroundColor: "blue"
-
-###################variables##################
-#
-voting = {
-	"scenario":"null",
-	"votingNumber": "-"
-}
-
-
-##################functions###################
-
-disableAll = ->
-	sketch.knotenpunktStadt.saturate = 0
-	sketch.virtuelleStadt.saturate = 0
-	sketch.regionaleStadt.saturate = 0
-	sketch.festungStadt.saturate = 0
-	kollektivesStadtbild.saturate = 0
-disableAll()
-
-selectScenario =(visual, scene)->
-	disableAll()
-	visual.saturate = 100
-	voting.scenario = scene
-
-
-sendVotings = (v)->
-	#voting
-	voting.votingAmount = v
-	#visual
-	c = voting.votingAmount + 2
-	Rating.animate
-		width: 50*c
-	#message
-	print "voted with " + voting.votingAmount + " for " + voting.scenario
-	`socket.send(JSON.stringify(voting))`
-
-#Key-Event listener Scenarios
-window.addEventListener "keydown", (ev) ->
-	switch ev. keyCode
-		when 72 then selectScenario(sketch.knotenpunktStadt, "hightech") #key h
-		when 86 then selectScenario(sketch.virtuelleStadt, "virtual")  #key v
-		when 82 then selectScenario(sketch.regionaleStadt, "regional")  #key r
-		when 70 then selectScenario(sketch.festungStadt, "fortress")  #key f
-		when 75 then selectScenario(kollektivesStadtbild, "null") & sendVotings("-")#& sendVotings("-") #key k
-
-		when 49 then sendVotings(-2) #key 1
-		when 50 then sendVotings(-1) #key 2
-		when 51 then sendVotings(0) #key3
-		when 52 then sendVotings(1) #key4
-		when 53 then sendVotings(2) #key5
-
-		when 49 then myVoting = -2
-		when 50 then myVoting = -1
-		when 51 then myVoting = 0
-		when 52 then myVoting = 1
-		when 53 then myVoting = 2
-
-		sendVotings(myVoting)
-=======
 # Import file "Visual-Design-Screen-Framer"
 sketch = Framer.Importer.load("imported/Visual-Design-Screen-Framer@1x")
 
@@ -103,9 +17,16 @@ myData = Utils.domLoadDataSync("data/data.json")
 
 myTrends = JSON.parse(myData)
 
+#Voting
+`var socket = io.connect("/");
+socket.on("message",function(message){
+var dataServer = JSON.parse(message);`
+print message
+`});`
 
 
-#Variables
+
+#Variables (const)
 ############################################################
 
 #Layout
@@ -125,12 +46,26 @@ trendFontColor = "#404040"
 
 #Trends
 trendAnimationDelay = 7
+
+
+#Variables (let)
+#################################################################
+
+#Trends
 index = 0
 test = []
 currentSceneTrends = ""
 selectedScenario = ""
 isDefault = true
 lastSceneTrends = ""
+
+#Votings
+voting = {
+	"scenario":"null",
+	"votingNumber": "-"}
+myVoting = "-"
+
+
 
 #Scenario Layer
 ############################################################
@@ -187,21 +122,19 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 		switch event.keyCode
 			when 49 then selectedScenario = "regional"
 			when 50 then selectedScenario = "fortress"
-			when 51 then selectedScenario = "robotic"
+			when 51 then selectedScenario = "hightech"
 			when 52 then selectedScenario = "virtual"
-
+			when 53 then selectedScenario = "collective" & sendVotings("-")
 		sceneHandler(selectedScenario)
-		if isDefault is true
-			Trend.stateCycle(test[index])
-		isDefault = false
-	else if 53 <= event.keyCode <= 57
-		switch event.keyCode
-			when 53 then print "voted -2 :("
-			when 54 then print "voted -1 :/"
-			when 55 then print "voted 0 :|"
-			when 56 then print "voted 1 :)"
-			when 57 then print "voted 2 :D"
 
+	else if 54 <= event.keyCode <= 58
+		switch event.keyCode
+			when 54 then myVoting = -2
+			when 55 then myVoting = -1
+			when 56 then myVoting = 0
+			when 57 then myVoting = 1
+			when 58 then myVoting = 2
+		sendVotings(myVoting)
 
 
 #Switch Between Trends
@@ -224,6 +157,12 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 ############################################################
 sceneHandler = (selectedScenario) ->
+	voting.scenario = scene
+
+	if isDefault is true
+		Trend.stateCycle(test[index])
+	isDefault = false
+
 	if selectedScenario is "regional"
 		test = []
 		lastSceneTrends = currentSceneTrends
@@ -286,4 +225,12 @@ display = (element1, element2, element3) ->
 	element1.visible = true
 	element2.visible = true
 	element3.visible = true
->>>>>>> master
+
+
+
+sendVotings = (v)->
+	#voting
+	voting.votingAmount = v
+	#message
+	print "voted with " + voting.votingAmount + " for " + voting.scenario
+	`socket.send(JSON.stringify(voting))`
