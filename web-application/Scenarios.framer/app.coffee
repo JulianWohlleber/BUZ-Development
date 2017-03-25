@@ -19,9 +19,10 @@ myTrends = JSON.parse(myData)
 
 
 
-#Layout Variables
+#Variables
 ############################################################
 
+#Layout
 horizontalMargin = 71
 verticalMargin = horizontalMargin * 9/16
 borderWidth = 3
@@ -32,21 +33,21 @@ trendFont = "Tahoma"
 trendLineHeight = "35px"
 trendFontWeight = "600"
 
-
-
 #Colors
-############################################################
-
 myTransparent = "rgba(0)"
 trendFontColor = "#404040"
 
-
-
 #Trends
-trendAnimationDelay = 4
+trendAnimationDelay = 7
 index = 0
 test = []
 currentSceneTrends = ""
+selectedScenario = ""
+isDefault = true
+lastSceneTrends = ""
+
+#Scenario Layer
+############################################################
 
 Trend = new Layer
 	x : Screen.width - trendwidth - horizontalMargin
@@ -61,13 +62,6 @@ Trend = new Layer
 		"line-height": trendLineHeight
 		"font-weight": trendFontWeight
 	visible: false
-	
-	
-	
-#Scenarios
-############################################################
-
-selectedScenario = ""
 
 Description_Regional = sketch.Description_Regional
 Description_Fortress = sketch.Description_Fortress
@@ -109,7 +103,11 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 			when 50 then selectedScenario = "fortress"
 			when 51 then selectedScenario = "robotic"
 			when 52 then selectedScenario = "virtual"
+
 		sceneHandler(selectedScenario)
+		if isDefault is true
+			Trend.stateCycle(test[index])
+		isDefault = false
 	else if 53 <= event.keyCode <= 57
 		switch event.keyCode
 			when 53 then print "voted -2 :("
@@ -128,7 +126,6 @@ Trend.states.animationOptions =
 
 Trend.on Events.AnimationEnd, ->
 	Trend.visible = true
-# 	print selectedScenario + " " + index
 	if index < (currentSceneTrends.length - 1)
 		index++
 		Trend.stateCycle(test[index])
@@ -138,17 +135,14 @@ Trend.on Events.AnimationEnd, ->
 
 
 
-
-
-
 #Functions
 ############################################################
 sceneHandler = (selectedScenario) ->
 	if selectedScenario is "regional"
 		test = []
+		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.regional
-		generateTrendStates(currentSceneTrends)
-		Trend.stateCycle(test[index])
+		generateTrendStates(lastSceneTrends, currentSceneTrends)
 		display(Description_Regional, Title_Regional, City_Regional)
 		remove(Description_Fortress, Description_Robotic, Description_Virtual)
 		remove(Title_Fortress, Title_Robotic, Title_Virtual)
@@ -156,8 +150,9 @@ sceneHandler = (selectedScenario) ->
 
 	else if selectedScenario is "fortress"
 		test = []
+		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.fortress
-		generateTrendStates(currentSceneTrends)
+		generateTrendStates(lastSceneTrends, currentSceneTrends)
 		display(Description_Fortress, Title_Fortress, City_Fortress)
 		remove(Description_Regional, Description_Robotic, Description_Virtual)
 		remove(Title_Regional, Title_Robotic, Title_Virtual)
@@ -166,7 +161,7 @@ sceneHandler = (selectedScenario) ->
 	else if selectedScenario is "robotic"
 		test = []
 		currentSceneTrends = myTrends.robotic
-		generateTrendStates(currentSceneTrends)
+		generateTrendStates(lastSceneTrends, currentSceneTrends)
 		display(Description_Robotic, Title_Robotic, City_Robotic)
 		remove(Description_Regional, Description_Fortress, Description_Virtual)
 		remove(Title_Regional, Title_Fortress, Title_Virtual)
@@ -175,7 +170,7 @@ sceneHandler = (selectedScenario) ->
 	else if selectedScenario is "virtual"
 		test = []
 		currentSceneTrends = myTrends.virtual
-		generateTrendStates(currentSceneTrends)
+		generateTrendStates(lastSceneTrends, currentSceneTrends)
 		display(Description_Virtual, Title_Virtual, City_Virtual)
 		remove(Description_Regional, Description_Fortress, Description_Robotic)
 		remove(Title_Regional, Title_Fortress, Title_Robotic)
@@ -183,7 +178,9 @@ sceneHandler = (selectedScenario) ->
 
 
 
-generateTrendStates = (currentSceneTrends) ->
+generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
+	for i in [0...lastSceneTrends.length]
+		delete Trend.states["stateNumber" + i]
 	for i in [0...currentSceneTrends.length]
 		Trend.states["stateNumber" + i] =
 			html: currentSceneTrends[i]
