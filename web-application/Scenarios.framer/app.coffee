@@ -118,7 +118,7 @@ City_Virtual.visible = false
 
 
 Events.wrap(window).addEventListener "keydown", (event) ->
-	if 49 <= event.keyCode <= 52
+	if 49 <= event.keyCode <= 53
 		switch event.keyCode
 			when 49 then selectedScenario = "regional"
 			when 50 then selectedScenario = "fortress"
@@ -157,7 +157,6 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 ############################################################
 sceneHandler = (selectedScenario) ->
-	print selectedScenario
 	voting.scenario = selectedScenario
 
 	if isDefault is true
