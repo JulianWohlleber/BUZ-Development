@@ -159,10 +159,6 @@ Trend.on Events.AnimationEnd, ->
 sceneHandler = (selectedScenario) ->
 	voting.scenario = selectedScenario
 
-	if isDefault is true
-		Trend.stateCycle(test[index])
-	isDefault = false
-
 	if selectedScenario is "regional"
 		test = []
 		lastSceneTrends = currentSceneTrends
@@ -203,6 +199,10 @@ sceneHandler = (selectedScenario) ->
 
 	else if selectedScenario is "collective"
 		sendVotings("-")
+		
+	if isDefault is true
+		Trend.stateCycle(test[index])
+	isDefault = false
 
 generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 	for i in [0...lastSceneTrends.length]

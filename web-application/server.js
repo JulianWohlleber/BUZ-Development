@@ -60,7 +60,7 @@ var dataToFramer ={
 var app = express();
 app.use(express.static('./Scenarios.framer'));
 //Specifying the public folder of the server to make the html accesible using the static middleware
-var server =http.createServer(app).listen(9470);
+var server =http.createServer(app).listen(port);
 //Server listens on the port 3000
 io = io.listen(server);
 /*initializing the websockets communication , server instance has to be sent as the argument */
