@@ -57,8 +57,8 @@ var dataToFramer ={
 var app = express();
 app.use(express.static('./Scenarios.framer'));
 //Specifying the public folder of the server to make the html accesible using the static middleware
-var server =http.createServer(app).listen(3333);
-//Server listens on the port 3333
+var server =http.createServer(app).listen(3000);
+//Server listens on the port 3000
 io = io.listen(server);
 /*initializing the websockets communication , server instance has to be sent as the argument */
 
@@ -113,7 +113,7 @@ io.sockets.on("connection",function(socket){
       };
       socket.send(JSON.stringify(message_to_client));
       /*sending data to the client , this triggers a message event at the client side */
-    console.log('Connection established. Find page under http://localhost:3333/');
+    console.log('Connection established. Find page under http://localhost:3000/');
     socket.on("message",function(data){
         /*This event is triggered at the server side when client sends the data using socket.send() method */
         data = JSON.parse(data);
