@@ -6,6 +6,7 @@ var fs = require('fs');
 
 
 //#########################variables##########################################
+var port = 3333
 var scenarioFactors = JSON.parse(fs.readFileSync('./data/ScenarioFactors.json', 'utf8'));
 var cityDiagram = JSON.parse(fs.readFileSync('./data/Diagrams.json', 'utf8'));
 var newScenarioFactors = JSON.parse(JSON.stringify(scenarioFactors));
@@ -57,7 +58,7 @@ var dataToFramer ={
 var app = express();
 app.use(express.static('./Scenarios.framer'));
 //Specifying the public folder of the server to make the html accesible using the static middleware
-var server =http.createServer(app).listen(3200);
+var server =http.createServer(app).listen(port));
 io = io.listen(server);
 /*initializing the websockets communication , server instance has to be sent as the argument */
 
@@ -112,7 +113,7 @@ io.sockets.on("connection",function(socket){
       };
       socket.send(JSON.stringify(message_to_client));
       /*sending data to the client , this triggers a message event at the client side */
-    console.log('Connection established. Find page under http://localhost:3200/');
+    console.log('Connection established. Find page under http://localhost:' + port + '/');
     socket.on("message",function(data){
         /*This event is triggered at the server side when client sends the data using socket.send() method */
         data = JSON.parse(data);

@@ -124,7 +124,7 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 			when 50 then selectedScenario = "fortress"
 			when 51 then selectedScenario = "hightech"
 			when 52 then selectedScenario = "virtual"
-			when 53 then selectedScenario = "collective" & sendVotings("-")
+			when 53 then selectedScenario = "collective"
 		sceneHandler(selectedScenario)
 
 	else if 54 <= event.keyCode <= 58
@@ -157,7 +157,8 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 ############################################################
 sceneHandler = (selectedScenario) ->
-	voting.scenario = scene
+	print selectedScenario
+	voting.scenario = selectedScenario
 
 	if isDefault is true
 		Trend.stateCycle(test[index])
@@ -183,7 +184,7 @@ sceneHandler = (selectedScenario) ->
 		remove(Title_Regional, Title_Robotic, Title_Virtual)
 		remove(City_Regional, City_Robotic, City_Virtual)
 
-	else if selectedScenario is "robotic"
+	else if selectedScenario is "hightech"
 		test = []
 		currentSceneTrends = myTrends.robotic
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
@@ -201,7 +202,8 @@ sceneHandler = (selectedScenario) ->
 		remove(Title_Regional, Title_Fortress, Title_Robotic)
 		remove(City_Regional, City_Fortress, City_Robotic)
 
-
+	else if selectedScenario is "collective"
+		sendVotings("-")
 
 generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 	for i in [0...lastSceneTrends.length]
