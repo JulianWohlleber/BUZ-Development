@@ -1,432 +1,3 @@
-# Import file "Visual-Design-Screen-Framer"
-sketch = Framer.Importer.load("imported/Visual-Design-Screen-Framer@1x")
-sketch1 = Framer.Importer.load("imported/Diagramme")
-
-
-
-
-
-
-
-
-
-
-=====================
-
-
-
-
-################################variables and Settings########################################
-
-flipAnimationTime = 0.44 #time/flip
-dropAnimationTime = 0.55 #time for drop to fall down
-fontScalingAnimationTime = 3 #time for scenariofonts to
-secondBulbDelay = 0.2
-diaCenterScale = 0.2 # Bars defaultsize
-diaAnimationTime = 2
-
-flipArray = []
-diagramParts = []
-
-
-#########################################Layers##############################################
-
-
-diaBg = new Layer
-	backgroundColor: "black"
-	width: 3000
-	height: 2000
-	x: -300
-	y: -300
-diaBg.sendToBack()
-diaBg.z = -100
-
-#####DiagramStuff##########
-
-Fliplayer = new Layer
-	width: 1920/2
-	height: 1080
-	rotationY: 100
-	opacity: 0
-
-firstFliplayer = Fliplayer.copy()
-secondFliplayer = Fliplayer.copy()
-thirdFliplayer = Fliplayer.copy()
-fourthFliplayer = Fliplayer.copy()
-
-
-flipArray.push firstFliplayer
-flipArray.push secondFliplayer
-flipArray.push thirdFliplayer
-flipArray.push fourthFliplayer
-
-####initialize flipitems
-for layer, index in flipArray
-	layer.x = -1920/4 + 1920/4*index
-
-flipDiagram = (color, scenario, layerAmount) ->
-	diagramParent.opacity = 1
-	for layer, index in flipArray
-		layer.backgroundColor = color
-
-blackDrop = new Layer
-	backgroundColor: "black"
-	z: 100
-	width: 2000
-	height: 2000
-	borderRadius: 800
-blackDrop.center()
-blackDrop.visible = false
-
-######################sketch11################################
-sketch1.KnotenpunktStadt.bringToFront()
-################################### functions #######################################
-diagramHide = () ->
-	sketch1.dia1Fonts.scale = 0.99
-	sketch1.dia1Stadtbild.opacity = 0 #### = ScenarioViews
-	sketch1.KnotenpunktStadt.opacity = 0
-	sketch1.dia1Labels.opacity = 0
-	sketch1.dia1Fonts.opacity = 0
-	sketch1.diaBubble.scale = 0
-
-
-	for layer, index in flipArray
-		layer.opacity = 0
-	#setAllDiagramBars to zero
-
-	for child, index in sketch1.diaInner.subLayers
-		x = child
-# 		for child, index in x.subLayers
-# 			child.visible = false
-	for child, index in sketch1.diaMiddle.subLayers
-		x = child
-# 		for child, index in x.subLayers
-# 			child.visible = false
-	for child, index in sketch1.diaOuter.subLayers
-		x = child
-# 		for child, index in x.subLayers
-# 			child.visible = false
-	#diactivatingLayers
-# 	for child, index in sketch1.diaInnerArbeit.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerUmwelt.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerSozialeGerechtigkeit.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerBildung.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerWohnen.subLayers
-# 		child.visible = false
-
-diagramView = (scenario) ->
-	if scenario = "Knotenpunkt"
-		color = "#FEF0EC"
-	diagramFlip(color, 4)
-
-diagramFlip = (color, layerAmount) ->
-	for layer, index in flipArray
-		layer.backgroundColor = color
-		layer.animate
-			rotationY: 0
-			opacity: 1
-			options:
-				time: flipAnimationTime
-				delay: index*flipAnimationTime
-	fourthFliplayer.onAnimationEnd ->
-		FallingDrop()
-################################### executing #######################################
-diagramHide()
-diagramView("Knotenpunkt")
-
-blackDrop.onAnimationEnd ->
-	sketch1.dia1Labels.opacity = 1
-	sketch1.dia1Fonts.animate
-		opacity: 1
-		scale: 1
-		options:
-			time: fontScalingAnimationTime
-
-	sketch1.diaBubble.scale = 0.2
-	sketch1.KnotenpunktStadt.opacity = 1
-	sketch1.diaBubble.animate
-		scale: 1
-# 	scale up single bars
-	for child, index in sketch1.diaInner.subLayers
-		child.animateStop()
-		child.scale = diaCenterScale
-		child.animate
-			scale: index*0.05+0.5
-			options:
-				delay: diaAnimationTime-index*0.3
-	for child, index in sketch1.diaMiddle.subLayers
-		child.animateStop()
-		child.scale = diaCenterScale
-		child.animate
-			scale: index*0.07+0.6
-			options:
-				delay: diaAnimationTime-index*0.3
-	for child, index in sketch1.diaOuter.subLayers
-		child.animateStop()
-		child.scale = diaCenterScale
-		child.animate
-			scale: index*0.1+0.65
-			options:
-				delay: diaAnimationTime-index*0.3
-
-	#scale whole system
-# 	for child, index in sketch1.diaBars.subLayers
-# 			child.animate
-# 				scale: 1
-# 				opacity: 1
-# 				options:
-# 					delay: 0.4 + index*0.10
-
-FallingDrop = () ->
-	blackDrop.opacity = 0.3
-	blackDrop.visible = true
-	blackDrop.animate
-		width: 0
-		height: 0
-		x: 1920/2
-		y: 1080/2
-		opacity: 1
-		options:
-			time: dropAnimationTime
-
-	blackDrop.onAnimationEnd ->
-		blackDrop.visible = false
-# 		bulb = sketch1.diaBubble
-# 		bulb.opacity = 0.5
-# 		bulb.animate
-# 			scale: 1
-# 			opacity: 1
-
-
-sketch1.KnotenpunktStadt.onClick ->
-	diagramHide()
-	diagramView("Knotenpunkt")
-
-
-===========================
-
-
-
-
-
-
-
-################################variables and Settings########################################
-
-flipAnimationTime = 0.44 #time/flip
-dropAnimationTime = 0.55 #time for drop to fall down
-fontScalingAnimationTime = 3 #time for scenariofonts to
-secondBulbDelay = 0.2
-diaCenterScale = 0.2 # Bars defaultsize
-diaAnimationTime = 2
-
-flipArray = []
-diagramParts = []
-
-
-#########################################Layers##############################################
-
-
-diaBg = new Layer
-	backgroundColor: "black"
-	width: 3000
-	height: 2000
-	x: -300
-	y: -300
-diaBg.sendToBack()
-diaBg.z = -100
-
-#####DiagramStuff##########
-
-Fliplayer = new Layer
-	width: 1920/2
-	height: 1080
-	rotationY: 100
-	opacity: 0
-
-firstFliplayer = Fliplayer.copy()
-secondFliplayer = Fliplayer.copy()
-thirdFliplayer = Fliplayer.copy()
-fourthFliplayer = Fliplayer.copy()
-
-
-flipArray.push firstFliplayer
-flipArray.push secondFliplayer
-flipArray.push thirdFliplayer
-flipArray.push fourthFliplayer
-
-####initialize flipitems
-for layer, index in flipArray
-	layer.x = -1920/4 + 1920/4*index
-
-flipDiagram = (color, scenario, layerAmount) ->
-	diagramParent.opacity = 1
-	for layer, index in flipArray
-		layer.backgroundColor = color
-
-blackDrop = new Layer
-	backgroundColor: "black"
-	z: 100
-	width: 2000
-	height: 2000
-	borderRadius: 800
-blackDrop.center()
-blackDrop.visible = false
-
-######################sketch11################################
-sketch1.KnotenpunktStadt.bringToFront()
-################################### functions #######################################
-diagramHide = () ->
-	sketch1.dia1Fonts.scale = 0.99
-	sketch1.dia1Stadtbild.opacity = 0 #### = ScenarioViews
-	sketch1.KnotenpunktStadt.opacity = 0
-	sketch1.dia1Labels.opacity = 0
-	sketch1.dia1Fonts.opacity = 0
-	sketch1.diaBubble.scale = 0
-
-
-	for layer, index in flipArray
-		layer.opacity = 0
-	#setAllDiagramBars to zero
-
-	for child, index in sketch1.diaInner.subLayers
-		x = child
-# 		for child, index in x.subLayers
-# 			child.visible = false
-	for child, index in sketch1.diaMiddle.subLayers
-		x = child
-# 		for child, index in x.subLayers
-# 			child.visible = false
-	for child, index in sketch1.diaOuter.subLayers
-		x = child
-# 		for child, index in x.subLayers
-# 			child.visible = false
-	#diactivatingLayers
-# 	for child, index in sketch1.diaInnerArbeit.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerUmwelt.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerSozialeGerechtigkeit.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerBildung.subLayers
-# 		child.visible = false
-# 	for child, index in sketch1.diaInnerWohnen.subLayers
-# 		child.visible = false
-
-diagramView = (scenario) ->
-	if scenario = "Knotenpunkt"
-		color = "#FEF0EC"
-	diagramFlip(color, 4)
-
-diagramFlip = (color, layerAmount) ->
-	for layer, index in flipArray
-		layer.backgroundColor = color
-		layer.animate
-			rotationY: 0
-			opacity: 1
-			options:
-				time: flipAnimationTime
-				delay: index*flipAnimationTime
-	fourthFliplayer.onAnimationEnd ->
-		FallingDrop()
-################################### executing #######################################
-diagramHide()
-diagramView("Knotenpunkt")
-
-blackDrop.onAnimationEnd ->
-	sketch1.dia1Labels.opacity = 1
-	sketch1.dia1Fonts.animate
-		opacity: 1
-		scale: 1
-		options:
-			time: fontScalingAnimationTime
-
-	sketch1.diaBubble.scale = 0.2
-	sketch1.KnotenpunktStadt.opacity = 1
-	sketch1.diaBubble.animate
-		scale: 1
-# 	scale up single bars
-	for child, index in sketch1.diaInner.subLayers
-		child.animateStop()
-		child.scale = diaCenterScale
-		child.animate
-			scale: index*0.05+0.5
-			options:
-				delay: diaAnimationTime-index*0.3
-	for child, index in sketch1.diaMiddle.subLayers
-		child.animateStop()
-		child.scale = diaCenterScale
-		child.animate
-			scale: index*0.07+0.6
-			options:
-				delay: diaAnimationTime-index*0.3
-	for child, index in sketch1.diaOuter.subLayers
-		child.animateStop()
-		child.scale = diaCenterScale
-		child.animate
-			scale: index*0.1+0.65
-			options:
-				delay: diaAnimationTime-index*0.3
-
-	#scale whole system
-# 	for child, index in sketch1.diaBars.subLayers
-# 			child.animate
-# 				scale: 1
-# 				opacity: 1
-# 				options:
-# 					delay: 0.4 + index*0.10
-
-FallingDrop = () ->
-	blackDrop.opacity = 0.3
-	blackDrop.visible = true
-	blackDrop.animate
-		width: 0
-		height: 0
-		x: 1920/2
-		y: 1080/2
-		opacity: 1
-		options:
-			time: dropAnimationTime
-
-	blackDrop.onAnimationEnd ->
-		blackDrop.visible = false
-# 		bulb = sketch1.diaBubble
-# 		bulb.opacity = 0.5
-# 		bulb.animate
-# 			scale: 1
-# 			opacity: 1
-
-
-sketch1.KnotenpunktStadt.onClick ->
-	diagramHide()
-	diagramView("Knotenpunkt")
-
-
-
-
-
-==============
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Define and set custom device
 ############################################################
 
@@ -438,22 +9,36 @@ Framer.Device.customize
 	deviceImageWidth: 2020
 	deviceImageHeight: 1480
 
-# Import file "Wireframe-Screen-Framer"
-myData = Utils.domLoadDataSync("data/data.json")
+############################################################IMPORT############################################################
 
+# Import Sketch
+############################################################
+sketch = Framer.Importer.load("imported/Visual-Design-Screen-Framer@1x")
+sketch1 = Framer.Importer.load("imported/Diagramme")
+
+
+# Import Trends
+############################################################
+myData = Utils.domLoadDataSync("data/data.json")
 myTrends = JSON.parse(myData)
 
-#Voting
-`var socket = io.connect("/");
-socket.on("message",function(message){
-var dataServer = JSON.parse(message);`
-print message
-`});`
+
+############################################################SETTINGS############################################################
 
 
+#Diagrams
+flipAnimationTime = 0.44 #time/flip
+dropAnimationTime = 0.55 #time for drop to fall down
+fontScalingAnimationTime = 3 #time for scenariofonts to
+secondBulbDelay = 0.2
+diaCenterScale = 0.2 # Bars defaultsize
+diaAnimationTime = 2
+colorKnotenpunkt = "#FEF0EC"
+colorVirtual = ""
+#...
 
-#Variables (const)
-############################################################
+#Trends
+trendAnimationDelay = 7
 
 #Layout
 horizontalMargin = 71
@@ -470,30 +55,267 @@ trendFontWeight = "600"
 myTransparent = "rgba(0)"
 trendFontColor = "#404040"
 
-#Trends
-trendAnimationDelay = 7
 
 
-#Variables (let)
+
+
+############################################################GLOBAL############################################################
+
+#Global Variables
+#################################################################
+selectedScenario = ""
+
+#Keydown
 #################################################################
 
-#Trends
-index = 0
-test = []
-currentSceneTrends = ""
-selectedScenario = ""
-isDefault = true
-lastSceneTrends = ""
+Events.wrap(window).addEventListener "keydown", (event) ->
+	if 49 <= event.keyCode <= 53
+		switch event.keyCode
+			when 49 then selectedScenario = "regional"
+			when 50 then selectedScenario = "fortress"
+			when 51 then selectedScenario = "hightech"
+			when 52 then selectedScenario = "virtual"
+			when 53 then selectedScenario = "collective"
+		sceneHandler(selectedScenario)
 
-#Votings
+	else if 54 <= event.keyCode <= 58
+		switch event.keyCode
+			when 54 then myVoting = -2
+			when 55 then myVoting = -1
+			when 56 then myVoting = 0
+			when 57 then myVoting = 1
+			when 58 then myVoting = 2
+		sendVotings(myVoting)
+
+
+############################################################VOTING_BLOCK############################################################
+
+# Voting RecieveServer
+############################################################
+`var socket = io.connect("/");`
+`socket.on("message",function(message){
+var dataServer = JSON.parse(message);`
+print dataServer
+if dataServer.diagram
+	diagramValues = dataServer.diagram
+print diagramValues
+`});`
+
+#Voting Variables
+#################################################################
+
 voting = {
 	"scenario":"null",
 	"votingNumber": "-"}
 myVoting = "-"
 
+#Voting Functions
+sendVotings = (v)->
+	#voting
+	voting.votingAmount = v
+	#message
+	print "voted with " + voting.votingAmount + " for " + voting.scenario
+	`socket.send(JSON.stringify(voting))`
 
 
-#Scenario Layer
+
+
+
+############################################################DIAGRAM_BLOCK############################################################
+
+
+#Diagram Setup
+#################################################################
+
+flipArray = []
+diagramParts = []
+
+#flipping Paper
+diaBg = new Layer
+	backgroundColor: "black"
+	width: 3000
+	height: 2000
+	x: -300
+	y: -300
+diaBg.sendToBack()
+diaBg.z = -100
+
+Fliplayer = new Layer
+	width: 1920/2
+	height: 1080
+	rotationY: 100
+	opacity: 0
+
+firstFliplayer = Fliplayer.copy()
+secondFliplayer = Fliplayer.copy()
+thirdFliplayer = Fliplayer.copy()
+fourthFliplayer = Fliplayer.copy()
+
+flipArray.push firstFliplayer
+flipArray.push secondFliplayer
+flipArray.push thirdFliplayer
+flipArray.push fourthFliplayer
+
+
+for layer, index in flipArray
+	layer.x = -1920/4 + 1920/4*index
+
+#FallingDroplet
+blackDrop = new Layer
+	backgroundColor: "black"
+	z: 100
+	width: 2000
+	height: 2000
+	borderRadius: 800
+blackDrop.center()
+blackDrop.visible = false
+
+#sketch1
+sketch1.KnotenpunktStadt.bringToFront()
+
+#Diagram Functions
+#################################################################
+
+diagramHide = () ->
+	sketch1.dia1Fonts.scale = 0.99
+	sketch1.dia1Stadtbild.opacity = 0 #### = ScenarioViews
+	sketch1.KnotenpunktStadt.opacity = 0
+	sketch1.dia1Labels.opacity = 0
+	sketch1.dia1Fonts.opacity = 0
+	sketch1.diaBubble.scale = 0
+
+	for layer, index in flipArray
+		layer.opacity = 0
+		layer.rotationY = 100
+	#setAllDiagramBars to zero
+
+	for child, index in sketch1.diaInner.subLayers
+		x = child
+# 		for child, index in x.subLayers
+# 			child.visible = false
+	for child, index in sketch1.diaMiddle.subLayers
+		x = child
+# 		for child, index in x.subLayers
+# 			child.visible = false
+	for child, index in sketch1.diaOuter.subLayers
+		x = child
+# 		for child, index in x.subLayers
+# 			child.visible = false
+
+diagramView = (scenario) ->
+	if selectedScenario = "Knotenpunkt"
+		color = colorKnotenpunkt
+	if selectedScenario = "virtual"
+		color = colorVirtual
+	#...
+	diagramFlip(color, 4)
+
+diagramFlip = (color, layerAmount) ->
+	for layer, index in flipArray
+		layer.backgroundColor = color
+		layer.animate
+			rotationY: 0
+			opacity: 1
+			options:
+				time: flipAnimationTime
+				delay: index*flipAnimationTime
+	fourthFliplayer.onAnimationEnd ->
+		FallingDrop()
+
+
+
+#diagram executing
+#################################################################
+diagramHide()
+diagramView("Knotenpunkt")
+
+blackDrop.onAnimationEnd ->
+	sketch1.dia1Labels.opacity = 1
+	sketch1.dia1Fonts.animate
+		opacity: 1
+		scale: 1
+		options:
+			time: fontScalingAnimationTime
+
+	sketch1.diaBubble.scale = 0.2
+	sketch1.KnotenpunktStadt.opacity = 1
+	sketch1.diaBubble.animate
+		scale: 1
+# 	scale up single bars
+	for child, index in sketch1.diaInner.subLayers
+		child.animateStop()
+		child.scale = diaCenterScale
+		child.animate
+			scale: index*0.05+0.5
+			options:
+				delay: diaAnimationTime-index*0.3
+	for child, index in sketch1.diaMiddle.subLayers
+		child.animateStop()
+		child.scale = diaCenterScale
+		child.animate
+			scale: index*0.07+0.6
+			options:
+				delay: diaAnimationTime-index*0.3
+	for child, index in sketch1.diaOuter.subLayers
+		child.animateStop()
+		child.scale = diaCenterScale
+		child.animate
+			scale: index*0.1+0.65
+			options:
+				delay: diaAnimationTime-index*0.3
+
+	#scale whole system
+# 	for child, index in sketch1.diaBars.subLayers
+# 			child.animate
+# 				scale: 1
+# 				opacity: 1
+# 				options:
+# 					delay: 0.4 + index*0.10
+
+FallingDrop = () ->
+	blackDrop.opacity = 0.3
+	blackDrop.visible = true
+	blackDrop.animate
+		width: 0
+		height: 0
+		x: 1920/2
+		y: 1080/2
+		opacity: 1
+		options:
+			time: dropAnimationTime
+
+	blackDrop.onAnimationEnd ->
+		blackDrop.visible = false
+# 		bulb = sketch1.diaBubble
+# 		bulb.opacity = 0.5
+# 		bulb.animate
+# 			scale: 1
+# 			opacity: 1
+
+##Later
+sketch1.KnotenpunktStadt.onClick ->
+	diagramHide()
+	diagramView("Knotenpunkt")
+
+
+
+
+
+############################################################SCENARIO_BLOCK############################################################
+
+
+#Scenario Setup
+#################################################################
+
+index = 0
+test = []
+currentSceneTrends = ""
+isDefault = true
+lastSceneTrends = ""
+
+
+
+#Scenario Layers
 ############################################################
 
 Trend = new Layer
@@ -542,28 +364,7 @@ City_Robotic.visible = false
 City_Virtual.visible = false
 
 
-
-Events.wrap(window).addEventListener "keydown", (event) ->
-	if 49 <= event.keyCode <= 53
-		switch event.keyCode
-			when 49 then selectedScenario = "regional"
-			when 50 then selectedScenario = "fortress"
-			when 51 then selectedScenario = "hightech"
-			when 52 then selectedScenario = "virtual"
-			when 53 then selectedScenario = "collective"
-		sceneHandler(selectedScenario)
-
-	else if 54 <= event.keyCode <= 58
-		switch event.keyCode
-			when 54 then myVoting = -2
-			when 55 then myVoting = -1
-			when 56 then myVoting = 0
-			when 57 then myVoting = 1
-			when 58 then myVoting = 2
-		sendVotings(myVoting)
-
-
-#Switch Between Trends
+#Scenario Presets
 ############################################################
 
 Trend.states.animationOptions =
@@ -580,7 +381,7 @@ Trend.on Events.AnimationEnd, ->
 
 
 
-#Functions
+#Scenario Functions
 ############################################################
 sceneHandler = (selectedScenario) ->
 	voting.scenario = selectedScenario
@@ -652,12 +453,3 @@ display = (element1, element2, element3) ->
 	element1.visible = true
 	element2.visible = true
 	element3.visible = true
-
-
-
-sendVotings = (v)->
-	#voting
-	voting.votingAmount = v
-	#message
-	print "voted with " + voting.votingAmount + " for " + voting.scenario
-	`socket.send(JSON.stringify(voting))`
