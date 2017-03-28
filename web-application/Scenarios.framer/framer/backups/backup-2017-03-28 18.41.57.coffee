@@ -1,6 +1,5 @@
-#################################################################
 # Define and set custom device
-#################################################################
+############################################################
 
 Canvas.backgroundColor = "#000000"
 Framer.Device.customize
@@ -12,9 +11,8 @@ Framer.Device.customize
 
 
 
-#################################################################
 #Imports
-#################################################################
+############################################################
 
 #Sketch
 sketch = Framer.Importer.load("imported/Visual-Design-Screen-Framer@1x")
@@ -26,9 +24,8 @@ myTrends = JSON.parse(myData)
 
 
 
-#################################################################
 #Settings
-#################################################################
+############################################################
 
 #Layout
 horizontalMargin = 71
@@ -43,6 +40,10 @@ colorFortress = "#FF8800"
 colorRobotic = "#FEF0EC"
 colorVirtual = "#2299FF"
 
+#Scenarios
+allScenes = sketch.MyWire
+selectedScenario = ""
+
 #Diagrams
 flipAnimationTime = 0.44 #time/flip
 dropAnimationTime = 0.55 #time for drop to fall down
@@ -52,8 +53,6 @@ diaCenterScale = 0.2 # Bars defaultsize
 diaAnimationTime = 2
 flipArray = []
 diagramParts = []
-diagramFadeOutDelay = 10
-diagramFadeOutTime = 1
 
 #Trends
 trendwidth = 600
@@ -63,15 +62,23 @@ trendLineHeight = "35px"
 trendFontWeight = "600"
 trendAnimationDelay = 7
 
-#Scenarios
-showScenarioDelay = 2
+#Voting
+voting = {
+	"scenario":"null",
+	"votingNumber": "-"}
+myVoting = "-"
 
+#DiagramStates
+# sketch1.KnotenpunktStadt.states.fadeOut =
+# 	opacity: 0
+# 	animationOptions:
+# 		delay: 10
+fadeOut = new Animation sketch1.KnotenpunktStadt,
+	opacity: 0
+	options:
+		delay: 10
+		time: 1
 
-
-
-
-
-#################################################################
 #Keydown
 #################################################################
 
@@ -96,28 +103,13 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 
 
-
-
-
-#################################################################
 #VOTING_BLOCK
 #################################################################
 
 # Voting RecieveServer
-`var socket = io.connect("/");`
-`socket.on("message",function(message){
-var dataServer = JSON.parse(message);`
-print dataServer
-if dataServer.diagram
-	diagramValues = dataServer.diagram
-print diagramValues, " values"
-`});`
 
-#Voting
-voting = {
-	"scenario":"null",
-	"votingNumber": "-"}
-myVoting = "-"
+
+
 
 #Voting Functions
 sendVotings = (myVoting)->
@@ -129,10 +121,6 @@ sendVotings = (myVoting)->
 
 
 
-
-
-
-#################################################################
 #DIAGRAM_BLOCK
 #################################################################
 
@@ -178,12 +166,6 @@ blackDrop.visible = false
 #sketch1
 sketch1.KnotenpunktStadt.bringToFront()
 
-fadeOut = new Animation sketch1.KnotenpunktStadt,
-	opacity: 0
-	options:
-		delay: diagramFadeOutDelay
-		time: diagramFadeOutTime
-
 #Diagram Functions
 #################################################################
 
@@ -198,13 +180,20 @@ diagramHide = () ->
 	for layer, index in flipArray
 		layer.opacity = 0
 		layer.rotationY = 100
+	#setAllDiagramBars to zero
 
 	for child, index in sketch1.diaInner.subLayers
 		x = child
+# 		for child, index in x.subLayers
+# 			child.visible = false
 	for child, index in sketch1.diaMiddle.subLayers
 		x = child
+# 		for child, index in x.subLayers
+# 			child.visible = false
 	for child, index in sketch1.diaOuter.subLayers
 		x = child
+# 		for child, index in x.subLayers
+# 			child.visible = false
 
 diagramView = (scenario) ->
 	fadeOut.stop()
@@ -236,7 +225,6 @@ fourthFliplayer.onAnimationEnd ->
 
 #diagram executing
 #################################################################
-
 diagramHide()
 
 
@@ -280,6 +268,13 @@ blackDrop.onAnimationEnd ->
 	fadeOutDiagram()
 
 
+	#scale whole system
+# 	for child, index in sketch1.diaBars.subLayers
+# 			child.animate
+# 				scale: 1
+# 				opacity: 1
+# 				options:
+# 					delay: 0.4 + index*0.10
 
 FallingDrop = () ->
 	blackDrop.opacity = 0.3
@@ -297,28 +292,29 @@ FallingDrop = () ->
 
 fadeOutDiagram = () ->
 	fadeOut.start()
+	showScenario(selectedScenario)
 	print "fadeOut"
 	for layer, index in flipArray
 		layer.visible = false
 
 
 
+############################################################SCENARIO_BLOCK############################################################
 
 
-
+#Scenario Setup
 #################################################################
-#SCENARIO_BLOCK
-#################################################################
 
-#Presets
-
-allScenes = sketch.MyWire
-selectedScenario = ""
-trendStateIndex = 0
+index = 0
 trendStates = []
 currentSceneTrends = ""
 isDefault = true
 lastSceneTrends = ""
+
+
+
+#Scenario Layers
+############################################################
 
 Trend = new Layer
 	x : Screen.width - trendwidth - horizontalMargin
@@ -366,28 +362,29 @@ City_Fortress.visible = false
 City_Robotic.visible = false
 City_Virtual.visible = false
 
+
+#Scenario Presets
+############################################################
+
 Trend.states.animationOptions =
 	delay: trendAnimationDelay
 
 Trend.on Events.AnimationEnd, ->
-	if trendStateIndex < (currentSceneTrends.length - 1)
-		trendStateIndex++
-		Trend.stateCycle(trendStates[trendStateIndex])
+	if index < (currentSceneTrends.length - 1)
+		index++
+		Trend.stateCycle(trendStates[index])
 	else
-		trendStateIndex = 0
-		Trend.stateCycle(trendStates[trendStateIndex])
+		index = 0
+		Trend.stateCycle(trendStates[index])
 
 
 
-#Functions
-
+#Scenario Functions
+############################################################
 sceneHandler = (selectedScenario) ->
 	voting.scenario = selectedScenario
 	diagramHide()
 	diagramView(selectedScenario)
-	Utils.delay showScenarioDelay, ->
-		showScenario(selectedScenario)
-	# showScenario(selectedScenario)
 
 showScenario = (selectedScenario) ->
 	if selectedScenario is "regional"
@@ -432,7 +429,7 @@ showScenario = (selectedScenario) ->
 		sendVotings("-")
 
 	if isDefault is true
-		Trend.stateCycle(trendStates[trendStateIndex])
+		Trend.stateCycle(trendStates[index])
 	isDefault = false
 
 

@@ -63,12 +63,6 @@ trendLineHeight = "35px"
 trendFontWeight = "600"
 trendAnimationDelay = 7
 
-#Scenarios
-showScenarioDelay = 2
-
-
-
-
 
 
 #################################################################
@@ -93,9 +87,6 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 			when 57 then myVoting = 1
 			when 58 then myVoting = 2
 		sendVotings(myVoting)
-
-
-
 
 
 
@@ -297,6 +288,7 @@ FallingDrop = () ->
 
 fadeOutDiagram = () ->
 	fadeOut.start()
+	showScenario(selectedScenario)
 	print "fadeOut"
 	for layer, index in flipArray
 		layer.visible = false
@@ -320,52 +312,6 @@ currentSceneTrends = ""
 isDefault = true
 lastSceneTrends = ""
 
-Trend = new Layer
-	x : Screen.width - trendwidth - horizontalMargin
-	y : verticalMargin
-	superLayer: sketch.MyWire
-	backgroundColor: myTransparent
-	width : trendwidth
-	style:
-		"color": trendFontColor
-		"font-size": trendFontSize
-		"text-align": "right"
-		"font-family": trendFont
-		"line-height": trendLineHeight
-		"font-weight": trendFontWeight
-	visible: true
-
-Description_Regional = sketch.Description_Regional
-Description_Fortress = sketch.Description_Fortress
-Description_Robotic = sketch.Description_Robotic
-Description_Virtual = sketch.Description_Virtual
-
-Title_Regional = sketch.Title_Regional
-Title_Fortress = sketch.Title_Fortress
-Title_Robotic = sketch.Title_Robotic
-Title_Virtual = sketch.Title_Virtual
-
-City_Regional = sketch.City_Regional
-City_Fortress = sketch.City_Fortress
-City_Robotic = sketch.City_Robotic
-City_Virtual = sketch.City_Virtual
-
-#Default All Scenarios Invisible
-Description_Regional.visible = false
-Description_Fortress.visible = false
-Description_Robotic.visible = false
-Description_Virtual.visible = false
-
-Title_Regional.visible = false
-Title_Fortress.visible = false
-Title_Robotic.visible = false
-Title_Virtual.visible = false
-
-City_Regional.visible = false
-City_Fortress.visible = false
-City_Robotic.visible = false
-City_Virtual.visible = false
-
 Trend.states.animationOptions =
 	delay: trendAnimationDelay
 
@@ -385,9 +331,6 @@ sceneHandler = (selectedScenario) ->
 	voting.scenario = selectedScenario
 	diagramHide()
 	diagramView(selectedScenario)
-	Utils.delay showScenarioDelay, ->
-		showScenario(selectedScenario)
-	# showScenario(selectedScenario)
 
 showScenario = (selectedScenario) ->
 	if selectedScenario is "regional"

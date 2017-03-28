@@ -63,9 +63,6 @@ trendLineHeight = "35px"
 trendFontWeight = "600"
 trendAnimationDelay = 7
 
-#Scenarios
-showScenarioDelay = 2
-
 
 
 
@@ -385,7 +382,7 @@ sceneHandler = (selectedScenario) ->
 	voting.scenario = selectedScenario
 	diagramHide()
 	diagramView(selectedScenario)
-	Utils.delay showScenarioDelay, ->
+	Utils.delay 10, ->
 		showScenario(selectedScenario)
 	# showScenario(selectedScenario)
 

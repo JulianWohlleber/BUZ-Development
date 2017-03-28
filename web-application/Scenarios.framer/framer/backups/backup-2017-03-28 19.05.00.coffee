@@ -1,6 +1,5 @@
-#################################################################
 # Define and set custom device
-#################################################################
+############################################################
 
 Canvas.backgroundColor = "#000000"
 Framer.Device.customize
@@ -12,9 +11,8 @@ Framer.Device.customize
 
 
 
-#################################################################
 #Imports
-#################################################################
+############################################################
 
 #Sketch
 sketch = Framer.Importer.load("imported/Visual-Design-Screen-Framer@1x")
@@ -26,9 +24,8 @@ myTrends = JSON.parse(myData)
 
 
 
-#################################################################
 #Settings
-#################################################################
+############################################################
 
 #Layout
 horizontalMargin = 71
@@ -43,6 +40,15 @@ colorFortress = "#FF8800"
 colorRobotic = "#FEF0EC"
 colorVirtual = "#2299FF"
 
+#Scenarios
+allScenes = sketch.MyWire
+selectedScenario = ""
+trendStateIndex = 0
+trendStates = []
+currentSceneTrends = ""
+isDefault = true
+lastSceneTrends = ""
+
 #Diagrams
 flipAnimationTime = 0.44 #time/flip
 dropAnimationTime = 0.55 #time for drop to fall down
@@ -52,8 +58,6 @@ diaCenterScale = 0.2 # Bars defaultsize
 diaAnimationTime = 2
 flipArray = []
 diagramParts = []
-diagramFadeOutDelay = 10
-diagramFadeOutTime = 1
 
 #Trends
 trendwidth = 600
@@ -63,15 +67,18 @@ trendLineHeight = "35px"
 trendFontWeight = "600"
 trendAnimationDelay = 7
 
-#Scenarios
-showScenarioDelay = 2
+#Voting
+voting = {
+	"scenario":"null",
+	"votingNumber": "-"}
+myVoting = "-"
 
+fadeOut = new Animation sketch1.KnotenpunktStadt,
+	opacity: 0
+	options:
+		delay: 10
+		time: 1
 
-
-
-
-
-#################################################################
 #Keydown
 #################################################################
 
@@ -96,10 +103,6 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 
 
-
-
-
-#################################################################
 #VOTING_BLOCK
 #################################################################
 
@@ -113,11 +116,7 @@ if dataServer.diagram
 print diagramValues, " values"
 `});`
 
-#Voting
-voting = {
-	"scenario":"null",
-	"votingNumber": "-"}
-myVoting = "-"
+
 
 #Voting Functions
 sendVotings = (myVoting)->
@@ -129,10 +128,6 @@ sendVotings = (myVoting)->
 
 
 
-
-
-
-#################################################################
 #DIAGRAM_BLOCK
 #################################################################
 
@@ -178,11 +173,7 @@ blackDrop.visible = false
 #sketch1
 sketch1.KnotenpunktStadt.bringToFront()
 
-fadeOut = new Animation sketch1.KnotenpunktStadt,
-	opacity: 0
-	options:
-		delay: diagramFadeOutDelay
-		time: diagramFadeOutTime
+
 
 #Diagram Functions
 #################################################################
@@ -236,7 +227,6 @@ fourthFliplayer.onAnimationEnd ->
 
 #diagram executing
 #################################################################
-
 diagramHide()
 
 
@@ -280,7 +270,6 @@ blackDrop.onAnimationEnd ->
 	fadeOutDiagram()
 
 
-
 FallingDrop = () ->
 	blackDrop.opacity = 0.3
 	blackDrop.visible = true
@@ -297,28 +286,19 @@ FallingDrop = () ->
 
 fadeOutDiagram = () ->
 	fadeOut.start()
+	showScenario(selectedScenario)
 	print "fadeOut"
 	for layer, index in flipArray
 		layer.visible = false
 
 
 
+############################################################SCENARIO_BLOCK############################################################
 
 
 
-#################################################################
-#SCENARIO_BLOCK
-#################################################################
-
-#Presets
-
-allScenes = sketch.MyWire
-selectedScenario = ""
-trendStateIndex = 0
-trendStates = []
-currentSceneTrends = ""
-isDefault = true
-lastSceneTrends = ""
+#Scenario Layers
+############################################################
 
 Trend = new Layer
 	x : Screen.width - trendwidth - horizontalMargin
@@ -366,6 +346,11 @@ City_Fortress.visible = false
 City_Robotic.visible = false
 City_Virtual.visible = false
 
+
+
+#Scenario Presets
+############################################################
+
 Trend.states.animationOptions =
 	delay: trendAnimationDelay
 
@@ -379,15 +364,12 @@ Trend.on Events.AnimationEnd, ->
 
 
 
-#Functions
-
+#Scenario Functions
+############################################################
 sceneHandler = (selectedScenario) ->
 	voting.scenario = selectedScenario
 	diagramHide()
 	diagramView(selectedScenario)
-	Utils.delay showScenarioDelay, ->
-		showScenario(selectedScenario)
-	# showScenario(selectedScenario)
 
 showScenario = (selectedScenario) ->
 	if selectedScenario is "regional"
