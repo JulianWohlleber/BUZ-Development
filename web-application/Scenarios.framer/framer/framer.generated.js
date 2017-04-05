@@ -64,7 +64,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 					"opacity": 1
 				},
 				"children": [
-<<<<<<< HEAD
 					{
 						"objectId": "D2B79CA8-4995-46F1-8F48-F0882035D680",
 						"kind": "group",
@@ -211,259 +210,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							}
 						]
 					},
-=======
->>>>>>> frontend-merge
-					{
-						"objectId": "283E2FB5-5BA0-4365-A1C3-18DF51B193F8",
-						"kind": "group",
-						"name": "Description_Virtual",
-						"originalName": "Description-Virtual",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 72,
-							"y": 928,
-							"width": 1775,
-							"height": 118
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"children": [
-							{
-								"objectId": "A763DB00-876D-46F3-B506-1EE298EAB2B5",
-								"kind": "group",
-								"name": "Description1",
-								"originalName": "Description",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 72,
-									"y": 928,
-									"width": 1775,
-									"height": 118
-								},
-								"visible": true,
-								"metadata": {
-									"opacity": 1
-								},
-								"image": {
-									"path": "images/Layer-Description-qtc2m0rc.png",
-									"frame": {
-										"x": 72,
-										"y": 928,
-										"width": 1775,
-										"height": 118
-									}
-								},
-								"children": []
-							}
-						]
-					},
-					{
-						"objectId": "7FA491BB-1F6B-44D5-9FB7-A3AEE23AED89",
-						"kind": "group",
-						"name": "Description_Fortress",
-						"originalName": "Description-Fortress",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 71,
-							"y": 928,
-							"width": 1760,
-							"height": 115
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"children": [
-							{
-								"objectId": "E851665F-FC22-42C0-9D2A-0758664D4766",
-								"kind": "group",
-								"name": "Description2",
-								"originalName": "Description",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 71,
-									"y": 928,
-									"width": 1760,
-									"height": 115
-								},
-								"visible": true,
-								"metadata": {
-									"opacity": 1
-								},
-								"image": {
-									"path": "images/Layer-Description-rtg1mty2.png",
-									"frame": {
-										"x": 71,
-										"y": 928,
-										"width": 1760,
-										"height": 115
-									}
-								},
-								"children": []
-							}
-						]
-					},
-					{
-						"objectId": "FC3359A9-06FB-461C-90F3-FBA7C27B5E8F",
-						"kind": "group",
-						"name": "Description_Regional",
-						"originalName": "Description-Regional",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 71,
-							"y": 928,
-							"width": 1768,
-							"height": 118
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-<<<<<<< HEAD
-						"children": [
-							{
-								"objectId": "FE03B012-2F53-49C8-802E-93069E12BF62",
-								"kind": "group",
-								"name": "Description3",
-								"originalName": "Description",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 71,
-									"y": 928,
-									"width": 1768,
-									"height": 118
-								},
-								"visible": true,
-								"metadata": {
-									"opacity": 1
-								},
-								"image": {
-									"path": "images/Layer-Description-rkuwm0iw.png",
-									"frame": {
-										"x": 71,
-										"y": 928,
-										"width": 1768,
-										"height": 118
-									}
-								},
-								"children": []
-							}
-						]
-					},
-					{
-						"objectId": "CC25CA20-5253-4C3F-A847-9711DDB88F33",
-						"kind": "group",
-						"name": "Title_Virtual",
-						"originalName": "Title-Virtual",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 71,
-							"y": 57,
-							"width": 278,
-							"height": 108
-=======
-						"image": {
-							"path": "images/Layer-Trend-njgynthe.png",
-							"frame": {
-								"x": 1422,
-								"y": 99,
-								"width": 401,
-								"height": 134
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "758BFCEF-127E-48F6-A1EE-55DE11AAE325",
-				"kind": "group",
-				"name": "Group",
-				"originalName": "Group",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -100,
-					"y": -100,
-					"width": 2123,
-					"height": 1240
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "E0FCF0E7-28B2-4E6B-9506-2155EBE11430",
-						"kind": "group",
-						"name": "Description_Robotic",
-						"originalName": "Description-Robotic",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 72,
-							"y": 928,
-							"width": 1768,
-							"height": 118
->>>>>>> frontend-merge
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-<<<<<<< HEAD
-						"image": {
-							"path": "images/Layer-Title_Virtual-q0mynunb.png",
-							"frame": {
-								"x": 71,
-								"y": 57,
-								"width": 278,
-								"height": 108
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "613CD0A8-E702-4C7D-A20F-23F7F7159435",
-						"kind": "group",
-						"name": "Title_Robotic",
-						"originalName": "Title-Robotic",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 73,
-							"y": 57,
-							"width": 321,
-=======
-						"children": [
-							{
-								"objectId": "468CEAEB-44ED-482A-8B43-F4C20DDCC9EB",
-								"kind": "group",
-								"name": "Description",
-								"originalName": "Description",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 72,
-									"y": 928,
-									"width": 1768,
-									"height": 118
-								},
-								"visible": true,
-								"metadata": {
-									"opacity": 1
-								},
-								"image": {
-									"path": "images/Layer-Description-ndy4q0vb.png",
-									"frame": {
-										"x": 72,
-										"y": 928,
-										"width": 1768,
-										"height": 118
-									}
-								},
-								"children": []
-							}
-						]
-					},
 					{
 						"objectId": "283E2FB5-5BA0-4365-A1C3-18DF51B193F8",
 						"kind": "group",
@@ -612,7 +358,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							"x": 71,
 							"y": 57,
 							"width": 278,
->>>>>>> frontend-merge
 							"height": 108
 						},
 						"visible": true,
@@ -620,45 +365,26 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							"opacity": 1
 						},
 						"image": {
-<<<<<<< HEAD
-							"path": "images/Layer-Title_Robotic-njezq0qw.png",
-							"frame": {
-								"x": 73,
-								"y": 57,
-								"width": 321,
-=======
 							"path": "images/Layer-Title_Virtual-q0mynunb.png",
 							"frame": {
 								"x": 71,
 								"y": 57,
 								"width": 278,
->>>>>>> frontend-merge
 								"height": 108
 							}
 						},
 						"children": []
 					},
 					{
-<<<<<<< HEAD
-						"objectId": "E6A4A7FA-81E5-4BEC-9EE3-713C0CCB26ED",
-						"kind": "group",
-						"name": "Title_Fortress",
-						"originalName": "Title-Fortress",
-=======
 						"objectId": "613CD0A8-E702-4C7D-A20F-23F7F7159435",
 						"kind": "group",
 						"name": "Title_Robotic",
 						"originalName": "Title-Robotic",
->>>>>>> frontend-merge
 						"maskFrame": null,
 						"layerFrame": {
 							"x": 73,
 							"y": 57,
-<<<<<<< HEAD
-							"width": 235,
-=======
 							"width": 321,
->>>>>>> frontend-merge
 							"height": 108
 						},
 						"visible": true,
@@ -666,45 +392,26 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							"opacity": 1
 						},
 						"image": {
-<<<<<<< HEAD
-							"path": "images/Layer-Title_Fortress-rtzbnee3.png",
-							"frame": {
-								"x": 73,
-								"y": 57,
-								"width": 235,
-=======
 							"path": "images/Layer-Title_Robotic-njezq0qw.png",
 							"frame": {
 								"x": 73,
 								"y": 57,
 								"width": 321,
->>>>>>> frontend-merge
 								"height": 108
 							}
 						},
 						"children": []
 					},
 					{
-<<<<<<< HEAD
-						"objectId": "EB036C22-9C69-4365-8DE5-F7B359A43A14",
-						"kind": "group",
-						"name": "Title_Regional",
-						"originalName": "Title-Regional",
-=======
 						"objectId": "E6A4A7FA-81E5-4BEC-9EE3-713C0CCB26ED",
 						"kind": "group",
 						"name": "Title_Fortress",
 						"originalName": "Title-Fortress",
->>>>>>> frontend-merge
 						"maskFrame": null,
 						"layerFrame": {
 							"x": 73,
 							"y": 57,
-<<<<<<< HEAD
-							"width": 291,
-=======
 							"width": 235,
->>>>>>> frontend-merge
 							"height": 108
 						},
 						"visible": true,
@@ -712,12 +419,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							"opacity": 1
 						},
 						"image": {
-<<<<<<< HEAD
-							"path": "images/Layer-Title_Regional-ruiwmzzd.png",
-							"frame": {
-								"x": 73,
-								"y": 57,
-=======
 							"path": "images/Layer-Title_Fortress-rtzbnee3.png",
 							"frame": {
 								"x": 73,
@@ -749,7 +450,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							"frame": {
 								"x": 73,
 								"y": 57,
->>>>>>> frontend-merge
 								"width": 291,
 								"height": 108
 							}
@@ -796,23 +496,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 										"y": 0,
 										"width": 1923,
 										"height": 1082
-<<<<<<< HEAD
-									}
-								},
-								"children": []
-							},
-							{
-								"objectId": "F2719D80-BB4C-4B0C-AA33-B70DE413CE52",
-								"kind": "group",
-								"name": "City",
-								"originalName": "City",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": -100,
-									"y": -100,
-									"width": 2120,
-									"height": 1240
-=======
 									}
 								},
 								"children": []
@@ -874,17 +557,12 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 									"y": 0,
 									"width": 1923,
 									"height": 1082
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
 								"image": {
-<<<<<<< HEAD
-									"path": "images/Layer-City-rji3mtle.png",
-									"frame": {
-=======
 									"path": "images/Layer-Group_12-rdm1meiz.png",
 									"frame": {
 										"x": 0,
@@ -914,7 +592,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 								"image": {
 									"path": "images/Layer-City-rtgyndqy.png",
 									"frame": {
->>>>>>> frontend-merge
 										"x": -100,
 										"y": -100,
 										"width": 2120,
@@ -926,18 +603,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 						]
 					},
 					{
-<<<<<<< HEAD
-						"objectId": "9F1D73A8-4A40-462D-B3AE-5030EA805446",
-						"kind": "group",
-						"name": "City_Robotic",
-						"originalName": "City-Robotic",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": -100,
-							"y": -100,
-							"width": 2123,
-							"height": 1240
-=======
 						"objectId": "BFEF9054-F4C1-4C5B-A4D5-93B6C5EC0589",
 						"kind": "group",
 						"name": "City_Fortress",
@@ -948,7 +613,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							"y": -98,
 							"width": 2123,
 							"height": 1238
->>>>>>> frontend-merge
 						},
 						"visible": true,
 						"metadata": {
@@ -956,17 +620,10 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-<<<<<<< HEAD
-								"objectId": "D350B3D1-3F56-4AC2-9508-D1B89CAF6D44",
-								"kind": "group",
-								"name": "Group_12",
-								"originalName": "Group 12",
-=======
 								"objectId": "2D0DDA43-91FA-4577-8843-67DF85AEA315",
 								"kind": "group",
 								"name": "Group_11",
 								"originalName": "Group 11",
->>>>>>> frontend-merge
 								"maskFrame": null,
 								"layerFrame": {
 									"x": 0,
@@ -979,11 +636,7 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-<<<<<<< HEAD
-									"path": "images/Layer-Group_12-rdm1meiz.png",
-=======
 									"path": "images/Layer-Group_11-mkqwrerb.png",
->>>>>>> frontend-merge
 									"frame": {
 										"x": 0,
 										"y": 0,
@@ -994,49 +647,28 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-<<<<<<< HEAD
-								"objectId": "E8244281-E1AD-4CBC-97C1-16531BD7133F",
-								"kind": "group",
-								"name": "City1",
-=======
 								"objectId": "2C9B34FC-60DD-40EF-9D99-518D4B73D771",
 								"kind": "group",
 								"name": "City2",
->>>>>>> frontend-merge
 								"originalName": "City",
 								"maskFrame": null,
 								"layerFrame": {
 									"x": -100,
-<<<<<<< HEAD
-									"y": -100,
-									"width": 2120,
-									"height": 1240
-=======
 									"y": -98,
 									"width": 2120,
 									"height": 1238
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
 								"image": {
-<<<<<<< HEAD
-									"path": "images/Layer-City-rtgyndqy.png",
-									"frame": {
-										"x": -100,
-										"y": -100,
-										"width": 2120,
-										"height": 1240
-=======
 									"path": "images/Layer-City-mkm5qjm0.png",
 									"frame": {
 										"x": -100,
 										"y": -98,
 										"width": 2120,
 										"height": 1238
->>>>>>> frontend-merge
 									}
 								},
 								"children": []
@@ -1044,18 +676,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 						]
 					},
 					{
-<<<<<<< HEAD
-						"objectId": "BFEF9054-F4C1-4C5B-A4D5-93B6C5EC0589",
-						"kind": "group",
-						"name": "City_Fortress",
-						"originalName": "City-Fortress",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": -100,
-							"y": -98,
-							"width": 2123,
-							"height": 1238
-=======
 						"objectId": "2E1DF519-448D-41B8-9CEE-542B715614B5",
 						"kind": "group",
 						"name": "City_Regional",
@@ -1066,7 +686,6 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 							"y": -49,
 							"width": 2123,
 							"height": 1189
->>>>>>> frontend-merge
 						},
 						"visible": true,
 						"metadata": {
@@ -1074,17 +693,10 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-<<<<<<< HEAD
-								"objectId": "2D0DDA43-91FA-4577-8843-67DF85AEA315",
-								"kind": "group",
-								"name": "Group_11",
-								"originalName": "Group 11",
-=======
 								"objectId": "C67513D0-F92D-45F1-9B60-2820741CFCFB",
 								"kind": "group",
 								"name": "Group_10",
 								"originalName": "Group 10",
->>>>>>> frontend-merge
 								"maskFrame": null,
 								"layerFrame": {
 									"x": 0,
@@ -1097,11 +709,7 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 									"opacity": 1
 								},
 								"image": {
-<<<<<<< HEAD
-									"path": "images/Layer-Group_11-mkqwrerb.png",
-=======
 									"path": "images/Layer-Group_10-qzy3ntez.png",
->>>>>>> frontend-merge
 									"frame": {
 										"x": 0,
 										"y": 0,
@@ -1112,68 +720,33 @@ window.__imported__["Visual-Design-Screen-Framer@1x/layers.json.js"] = [
 								"children": []
 							},
 							{
-<<<<<<< HEAD
-								"objectId": "2C9B34FC-60DD-40EF-9D99-518D4B73D771",
-								"kind": "group",
-								"name": "City2",
-=======
 								"objectId": "BF074D78-AF16-444D-8184-A1295DD271AC",
 								"kind": "group",
 								"name": "City3",
->>>>>>> frontend-merge
 								"originalName": "City",
 								"maskFrame": null,
 								"layerFrame": {
 									"x": -100,
-<<<<<<< HEAD
-									"y": -98,
-									"width": 2120,
-									"height": 1238
-=======
 									"y": -49,
 									"width": 2120,
 									"height": 1189
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
 								"image": {
-<<<<<<< HEAD
-									"path": "images/Layer-City-mkm5qjm0.png",
-									"frame": {
-										"x": -100,
-										"y": -98,
-										"width": 2120,
-										"height": 1238
-=======
 									"path": "images/Layer-City-qkywnzre.png",
 									"frame": {
 										"x": -100,
 										"y": -49,
 										"width": 2120,
 										"height": 1189
->>>>>>> frontend-merge
 									}
 								},
 								"children": []
 							}
 						]
-<<<<<<< HEAD
-					},
-					{
-						"objectId": "2E1DF519-448D-41B8-9CEE-542B715614B5",
-						"kind": "group",
-						"name": "City_Regional",
-						"originalName": "City-Regional",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": -100,
-							"y": -49,
-							"width": 2123,
-							"height": 1189
-=======
 					}
 				]
 			}
@@ -1334,114 +907,11 @@ window.__imported__["Prepare for Framer2@1x/layers.json.js"] = [
 							"y": 610,
 							"width": 65,
 							"height": 140
->>>>>>> frontend-merge
 						},
 						"visible": true,
 						"metadata": {
 							"opacity": 1
 						},
-<<<<<<< HEAD
-						"children": [
-							{
-								"objectId": "C67513D0-F92D-45F1-9B60-2820741CFCFB",
-								"kind": "group",
-								"name": "Group_10",
-								"originalName": "Group 10",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 0,
-									"y": 0,
-									"width": 1923,
-									"height": 1082
-								},
-								"visible": true,
-								"metadata": {
-									"opacity": 1
-								},
-								"image": {
-									"path": "images/Layer-Group_10-qzy3ntez.png",
-									"frame": {
-										"x": 0,
-										"y": 0,
-										"width": 1923,
-										"height": 1082
-									}
-								},
-								"children": []
-							},
-							{
-								"objectId": "BF074D78-AF16-444D-8184-A1295DD271AC",
-								"kind": "group",
-								"name": "City3",
-								"originalName": "City",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": -100,
-									"y": -49,
-									"width": 2120,
-									"height": 1189
-								},
-								"visible": true,
-								"metadata": {
-									"opacity": 1
-								},
-								"image": {
-									"path": "images/Layer-City-qkywnzre.png",
-									"frame": {
-										"x": -100,
-										"y": -49,
-										"width": 2120,
-										"height": 1189
-									}
-								},
-								"children": []
-							}
-						]
-					}
-				]
-			}
-		]
-	}
-]
-window.__imported__ = window.__imported__ || {};
-window.__imported__["Wireframe-Screen-Framer@2x/layers.json.js"] = [
-	{
-		"objectId": "5DADAE6B-6898-4371-AD4B-1DA7862D4C50",
-		"kind": "artboard",
-		"name": "Wireframe_FINAL",
-		"originalName": "Wireframe FINAL",
-		"maskFrame": null,
-		"layerFrame": {
-			"x": 3300,
-			"y": 0,
-			"width": 4958,
-			"height": 2789
-		},
-		"visible": true,
-		"metadata": {},
-		"backgroundColor": "rgba(255, 255, 255, 1)",
-		"image": {
-			"path": "images/Layer-Wireframe_FINAL-nurbreff.png",
-			"frame": {
-				"x": 3300,
-				"y": 0,
-				"width": 4958,
-				"height": 2789
-			}
-		},
-		"children": [
-			{
-				"objectId": "266CD775-ED51-4EEA-B2BF-A1104EA0F740",
-				"kind": "group",
-				"name": "Group_3",
-				"originalName": "Group 3",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": -443,
-					"width": 4958,
-					"height": 3297
-=======
 						"image": {
 							"path": "images/Layer-dia1Umwelt-rufcquyw.png",
 							"frame": {
@@ -1466,35 +936,11 @@ window.__imported__["Wireframe-Screen-Framer@2x/layers.json.js"] = [
 					"y": 403,
 					"width": 282,
 					"height": 282
->>>>>>> frontend-merge
 				},
 				"visible": true,
 				"metadata": {
 					"opacity": 1
 				},
-<<<<<<< HEAD
-				"image": {
-					"path": "images/Layer-Group_3-mjy2q0q3.png",
-					"frame": {
-						"x": 0,
-						"y": -443,
-						"width": 4958,
-						"height": 3297
-					}
-				},
-				"children": [
-					{
-						"objectId": "3F8B94F9-14F2-4625-AE0B-6CC445648A19",
-						"kind": "group",
-						"name": "Group_2",
-						"originalName": "Group 2",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 0,
-							"y": -443,
-							"width": 4958,
-							"height": 3297
-=======
 				"children": [
 					{
 						"objectId": "47A0A4EF-CD1C-4D5E-83F5-E2306E974CD8",
@@ -1661,35 +1107,12 @@ window.__imported__["Wireframe-Screen-Framer@2x/layers.json.js"] = [
 							"y": 297,
 							"width": 489,
 							"height": 489
->>>>>>> frontend-merge
 						},
 						"visible": true,
 						"metadata": {
 							"opacity": 1
 						},
 						"image": {
-<<<<<<< HEAD
-							"path": "images/Layer-Group_2-m0y4qjk0.png",
-							"frame": {
-								"x": 0,
-								"y": -443,
-								"width": 4958,
-								"height": 3297
-							}
-						},
-						"children": [
-							{
-								"objectId": "14F9F0CB-AD15-4A73-A928-B4A85226066A",
-								"kind": "group",
-								"name": "Group",
-								"originalName": "Group",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 0,
-									"y": -443,
-									"width": 4954,
-									"height": 3297
-=======
 							"path": "images/Layer-dia1Center-otzfnki3.png",
 							"frame": {
 								"x": 715,
@@ -2398,988 +1821,11 @@ window.__imported__["Wireframe-Screen-Framer@2x/layers.json.js"] = [
 									"y": 401,
 									"width": 450,
 									"height": 503
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
-<<<<<<< HEAD
-								"image": {
-									"path": "images/Layer-Group-mtrgouyw.png",
-									"frame": {
-										"x": 0,
-										"y": -443,
-										"width": 4954,
-										"height": 3297
-									}
-								},
-								"children": []
-							}
-						]
-					}
-				]
-			}
-		]
-	}
-]
-window.__imported__ = window.__imported__ || {};
-window.__imported__["Wireframe-Screen-Framer@1x/layers.json.js"] = [
-	{
-		"objectId": "373B150F-1D6F-4AFE-AC33-99956676FB47",
-		"kind": "artboard",
-		"name": "MyWire",
-		"originalName": "MyWire",
-		"maskFrame": null,
-		"layerFrame": {
-			"x": 0,
-			"y": 0,
-			"width": 1920,
-			"height": 1080
-		},
-		"visible": true,
-		"metadata": {},
-		"backgroundColor": "rgba(255, 255, 255, 1)",
-		"children": [
-			{
-				"objectId": "44C335F4-B549-4BEB-8F2E-9C7CEFC1D2A0",
-				"kind": "group",
-				"name": "ActiveDot",
-				"originalName": "ActiveDot",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 1820,
-					"y": 50,
-					"width": 15,
-					"height": 15
-				},
-				"visible": false,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-ActiveDot-ndrdmzm1.png",
-					"frame": {
-						"x": 1820,
-						"y": 50,
-						"width": 15,
-						"height": 15
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "1703F805-D5FB-4E3D-BB5E-DA0FD0E40489",
-				"kind": "group",
-				"name": "Trends",
-				"originalName": "Trends",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 1422,
-					"y": 99,
-					"width": 401,
-					"height": 134
-				},
-				"visible": false,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "D2B79CA8-4995-46F1-8F48-F0882035D680",
-						"kind": "group",
-						"name": "Trend",
-						"originalName": "Trend",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1422,
-							"y": 99,
-							"width": 401,
-							"height": 134
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Trend-rdjcnzld.png",
-							"frame": {
-								"x": 1422,
-								"y": 99,
-								"width": 401,
-								"height": 134
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "05216081-BB1B-4609-BC7C-51F70262B33D",
-						"kind": "group",
-						"name": "Trend1",
-						"originalName": "Trend",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1422,
-							"y": 99,
-							"width": 401,
-							"height": 134
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Trend-mduymtyw.png",
-							"frame": {
-								"x": 1422,
-								"y": 99,
-								"width": 401,
-								"height": 134
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "68258D1C-C1FC-453E-9D1E-C2831FF7074D",
-						"kind": "group",
-						"name": "Trend2",
-						"originalName": "Trend",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1422,
-							"y": 99,
-							"width": 401,
-							"height": 134
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Trend-njgynthe.png",
-							"frame": {
-								"x": 1422,
-								"y": 99,
-								"width": 401,
-								"height": 134
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "DAD9EED2-E6B4-4DC3-95A8-FCB5D08015B8",
-				"kind": "group",
-				"name": "Description_Virtual",
-				"originalName": "Description-Virtual",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 79,
-					"y": 891,
-					"width": 1754,
-					"height": 140
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "7D4F680E-CF69-4BAD-89A9-695A23EEACF9",
-						"kind": "group",
-						"name": "Description",
-						"originalName": "Description",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 79,
-							"y": 891,
-							"width": 1754,
-							"height": 140
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Description-n0q0rjy4.png",
-							"frame": {
-								"x": 79,
-								"y": 891,
-								"width": 1754,
-								"height": 140
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "B3763CBE-3764-4C56-BE12-3341F7E0B281",
-				"kind": "group",
-				"name": "Description_Robotic",
-				"originalName": "Description-Robotic",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 79,
-					"y": 891,
-					"width": 1754,
-					"height": 140
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "B0E5CCAC-21C9-45C2-B5D3-6916AFB502FD",
-						"kind": "group",
-						"name": "Description1",
-						"originalName": "Description",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 79,
-							"y": 891,
-							"width": 1754,
-							"height": 140
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Description-qjbfnund.png",
-							"frame": {
-								"x": 79,
-								"y": 891,
-								"width": 1754,
-								"height": 140
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "D2BBD35D-841E-44A0-A427-2F2208297D4B",
-				"kind": "group",
-				"name": "Description_Fortress",
-				"originalName": "Description-Fortress",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 79,
-					"y": 891,
-					"width": 1754,
-					"height": 140
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "E68A1E44-3479-4CE6-8234-A383314FA0A8",
-						"kind": "group",
-						"name": "Description2",
-						"originalName": "Description",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 79,
-							"y": 891,
-							"width": 1754,
-							"height": 140
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Description-rty4qtff.png",
-							"frame": {
-								"x": 79,
-								"y": 891,
-								"width": 1754,
-								"height": 140
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "60E2859A-DE47-4928-A346-DA65A2FA90D2",
-				"kind": "group",
-				"name": "Description_Regional",
-				"originalName": "Description-Regional",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 79,
-					"y": 891,
-					"width": 1754,
-					"height": 140
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "1E59CEFD-8A20-4BAC-8D28-A66D705422D8",
-						"kind": "group",
-						"name": "Description3",
-						"originalName": "Description",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 79,
-							"y": 891,
-							"width": 1754,
-							"height": 140
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Description-muu1ounf.png",
-							"frame": {
-								"x": 79,
-								"y": 891,
-								"width": 1754,
-								"height": 140
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "CC25CA20-5253-4C3F-A847-9711DDB88F33",
-				"kind": "group",
-				"name": "Title_Virtual",
-				"originalName": "Title-Virtual",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 79,
-					"y": 58,
-					"width": 355,
-					"height": 177
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-Title_Virtual-q0mynunb.png",
-					"frame": {
-						"x": 79,
-						"y": 58,
-						"width": 355,
-						"height": 177
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "613CD0A8-E702-4C7D-A20F-23F7F7159435",
-				"kind": "group",
-				"name": "Title_Robotic",
-				"originalName": "Title-Robotic",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 80,
-					"y": 58,
-					"width": 440,
-					"height": 177
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-Title_Robotic-njezq0qw.png",
-					"frame": {
-						"x": 80,
-						"y": 58,
-						"width": 440,
-						"height": 177
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "E6A4A7FA-81E5-4BEC-9EE3-713C0CCB26ED",
-				"kind": "group",
-				"name": "Title_Fortress",
-				"originalName": "Title-Fortress",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 80,
-					"y": 58,
-					"width": 356,
-					"height": 177
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-Title_Fortress-rtzbnee3.png",
-					"frame": {
-						"x": 80,
-						"y": 58,
-						"width": 356,
-						"height": 177
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "EB036C22-9C69-4365-8DE5-F7B359A43A14",
-				"kind": "group",
-				"name": "Title_Regional",
-				"originalName": "Title-Regional",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 80,
-					"y": 58,
-					"width": 404,
-					"height": 177
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-Title_Regional-ruiwmzzd.png",
-					"frame": {
-						"x": 80,
-						"y": 58,
-						"width": 404,
-						"height": 177
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "C7025323-3650-44FC-84DD-A497DAEB54F0",
-				"kind": "group",
-				"name": "City_Virtual",
-				"originalName": "City-Virtual",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -381,
-					"y": -13,
-					"width": 2699,
-					"height": 1238
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-City_Virtual-qzcwmjuz.png",
-					"frame": {
-						"x": -381,
-						"y": -13,
-						"width": 2699,
-						"height": 1238
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "9F1D73A8-4A40-462D-B3AE-5030EA805446",
-				"kind": "group",
-				"name": "City_Robotic",
-				"originalName": "City-Robotic",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -209,
-					"y": 49,
-					"width": 2356,
-					"height": 1081
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-City_Robotic-ouyxrdcz.png",
-					"frame": {
-						"x": -209,
-						"y": 49,
-						"width": 2356,
-						"height": 1081
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "BFEF9054-F4C1-4C5B-A4D5-93B6C5EC0589",
-				"kind": "group",
-				"name": "City_Fortress",
-				"originalName": "City-Fortress",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -234,
-					"y": -13,
-					"width": 2172,
-					"height": 1103
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-City_Fortress-qkzfrjkw.png",
-					"frame": {
-						"x": -234,
-						"y": -13,
-						"width": 2172,
-						"height": 1103
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "2E1DF519-448D-41B8-9CEE-542B715614B5",
-				"kind": "group",
-				"name": "City_Regional",
-				"originalName": "City-Regional",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": 57,
-					"width": 1938,
-					"height": 1033
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-City_Regional-mkuxrey1.png",
-					"frame": {
-						"x": 0,
-						"y": 57,
-						"width": 1938,
-						"height": 1033
-					}
-				},
-				"children": []
-			}
-		]
-	}
-]
-window.__imported__ = window.__imported__ || {};
-window.__imported__["framer@2x/layers.json.js"] = [
-	{
-		"objectId": "FB8C7E53-26A7-4AEB-AD0A-275C66A65CB2",
-		"kind": "artboard",
-		"name": "channels",
-		"originalName": "channels",
-		"maskFrame": null,
-		"layerFrame": {
-			"x": 358,
-			"y": 69,
-			"width": 375,
-			"height": 1139
-		},
-		"visible": true,
-		"metadata": {},
-		"backgroundColor": "rgba(242, 242, 242, 1)",
-		"children": [
-			{
-				"objectId": "4EAC5455-EB22-446E-9D9D-723C9EE51341",
-				"kind": "group",
-				"name": "tabbar",
-				"originalName": "tabbar*",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -13,
-					"y": 600,
-					"width": 401,
-					"height": 75
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-tabbar-nevbqzu0.png",
-					"frame": {
-						"x": -13,
-						"y": 600,
-						"width": 401,
-						"height": 75
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "B482754A-8B22-4DAF-B580-FC5713A6E409",
-				"kind": "group",
-				"name": "statusbar",
-				"originalName": "statusbar*",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 6,
-					"y": 3,
-					"width": 364,
-					"height": 14
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-statusbar-qjq4mjc1.png",
-					"frame": {
-						"x": 6,
-						"y": 3,
-						"width": 364,
-						"height": 14
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "56ED4468-B86A-49D1-92F8-2DDFC68F751A",
-				"kind": "group",
-				"name": "navbar",
-				"originalName": "navbar",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -2,
-					"y": 0,
-					"width": 379,
-					"height": 68
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "D9CC627D-50F9-4E8C-BA12-EF978A824926",
-						"kind": "group",
-						"name": "filteractive",
-						"originalName": "filteractive",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 14,
-							"y": 35,
-							"width": 18,
-							"height": 14
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-filteractive-rdldqzyy.png",
-							"frame": {
-								"x": 14,
-								"y": 35,
-								"width": 18,
-								"height": 14
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "6640AB4E-6160-412A-A4B1-483583EF4FA5",
-						"kind": "group",
-						"name": "filter1",
-						"originalName": "filter",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 14,
-							"y": 35,
-							"width": 18,
-							"height": 14
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-filter-njy0mefc.png",
-							"frame": {
-								"x": 14,
-								"y": 35,
-								"width": 18,
-								"height": 14
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "AA72F3B9-3B17-43BB-BFF2-4EC4D7A52B07",
-						"kind": "group",
-						"name": "assets",
-						"originalName": "assets",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": -2,
-							"y": 0,
-							"width": 379,
-							"height": 68
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-assets-que3mkyz.png",
-							"frame": {
-								"x": -2,
-								"y": 0,
-								"width": 379,
-								"height": 68
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "3B589008-8F29-49A3-8E34-1A993D5EC931",
-				"kind": "group",
-				"name": "filter",
-				"originalName": "filter*",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -3,
-					"y": 63,
-					"width": 381,
-					"height": 38
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-filter-m0i1odkw.png",
-					"frame": {
-						"x": -3,
-						"y": 63,
-						"width": 381,
-						"height": 38
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "DFCB42DD-8BD8-4985-8ED8-DA2656682087",
-				"kind": "group",
-				"name": "discussions",
-				"originalName": "discussions*",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": 0,
-					"width": 390,
-					"height": 889
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-discussions-rezdqjqy.jpg",
-					"frame": {
-						"x": 0,
-						"y": 0,
-						"width": 390,
-						"height": 889
-					}
-				},
-				"children": []
-			}
-		]
-	}
-]
-window.__imported__ = window.__imported__ || {};
-window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
-	{
-		"objectId": "373B150F-1D6F-4AFE-AC33-99956676FB47",
-		"kind": "artboard",
-		"name": "MyWire",
-		"originalName": "MyWire",
-		"maskFrame": null,
-		"layerFrame": {
-			"x": 0,
-			"y": 0,
-			"width": 1920,
-			"height": 1080
-		},
-		"visible": true,
-		"metadata": {},
-		"backgroundColor": "rgba(255, 255, 255, 1)",
-		"children": [
-			{
-				"objectId": "44C335F4-B549-4BEB-8F2E-9C7CEFC1D2A0",
-				"kind": "group",
-				"name": "inActiveDot",
-				"originalName": "inActiveDot",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 1435,
-					"y": 50,
-					"width": 400,
-					"height": 15
-				},
-				"visible": false,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-inActiveDot-ndrdmzm1.png",
-					"frame": {
-						"x": 1435,
-						"y": 50,
-						"width": 400,
-						"height": 15
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "1703F805-D5FB-4E3D-BB5E-DA0FD0E40489",
-				"kind": "group",
-				"name": "Trends",
-				"originalName": "Trends",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 1422,
-					"y": 99,
-					"width": 401,
-					"height": 134
-				},
-				"visible": false,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "D2B79CA8-4995-46F1-8F48-F0882035D680",
-						"kind": "group",
-						"name": "Trend",
-						"originalName": "Trend",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1422,
-							"y": 99,
-							"width": 401,
-							"height": 134
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Trend-rdjcnzld.png",
-							"frame": {
-								"x": 1422,
-								"y": 99,
-								"width": 401,
-								"height": 134
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "05216081-BB1B-4609-BC7C-51F70262B33D",
-						"kind": "group",
-						"name": "Trend1",
-						"originalName": "Trend",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1422,
-							"y": 99,
-							"width": 401,
-							"height": 134
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Trend-mduymtyw.png",
-							"frame": {
-								"x": 1422,
-								"y": 99,
-								"width": 401,
-								"height": 134
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "68258D1C-C1FC-453E-9D1E-C2831FF7074D",
-						"kind": "group",
-						"name": "Trend2",
-						"originalName": "Trend",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 1422,
-							"y": 99,
-							"width": 401,
-							"height": 134
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Trend-njgynthe.png",
-							"frame": {
-								"x": 1422,
-								"y": 99,
-								"width": 401,
-								"height": 134
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "758BFCEF-127E-48F6-A1EE-55DE11AAE325",
-				"kind": "group",
-				"name": "Group",
-				"originalName": "Group",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": -295,
-					"width": 1927,
-					"height": 1540
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "E0FCF0E7-28B2-4E6B-9506-2155EBE11430",
-						"kind": "group",
-						"name": "Description_Robotic",
-						"originalName": "Description-Robotic",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 72,
-							"y": 928,
-							"width": 1768,
-							"height": 118
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"children": [
-=======
 								"children": [
 									{
 										"objectId": "97BA90EA-7DAC-4296-9D8E-904B52FDC80A",
@@ -3545,7 +1991,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									}
 								]
 							},
->>>>>>> frontend-merge
 							{
 								"objectId": "4E2B24B6-56CD-4DE5-87AA-C56E1891247C",
 								"kind": "group",
@@ -4124,146 +2569,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 								"metadata": {
 									"opacity": 1
 								},
-<<<<<<< HEAD
-								"image": {
-									"path": "images/Layer-Description-rkuwm0iw.png",
-									"frame": {
-										"x": 71,
-										"y": 928,
-										"width": 1768,
-										"height": 118
-									}
-								},
-								"children": []
-							}
-						]
-					},
-					{
-						"objectId": "CC25CA20-5253-4C3F-A847-9711DDB88F33",
-						"kind": "group",
-						"name": "Title_Virtual",
-						"originalName": "Title-Virtual",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 71,
-							"y": 57,
-							"width": 278,
-							"height": 108
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Title_Virtual-q0mynunb.png",
-							"frame": {
-								"x": 71,
-								"y": 57,
-								"width": 278,
-								"height": 108
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "613CD0A8-E702-4C7D-A20F-23F7F7159435",
-						"kind": "group",
-						"name": "Title_Robotic",
-						"originalName": "Title-Robotic",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 73,
-							"y": 57,
-							"width": 321,
-							"height": 108
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Title_Robotic-njezq0qw.png",
-							"frame": {
-								"x": 73,
-								"y": 57,
-								"width": 321,
-								"height": 108
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "E6A4A7FA-81E5-4BEC-9EE3-713C0CCB26ED",
-						"kind": "group",
-						"name": "Title_Fortress",
-						"originalName": "Title-Fortress",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 73,
-							"y": 57,
-							"width": 235,
-							"height": 108
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Title_Fortress-rtzbnee3.png",
-							"frame": {
-								"x": 73,
-								"y": 57,
-								"width": 235,
-								"height": 108
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "EB036C22-9C69-4365-8DE5-F7B359A43A14",
-						"kind": "group",
-						"name": "Title_Regional",
-						"originalName": "Title-Regional",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 73,
-							"y": 57,
-							"width": 291,
-							"height": 108
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Title_Regional-ruiwmzzd.png",
-							"frame": {
-								"x": 73,
-								"y": 57,
-								"width": 291,
-								"height": 108
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "C7025323-3650-44FC-84DD-A497DAEB54F0",
-						"kind": "group",
-						"name": "City_Virtual",
-						"originalName": "City-Virtual",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 0,
-							"y": -295,
-							"width": 1927,
-							"height": 1540
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"children": [
-=======
 								"children": [
 									{
 										"objectId": "8B0A6085-F402-4567-AA22-5BEA5227A76C",
@@ -4429,7 +2734,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									}
 								]
 							},
->>>>>>> frontend-merge
 							{
 								"objectId": "3AB782F2-46DF-4BDB-A025-4B1D1F426AFD",
 								"kind": "group",
@@ -4612,18 +2916,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 								]
 							},
 							{
-<<<<<<< HEAD
-								"objectId": "D9626491-D600-42CF-B1BF-EA584D298C09",
-								"kind": "group",
-								"name": "Group_9",
-								"originalName": "Group 9",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 0,
-									"y": -295,
-									"width": 1927,
-									"height": 1540
-=======
 								"objectId": "47E76D4A-0D0D-468A-8F08-C865A74E8A84",
 								"kind": "group",
 								"name": "diaMiddleWohnen",
@@ -4634,35 +2926,11 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									"y": 90,
 									"width": 428,
 									"height": 450
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
-<<<<<<< HEAD
-								"image": {
-									"path": "images/Layer-Group_9-rdk2mjy0.png",
-									"frame": {
-										"x": 0,
-										"y": -295,
-										"width": 1927,
-										"height": 1540
-									}
-								},
-								"children": [
-									{
-										"objectId": "8FB29D84-413C-40B8-A211-439DEC8A4170",
-										"kind": "group",
-										"name": "Group1",
-										"originalName": "Group",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1451,
-											"y": 510,
-											"width": 267,
-											"height": 525
-=======
 								"children": [
 									{
 										"objectId": "0E695F18-EA85-474F-ABB4-E93E2A14D051",
@@ -4675,45 +2943,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group-oezcmjle.png",
-											"frame": {
-												"x": 1451,
-												"y": 510,
-												"width": 267,
-												"height": 525
-=======
 											"path": "images/Layer-dia1MiddleWohnen-meu2otvg.png",
 											"frame": {
 												"x": 532,
 												"y": 90,
 												"width": 428,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "88F7A471-4329-4B53-9FD7-4DADFC60AD43",
-										"kind": "group",
-										"name": "Group_6",
-										"originalName": "Group 6",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1546,
-											"y": -80,
-											"width": 302,
-											"height": 394
-=======
 										"objectId": "8875487B-F4DD-462E-8163-148B220FE9BC",
 										"kind": "group",
 										"name": "dia2MiddleWohnen",
@@ -4724,83 +2970,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_6-odhgn0e0.png",
-											"frame": {
-												"x": 1546,
-												"y": -80,
-												"width": 302,
-												"height": 394
-											}
-										},
-										"children": [
-											{
-												"objectId": "4FFA9674-706D-4B18-B7EF-74C10F8A2051",
-												"kind": "group",
-												"name": "Group_5_Copy",
-												"originalName": "Group 5 Copy",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1546.096333333333,
-													"y": -80.43451143451102,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"children": [
-													{
-														"objectId": "382AB745-B9F7-40E7-80BC-A609B5CA974F",
-														"kind": "group",
-														"name": "Group_3",
-														"originalName": "Group 3",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1546.096333333333,
-															"y": -80.43451143451102,
-															"width": 301,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_3-mzgyqui3.png",
-															"frame": {
-																"x": 1546.096333333333,
-																"y": -80.43451143451102,
-																"width": 301,
-																"height": 231
-															}
-														},
-														"children": []
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "5BDEF748-8784-41FA-A5DF-72F006B14DAA",
-										"kind": "group",
-										"name": "Group_8",
-										"originalName": "Group 8",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1380,
-											"y": -154,
-											"width": 302,
-											"height": 412
-=======
 											"path": "images/Layer-dia2MiddleWohnen-odg3ntq4.png",
 											"frame": {
 												"x": 532,
@@ -4822,120 +2997,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_8-nujeruy3.png",
-											"frame": {
-												"x": 1380,
-												"y": -154,
-												"width": 302,
-												"height": 412
-											}
-										},
-										"children": [
-											{
-												"objectId": "824D1C0D-04DB-4083-85C5-4746B940A6E6",
-												"kind": "group",
-												"name": "Group_7",
-												"originalName": "Group 7",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1380.3743333333332,
-													"y": -154.31185031185032,
-													"width": 302,
-													"height": 412
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_7-odi0rdfd.png",
-													"frame": {
-														"x": 1380.3743333333332,
-														"y": -154.31185031185032,
-														"width": 302,
-														"height": 412
-													}
-												},
-												"children": [
-													{
-														"objectId": "10910165-83A7-4D20-9D88-F51EF2345689",
-														"kind": "group",
-														"name": "Group_5_Copy_2",
-														"originalName": "Group 5 Copy 2",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1380.3743333333332,
-															"y": -154.31185031185032,
-															"width": 302,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_5_Copy_2-mta5mtax.png",
-															"frame": {
-																"x": 1380.3743333333332,
-																"y": -154.31185031185032,
-																"width": 302,
-																"height": 231
-															}
-														},
-														"children": [
-															{
-																"objectId": "2758F8A0-5024-4B4B-A3B8-737D3287CB75",
-																"kind": "group",
-																"name": "Group_31",
-																"originalName": "Group 3",
-																"maskFrame": null,
-																"layerFrame": {
-																	"x": 1380.3743333333332,
-																	"y": -154.31185031185032,
-																	"width": 301,
-																	"height": 231
-																},
-																"visible": true,
-																"metadata": {
-																	"opacity": 1
-																},
-																"image": {
-																	"path": "images/Layer-Group_3-mjc1oey4.png",
-																	"frame": {
-																		"x": 1380.3743333333332,
-																		"y": -154.31185031185032,
-																		"width": 301,
-																		"height": 231
-																	}
-																},
-																"children": []
-															}
-														]
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "ADD74410-D0C1-4ABD-BB52-01B8AD16A874",
-										"kind": "group",
-										"name": "Group_4",
-										"originalName": "Group 4",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 489,
-											"y": 204,
-											"width": 302,
-											"height": 525
-=======
 											"path": "images/Layer-dia3MiddleWohnen-qzg0menf.png",
 											"frame": {
 												"x": 532,
@@ -4957,45 +3024,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_4-qurenzq0.png",
-											"frame": {
-												"x": 489,
-												"y": 204,
-												"width": 302,
-												"height": 525
-=======
 											"path": "images/Layer-dia4MiddleWohnen-qkfbmtdg.png",
 											"frame": {
 												"x": 532,
 												"y": 90,
 												"width": 428,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "1AA6DADE-22E0-456D-8837-EADB59EA363F",
-										"kind": "group",
-										"name": "Group_2",
-										"originalName": "Group 2",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 716,
-											"y": 415,
-											"width": 302,
-											"height": 231
-=======
 										"objectId": "385BB8E9-B767-499A-84F3-DC28D2CFD147",
 										"kind": "group",
 										"name": "dia5MiddleWohnen",
@@ -5006,47 +3051,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_2-mufbnkrb.png",
-											"frame": {
-												"x": 716,
-												"y": 415,
-												"width": 302,
-												"height": 231
-=======
 											"path": "images/Layer-dia5MiddleWohnen-mzg1qki4.png",
 											"frame": {
 												"x": 532,
 												"y": 90,
 												"width": 428,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "67AFD98B-424D-47CC-B658-106A0633E73A",
-										"kind": "group",
-										"name": "Group_5",
-										"originalName": "Group 5",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1171,
-											"y": 264,
-											"width": 302,
-											"height": 231
-										},
-										"visible": true,
-=======
 										"objectId": "8660D874-1F35-4992-8665-EBB09F99F173",
 										"kind": "group",
 										"name": "diaInnerBildungCanvas3",
@@ -5059,50 +3080,10 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"height": 1281
 										},
 										"visible": false,
->>>>>>> frontend-merge
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_5-njdbrkq5.png",
-											"frame": {
-												"x": 1171,
-												"y": 264,
-												"width": 302,
-												"height": 231
-											}
-										},
-										"children": [
-											{
-												"objectId": "781FCF0D-7357-4F02-BA28-6A489F751FD0",
-												"kind": "group",
-												"name": "Group_32",
-												"originalName": "Group 3",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1170.9736666666668,
-													"y": 263.898128898129,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_3-nzgxrkng.png",
-													"frame": {
-														"x": 1170.9736666666668,
-														"y": 263.898128898129,
-														"width": 301,
-														"height": 231
-													}
-												},
-												"children": []
-											}
-										]
-=======
 											"path": "images/Layer-diaInnerBildungCanvas-ody2meq4.png",
 											"frame": {
 												"x": 320,
@@ -5112,7 +3093,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											}
 										},
 										"children": []
->>>>>>> frontend-merge
 									}
 								]
 							}
@@ -5125,17 +3105,10 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 						"originalName": "diaOuter",
 						"maskFrame": null,
 						"layerFrame": {
-<<<<<<< HEAD
-							"x": 0,
-							"y": -295,
-							"width": 1927,
-							"height": 1540
-=======
 							"x": 510,
 							"y": 90,
 							"width": 901,
 							"height": 900
->>>>>>> frontend-merge
 						},
 						"visible": true,
 						"metadata": {
@@ -5143,45 +3116,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 						},
 						"children": [
 							{
-<<<<<<< HEAD
-								"objectId": "D350B3D1-3F56-4AC2-9508-D1B89CAF6D44",
-								"kind": "group",
-								"name": "Group_12",
-								"originalName": "Group 12",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 0,
-									"y": 0,
-									"width": 1923,
-									"height": 1082
-								},
-								"visible": true,
-								"metadata": {
-									"opacity": 1
-								},
-								"image": {
-									"path": "images/Layer-Group_12-rdm1meiz.png",
-									"frame": {
-										"x": 0,
-										"y": 0,
-										"width": 1923,
-										"height": 1082
-									}
-								},
-								"children": []
-							},
-							{
-								"objectId": "3DB1F3E2-3931-45E5-976B-927D2A2274CB",
-								"kind": "group",
-								"name": "Group_91",
-								"originalName": "Group 9",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 0,
-									"y": -295,
-									"width": 1927,
-									"height": 1540
-=======
 								"objectId": "D8536EDE-9C25-41D4-8F66-051E7E799B93",
 								"kind": "group",
 								"name": "diaOuterArbeit",
@@ -5192,35 +3126,11 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									"y": 90,
 									"width": 429,
 									"height": 450
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
-<<<<<<< HEAD
-								"image": {
-									"path": "images/Layer-Group_9-m0rcmuyz.png",
-									"frame": {
-										"x": 0,
-										"y": -295,
-										"width": 1927,
-										"height": 1540
-									}
-								},
-								"children": [
-									{
-										"objectId": "ED6C8765-0C9E-426C-8D0A-601DE41C429C",
-										"kind": "group",
-										"name": "Group2",
-										"originalName": "Group",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1451,
-											"y": 510,
-											"width": 267,
-											"height": 525
-=======
 								"children": [
 									{
 										"objectId": "00947B8C-DC6B-45EA-AFAC-9C30BE2587A2",
@@ -5233,45 +3143,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 89.9999999999999,
 											"width": 429,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group-ruq2qzg3.png",
-											"frame": {
-												"x": 1451,
-												"y": 510,
-												"width": 267,
-												"height": 525
-=======
 											"path": "images/Layer-dia1OuterArbeit-mda5nddc.png",
 											"frame": {
 												"x": 959,
 												"y": 89.9999999999999,
 												"width": 429,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "7676305B-2868-41B0-8D5E-70D13AE6D521",
-										"kind": "group",
-										"name": "Group_61",
-										"originalName": "Group 6",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1546,
-											"y": -80,
-											"width": 302,
-											"height": 394
-=======
 										"objectId": "30A7A13F-9508-4C4F-8F44-0B7BC8096422",
 										"kind": "group",
 										"name": "dia2OuterArbeit",
@@ -5282,83 +3170,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 89.9999999999999,
 											"width": 429,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_6-nzy3njmw.png",
-											"frame": {
-												"x": 1546,
-												"y": -80,
-												"width": 302,
-												"height": 394
-											}
-										},
-										"children": [
-											{
-												"objectId": "6A7EDF29-5A13-4BF5-A0BE-AC5F6F11B900",
-												"kind": "group",
-												"name": "Group_5_Copy1",
-												"originalName": "Group 5 Copy",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1546.096333333333,
-													"y": -80.43451143451102,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"children": [
-													{
-														"objectId": "49843CE9-0490-45A0-B600-D8DB076764B7",
-														"kind": "group",
-														"name": "Group_33",
-														"originalName": "Group 3",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1546.096333333333,
-															"y": -80.43451143451102,
-															"width": 301,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_3-ndk4ndnd.png",
-															"frame": {
-																"x": 1546.096333333333,
-																"y": -80.43451143451102,
-																"width": 301,
-																"height": 231
-															}
-														},
-														"children": []
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "2BFD1D57-52FE-4230-A98E-E8C89D6E181C",
-										"kind": "group",
-										"name": "Group_81",
-										"originalName": "Group 8",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1380,
-											"y": -154,
-											"width": 302,
-											"height": 412
-=======
 											"path": "images/Layer-dia2OuterArbeit-mzbbn0ex.png",
 											"frame": {
 												"x": 959,
@@ -5380,120 +3197,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 89.9999999999999,
 											"width": 429,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_8-mkjgrdfe.png",
-											"frame": {
-												"x": 1380,
-												"y": -154,
-												"width": 302,
-												"height": 412
-											}
-										},
-										"children": [
-											{
-												"objectId": "5AF17676-3DDD-4726-8359-9770E47B452A",
-												"kind": "group",
-												"name": "Group_71",
-												"originalName": "Group 7",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1380.3743333333332,
-													"y": -154.31185031185032,
-													"width": 302,
-													"height": 412
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_7-nufgmtc2.png",
-													"frame": {
-														"x": 1380.3743333333332,
-														"y": -154.31185031185032,
-														"width": 302,
-														"height": 412
-													}
-												},
-												"children": [
-													{
-														"objectId": "3DA33362-81A0-460E-8B04-CA09B938CB0A",
-														"kind": "group",
-														"name": "Group_5_Copy_21",
-														"originalName": "Group 5 Copy 2",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1380.3743333333332,
-															"y": -154.31185031185032,
-															"width": 302,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_5_Copy_2-m0rbmzmz.png",
-															"frame": {
-																"x": 1380.3743333333332,
-																"y": -154.31185031185032,
-																"width": 302,
-																"height": 231
-															}
-														},
-														"children": [
-															{
-																"objectId": "1CE5C652-DD40-47F1-8E23-0D4EF5452D3E",
-																"kind": "group",
-																"name": "Group_34",
-																"originalName": "Group 3",
-																"maskFrame": null,
-																"layerFrame": {
-																	"x": 1380.3743333333332,
-																	"y": -154.31185031185032,
-																	"width": 301,
-																	"height": 231
-																},
-																"visible": true,
-																"metadata": {
-																	"opacity": 1
-																},
-																"image": {
-																	"path": "images/Layer-Group_3-munfnum2.png",
-																	"frame": {
-																		"x": 1380.3743333333332,
-																		"y": -154.31185031185032,
-																		"width": 301,
-																		"height": 231
-																	}
-																},
-																"children": []
-															}
-														]
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "A667C3CC-D781-4456-BF6E-DB35D9BA9487",
-										"kind": "group",
-										"name": "Group_41",
-										"originalName": "Group 4",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 489,
-											"y": 204,
-											"width": 302,
-											"height": 525
-=======
 											"path": "images/Layer-dia3OuterArbeit-nte0n0nd.png",
 											"frame": {
 												"x": 959,
@@ -5515,45 +3224,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 89.9999999999999,
 											"width": 429,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_4-qty2n0mz.png",
-											"frame": {
-												"x": 489,
-												"y": 204,
-												"width": 302,
-												"height": 525
-=======
 											"path": "images/Layer-dia4OuterArbeit-qzfdrju2.png",
 											"frame": {
 												"x": 959,
 												"y": 89.9999999999999,
 												"width": 429,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "CE5ABD13-A0CC-483F-AA9C-7084DAD888F5",
-										"kind": "group",
-										"name": "Group_21",
-										"originalName": "Group 2",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 716,
-											"y": 415,
-											"width": 302,
-											"height": 231
-=======
 										"objectId": "FECA50F9-0204-4998-A339-228010AF3C94",
 										"kind": "group",
 										"name": "dia5OuterArbeit",
@@ -5564,47 +3251,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 89.9999999999999,
 											"width": 429,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_2-q0u1quje.png",
-											"frame": {
-												"x": 716,
-												"y": 415,
-												"width": 302,
-												"height": 231
-=======
 											"path": "images/Layer-dia5OuterArbeit-rkvdqtuw.png",
 											"frame": {
 												"x": 959,
 												"y": 89.9999999999999,
 												"width": 429,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "4636BC8E-F90F-432E-A9E1-E2F312063B20",
-										"kind": "group",
-										"name": "Group_51",
-										"originalName": "Group 5",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1171,
-											"y": 264,
-											"width": 302,
-											"height": 231
-										},
-										"visible": true,
-=======
 										"objectId": "66FD8963-DCBE-4C2B-9971-0642B7EA9B81",
 										"kind": "group",
 										"name": "diaInnerBildungCanvas4",
@@ -5617,72 +3280,10 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"height": 1281
 										},
 										"visible": false,
->>>>>>> frontend-merge
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_5-ndyznkjd.png",
-											"frame": {
-												"x": 1171,
-												"y": 264,
-												"width": 302,
-												"height": 231
-											}
-										},
-										"children": [
-											{
-												"objectId": "5B685552-46B0-400E-9B8C-02F720FD22FA",
-												"kind": "group",
-												"name": "Group_35",
-												"originalName": "Group 3",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1170.9736666666668,
-													"y": 263.898128898129,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_3-nui2odu1.png",
-													"frame": {
-														"x": 1170.9736666666668,
-														"y": 263.898128898129,
-														"width": 301,
-														"height": 231
-													}
-												},
-												"children": []
-											}
-										]
-									}
-								]
-							}
-						]
-					},
-					{
-						"objectId": "BFEF9054-F4C1-4C5B-A4D5-93B6C5EC0589",
-						"kind": "group",
-						"name": "City_Fortress",
-						"originalName": "City-Fortress",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 0,
-							"y": -295,
-							"width": 1927,
-							"height": 1540
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"children": [
-=======
 											"path": "images/Layer-diaInnerBildungCanvas-njzgrdg5.png",
 											"frame": {
 												"x": 320,
@@ -5695,7 +3296,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									}
 								]
 							},
->>>>>>> frontend-merge
 							{
 								"objectId": "93B221FE-C297-4A5A-97E9-4E29329373EA",
 								"kind": "group",
@@ -5878,18 +3478,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 								]
 							},
 							{
-<<<<<<< HEAD
-								"objectId": "E934F461-8ED8-4AB5-BF0D-160431A0EDAD",
-								"kind": "group",
-								"name": "Group_92",
-								"originalName": "Group 9",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 0,
-									"y": -295,
-									"width": 1927,
-									"height": 1540
-=======
 								"objectId": "EFAD802F-0AFC-41D9-A92D-97EACB843674",
 								"kind": "group",
 								"name": "diaOuterSozialeGerechtigkeit",
@@ -5900,35 +3488,11 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									"y": 540,
 									"width": 530,
 									"height": 450
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
-<<<<<<< HEAD
-								"image": {
-									"path": "images/Layer-Group_9-rtkzney0.png",
-									"frame": {
-										"x": 0,
-										"y": -295,
-										"width": 1927,
-										"height": 1540
-									}
-								},
-								"children": [
-									{
-										"objectId": "CB1FA879-5137-4F34-994E-B21811D2476F",
-										"kind": "group",
-										"name": "Group3",
-										"originalName": "Group",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1451,
-											"y": 510,
-											"width": 267,
-											"height": 525
-=======
 								"children": [
 									{
 										"objectId": "E2B30458-0FB8-434D-8A88-C3ED812B10E9",
@@ -5941,45 +3505,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 540,
 											"width": 530,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group-q0ixrke4.png",
-											"frame": {
-												"x": 1451,
-												"y": 510,
-												"width": 267,
-												"height": 525
-=======
 											"path": "images/Layer-dia1OuterSozialeGerechtigkeit-rtjcmza0.png",
 											"frame": {
 												"x": 695,
 												"y": 540,
 												"width": 530,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "1167C68A-D615-4C10-892A-439C98C621A1",
-										"kind": "group",
-										"name": "Group_62",
-										"originalName": "Group 6",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1546,
-											"y": -80,
-											"width": 302,
-											"height": 394
-=======
 										"objectId": "DE4EE083-583A-4EC6-9950-209EBB69049B",
 										"kind": "group",
 										"name": "dia2OuterSozialeGerechtigkeit",
@@ -5990,83 +3532,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 540,
 											"width": 530,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_6-mte2n0m2.png",
-											"frame": {
-												"x": 1546,
-												"y": -80,
-												"width": 302,
-												"height": 394
-											}
-										},
-										"children": [
-											{
-												"objectId": "60491B80-E41C-4398-8C22-C8359D2070F2",
-												"kind": "group",
-												"name": "Group_5_Copy2",
-												"originalName": "Group 5 Copy",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1546.096333333333,
-													"y": -80.43451143451102,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"children": [
-													{
-														"objectId": "DADFBDE3-CB4B-4F6B-B223-51758764DBDA",
-														"kind": "group",
-														"name": "Group_36",
-														"originalName": "Group 3",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1546.096333333333,
-															"y": -80.43451143451102,
-															"width": 301,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_3-referkje.png",
-															"frame": {
-																"x": 1546.096333333333,
-																"y": -80.43451143451102,
-																"width": 301,
-																"height": 231
-															}
-														},
-														"children": []
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "C970FDFC-3A53-45D5-A1AF-7DEE17B49A5B",
-										"kind": "group",
-										"name": "Group_82",
-										"originalName": "Group 8",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1380,
-											"y": -154,
-											"width": 302,
-											"height": 412
-=======
 											"path": "images/Layer-dia2OuterSozialeGerechtigkeit-reu0ruuw.png",
 											"frame": {
 												"x": 695,
@@ -6088,120 +3559,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 540,
 											"width": 530,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_8-qzk3meze.png",
-											"frame": {
-												"x": 1380,
-												"y": -154,
-												"width": 302,
-												"height": 412
-											}
-										},
-										"children": [
-											{
-												"objectId": "4D62A879-C7EB-4377-AAB6-33294BF0226D",
-												"kind": "group",
-												"name": "Group_72",
-												"originalName": "Group 7",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1380.3743333333332,
-													"y": -154.31185031185032,
-													"width": 302,
-													"height": 412
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_7-neq2mke4.png",
-													"frame": {
-														"x": 1380.3743333333332,
-														"y": -154.31185031185032,
-														"width": 302,
-														"height": 412
-													}
-												},
-												"children": [
-													{
-														"objectId": "36682CB8-CC14-4889-997F-CE27D20C6BAF",
-														"kind": "group",
-														"name": "Group_5_Copy_22",
-														"originalName": "Group 5 Copy 2",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1380.3743333333332,
-															"y": -154.31185031185032,
-															"width": 302,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_5_Copy_2-mzy2odjd.png",
-															"frame": {
-																"x": 1380.3743333333332,
-																"y": -154.31185031185032,
-																"width": 302,
-																"height": 231
-															}
-														},
-														"children": [
-															{
-																"objectId": "764D71AE-6789-47E8-9987-227542479615",
-																"kind": "group",
-																"name": "Group_37",
-																"originalName": "Group 3",
-																"maskFrame": null,
-																"layerFrame": {
-																	"x": 1380.3743333333332,
-																	"y": -154.31185031185032,
-																	"width": 301,
-																	"height": 231
-																},
-																"visible": true,
-																"metadata": {
-																	"opacity": 1
-																},
-																"image": {
-																	"path": "images/Layer-Group_3-nzy0rdcx.png",
-																	"frame": {
-																		"x": 1380.3743333333332,
-																		"y": -154.31185031185032,
-																		"width": 301,
-																		"height": 231
-																	}
-																},
-																"children": []
-															}
-														]
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "AEA187A9-2B64-489A-8566-FA16BAC61710",
-										"kind": "group",
-										"name": "Group_42",
-										"originalName": "Group 4",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 489,
-											"y": 204,
-											"width": 302,
-											"height": 525
-=======
 											"path": "images/Layer-dia3OuterSozialeGerechtigkeit-mtc2otew.png",
 											"frame": {
 												"x": 695,
@@ -6223,45 +3586,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 540,
 											"width": 530,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_4-quvbmtg3.png",
-											"frame": {
-												"x": 489,
-												"y": 204,
-												"width": 302,
-												"height": 525
-=======
 											"path": "images/Layer-dia4OuterSozialeGerechtigkeit-qjnemjld.png",
 											"frame": {
 												"x": 695,
 												"y": 540,
 												"width": 530,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "79D89AC0-45AF-4893-9CD3-02190055CC04",
-										"kind": "group",
-										"name": "Group_22",
-										"originalName": "Group 2",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 716,
-											"y": 415,
-											"width": 302,
-											"height": 231
-=======
 										"objectId": "7D1E4E10-44CC-4E59-997F-ACCFCB842D5F",
 										"kind": "group",
 										"name": "dia5OuterSozialeGerechtigkeit",
@@ -6272,47 +3613,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 540,
 											"width": 530,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_2-nzleodlb.png",
-											"frame": {
-												"x": 716,
-												"y": 415,
-												"width": 302,
-												"height": 231
-=======
 											"path": "images/Layer-dia5OuterSozialeGerechtigkeit-n0qxrtrf.png",
 											"frame": {
 												"x": 695,
 												"y": 540,
 												"width": 530,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "7794B684-326A-40DD-B0B7-C0ABBB8B8864",
-										"kind": "group",
-										"name": "Group_52",
-										"originalName": "Group 5",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1171,
-											"y": 264,
-											"width": 302,
-											"height": 231
-										},
-										"visible": true,
-=======
 										"objectId": "A7084120-2DA7-4B27-AEE2-FC985FB91269",
 										"kind": "group",
 										"name": "diaInnerBildungCanvas6",
@@ -6325,72 +3642,10 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"height": 1281
 										},
 										"visible": false,
->>>>>>> frontend-merge
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_5-nzc5nei2.png",
-											"frame": {
-												"x": 1171,
-												"y": 264,
-												"width": 302,
-												"height": 231
-											}
-										},
-										"children": [
-											{
-												"objectId": "118EE320-3B12-4266-A49C-71BD8E112321",
-												"kind": "group",
-												"name": "Group_38",
-												"originalName": "Group 3",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1170.9736666666668,
-													"y": 263.898128898129,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_3-mte4ruuz.png",
-													"frame": {
-														"x": 1170.9736666666668,
-														"y": 263.898128898129,
-														"width": 301,
-														"height": 231
-													}
-												},
-												"children": []
-											}
-										]
-									}
-								]
-							}
-						]
-					},
-					{
-						"objectId": "2E1DF519-448D-41B8-9CEE-542B715614B5",
-						"kind": "group",
-						"name": "City_Regional",
-						"originalName": "City-Regional",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 0,
-							"y": -295,
-							"width": 1927,
-							"height": 1540
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"children": [
-=======
 											"path": "images/Layer-diaInnerBildungCanvas-qtcwodqx.png",
 											"frame": {
 												"x": 320,
@@ -6403,7 +3658,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									}
 								]
 							},
->>>>>>> frontend-merge
 							{
 								"objectId": "4B8BE5B3-B11D-4C13-A7F3-B55B6A05F0E9",
 								"kind": "group",
@@ -6586,18 +3840,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 								]
 							},
 							{
-<<<<<<< HEAD
-								"objectId": "B654C7DD-4E28-4B13-AF55-D282A950EF17",
-								"kind": "group",
-								"name": "Group_93",
-								"originalName": "Group 9",
-								"maskFrame": null,
-								"layerFrame": {
-									"x": 0,
-									"y": -295,
-									"width": 1927,
-									"height": 1540
-=======
 								"objectId": "3FB9729A-96F0-4BEE-BCE2-EAF3EB5D74A2",
 								"kind": "group",
 								"name": "diaOuterWohnen",
@@ -6608,35 +3850,11 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 									"y": 90,
 									"width": 428,
 									"height": 450
->>>>>>> frontend-merge
 								},
 								"visible": true,
 								"metadata": {
 									"opacity": 1
 								},
-<<<<<<< HEAD
-								"image": {
-									"path": "images/Layer-Group_9-qjy1nem3.png",
-									"frame": {
-										"x": 0,
-										"y": -295,
-										"width": 1927,
-										"height": 1540
-									}
-								},
-								"children": [
-									{
-										"objectId": "8F6DBC32-2DB1-4DB1-A126-4E9CEA752151",
-										"kind": "group",
-										"name": "Group4",
-										"originalName": "Group",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1451,
-											"y": 510,
-											"width": 267,
-											"height": 525
-=======
 								"children": [
 									{
 										"objectId": "0A42A9A8-C2EB-430B-BF9D-DBABB17952E8",
@@ -6649,45 +3867,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group-oey2rejd.png",
-											"frame": {
-												"x": 1451,
-												"y": 510,
-												"width": 267,
-												"height": 525
-=======
 											"path": "images/Layer-dia1OuterWohnen-mee0mke5.png",
 											"frame": {
 												"x": 532,
 												"y": 90,
 												"width": 428,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "81E00DD0-652C-4C4C-9ED2-0A2F9294306A",
-										"kind": "group",
-										"name": "Group_63",
-										"originalName": "Group 6",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1546,
-											"y": -80,
-											"width": 302,
-											"height": 394
-=======
 										"objectId": "4ED6F2BE-E75A-4E95-920D-99E26A96EFAE",
 										"kind": "group",
 										"name": "dia2OuterWohnen",
@@ -6698,83 +3894,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_6-odffmdbe.png",
-											"frame": {
-												"x": 1546,
-												"y": -80,
-												"width": 302,
-												"height": 394
-											}
-										},
-										"children": [
-											{
-												"objectId": "45E3757A-15CB-41AD-A570-270CF938D8F0",
-												"kind": "group",
-												"name": "Group_5_Copy3",
-												"originalName": "Group 5 Copy",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1546.096333333333,
-													"y": -80.43451143451102,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"children": [
-													{
-														"objectId": "1059564E-54FA-4D12-B8A8-CF343AB681D6",
-														"kind": "group",
-														"name": "Group_39",
-														"originalName": "Group 3",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1546.096333333333,
-															"y": -80.43451143451102,
-															"width": 301,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_3-mta1otu2.png",
-															"frame": {
-																"x": 1546.096333333333,
-																"y": -80.43451143451102,
-																"width": 301,
-																"height": 231
-															}
-														},
-														"children": []
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "339047E8-279E-41C6-917C-13FC35CE5741",
-										"kind": "group",
-										"name": "Group_83",
-										"originalName": "Group 8",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1380,
-											"y": -154,
-											"width": 302,
-											"height": 412
-=======
 											"path": "images/Layer-dia2OuterWohnen-nevenkyy.png",
 											"frame": {
 												"x": 532,
@@ -6796,120 +3921,12 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_8-mzm5mdq3.png",
-											"frame": {
-												"x": 1380,
-												"y": -154,
-												"width": 302,
-												"height": 412
-											}
-										},
-										"children": [
-											{
-												"objectId": "435295F4-5248-493D-BAD6-302111903CA0",
-												"kind": "group",
-												"name": "Group_73",
-												"originalName": "Group 7",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1380.3743333333332,
-													"y": -154.31185031185032,
-													"width": 302,
-													"height": 412
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_7-ndm1mjk1.png",
-													"frame": {
-														"x": 1380.3743333333332,
-														"y": -154.31185031185032,
-														"width": 302,
-														"height": 412
-													}
-												},
-												"children": [
-													{
-														"objectId": "460EAD2B-02EB-4524-B5C1-82244003AB88",
-														"kind": "group",
-														"name": "Group_5_Copy_23",
-														"originalName": "Group 5 Copy 2",
-														"maskFrame": null,
-														"layerFrame": {
-															"x": 1380.3743333333332,
-															"y": -154.31185031185032,
-															"width": 302,
-															"height": 231
-														},
-														"visible": true,
-														"metadata": {
-															"opacity": 1
-														},
-														"image": {
-															"path": "images/Layer-Group_5_Copy_2-ndywrufe.png",
-															"frame": {
-																"x": 1380.3743333333332,
-																"y": -154.31185031185032,
-																"width": 302,
-																"height": 231
-															}
-														},
-														"children": [
-															{
-																"objectId": "CB35A38B-01FF-428F-8791-7C782E41EBBA",
-																"kind": "group",
-																"name": "Group_310",
-																"originalName": "Group 3",
-																"maskFrame": null,
-																"layerFrame": {
-																	"x": 1380.3743333333332,
-																	"y": -154.31185031185032,
-																	"width": 301,
-																	"height": 231
-																},
-																"visible": true,
-																"metadata": {
-																	"opacity": 1
-																},
-																"image": {
-																	"path": "images/Layer-Group_3-q0iznuez.png",
-																	"frame": {
-																		"x": 1380.3743333333332,
-																		"y": -154.31185031185032,
-																		"width": 301,
-																		"height": 231
-																	}
-																},
-																"children": []
-															}
-														]
-													}
-												]
-											}
-										]
-									},
-									{
-										"objectId": "6E99ECC7-3300-4485-8CD5-ECF872C651AA",
-										"kind": "group",
-										"name": "Group_43",
-										"originalName": "Group 4",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 489,
-											"y": 204,
-											"width": 302,
-											"height": 525
-=======
 											"path": "images/Layer-dia3OuterWohnen-qke5nzjc.png",
 											"frame": {
 												"x": 532,
@@ -6931,45 +3948,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_4-nku5ouvd.png",
-											"frame": {
-												"x": 489,
-												"y": 204,
-												"width": 302,
-												"height": 525
-=======
 											"path": "images/Layer-dia4OuterWohnen-qky2qjzb.png",
 											"frame": {
 												"x": 532,
 												"y": 90,
 												"width": 428,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "7811D02D-1F59-405B-A609-1798CAA4D5E1",
-										"kind": "group",
-										"name": "Group_23",
-										"originalName": "Group 2",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 716,
-											"y": 415,
-											"width": 302,
-											"height": 231
-=======
 										"objectId": "3F8F3F47-7253-4752-B330-185FD2488BA0",
 										"kind": "group",
 										"name": "dia5OuterWohnen",
@@ -6980,47 +3975,23 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"y": 90,
 											"width": 428,
 											"height": 450
->>>>>>> frontend-merge
 										},
 										"visible": true,
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_2-nzgxmuqw.png",
-											"frame": {
-												"x": 716,
-												"y": 415,
-												"width": 302,
-												"height": 231
-=======
 											"path": "images/Layer-dia5OuterWohnen-m0y4rjng.png",
 											"frame": {
 												"x": 532,
 												"y": 90,
 												"width": 428,
 												"height": 450
->>>>>>> frontend-merge
 											}
 										},
 										"children": []
 									},
 									{
-<<<<<<< HEAD
-										"objectId": "F9EBE81A-2B17-476D-8FF0-97C8D83DA6BF",
-										"kind": "group",
-										"name": "Group_53",
-										"originalName": "Group 5",
-										"maskFrame": null,
-										"layerFrame": {
-											"x": 1171,
-											"y": 264,
-											"width": 302,
-											"height": 231
-										},
-										"visible": true,
-=======
 										"objectId": "149545C8-3218-47DF-806D-D10D1950D5DC",
 										"kind": "group",
 										"name": "diaInnerBildungCanvas8",
@@ -7033,50 +4004,10 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											"height": 1281
 										},
 										"visible": false,
->>>>>>> frontend-merge
 										"metadata": {
 											"opacity": 1
 										},
 										"image": {
-<<<<<<< HEAD
-											"path": "images/Layer-Group_5-rjlfqku4.png",
-											"frame": {
-												"x": 1171,
-												"y": 264,
-												"width": 302,
-												"height": 231
-											}
-										},
-										"children": [
-											{
-												"objectId": "A06C9DFD-B98B-465A-8C81-A012AE195F93",
-												"kind": "group",
-												"name": "Group_311",
-												"originalName": "Group 3",
-												"maskFrame": null,
-												"layerFrame": {
-													"x": 1170.9736666666668,
-													"y": 263.898128898129,
-													"width": 301,
-													"height": 231
-												},
-												"visible": true,
-												"metadata": {
-													"opacity": 1
-												},
-												"image": {
-													"path": "images/Layer-Group_3-qta2qzle.png",
-													"frame": {
-														"x": 1170.9736666666668,
-														"y": 263.898128898129,
-														"width": 301,
-														"height": 231
-													}
-												},
-												"children": []
-											}
-										]
-=======
 											"path": "images/Layer-diaInnerBildungCanvas-mtq5ntq1.png",
 											"frame": {
 												"x": 320,
@@ -7086,7 +4017,6 @@ window.__imported__["old-Wireframe-Screen-Framer@1x/layers.json.js"] = [
 											}
 										},
 										"children": []
->>>>>>> frontend-merge
 									}
 								]
 							}
