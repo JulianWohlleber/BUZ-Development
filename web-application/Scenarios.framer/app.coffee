@@ -38,22 +38,21 @@ borderWidth = 3
 #Colors
 myTransparent = "rgba(0)"
 trendFontColor = "#404040"
-colorRegional = "#88FF22"
-colorFortress = "#FF8800"
-colorRobotic = "#FEF0EC"
-colorVirtual = "#2299FF"
+colorRegional = "#F1F5F3"
+colorFortress = "#EFEDEF"
+colorHightech = "#FEF0EC"
+colorVirtual = "#F0F3F7"
+colorCollective = "#EEEEEE"
 
 #Diagrams
-flipAnimationTime = 0.44 #time/flip
-dropAnimationTime = 0.55 #time for drop to fall down
+flipAnimationTime = 0.34 #time/flip
+dropAnimationTime = 0.45 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
-secondBulbDelay = 0.2
+diaPieceDelay = 0.3
 diaCenterScale = 0.2 # Bars defaultsize
-diaAnimationTime = 2
-flipArray = []
-diagramParts = []
-diagramFadeOutDelay = 10
+diagramFadeOutDelay = 6
 diagramFadeOutTime = 1
+pieceAnimTime = 2
 
 #Trends
 trendwidth = 600
@@ -65,7 +64,6 @@ trendAnimationDelay = 7
 
 #Scenarios
 showScenarioDelay = 2
-
 
 
 
@@ -98,20 +96,17 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 
 
-
 #################################################################
-#VOTING_BLOCK
+#SERVER_BLOCK
 #################################################################
+#variables
+dataServer=""
 
 # Voting RecieveServer
 `var socket = io.connect("/");`
 `socket.on("message",function(message){
-var dataServer = JSON.parse(message);`
-print dataServer
-if dataServer.diagram
-	diagramValues = dataServer.diagram
-print diagramValues, " values"
-`});`
+dataServer = JSON.parse(message);
+});`
 
 #Voting
 voting = {
@@ -124,9 +119,10 @@ sendVotings = (myVoting)->
 	#voting
 	voting.votingAmount = myVoting
 	#message
-	print "voted with " + voting.votingAmount + " for " + voting.scenario
+	# print "voted with " + voting.votingAmount + " for " + voting.scenario
 	`socket.send(JSON.stringify(voting))`
 
+#prepare arrays for diagram-scales Struktur: Inner.Umwelt.
 
 
 
@@ -135,6 +131,13 @@ sendVotings = (myVoting)->
 #################################################################
 #DIAGRAM_BLOCK
 #################################################################
+
+#Presets
+scenarioScalesInner = []
+scenarioScalesMiddle = []
+scenarioScalesOuter = []
+flipArray = []
+diagramParts = []
 
 #Flipping Paper
 diaBg = new Layer
@@ -188,36 +191,106 @@ fadeOut = new Animation sketch1.KnotenpunktStadt,
 #################################################################
 
 diagramHide = () ->
+	for child in flipArray
+			child.animateStop()
+	blackDrop.animateStop()
 	sketch1.dia1Fonts.scale = 0.99
-	sketch1.dia1Stadtbild.opacity = 0 #### = ScenarioViews
+	sketch1.dia1Stadtbild.visible = false #### = ScenarioViews
 	sketch1.KnotenpunktStadt.opacity = 0
 	sketch1.dia1Labels.opacity = 0
 	sketch1.dia1Fonts.opacity = 0
 	sketch1.diaBubble.scale = 0
+	blackDrop.opacity = 0
+	blackDrop.width = 2000
+	blackDrop.height = 2000
+	blackDrop.center()
+
 
 	for layer, index in flipArray
 		layer.opacity = 0
 		layer.rotationY = 100
 
-	for child, index in sketch1.diaInner.subLayers
+	for child in sketch1.diaInner.subLayers
 		x = child
-	for child, index in sketch1.diaMiddle.subLayers
+		for child, index in x.subLayers
+			child.visible = false
+	for child in sketch1.diaMiddle.subLayers
 		x = child
+		for child, index in x.subLayers
+			child.visible = false
 	for child, index in sketch1.diaOuter.subLayers
 		x = child
+		for child, index in x.subLayers
+			child.visible = false
 
 diagramView = (scenario) ->
 	fadeOut.stop()
+#Struktur dataServer:{hightech(Scenario)":{"Arbeit(Piece)":{"Gesellschaft(Ring)": 0.9(Scale)}}}
+#Struktur needed: dataServer:{"hightech"(Scenario):{"Gesellschaft(Ring)":{Arbeit(Piece): 0.9(Scale)}}}
 	scenarioColor = ""
+	scenarioScalesInner = []
+	scenarioScalesMiddle = []
+	scenarioScalesOuter = []
 	if scenario is "regional"
 		scenarioColor = colorRegional
+		ScenarioIndex = 3
+		scenarioScales = dataServer.regional
 	else if scenario is "fortress"
 		scenarioColor = colorFortress
+		ScenarioIndex = 2
+		scenarioScales = dataServer.fortress
 	else if scenario is "hightech"
-		scenarioColor = colorRobotic
+		scenarioColor = colorHightech
+		ScenarioIndex = 5
+		scenarioScales = dataServer.hightech
 	else if scenario is "virtual"
 		scenarioColor = colorVirtual
+		ScenarioIndex = 4
+		scenarioScales = dataServer.virtual
+	else if scenario is "collective"
+		scenarioColor = colorCollective
+		ScenarioIndex = 1
+		scenarioScales = dataServer.collective
+
+	scenarioScalesInner.push scenarioScales.Arbeit.Politik/3*(1-diaCenterScale)
+	scenarioScalesInner.push scenarioScales.Umwelt.Politik/3*(1-diaCenterScale)
+	scenarioScalesInner.push scenarioScales.sozialG.Politik/3*(1-diaCenterScale)
+	scenarioScalesInner.push scenarioScales.Bildung.Politik/3*(1-diaCenterScale)
+	scenarioScalesInner.push scenarioScales.Wohnen.Politik/3*(1-diaCenterScale)
+
+	scenarioScalesMiddle.push scenarioScales.Arbeit.Wirtschaft/3*(1-diaCenterScale)
+	scenarioScalesMiddle.push scenarioScales.Umwelt.Wirtschaft/3*(1-diaCenterScale)
+	scenarioScalesMiddle.push scenarioScales.sozialG.Wirtschaft/3*(1-diaCenterScale)
+	scenarioScalesMiddle.push scenarioScales.Bildung.Wirtschaft/3*(1-diaCenterScale)
+	scenarioScalesMiddle.push scenarioScales.Wohnen.Wirtschaft/3*(1-diaCenterScale)
+
+	scenarioScalesOuter.push scenarioScales.Arbeit.Gesellschaft/3*(1-diaCenterScale)
+	scenarioScalesOuter.push scenarioScales.Umwelt.Gesellschaft/3*(1-diaCenterScale)
+	scenarioScalesOuter.push scenarioScales.sozialG.Gesellschaft/3*(1-diaCenterScale)
+	scenarioScalesOuter.push scenarioScales.Bildung.Gesellschaft/3*(1-diaCenterScale)
+	scenarioScalesOuter.push scenarioScales.Wohnen.Gesellschaft/3*(1-diaCenterScale)
+
+	setDiaPieces(ScenarioIndex, scenarioScales)
 	diagramFlip(scenarioColor, scenario)
+
+
+setDiaPieces = (ScenarioIndex, scenarioScales) ->
+	for child in sketch1.diaInner.subLayers
+		x = child
+		for child, index in x.subLayers
+			if index is ScenarioIndex
+				child.visible = true
+	for child in sketch1.diaMiddle.subLayers
+		x = child
+		for child, index in x.subLayers
+			if index is ScenarioIndex
+				child.visible = true
+	for child in sketch1.diaOuter.subLayers
+		x = child
+		for child, index in x.subLayers
+			if index is ScenarioIndex
+				child.visible = true
+
 
 diagramFlip = (scenarioColor, scenario) ->
 	for layer, index in flipArray
@@ -239,44 +312,44 @@ fourthFliplayer.onAnimationEnd ->
 
 diagramHide()
 
-
-
 blackDrop.onAnimationEnd ->
 	blackDrop.visible = false
-
 	sketch1.dia1Labels.opacity = 1
 	sketch1.dia1Fonts.animate
 		opacity: 1
 		scale: 1
 		options:
 			time: fontScalingAnimationTime
-
 	sketch1.diaBubble.scale = 0.2
 	sketch1.KnotenpunktStadt.opacity = 1
 	sketch1.diaBubble.animate
 		scale: 1
 # 	scale up single bars
+
 	for child, index in sketch1.diaInner.subLayers
 		child.animateStop()
 		child.scale = diaCenterScale
 		child.animate
-			scale: index*0.05+0.5
+			scale: diaCenterScale + scenarioScalesInner[index]
 			options:
-				delay: diaAnimationTime-index*0.3
+				delay: (5*diaPieceDelay)-(diaPieceDelay*(index+0.4))
+				time: pieceAnimTime
 	for child, index in sketch1.diaMiddle.subLayers
 		child.animateStop()
 		child.scale = diaCenterScale
 		child.animate
-			scale: index*0.07+0.6
+			scale: diaCenterScale + scenarioScalesInner[index] + scenarioScalesMiddle[index]
 			options:
-				delay: diaAnimationTime-index*0.3
+				delay: (5*diaPieceDelay)-(diaPieceDelay*(index+0.2))
+				time: pieceAnimTime
 	for child, index in sketch1.diaOuter.subLayers
 		child.animateStop()
 		child.scale = diaCenterScale
 		child.animate
-			scale: index*0.1+0.65
+			scale: diaCenterScale + scenarioScalesInner[index] + scenarioScalesMiddle[index] + scenarioScalesOuter[index]
 			options:
-				delay: diaAnimationTime-index*0.3
+				delay: (5*diaPieceDelay)-(diaPieceDelay*index)
+				time: pieceAnimTime
 	fadeOutDiagram()
 
 
@@ -297,7 +370,6 @@ FallingDrop = () ->
 
 fadeOutDiagram = () ->
 	fadeOut.start()
-	print "fadeOut"
 	for layer, index in flipArray
 		layer.visible = false
 
