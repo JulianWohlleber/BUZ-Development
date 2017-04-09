@@ -46,13 +46,14 @@ colorCollective = "#EEEEEE"
 
 #Diagrams
 flipAnimationTime = 0.34 #time/flip
-dropAnimationTime = 0.45 #time for drop to fall down
+dropAnimationTime = 0.55 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.3
 diaCenterScale = 0.2 # Bars defaultsize
 diagramFadeOutDelay = 6
 diagramFadeOutTime = 1
 pieceAnimTime = 2
+diaBorderSize = 0.1
 
 #Trends
 trendwidth = 600
@@ -95,7 +96,6 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 
 
-
 #################################################################
 #SERVER_BLOCK
 #################################################################
@@ -119,12 +119,7 @@ sendVotings = (myVoting)->
 	#voting
 	voting.votingAmount = myVoting
 	#message
-	# print "voted with " + voting.votingAmount + " for " + voting.scenario
 	`socket.send(JSON.stringify(voting))`
-
-#prepare arrays for diagram-scales Struktur: Inner.Umwelt.
-
-
 
 
 
@@ -138,17 +133,9 @@ scenarioScalesMiddle = []
 scenarioScalesOuter = []
 flipArray = []
 diagramParts = []
+diagramAnimating = false
 
 #Flipping Paper
-diaBg = new Layer
-	backgroundColor: "black"
-	width: 3000
-	height: 2000
-	x: -300
-	y: -300
-diaBg.sendToBack()
-diaBg.z = -100
-
 Fliplayer = new Layer
 	width: 1920/2
 	height: 1080
@@ -190,7 +177,8 @@ fadeOut = new Animation sketch1.KnotenpunktStadt,
 #Diagram Functions
 #################################################################
 
-diagramHide = () ->
+diagramReset = () ->
+	fadeOut.stop()
 	for child in flipArray
 			child.animateStop()
 	blackDrop.animateStop()
@@ -198,13 +186,13 @@ diagramHide = () ->
 	sketch1.dia1Stadtbild.visible = false #### = ScenarioViews
 	sketch1.KnotenpunktStadt.opacity = 0
 	sketch1.dia1Labels.opacity = 0
+	sketch1.dia1Labels.scale = 0.9
 	sketch1.dia1Fonts.opacity = 0
 	sketch1.diaBubble.scale = 0
 	blackDrop.opacity = 0
 	blackDrop.width = 2000
 	blackDrop.height = 2000
 	blackDrop.center()
-
 
 	for layer, index in flipArray
 		layer.opacity = 0
@@ -223,10 +211,21 @@ diagramHide = () ->
 		for child, index in x.subLayers
 			child.visible = false
 
-diagramView = (scenario) ->
-	fadeOut.stop()
-#Struktur dataServer:{hightech(Scenario)":{"Arbeit(Piece)":{"Gesellschaft(Ring)": 0.9(Scale)}}}
-#Struktur needed: dataServer:{"hightech"(Scenario):{"Gesellschaft(Ring)":{Arbeit(Piece): 0.9(Scale)}}}
+showDiagram = ->
+	if diagramAnimating is false
+		sketch1.KnotenpunktStadt.animate
+			opacity: 1
+			options:
+				time: 0.4
+		sketch1.KnotenpunktStadt.onAnimationEnd ->
+			fadeOut.start()
+
+
+
+
+
+animateDiagram = (scenario) ->
+	diagramAnimating = true
 	scenarioColor = ""
 	scenarioScalesInner = []
 	scenarioScalesMiddle = []
@@ -252,23 +251,23 @@ diagramView = (scenario) ->
 		ScenarioIndex = 1
 		scenarioScales = dataServer.collective
 
-	scenarioScalesInner.push scenarioScales.Arbeit.Politik/3*(1-diaCenterScale)
-	scenarioScalesInner.push scenarioScales.Umwelt.Politik/3*(1-diaCenterScale)
-	scenarioScalesInner.push scenarioScales.sozialG.Politik/3*(1-diaCenterScale)
-	scenarioScalesInner.push scenarioScales.Bildung.Politik/3*(1-diaCenterScale)
-	scenarioScalesInner.push scenarioScales.Wohnen.Politik/3*(1-diaCenterScale)
+	scenarioScalesInner.push scenarioScales.Arbeit.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.Umwelt.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.sozialG.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.Bildung.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.Wohnen.Politik/3*(1-diaCenterScale-diaBorderSize)
 
-	scenarioScalesMiddle.push scenarioScales.Arbeit.Wirtschaft/3*(1-diaCenterScale)
-	scenarioScalesMiddle.push scenarioScales.Umwelt.Wirtschaft/3*(1-diaCenterScale)
-	scenarioScalesMiddle.push scenarioScales.sozialG.Wirtschaft/3*(1-diaCenterScale)
-	scenarioScalesMiddle.push scenarioScales.Bildung.Wirtschaft/3*(1-diaCenterScale)
-	scenarioScalesMiddle.push scenarioScales.Wohnen.Wirtschaft/3*(1-diaCenterScale)
+	scenarioScalesMiddle.push scenarioScales.Arbeit.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.Umwelt.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.sozialG.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.Bildung.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.Wohnen.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
 
-	scenarioScalesOuter.push scenarioScales.Arbeit.Gesellschaft/3*(1-diaCenterScale)
-	scenarioScalesOuter.push scenarioScales.Umwelt.Gesellschaft/3*(1-diaCenterScale)
-	scenarioScalesOuter.push scenarioScales.sozialG.Gesellschaft/3*(1-diaCenterScale)
-	scenarioScalesOuter.push scenarioScales.Bildung.Gesellschaft/3*(1-diaCenterScale)
-	scenarioScalesOuter.push scenarioScales.Wohnen.Gesellschaft/3*(1-diaCenterScale)
+	scenarioScalesOuter.push scenarioScales.Arbeit.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.Umwelt.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.sozialG.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.Bildung.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.Wohnen.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
 
 	setDiaPieces(ScenarioIndex, scenarioScales)
 	diagramFlip(scenarioColor, scenario)
@@ -296,13 +295,15 @@ diagramFlip = (scenarioColor, scenario) ->
 	for layer, index in flipArray
 		layer.backgroundColor = scenarioColor
 		layer.visible = true
-		layer.animate
-			rotationY: 0
-			opacity: 1
-			options:
-				time: flipAnimationTime
-				delay: index*flipAnimationTime
-fourthFliplayer.onAnimationEnd ->
+		layer.opacity = 1
+		layer.rotationY = 0
+		# layer.animate
+		# 	rotationY: 0
+		# 	opacity: 1
+		# 	options:
+		# 		time: flipAnimationTime
+		# 		delay: index*flipAnimationTime
+# fourthFliplayer.onAnimationEnd ->
 	FallingDrop()
 
 
@@ -310,11 +311,14 @@ fourthFliplayer.onAnimationEnd ->
 #diagram executing
 #################################################################
 
-diagramHide()
-
+diagramReset()
 blackDrop.onAnimationEnd ->
 	blackDrop.visible = false
-	sketch1.dia1Labels.opacity = 1
+	sketch1.dia1Labels.animate
+		scale: 1
+		opacity: 1
+		options:
+			delay: 0.9
 	sketch1.dia1Fonts.animate
 		opacity: 1
 		scale: 1
@@ -372,6 +376,7 @@ fadeOutDiagram = () ->
 	fadeOut.start()
 	for layer, index in flipArray
 		layer.visible = false
+	diagramAnimating = false
 
 
 
@@ -454,9 +459,13 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 
 sceneHandler = (selectedScenario) ->
-	voting.scenario = selectedScenario
-	diagramHide()
-	diagramView(selectedScenario)
+	if voting.scenario is selectedScenario
+		showDiagram()
+	else
+		diagramReset()
+		animateDiagram(selectedScenario)
+		voting.scenario = selectedScenario
+
 	Utils.delay showScenarioDelay, ->
 		showScenario(selectedScenario)
 	# showScenario(selectedScenario)
