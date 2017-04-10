@@ -50,7 +50,7 @@ dropAnimationTime = 0.55 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.3
 diaCenterScale = 0.2 # Bars defaultsize
-diagramFadeOutDelay = 6
+diagramFadeOutDelay = 9
 diagramFadeOutTime = 1
 pieceAnimTime = 2
 diaBorderSize = 0.1
@@ -58,9 +58,8 @@ diaBorderSize = 0.1
 #Trends
 trendwidth = 600
 trendFontSize = "30px"
-trendFont = "Tahoma"
-trendLineHeight = "35px"
-trendFontWeight = "600"
+trendFont = "ShareTechMono-Regular"
+trendLineHeight = "40px"
 trendAnimationDelay = 7
 
 #Scenarios
@@ -409,7 +408,6 @@ Trend = new Layer
 		"text-align": "right"
 		"font-family": trendFont
 		"line-height": trendLineHeight
-		"font-weight": trendFontWeight
 	visible: true
 
 Description_Regional = sketch.Description_Regional
@@ -468,7 +466,6 @@ sceneHandler = (selectedScenario) ->
 
 	Utils.delay showScenarioDelay, ->
 		showScenario(selectedScenario)
-	# showScenario(selectedScenario)
 
 showScenario = (selectedScenario) ->
 	if selectedScenario is "regional"
@@ -510,6 +507,9 @@ showScenario = (selectedScenario) ->
 		remove(City_Regional, City_Fortress, City_Robotic)
 
 	else if selectedScenario is "collective"
+		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
+		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
+		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual)
 		sendVotings("-")
 
 	if isDefault is true
@@ -529,14 +529,18 @@ generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 
 
 
-remove = (element1, element2, element3) ->
+remove = (element1, element2, element3, element4) ->
 	element1.visible = false
 	element2.visible = false
 	element3.visible = false
+	if element4 != undefined
+		Trend.visible = false
+		element4.visible = false
 
 
 
 display = (element1, element2, element3) ->
+	Trend.visible = true1
 	element1.visible = true
 	element2.visible = true
 	element3.visible = true

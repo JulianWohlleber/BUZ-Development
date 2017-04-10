@@ -1,3 +1,5 @@
+@font-face { font-family: 'ShareTechMono-Regular';
+             src: url('../fonts/ShareTechMono-Regular.ttf') format('truetype'); }
 * {
 	margin: 0;
 	padding: 0;
