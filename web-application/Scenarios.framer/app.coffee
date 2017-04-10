@@ -540,7 +540,7 @@ remove = (element1, element2, element3, element4) ->
 
 
 display = (element1, element2, element3) ->
-	Trend.visible = true1
+	Trend.visible = true
 	element1.visible = true
 	element2.visible = true
 	element3.visible = true
