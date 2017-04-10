@@ -1,6 +1,7 @@
 app.coffee
 data/data.json
 fonts/CothamSans.otf
+fonts/ShareTechMono-Regular.ttf
 framer/backups/backup-2017-03-28 13.14.45.coffee
 framer/backups/backup-2017-03-28 18.41.57.coffee
 framer/backups/backup-2017-03-28 18.47.57.coffee
@@ -9,8 +10,6 @@ framer/backups/backup-2017-03-28 19.41.57.coffee
 framer/backups/backup-2017-03-28 19.42.57.coffee
 framer/backups/backup-2017-03-28 19.47.57.coffee
 framer/backups/backup-2017-03-28 19.52.57.coffee
-framer/backups/backup-2017-03-28 19.53.57.coffee
-framer/backups/backup-2017-03-28 20.03.00.coffee
 framer/backups/backup-2017-04-05 16.06.04.coffee
 framer/backups/backup-2017-04-05 16.36.44.coffee
 framer/backups/backup-2017-04-05 16.40.34.coffee
@@ -22,6 +21,8 @@ framer/backups/backup-2017-04-05 20.09.18.coffee
 framer/backups/backup-2017-04-05 20.32.18.coffee
 framer/backups/backup-2017-04-05 20.50.34.coffee
 framer/backups/backup-2017-04-05 21.20.35.coffee
+framer/backups/backup-2017-04-10 17.25.02.coffee
+framer/backups/backup-2017-04-10 17.26.02.coffee
 framer/coffee-script.js
 framer/config.json
 framer/framer.generated.js

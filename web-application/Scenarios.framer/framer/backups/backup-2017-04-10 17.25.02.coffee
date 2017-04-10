@@ -38,31 +38,32 @@ borderWidth = 3
 #Colors
 myTransparent = "rgba(0)"
 trendFontColor = "#404040"
-colorRegional = "#88FF22"
-colorFortress = "#FF8800"
-colorRobotic = "#FEF0EC"
-colorVirtual = "#2299FF"
+colorRegional = "#F1F5F3"
+colorFortress = "#EFEDEF"
+colorHightech = "#FEF0EC"
+colorVirtual = "#F0F3F7"
+colorCollective = "#EEEEEE"
 
 #Diagrams
-flipAnimationTime = 0.44 #time/flip
+flipAnimationTime = 0.34 #time/flip
 dropAnimationTime = 0.55 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
-secondBulbDelay = 0.2
+diaPieceDelay = 0.3
 diaCenterScale = 0.2 # Bars defaultsize
-diaAnimationTime = 2
-flipArray = []
-diagramParts = []
-diagramFadeOutDelay = 10
+diagramFadeOutDelay = 9
 diagramFadeOutTime = 1
+pieceAnimTime = 2
+diaBorderSize = 0.1
 
 #Trends
 trendwidth = 600
 trendFontSize = "30px"
-trendFont = "Tahoma"
-trendLineHeight = "35px"
-trendFontWeight = "600"
+trendFont = "ShareTechMono-Regular"
+trendLineHeight = "40px"
 trendAnimationDelay = 7
 
+#Scenarios
+showScenarioDelay = 2
 
 
 
@@ -94,21 +95,17 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 
 
-
-
 #################################################################
-#VOTING_BLOCK
+#SERVER_BLOCK
 #################################################################
+#variables
+dataServer=""
 
 # Voting RecieveServer
-`var socket = io.connect("/");`
-`socket.on("message",function(message){
-var dataServer = JSON.parse(message);`
-print dataServer
-if dataServer.diagram
-	diagramValues = dataServer.diagram
-print diagramValues, " values"
-`});`
+# `var socket = io.connect("/");`
+# `socket.on("message",function(message){
+# dataServer = JSON.parse(message);
+# });`
 
 #Voting
 voting = {
@@ -121,11 +118,7 @@ sendVotings = (myVoting)->
 	#voting
 	voting.votingAmount = myVoting
 	#message
-	print "voted with " + voting.votingAmount + " for " + voting.scenario
 	`socket.send(JSON.stringify(voting))`
-
-
-
 
 
 
@@ -133,16 +126,15 @@ sendVotings = (myVoting)->
 #DIAGRAM_BLOCK
 #################################################################
 
-#Flipping Paper
-diaBg = new Layer
-	backgroundColor: "black"
-	width: 3000
-	height: 2000
-	x: -300
-	y: -300
-diaBg.sendToBack()
-diaBg.z = -100
+#Presets
+scenarioScalesInner = []
+scenarioScalesMiddle = []
+scenarioScalesOuter = []
+flipArray = []
+diagramParts = []
+diagramAnimating = false
 
+#Flipping Paper
 Fliplayer = new Layer
 	width: 1920/2
 	height: 1080
@@ -184,49 +176,133 @@ fadeOut = new Animation sketch1.KnotenpunktStadt,
 #Diagram Functions
 #################################################################
 
-diagramHide = () ->
+diagramReset = () ->
+	fadeOut.stop()
+	for child in flipArray
+			child.animateStop()
+	blackDrop.animateStop()
 	sketch1.dia1Fonts.scale = 0.99
-	sketch1.dia1Stadtbild.opacity = 0 #### = ScenarioViews
+	sketch1.dia1Stadtbild.visible = false #### = ScenarioViews
 	sketch1.KnotenpunktStadt.opacity = 0
 	sketch1.dia1Labels.opacity = 0
+	sketch1.dia1Labels.scale = 0.9
 	sketch1.dia1Fonts.opacity = 0
 	sketch1.diaBubble.scale = 0
+	blackDrop.opacity = 0
+	blackDrop.width = 2000
+	blackDrop.height = 2000
+	blackDrop.center()
 
 	for layer, index in flipArray
 		layer.opacity = 0
 		layer.rotationY = 100
 
-	for child, index in sketch1.diaInner.subLayers
+	for child in sketch1.diaInner.subLayers
 		x = child
-	for child, index in sketch1.diaMiddle.subLayers
+		for child, index in x.subLayers
+			child.visible = false
+	for child in sketch1.diaMiddle.subLayers
 		x = child
+		for child, index in x.subLayers
+			child.visible = false
 	for child, index in sketch1.diaOuter.subLayers
 		x = child
+		for child, index in x.subLayers
+			child.visible = false
 
-diagramView = (scenario) ->
-	fadeOut.stop()
+showDiagram = ->
+	if diagramAnimating is false
+		sketch1.KnotenpunktStadt.animate
+			opacity: 1
+			options:
+				time: 0.4
+		sketch1.KnotenpunktStadt.onAnimationEnd ->
+			fadeOut.start()
+
+
+
+
+
+animateDiagram = (scenario) ->
+	diagramAnimating = true
 	scenarioColor = ""
+	scenarioScalesInner = []
+	scenarioScalesMiddle = []
+	scenarioScalesOuter = []
 	if scenario is "regional"
 		scenarioColor = colorRegional
+		ScenarioIndex = 3
+		scenarioScales = dataServer.regional
 	else if scenario is "fortress"
 		scenarioColor = colorFortress
+		ScenarioIndex = 2
+		scenarioScales = dataServer.fortress
 	else if scenario is "hightech"
-		scenarioColor = colorRobotic
+		scenarioColor = colorHightech
+		ScenarioIndex = 5
+		scenarioScales = dataServer.hightech
 	else if scenario is "virtual"
 		scenarioColor = colorVirtual
+		ScenarioIndex = 4
+		scenarioScales = dataServer.virtual
+	else if scenario is "collective"
+		scenarioColor = colorCollective
+		ScenarioIndex = 1
+		scenarioScales = dataServer.collective
+
+	scenarioScalesInner.push scenarioScales.Arbeit.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.Umwelt.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.sozialG.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.Bildung.Politik/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesInner.push scenarioScales.Wohnen.Politik/3*(1-diaCenterScale-diaBorderSize)
+
+	scenarioScalesMiddle.push scenarioScales.Arbeit.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.Umwelt.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.sozialG.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.Bildung.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesMiddle.push scenarioScales.Wohnen.Wirtschaft/3*(1-diaCenterScale-diaBorderSize)
+
+	scenarioScalesOuter.push scenarioScales.Arbeit.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.Umwelt.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.sozialG.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.Bildung.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+	scenarioScalesOuter.push scenarioScales.Wohnen.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
+
+	setDiaPieces(ScenarioIndex, scenarioScales)
 	diagramFlip(scenarioColor, scenario)
+
+
+setDiaPieces = (ScenarioIndex, scenarioScales) ->
+	for child in sketch1.diaInner.subLayers
+		x = child
+		for child, index in x.subLayers
+			if index is ScenarioIndex
+				child.visible = true
+	for child in sketch1.diaMiddle.subLayers
+		x = child
+		for child, index in x.subLayers
+			if index is ScenarioIndex
+				child.visible = true
+	for child in sketch1.diaOuter.subLayers
+		x = child
+		for child, index in x.subLayers
+			if index is ScenarioIndex
+				child.visible = true
+
 
 diagramFlip = (scenarioColor, scenario) ->
 	for layer, index in flipArray
 		layer.backgroundColor = scenarioColor
 		layer.visible = true
-		layer.animate
-			rotationY: 0
-			opacity: 1
-			options:
-				time: flipAnimationTime
-				delay: index*flipAnimationTime
-fourthFliplayer.onAnimationEnd ->
+		layer.opacity = 1
+		layer.rotationY = 0
+		# layer.animate
+		# 	rotationY: 0
+		# 	opacity: 1
+		# 	options:
+		# 		time: flipAnimationTime
+		# 		delay: index*flipAnimationTime
+# fourthFliplayer.onAnimationEnd ->
 	FallingDrop()
 
 
@@ -234,46 +310,49 @@ fourthFliplayer.onAnimationEnd ->
 #diagram executing
 #################################################################
 
-diagramHide()
-
-
-
+diagramReset()
 blackDrop.onAnimationEnd ->
 	blackDrop.visible = false
-
-	sketch1.dia1Labels.opacity = 1
+	sketch1.dia1Labels.animate
+		scale: 1
+		opacity: 1
+		options:
+			delay: 0.9
 	sketch1.dia1Fonts.animate
 		opacity: 1
 		scale: 1
 		options:
 			time: fontScalingAnimationTime
-
 	sketch1.diaBubble.scale = 0.2
 	sketch1.KnotenpunktStadt.opacity = 1
 	sketch1.diaBubble.animate
 		scale: 1
 # 	scale up single bars
+
 	for child, index in sketch1.diaInner.subLayers
 		child.animateStop()
 		child.scale = diaCenterScale
 		child.animate
-			scale: index*0.05+0.5
+			scale: diaCenterScale + scenarioScalesInner[index]
 			options:
-				delay: diaAnimationTime-index*0.3
+				delay: (5*diaPieceDelay)-(diaPieceDelay*(index+0.4))
+				time: pieceAnimTime
 	for child, index in sketch1.diaMiddle.subLayers
 		child.animateStop()
 		child.scale = diaCenterScale
 		child.animate
-			scale: index*0.07+0.6
+			scale: diaCenterScale + scenarioScalesInner[index] + scenarioScalesMiddle[index]
 			options:
-				delay: diaAnimationTime-index*0.3
+				delay: (5*diaPieceDelay)-(diaPieceDelay*(index+0.2))
+				time: pieceAnimTime
 	for child, index in sketch1.diaOuter.subLayers
 		child.animateStop()
 		child.scale = diaCenterScale
 		child.animate
-			scale: index*0.1+0.65
+			scale: diaCenterScale + scenarioScalesInner[index] + scenarioScalesMiddle[index] + scenarioScalesOuter[index]
 			options:
-				delay: diaAnimationTime-index*0.3
+				delay: (5*diaPieceDelay)-(diaPieceDelay*index)
+				time: pieceAnimTime
 	fadeOutDiagram()
 
 
@@ -294,9 +373,9 @@ FallingDrop = () ->
 
 fadeOutDiagram = () ->
 	fadeOut.start()
-	print "fadeOut"
 	for layer, index in flipArray
 		layer.visible = false
+	diagramAnimating = false
 
 
 
@@ -329,7 +408,6 @@ Trend = new Layer
 		"text-align": "right"
 		"font-family": trendFont
 		"line-height": trendLineHeight
-		"font-weight": trendFontWeight
 	visible: true
 
 Description_Regional = sketch.Description_Regional
@@ -379,12 +457,15 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 
 sceneHandler = (selectedScenario) ->
-	voting.scenario = selectedScenario
-	diagramHide()
-	diagramView(selectedScenario)
-	Utils.delay 3, ->
+	if voting.scenario is selectedScenario
+		showDiagram()
+	else
+		diagramReset()
+		animateDiagram(selectedScenario)
+		voting.scenario = selectedScenario
+
+	Utils.delay showScenarioDelay, ->
 		showScenario(selectedScenario)
-	# showScenario(selectedScenario)
 
 showScenario = (selectedScenario) ->
 	if selectedScenario is "regional"
@@ -426,6 +507,9 @@ showScenario = (selectedScenario) ->
 		remove(City_Regional, City_Fortress, City_Robotic)
 
 	else if selectedScenario is "collective"
+		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
+		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
+		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual)
 		sendVotings("-")
 
 	if isDefault is true
@@ -445,14 +529,18 @@ generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 
 
 
-remove = (element1, element2, element3) ->
+remove = (element1, element2, element3, element4) ->
 	element1.visible = false
 	element2.visible = false
 	element3.visible = false
+	if element4 != undefined
+		Trend.visible = false
+		element4.visible = false
 
 
 
 display = (element1, element2, element3) ->
+	Trend.visible = true
 	element1.visible = true
 	element2.visible = true
 	element3.visible = true
