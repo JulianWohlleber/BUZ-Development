@@ -13,13 +13,16 @@ var newScenarioFactors = JSON.parse(JSON.stringify(scenarioFactors));
 var maxVotingProportion = 20; //votingamount on which above persentage is used (1/minVotingAmount)
 var port = 9470
 
+var minVotingValue = -2
+var maxVotingValue = 2
+var totalSlotAmount = 19 //(Slotamount + 1)
+
 var votingFramer ={
   "hightech": "-",
   "virtual":"-",
   "regional":"-",
   "fortress":"-"
 };
-
 
 //#########################Server Setup#########################################
 var app = express();
@@ -41,6 +44,7 @@ function calcDiagram(){
   if(factorSum === 0){
     factorSum = 1;
   }
+
   //Arbeit
   dataToFramer.collective.Arbeit.Gesellschaft = (dataToFramer.hightech.Arbeit.Gesellschaft * hightechFactor + dataToFramer.virtual.Arbeit.Gesellschaft * virtualFactor + dataToFramer.regional.Arbeit.Gesellschaft * regionalFactor + dataToFramer.fortress.Arbeit.Gesellschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Arbeit.Politik = (dataToFramer.hightech.Arbeit.Politik * hightechFactor + dataToFramer.virtual.Arbeit.Politik * virtualFactor + dataToFramer.regional.Arbeit.Politik * regionalFactor + dataToFramer.fortress.Arbeit.Politik * fortressFactor)/factorSum;
@@ -55,7 +59,7 @@ function calcDiagram(){
   dataToFramer.collective.Bildung.Gesellschaft = (dataToFramer.hightech.Bildung.Gesellschaft * hightechFactor + dataToFramer.virtual.Bildung.Gesellschaft * virtualFactor + dataToFramer.regional.Bildung.Gesellschaft * regionalFactor + dataToFramer.fortress.Bildung.Gesellschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Bildung.Politik = (dataToFramer.hightech.Bildung.Politik * hightechFactor + dataToFramer.virtual.Bildung.Politik * virtualFactor + dataToFramer.regional.Bildung.Politik * regionalFactor + dataToFramer.fortress.Bildung.Politik * fortressFactor)/factorSum;
   dataToFramer.collective.Bildung.Wirtschaft = (dataToFramer.hightech.Bildung.Wirtschaft * hightechFactor + dataToFramer.virtual.Bildung.Wirtschaft * virtualFactor + dataToFramer.regional.Bildung.Wirtschaft * regionalFactor + dataToFramer.fortress.Bildung.Wirtschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Bildung.all = (dataToFramer.collective.Bildung.Gesellschaft+dataToFramer.collective.Bildung.Politik+dataToFramer.collective.Bildung.Wirtschaft)/3;
+  dataToFramer.collective.Bildung.all = (dataToFramer.collective.Bildung.Gesellschaft + dataToFramer.collective.Bildung.Politik+dataToFramer.collective.Bildung.Wirtschaft)/3;
   //sozialG
   dataToFramer.collective.sozialG.Gesellschaft = (dataToFramer.hightech.sozialG.Gesellschaft * hightechFactor + dataToFramer.virtual.sozialG.Gesellschaft * virtualFactor + dataToFramer.regional.sozialG.Gesellschaft * regionalFactor + dataToFramer.fortress.sozialG.Gesellschaft * fortressFactor)/factorSum;
   dataToFramer.collective.sozialG.Politik = (dataToFramer.hightech.sozialG.Politik * hightechFactor + dataToFramer.virtual.sozialG.Politik * virtualFactor + dataToFramer.regional.sozialG.Politik * regionalFactor + dataToFramer.fortress.sozialG.Politik * fortressFactor)/factorSum;
@@ -68,6 +72,68 @@ function calcDiagram(){
   dataToFramer.collective.Wohnen.all = (dataToFramer.collective.Wohnen.Gesellschaft+dataToFramer.collective.Wohnen.Politik+dataToFramer.collective.Wohnen.Wirtschaft)/3;
 }
 
+//mapFunction
+function map_range(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
+function calcSlotAmounts(totalSlotAmount){
+  //map the values
+  var regionalValue = map_range(scenarioFactors.regional.votingAverage, minVotingValue, maxVotingValue, 0, 1)
+  var hightechValue = map_range(scenarioFactors.hightech.votingAverage, minVotingValue, maxVotingValue, 0, 1)
+  var fortressValue = map_range(scenarioFactors.fortress.votingAverage, minVotingValue, maxVotingValue, 0, 1)
+  var virtualValue = map_range(scenarioFactors.virtual.votingAverage, minVotingValue, maxVotingValue, 0, 1)
+  var sumValues = regionalValue + hightechValue + fortressValue + virtualValue
+  var slotAmounts = {}
+
+  //amount of slots/Scenario
+  slotAmounts.Regional = Math.round(map_range(regionalValue, 0, sumValues, 0, totalSlotAmount))
+  slotAmounts.Hightech = Math.round(map_range(hightechValue, 0, sumValues, 0, totalSlotAmount))
+  slotAmounts.Fortress = Math.round(map_range(fortressValue, 0, sumValues, 0, totalSlotAmount))
+  slotAmounts.Virtual = Math.round(map_range(virtualValue, 0, sumValues, 0, totalSlotAmount))
+  return slotAmounts
+}
+
+function fillSlots(slotAmounts){
+  var slotArray = []
+  for (var i = 1; i < totalSlotAmount; i++) {
+    activeScenario = Math.floor((Math.random() * 4) + 1)
+    if (activeScenario === 1){
+      if(slotAmounts.Regional > 0){
+        slotArray.push("regional")
+      }else{
+        i--
+      }
+    }else if(activeScenario === 2){
+      if(slotAmounts.Virtual > 0){
+        slotArray.push("virtual")
+        slotAmounts.Virtual--
+      }else{
+        i--
+      }
+    }else if(activeScenario === 3){
+      if(slotAmounts.Hightech > 0){
+        slotArray.push("hightech")
+        slotAmounts.Hightech--
+      }else{
+        i--
+      }
+     // more statements
+    }else if(activeScenario === 4){
+      if(slotAmounts.Fortress > 0){
+        slotArray.push("fortress")
+        slotAmounts.Fortress--
+      }else{
+        i--
+      }
+     // more statements
+   }
+  }
+  return slotArray
+
+}
+
+console.log(fillSlots(calcSlotAmounts(totalSlotAmount)))
 
 //#########################socketServer#########################################
 io.sockets.on("connection",function(socket){
@@ -95,6 +161,7 @@ io.sockets.on("connection",function(socket){
         newScenarioFactors.hightech.votingAverage = (votingFramer.hightech + scenarioFactors.hightech.votingAverage * scenarioFactors.hightech.votingAmount)/(scenarioFactors.hightech.votingAmount+1);
       }
     }
+
     if(data.scenario === "virtual"){
       votingFramer.virtual = data.votingAmount;
       if(votingFramer.virtual !== "-"){
@@ -115,6 +182,7 @@ io.sockets.on("connection",function(socket){
         newScenarioFactors.fortress.votingAverage = (votingFramer.fortress + scenarioFactors.fortress.votingAverage * scenarioFactors.fortress.votingAmount)/(scenarioFactors.fortress.votingAmount+1);
       }
     }
+
 
     calcDiagram();
 

@@ -6,9 +6,9 @@ Canvas.backgroundColor = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
 	screenHeight: 1080
-	deviceImage: "http://previews.123rf.com/images/jules_kitano/jules_kitano1004/jules_kitano100400016/6771018-Nahaufnahme-der-Pressspan-Textur--Lizenzfreie-Bilder.jpg"
-	deviceImageWidth: 2020
-	deviceImageHeight: 1480
+	# deviceImage: "http://previews.123rf.com/images/jules_kitano/jules_kitano1004/jules_kitano100400016/6771018-Nahaufnahme-der-Pressspan-Textur--Lizenzfreie-Bilder.jpg"
+	# deviceImageWidth: 2020
+	# deviceImageHeight: 1480
 
 
 
@@ -48,9 +48,9 @@ colorCollective = "#EEEEEE"
 flipAnimationTime = 0.34 #time/flip
 dropAnimationTime = 0.55 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
-diaPieceDelay = 0.3
+diaPieceDelay = 0.2
 diaCenterScale = 0.2 # Bars defaultsize
-diagramFadeOutDelay = 9
+diagramFadeOutDelay = 6
 diagramFadeOutTime = 1
 pieceAnimTime = 2
 diaBorderSize = 0.1
@@ -104,8 +104,9 @@ dataServer=""
 # Voting RecieveServer
 `var socket = io.connect("/");`
 `socket.on("message",function(message){
-dataServer = JSON.parse(message);
-});`
+dataServer = JSON.parse(message);`
+# print "dataRecieved"
+`});`
 
 #Voting
 voting = {
@@ -294,15 +295,15 @@ diagramFlip = (scenarioColor, scenario) ->
 	for layer, index in flipArray
 		layer.backgroundColor = scenarioColor
 		layer.visible = true
-		layer.opacity = 1
-		layer.rotationY = 0
-		# layer.animate
-		# 	rotationY: 0
-		# 	opacity: 1
-		# 	options:
-		# 		time: flipAnimationTime
-		# 		delay: index*flipAnimationTime
-# fourthFliplayer.onAnimationEnd ->
+		# layer.opacity = 1
+		# layer.rotationY = 0
+		layer.animate
+			rotationY: 0
+			opacity: 1
+			options:
+				time: flipAnimationTime
+				delay: index*flipAnimationTime
+fourthFliplayer.onAnimationEnd ->
 	FallingDrop()
 
 
@@ -540,7 +541,7 @@ remove = (element1, element2, element3, element4) ->
 
 
 display = (element1, element2, element3) ->
-	Trend.visible = true1
+	Trend.visible = true
 	element1.visible = true
 	element2.visible = true
 	element3.visible = true
