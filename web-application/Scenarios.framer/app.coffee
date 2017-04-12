@@ -64,7 +64,9 @@ trendAnimationDelay = 7
 
 #Scenarios
 showScenarioDelay = 2
-
+collectiveSlotsSmall = []
+collectiveSlotsMedium = []
+collectiveSlotsBig= []
 
 
 
@@ -97,7 +99,8 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 #################################################################
 #SERVER_BLOCK
-#################################################################
+##############
+###################################################
 #variables
 dataServer=""
 
@@ -105,7 +108,7 @@ dataServer=""
 `var socket = io.connect("/");`
 `socket.on("message",function(message){
 dataServer = JSON.parse(message);`
-# print "dataRecieved"
+print dataServer.slotsCollective
 `});`
 
 #Voting
@@ -511,12 +514,14 @@ showScenario = (selectedScenario) ->
 		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
 		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
 		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual)
+		fillCollectiveSlots()
 		sendVotings("-")
 
 	if isDefault is true
 		Trend.stateCycle(trendStates[trendStateIndex])
 	isDefault = false
 
+fillCollectiveSlots = () ->
 
 
 generateTrendStates = (lastSceneTrends, currentSceneTrends) ->

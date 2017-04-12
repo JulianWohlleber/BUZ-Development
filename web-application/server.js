@@ -10,12 +10,21 @@ var scenarioFactors = JSON.parse(fs.readFileSync('./data/ScenarioFactors.json', 
 var dataToFramer = JSON.parse(fs.readFileSync('./data/Diagrams.json', 'utf8'));
 var newScenarioFactors = JSON.parse(JSON.stringify(scenarioFactors));
 
-var maxVotingProportion = 20; //votingamount on which above persentage is used (1/minVotingAmount)
+var collectiveImages = JSON.parse(JSON.stringify('./data/collectiveImages.json', 'utf8'));
+
+//Serversettings
 var port = 9470
 
+//Voting
 var minVotingValue = -2
 var maxVotingValue = 2
-var totalSlotAmount = 19 //(Slotamount + 1)
+var maxVotingProportion = 20; //votingamount on which above persentage is used (1/minVotingAmount)
+
+//CollectiveImageRendering
+var lowElements = 6
+var mediumElements = 6
+var bigElements = 4
+var totalSlotAmount = lowElements + mediumElements + bigElements
 
 var votingFramer ={
   "hightech": "-",
@@ -50,21 +59,25 @@ function calcDiagram(){
   dataToFramer.collective.Arbeit.Politik = (dataToFramer.hightech.Arbeit.Politik * hightechFactor + dataToFramer.virtual.Arbeit.Politik * virtualFactor + dataToFramer.regional.Arbeit.Politik * regionalFactor + dataToFramer.fortress.Arbeit.Politik * fortressFactor)/factorSum;
   dataToFramer.collective.Arbeit.Wirtschaft = (dataToFramer.hightech.Arbeit.Wirtschaft * hightechFactor + dataToFramer.virtual.Arbeit.Wirtschaft * virtualFactor + dataToFramer.regional.Arbeit.Wirtschaft * regionalFactor + dataToFramer.fortress.Arbeit.Wirtschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Arbeit.all = (dataToFramer.collective.Arbeit.Gesellschaft+dataToFramer.collective.Arbeit.Politik+dataToFramer.collective.Arbeit.Wirtschaft)/3;
+
   //Umwelt
   dataToFramer.collective.Umwelt.Gesellschaft = (dataToFramer.hightech.Umwelt.Gesellschaft * hightechFactor + dataToFramer.virtual.Umwelt.Gesellschaft * virtualFactor + dataToFramer.regional.Umwelt.Gesellschaft * regionalFactor + dataToFramer.fortress.Umwelt.Gesellschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Umwelt.Politik = (dataToFramer.hightech.Umwelt.Politik * hightechFactor + dataToFramer.virtual.Umwelt.Politik * virtualFactor + dataToFramer.regional.Umwelt.Politik * regionalFactor + dataToFramer.fortress.Umwelt.Politik * fortressFactor)/factorSum;
   dataToFramer.collective.Umwelt.Wirtschaft = (dataToFramer.hightech.Umwelt.Wirtschaft * hightechFactor + dataToFramer.virtual.Umwelt.Wirtschaft * virtualFactor + dataToFramer.regional.Umwelt.Wirtschaft * regionalFactor + dataToFramer.fortress.Umwelt.Wirtschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Umwelt.all = (dataToFramer.collective.Umwelt.Gesellschaft+dataToFramer.collective.Umwelt.Politik+dataToFramer.collective.Umwelt.Wirtschaft)/3;
+
   //Bildung
   dataToFramer.collective.Bildung.Gesellschaft = (dataToFramer.hightech.Bildung.Gesellschaft * hightechFactor + dataToFramer.virtual.Bildung.Gesellschaft * virtualFactor + dataToFramer.regional.Bildung.Gesellschaft * regionalFactor + dataToFramer.fortress.Bildung.Gesellschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Bildung.Politik = (dataToFramer.hightech.Bildung.Politik * hightechFactor + dataToFramer.virtual.Bildung.Politik * virtualFactor + dataToFramer.regional.Bildung.Politik * regionalFactor + dataToFramer.fortress.Bildung.Politik * fortressFactor)/factorSum;
   dataToFramer.collective.Bildung.Wirtschaft = (dataToFramer.hightech.Bildung.Wirtschaft * hightechFactor + dataToFramer.virtual.Bildung.Wirtschaft * virtualFactor + dataToFramer.regional.Bildung.Wirtschaft * regionalFactor + dataToFramer.fortress.Bildung.Wirtschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Bildung.all = (dataToFramer.collective.Bildung.Gesellschaft + dataToFramer.collective.Bildung.Politik+dataToFramer.collective.Bildung.Wirtschaft)/3;
+
   //sozialG
   dataToFramer.collective.sozialG.Gesellschaft = (dataToFramer.hightech.sozialG.Gesellschaft * hightechFactor + dataToFramer.virtual.sozialG.Gesellschaft * virtualFactor + dataToFramer.regional.sozialG.Gesellschaft * regionalFactor + dataToFramer.fortress.sozialG.Gesellschaft * fortressFactor)/factorSum;
   dataToFramer.collective.sozialG.Politik = (dataToFramer.hightech.sozialG.Politik * hightechFactor + dataToFramer.virtual.sozialG.Politik * virtualFactor + dataToFramer.regional.sozialG.Politik * regionalFactor + dataToFramer.fortress.sozialG.Politik * fortressFactor)/factorSum;
   dataToFramer.collective.sozialG.Wirtschaft = (dataToFramer.hightech.sozialG.Wirtschaft * hightechFactor + dataToFramer.virtual.sozialG.Wirtschaft * virtualFactor + dataToFramer.regional.sozialG.Wirtschaft * regionalFactor + dataToFramer.fortress.sozialG.Wirtschaft * fortressFactor)/factorSum;
   dataToFramer.collective.sozialG.all = (dataToFramer.collective.sozialG.Gesellschaft+dataToFramer.collective.sozialG.Politik+dataToFramer.collective.sozialG.Wirtschaft)/3;
+
   //Wohnen
   dataToFramer.collective.Wohnen.Gesellschaft = (dataToFramer.hightech.Wohnen.Gesellschaft * hightechFactor + dataToFramer.virtual.Wohnen.Gesellschaft * virtualFactor + dataToFramer.regional.Wohnen.Gesellschaft * regionalFactor + dataToFramer.fortress.Wohnen.Gesellschaft * fortressFactor)/factorSum;
   dataToFramer.collective.Wohnen.Politik = (dataToFramer.hightech.Wohnen.Politik * hightechFactor + dataToFramer.virtual.Wohnen.Politik * virtualFactor + dataToFramer.regional.Wohnen.Politik * regionalFactor + dataToFramer.fortress.Wohnen.Politik * fortressFactor)/factorSum;
@@ -96,47 +109,63 @@ function calcSlotAmounts(totalSlotAmount){
 
 function fillSlots(slotAmounts){
   var slotArray = []
-  for (var i = 1; i < totalSlotAmount; i++) {
+  for (var i = 0; i < totalSlotAmount; i++) {
     activeScenario = Math.floor((Math.random() * 4) + 1)
+    activeVariante = Math.floor((Math.random() * 2) + 1)
     if (activeScenario === 1){
       if(slotAmounts.Regional > 0){
-        slotArray.push("regional")
+        if (activeVariante === 1){
+          slotArray.push("regionalImage1")
+        }else if(activeVariante === 2){
+          slotArray.push("regionalImage2")
+        }
+        slotAmounts.Regional--
       }else{
         i--
       }
     }else if(activeScenario === 2){
       if(slotAmounts.Virtual > 0){
-        slotArray.push("virtual")
+        if (activeVariante === 1){
+          slotArray.push("virtualImage1")
+        }else if(activeVariante === 2){
+          slotArray.push("virtualImage2")
+        }
         slotAmounts.Virtual--
       }else{
         i--
       }
     }else if(activeScenario === 3){
       if(slotAmounts.Hightech > 0){
-        slotArray.push("hightech")
+        if (activeVariante === 1){
+          slotArray.push("hightechImage1")
+        }else if(activeVariante === 2){
+          slotArray.push("hightechImage2")
+        }
         slotAmounts.Hightech--
       }else{
         i--
       }
-     // more statements
     }else if(activeScenario === 4){
       if(slotAmounts.Fortress > 0){
-        slotArray.push("fortress")
+        if (activeVariante === 1){
+          slotArray.push("fortressImage1")
+        }else if(activeVariante === 2){
+          slotArray.push("fortressImage2")
+        }
         slotAmounts.Fortress--
       }else{
         i--
       }
-     // more statements
-   }
+    }
   }
   return slotArray
-
 }
 
-console.log(fillSlots(calcSlotAmounts(totalSlotAmount)))
+dataToFramer.slotsCollective = fillSlots(calcSlotAmounts(totalSlotAmount))
 
 //#########################socketServer#########################################
 io.sockets.on("connection",function(socket){
+
   /*Associating the callback function to be executed when client visits the page and
   websocket connection is made */
 
@@ -150,10 +179,6 @@ io.sockets.on("connection",function(socket){
     /*This event is triggered at the server side when client sends the data using socket.send() method */
     data = JSON.parse(data);
 
-    var message_to_client = {
-      "message":"Connected with server"
-    };
-    socket.send(JSON.stringify(message_to_client));
     //calculates the newScenarioFactors
     if(data.scenario === "hightech"){
       votingFramer.hightech = data.votingAmount;
@@ -185,7 +210,7 @@ io.sockets.on("connection",function(socket){
 
 
     calcDiagram();
-
+    dataToFramer.slotsCollective = fillSlots(calcSlotAmounts(totalSlotAmount))
 
 
     //Things done when Kollektives Stadtbild is selected
@@ -239,5 +264,7 @@ io.sockets.on("connection",function(socket){
     socket.send(JSON.stringify(dataToFramer));
     /*Sending the Acknowledgement back to the client , this will trigger "message" event on the clients side*/
   });
+  //still necessary then?
   socket.send(JSON.stringify(dataToFramer));
+
 });
