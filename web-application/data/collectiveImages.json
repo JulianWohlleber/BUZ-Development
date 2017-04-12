@@ -1,19 +1,19 @@
 {"low":{
     "hightech":{"A": "slots/KnotenpunktStadt_1_A.png", "B": "slots/KnotenpunktStadt_1_B.png"},
-    "virtual":{"A": "slots/RegionaleStadt_1_A.png", "B": "slots/RegionaleStadt_1_A.png"},
-    "regional":{"A": "slots/VirtuelleStadt_1_A.png", "B": "slots/VirtuelleStadt_1_B.png"},
+    "virtual":{"A": "slots/VirtuelleStadt_1_A.png", "B": "slots/VirtuelleStadt_1_B.png"},
+    "regional":{"A": "slots/RegionaleStadt_1_A.png", "B": "slots/RegionaleStadt_1_B.png"},
     "fortress":{"A": "slots/FestungStadt_1_A.png", "B": "slots/FestungStadt_1_B.png"}
 },
   "medium":{
     "hightech":{"A": "slots/KnotenpunktStadt_2_A.png", "B": "slots/KnotenpunktStadt_2_B.png"},
-    "virtual":{"A": "slots/RegionaleStadt_2_A.png", "B": "slots/RegionaleStadt_2_A.png"},
-    "regional":{"A": "slots/VirtuelleStadt_2_A.png", "B": "slots/VirtuelleStadt_2_B.png"},
+    "virtual":{"A": "slots/VirtuelleStadt_2_A.png", "B": "slots/VirtuelleStadt_2_B.png"},
+    "regional":{"A": "slots/RegionaleStadt_2_A.png", "B": "slots/RegionaleStadt_2_B.png"},
     "fortress":{"A": "slots/FestungStadt_2_A-.png", "B": "slots/FestungStadt_2_B.png"}
   },
   "big":{
     "hightech":{"A": "slots/KnotenpunktStadt_3_A.png", "B": "slots/KnotenpunktStadt_3_B.png"},
-    "virtual":{"A": "slots/RegionaleStadt_3_A.png", "B": "slots/RegionaleStadt_3_A.png"},
-    "regional":{"A": "slots/VirtuelleStadt_3_A.png", "B": "slots/VirtuelleStadt_3_B.png"},
+    "virtual":{"A": "slots/VirtuelleStadt_3_A.png", "B": "slots/VirtuelleStadt_3_B.png"},
+    "regional":{"A": "slots/RegionaleStadt_3_A.png", "B": "slots/RegionaleStadt_3_B.png"},
     "fortress":{"A": "slots/FestungStadt_3_A.png", "B": "slots/FestungStadt_3_B.png"}
   }
 }

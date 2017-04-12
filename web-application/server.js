@@ -10,7 +10,7 @@ var scenarioFactors = JSON.parse(fs.readFileSync('./data/ScenarioFactors.json', 
 var dataToFramer = JSON.parse(fs.readFileSync('./data/Diagrams.json', 'utf8'));
 var newScenarioFactors = JSON.parse(JSON.stringify(scenarioFactors));
 
-var collectiveImages = JSON.parse(JSON.stringify('./data/collectiveImages.json', 'utf8'));
+var collectiveImages = JSON.parse(fs.readFileSync('./data/collectiveImages.json', 'utf8'));
 
 //Serversettings
 var port = 9470
@@ -21,9 +21,9 @@ var maxVotingValue = 2
 var maxVotingProportion = 20; //votingamount on which above persentage is used (1/minVotingAmount)
 
 //CollectiveImageRendering
-var lowElements = 6
-var mediumElements = 6
-var bigElements = 4
+var lowElements = 6 //amount of low height Elements in scenario
+var mediumElements = 6 //amount of medium height Elements in scenario
+var bigElements = 4 //amount of big height Elements in scenario
 var totalSlotAmount = lowElements + mediumElements + bigElements
 
 var votingFramer ={
@@ -90,69 +90,89 @@ function map_range(value, low1, high1, low2, high2) {
     return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 }
 
-function calcSlotAmounts(totalSlotAmount){
+function calccomponentAmounts(totalSlotAmount){
   //map the values
   var regionalValue = map_range(scenarioFactors.regional.votingAverage, minVotingValue, maxVotingValue, 0, 1)
   var hightechValue = map_range(scenarioFactors.hightech.votingAverage, minVotingValue, maxVotingValue, 0, 1)
   var fortressValue = map_range(scenarioFactors.fortress.votingAverage, minVotingValue, maxVotingValue, 0, 1)
   var virtualValue = map_range(scenarioFactors.virtual.votingAverage, minVotingValue, maxVotingValue, 0, 1)
   var sumValues = regionalValue + hightechValue + fortressValue + virtualValue
-  var slotAmounts = {}
+  var componentAmounts = {}
 
   //amount of slots/Scenario
-  slotAmounts.Regional = Math.round(map_range(regionalValue, 0, sumValues, 0, totalSlotAmount))
-  slotAmounts.Hightech = Math.round(map_range(hightechValue, 0, sumValues, 0, totalSlotAmount))
-  slotAmounts.Fortress = Math.round(map_range(fortressValue, 0, sumValues, 0, totalSlotAmount))
-  slotAmounts.Virtual = Math.round(map_range(virtualValue, 0, sumValues, 0, totalSlotAmount))
-  return slotAmounts
+  componentAmounts.Regional = Math.round(map_range(regionalValue, 0, sumValues, 0, totalSlotAmount))
+  componentAmounts.Hightech = Math.round(map_range(hightechValue, 0, sumValues, 0, totalSlotAmount))
+  componentAmounts.Fortress = Math.round(map_range(fortressValue, 0, sumValues, 0, totalSlotAmount))
+  componentAmounts.Virtual = Math.round(map_range(virtualValue, 0, sumValues, 0, totalSlotAmount))
+  return componentAmounts
 }
 
-function fillSlots(slotAmounts){
+function fillSlots(componentAmounts){
   var slotArray = []
-  for (var i = 0; i < totalSlotAmount; i++) {
-    activeScenario = Math.floor((Math.random() * 4) + 1)
-    activeVariante = Math.floor((Math.random() * 2) + 1)
-    if (activeScenario === 1){
-      if(slotAmounts.Regional > 0){
+  var nextImageFolder = {}
+  var nextScenarioFolder = {}
+  var activeScenarioIndex = 1
+  var activeScenarioAmounts = {}
+
+  for (var i = 1; i <= totalSlotAmount; i++) { //i == slot
+//height of Elements
+    if (i<=lowElements){
+      nextImageFolder = collectiveImages.low
+    }else if(i<=(lowElements+mediumElements)){
+      nextImageFolder = collectiveImages.medium
+    }else if(i<=(lowElements + mediumElements + bigElements)){
+      nextImageFolder = collectiveImages.big
+    }
+
+//Scenario of Elements
+    activeScenarioIndex = Math.floor((Math.random() * 4) + 1) //this Random Value defines the Element of the leftover Elements
+    activeVariante = Math.floor((Math.random() * 2) + 1) //this Random Value defines the variant of the selected Element
+
+    if (activeScenarioIndex === 1){
+      if(componentAmounts.Hightech > 0){
+        nextScenarioFolder = nextImageFolder.hightech
         if (activeVariante === 1){
-          slotArray.push("regionalImage1")
+          slotArray.push(nextScenarioFolder.A)
         }else if(activeVariante === 2){
-          slotArray.push("regionalImage2")
+          slotArray.push(nextScenarioFolder.B)
         }
-        slotAmounts.Regional--
+        componentAmounts.Hightech--
       }else{
         i--
       }
-    }else if(activeScenario === 2){
-      if(slotAmounts.Virtual > 0){
+    }else if (activeScenarioIndex === 2){
+      if(componentAmounts.Regional > 0){
+        nextScenarioFolder = nextImageFolder.regional
         if (activeVariante === 1){
-          slotArray.push("virtualImage1")
+          slotArray.push(nextScenarioFolder.A)
         }else if(activeVariante === 2){
-          slotArray.push("virtualImage2")
+          slotArray.push(nextScenarioFolder.B)
         }
-        slotAmounts.Virtual--
+        componentAmounts.Regional--
       }else{
         i--
       }
-    }else if(activeScenario === 3){
-      if(slotAmounts.Hightech > 0){
+    }else if (activeScenarioIndex === 3){
+      if(componentAmounts.Virtual > 0){
+        nextScenarioFolder = nextImageFolder.virtual
         if (activeVariante === 1){
-          slotArray.push("hightechImage1")
+          slotArray.push(nextScenarioFolder.A)
         }else if(activeVariante === 2){
-          slotArray.push("hightechImage2")
+          slotArray.push(nextScenarioFolder.B)
         }
-        slotAmounts.Hightech--
+        componentAmounts.Virtual--
       }else{
         i--
       }
-    }else if(activeScenario === 4){
-      if(slotAmounts.Fortress > 0){
+    }else if (activeScenarioIndex === 4){
+      if(componentAmounts.Fortress > 0){
+        nextScenarioFolder = nextImageFolder.fortress
         if (activeVariante === 1){
-          slotArray.push("fortressImage1")
+          slotArray.push(nextScenarioFolder.A)
         }else if(activeVariante === 2){
-          slotArray.push("fortressImage2")
+          slotArray.push(nextScenarioFolder.B)
         }
-        slotAmounts.Fortress--
+        componentAmounts.Fortress--
       }else{
         i--
       }
@@ -161,8 +181,9 @@ function fillSlots(slotAmounts){
   return slotArray
 }
 
-dataToFramer.slotsCollective = fillSlots(calcSlotAmounts(totalSlotAmount))
-
+dataToFramer.slotsCollective = fillSlots(calccomponentAmounts(totalSlotAmount))
+console.log(calccomponentAmounts(totalSlotAmount))
+console.log(fillSlots(calccomponentAmounts(totalSlotAmount)))
 //#########################socketServer#########################################
 io.sockets.on("connection",function(socket){
 
@@ -210,7 +231,7 @@ io.sockets.on("connection",function(socket){
 
 
     calcDiagram();
-    dataToFramer.slotsCollective = fillSlots(calcSlotAmounts(totalSlotAmount))
+    dataToFramer.slotsCollective = fillSlots(calccomponentAmounts(totalSlotAmount))
 
 
     //Things done when Kollektives Stadtbild is selected
