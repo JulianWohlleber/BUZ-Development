@@ -178,15 +178,15 @@ function fillSlots(componentAmounts){
       }
     }
   }
+
   return slotArray
 }
 
 dataToFramer.slotsCollective = fillSlots(calccomponentAmounts(totalSlotAmount))
-console.log(calccomponentAmounts(totalSlotAmount))
 console.log(fillSlots(calccomponentAmounts(totalSlotAmount)))
 //#########################socketServer#########################################
 io.sockets.on("connection",function(socket){
-
+  console.log("happend")
   /*Associating the callback function to be executed when client visits the page and
   websocket connection is made */
 

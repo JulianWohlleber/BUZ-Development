@@ -1,7 +1,8 @@
 #################################################################
 # Define and set custom device
 #################################################################
-
+Framer.Extras.Preloader.enable()
+Framer.Extras.Preloader.setLogo("/images/collectivesStadtbild.png") #custom loading image
 Canvas.backgroundColor = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
@@ -23,6 +24,7 @@ sketch1 = Framer.Importer.load("imported/Diagramme")
 #Trends
 myData = Utils.domLoadDataSync("data/data.json")
 myTrends = JSON.parse(myData)
+slotProperties = JSON.parse(Utils.domLoadDataSync("data/slots.json"))
 
 
 
@@ -64,9 +66,6 @@ trendAnimationDelay = 7
 
 #Scenarios
 showScenarioDelay = 2
-collectiveSlotsSmall = []
-collectiveSlotsMedium = []
-collectiveSlotsBig= []
 
 
 
@@ -76,13 +75,14 @@ collectiveSlotsBig= []
 #################################################################
 
 Events.wrap(window).addEventListener "keydown", (event) ->
-	if 49 <= event.keyCode <= 53
+	if 49 <= event.keyCode <= 53 or event.keyCode is 32
 		switch event.keyCode
 			when 49 then selectedScenario = "regional"
 			when 50 then selectedScenario = "fortress"
 			when 51 then selectedScenario = "hightech"
 			when 52 then selectedScenario = "virtual"
 			when 53 then selectedScenario = "collective"
+			when 32 then selectedScenario = "screensaver"
 		sceneHandler(selectedScenario)
 
 	else if 54 <= event.keyCode <= 58
@@ -103,12 +103,12 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 ###################################################
 #variables
 dataServer=""
-
+elementSlots = []
 # Voting RecieveServer
 `var socket = io.connect("/");`
 `socket.on("message",function(message){
 dataServer = JSON.parse(message);`
-print dataServer.slotsCollective
+elementSlots = dataServer.slotsCollective
 `});`
 
 #Voting
@@ -119,6 +119,7 @@ myVoting = "-"
 
 #Voting Functions
 sendVotings = (myVoting)->
+	print dataServer
 	#voting
 	voting.votingAmount = myVoting
 	#message
@@ -385,7 +386,6 @@ fadeOutDiagram = () ->
 
 
 
-
 #################################################################
 #SCENARIO_BLOCK
 #################################################################
@@ -418,16 +418,39 @@ Description_Regional = sketch.Description_Regional
 Description_Fortress = sketch.Description_Fortress
 Description_Robotic = sketch.Description_Robotic
 Description_Virtual = sketch.Description_Virtual
+Description_Collective = sketch.Description_Virtual
 
 Title_Regional = sketch.Title_Regional
 Title_Fortress = sketch.Title_Fortress
 Title_Robotic = sketch.Title_Robotic
 Title_Virtual = sketch.Title_Virtual
+Title_Collective = sketch.Title_Virtual
+
+City_Screensaver = new Layer
+	backgroundColor: "black"
+	width: 1920
+	height: 1920
+	visible: false
 
 City_Regional = sketch.City_Regional
 City_Fortress = sketch.City_Fortress
 City_Robotic = sketch.City_Robotic
 City_Virtual = sketch.City_Virtual
+City_Collective = new Layer
+	width: 1920
+	height: 1080
+	image: "/images/collectivesStadtbild.png"
+
+for index, i in slotProperties.x
+	collectiveElement = new Layer
+		# backgroundColor: "transparent"
+		width: slotProperties.width
+		height: slotProperties.height
+		x: slotProperties.x[i]
+		y: slotProperties.y[i]
+		superLayer: City_Collective
+
+City_Collective.visible = false
 
 #Default All Scenarios Invisible
 Description_Regional.visible = false
@@ -461,13 +484,17 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 
 sceneHandler = (selectedScenario) ->
-	if voting.scenario is selectedScenario
+	if selectedScenario is "screensaver"
+		print "screensavers"
+		diagramReset()
+		voting.scenario = ""
+		showScenario(selectedScenario)
+	else if voting.scenario is selectedScenario
 		showDiagram()
 	else
 		diagramReset()
 		animateDiagram(selectedScenario)
 		voting.scenario = selectedScenario
-
 	Utils.delay showScenarioDelay, ->
 		showScenario(selectedScenario)
 
@@ -477,51 +504,57 @@ showScenario = (selectedScenario) ->
 		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.regional
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Regional, Title_Regional, City_Regional)
-		remove(Description_Fortress, Description_Robotic, Description_Virtual)
-		remove(Title_Fortress, Title_Robotic, Title_Virtual)
-		remove(City_Fortress, City_Robotic, City_Virtual)
+		display(Description_Regional, Title_Regional, City_Regional, Trend)
+		remove(Description_Fortress, Description_Robotic, Description_Virtual, Description_Collective)
+		remove(Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
+		remove(City_Fortress, City_Robotic, City_Virtual, City_Collective, City_Screensaver)
 
 	else if selectedScenario is "fortress"
 		trendStates = []
 		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.fortress
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Fortress, Title_Fortress, City_Fortress)
-		remove(Description_Regional, Description_Robotic, Description_Virtual)
-		remove(Title_Regional, Title_Robotic, Title_Virtual)
-		remove(City_Regional, City_Robotic, City_Virtual)
+		display(Description_Fortress, Title_Fortress, City_Fortress, Trend)
+		remove(Description_Regional, Description_Robotic, Description_Virtual, Description_Collective)
+		remove(Title_Regional, Title_Robotic, Title_Virtual, Title_Collective)
+		remove(City_Regional, City_Robotic, City_Virtual, City_Collective, City_Screensaver)
 
 	else if selectedScenario is "hightech"
 		trendStates = []
 		currentSceneTrends = myTrends.robotic
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Robotic, Title_Robotic, City_Robotic)
-		remove(Description_Regional, Description_Fortress, Description_Virtual)
-		remove(Title_Regional, Title_Fortress, Title_Virtual)
-		remove(City_Regional, City_Fortress, City_Virtual)
+		display(Description_Robotic, Title_Robotic, City_Robotic, Trend)
+		remove(Description_Regional, Description_Fortress, Description_Virtual, Description_Collective)
+		remove(Title_Regional, Title_Fortress, Title_Virtual, Title_Collective)
+		remove(City_Regional, City_Fortress, City_Virtual, City_Collective, City_Screensaver)
 
 	else if selectedScenario is "virtual"
 		trendStates = []
 		currentSceneTrends = myTrends.virtual
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Virtual, Title_Virtual, City_Virtual)
-		remove(Description_Regional, Description_Fortress, Description_Robotic)
-		remove(Title_Regional, Title_Fortress, Title_Robotic)
-		remove(City_Regional, City_Fortress, City_Robotic)
+		display(Description_Virtual, Title_Virtual, City_Virtual, Trend)
+		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Collective)
+		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Collective)
+		remove(City_Regional, City_Fortress, City_Robotic, City_Collective, City_Screensaver)
 
 	else if selectedScenario is "collective"
+		display(Description_Collective, Title_Collective, City_Collective)
 		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
 		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
-		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual)
+		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Screensaver)
 		fillCollectiveSlots()
+		sendVotings("-")
+
+	else if selectedScenario is "screensaver"
+		City_Screensaver.visible = true
+		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual, Description_Collective)
+		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
+		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual)
 		sendVotings("-")
 
 	if isDefault is true
 		Trend.stateCycle(trendStates[trendStateIndex])
 	isDefault = false
-
-fillCollectiveSlots = () ->
 
 
 generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
@@ -533,20 +566,28 @@ generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 			x: i/100000 + Screen.width - trendwidth - horizontalMargin + 1
 		trendStates.push(["stateNumber" + i])
 
+fillCollectiveSlots = ->
+	for index, i in slotProperties.x
+		print elementSlots[i]
+		collectiveElement.image = elementSlots[i]
 
 
-remove = (element1, element2, element3, element4) ->
+
+remove = (element1, element2, element3, element4, element5) ->
 	element1.visible = false
 	element2.visible = false
 	element3.visible = false
-	if element4 != undefined
-		Trend.visible = false
-		element4.visible = false
+	element4.visible  = false
+	if element5 != undefined
+		element5.visible = false
+	if selectedScenario is "collective" or "screensaver"
+			Trend.visible = false
 
 
 
-display = (element1, element2, element3) ->
-	Trend.visible = true
+display = (element1, element2, element3, element4) ->
 	element1.visible = true
 	element2.visible = true
 	element3.visible = true
+	if element4 != undefined
+		Trend.visible = true
