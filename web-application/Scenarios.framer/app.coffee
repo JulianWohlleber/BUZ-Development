@@ -109,22 +109,23 @@ elementSlots = []
 `socket.on("message",function(message){
 dataServer = JSON.parse(message);`
 elementSlots = dataServer.slotsCollective
+print dataServer
+fillCollectiveSlots()
 `});`
+
 
 #Voting
 voting = {
-	"scenario":"null",
+	"scenario":"collective",
 	"votingNumber": "-"}
 myVoting = "-"
 
 #Voting Functions
 sendVotings = (myVoting)->
-	print dataServer
 	#voting
 	voting.votingAmount = myVoting
 	#message
 	`socket.send(JSON.stringify(voting))`
-
 
 
 #################################################################
@@ -138,6 +139,11 @@ scenarioScalesOuter = []
 flipArray = []
 diagramParts = []
 diagramAnimating = false
+
+#Parentlayer
+# DiagramLayer = new Layer
+# 	backgroundColor: "transparent"
+# 	width:
 
 #Flipping Paper
 Fliplayer = new Layer
@@ -185,6 +191,9 @@ diagramReset = () ->
 	fadeOut.stop()
 	for child in flipArray
 			child.animateStop()
+			child.opacity = 0
+			child.rotationY = 100
+			child.animateStop()
 	blackDrop.animateStop()
 	sketch1.dia1Fonts.scale = 0.99
 	sketch1.dia1Stadtbild.visible = false #### = ScenarioViews
@@ -197,10 +206,6 @@ diagramReset = () ->
 	blackDrop.width = 2000
 	blackDrop.height = 2000
 	blackDrop.center()
-
-	for layer, index in flipArray
-		layer.opacity = 0
-		layer.rotationY = 100
 
 	for child in sketch1.diaInner.subLayers
 		x = child
@@ -418,13 +423,13 @@ Description_Regional = sketch.Description_Regional
 Description_Fortress = sketch.Description_Fortress
 Description_Robotic = sketch.Description_Robotic
 Description_Virtual = sketch.Description_Virtual
-Description_Collective = sketch.Description_Virtual
+Description_Collective = Description_Virtual.copy()
 
 Title_Regional = sketch.Title_Regional
 Title_Fortress = sketch.Title_Fortress
 Title_Robotic = sketch.Title_Robotic
 Title_Virtual = sketch.Title_Virtual
-Title_Collective = sketch.Title_Virtual
+Title_Collective = Title_Virtual.copy()
 
 City_Screensaver = new Layer
 	backgroundColor: "black"
@@ -450,23 +455,28 @@ for index, i in slotProperties.x
 		y: slotProperties.y[i]
 		superLayer: City_Collective
 
-City_Collective.visible = false
+City_Collective.index = 1
+
 
 #Default All Scenarios Invisible
 Description_Regional.visible = false
 Description_Fortress.visible = false
 Description_Robotic.visible = false
 Description_Virtual.visible = false
+Description_Collective.visible = false
 
 Title_Regional.visible = false
 Title_Fortress.visible = false
 Title_Robotic.visible = false
 Title_Virtual.visible = false
+Title_Collective.visible = false
 
 City_Regional.visible = false
 City_Fortress.visible = false
 City_Robotic.visible = false
 City_Virtual.visible = false
+City_Collective.visible = false
+City_Screensaver.visible = false
 
 Trend.states.animationOptions =
 	delay: trendAnimationDelay
@@ -485,9 +495,7 @@ Trend.on Events.AnimationEnd, ->
 
 sceneHandler = (selectedScenario) ->
 	if selectedScenario is "screensaver"
-		print "screensavers"
-		diagramReset()
-		voting.scenario = ""
+		# voting.scenario = "screensavers"
 		showScenario(selectedScenario)
 	else if voting.scenario is selectedScenario
 		showDiagram()
@@ -495,6 +503,7 @@ sceneHandler = (selectedScenario) ->
 		diagramReset()
 		animateDiagram(selectedScenario)
 		voting.scenario = selectedScenario
+
 	Utils.delay showScenarioDelay, ->
 		showScenario(selectedScenario)
 
@@ -504,53 +513,61 @@ showScenario = (selectedScenario) ->
 		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.regional
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Regional, Title_Regional, City_Regional, Trend)
 		remove(Description_Fortress, Description_Robotic, Description_Virtual, Description_Collective)
 		remove(Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
 		remove(City_Fortress, City_Robotic, City_Virtual, City_Collective, City_Screensaver)
+		display(Description_Regional, Title_Regional, City_Regional, Trend)
 
 	else if selectedScenario is "fortress"
 		trendStates = []
 		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.fortress
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Fortress, Title_Fortress, City_Fortress, Trend)
 		remove(Description_Regional, Description_Robotic, Description_Virtual, Description_Collective)
 		remove(Title_Regional, Title_Robotic, Title_Virtual, Title_Collective)
 		remove(City_Regional, City_Robotic, City_Virtual, City_Collective, City_Screensaver)
+		display(Description_Fortress, Title_Fortress, City_Fortress, Trend)
 
 	else if selectedScenario is "hightech"
 		trendStates = []
+		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.robotic
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Robotic, Title_Robotic, City_Robotic, Trend)
 		remove(Description_Regional, Description_Fortress, Description_Virtual, Description_Collective)
 		remove(Title_Regional, Title_Fortress, Title_Virtual, Title_Collective)
 		remove(City_Regional, City_Fortress, City_Virtual, City_Collective, City_Screensaver)
+		display(Description_Robotic, Title_Robotic, City_Robotic, Trend)
 
 	else if selectedScenario is "virtual"
 		trendStates = []
+		lastSceneTrends = currentSceneTrends
 		currentSceneTrends = myTrends.virtual
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		display(Description_Virtual, Title_Virtual, City_Virtual, Trend)
 		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Collective)
 		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Collective)
 		remove(City_Regional, City_Fortress, City_Robotic, City_Collective, City_Screensaver)
+		display(Description_Virtual, Title_Virtual, City_Virtual, Trend)
 
 	else if selectedScenario is "collective"
+		sendVotings("-")
+		print "collective Entered"
 		display(Description_Collective, Title_Collective, City_Collective)
 		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
 		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
 		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Screensaver)
-		fillCollectiveSlots()
-		sendVotings("-")
+		print "hello"
 
-	else if selectedScenario is "screensaver"
-		City_Screensaver.visible = true
-		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual, Description_Collective)
-		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
-		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual)
-		sendVotings("-")
+
+
+	#
+	# else if selectedScenario is "screensaver"
+	# 	City_Screensaver.opacity = 0
+	# 	City_Screensaver.visible = true
+	# 	City_Screensaver.animate.opacity = 1
+	# 	remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual, Description_Collective)
+	# 	remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
+	# 	remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Collective)
+	# 	sendVotings("-")
 
 	if isDefault is true
 		Trend.stateCycle(trendStates[trendStateIndex])
@@ -567,10 +584,11 @@ generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 		trendStates.push(["stateNumber" + i])
 
 fillCollectiveSlots = ->
-	for index, i in slotProperties.x
-		print elementSlots[i]
-		collectiveElement.image = elementSlots[i]
-
+	print "fillslots"
+	print City_Collective
+	for layer, i in City_Collective.subLayers
+		layer.image = elementSlots[i]
+		print layer
 
 
 remove = (element1, element2, element3, element4, element5) ->
@@ -590,4 +608,4 @@ display = (element1, element2, element3, element4) ->
 	element2.visible = true
 	element3.visible = true
 	if element4 != undefined
-		Trend.visible = true
+		element4.visible = true

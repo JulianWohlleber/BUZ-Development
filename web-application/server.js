@@ -178,15 +178,12 @@ function fillSlots(componentAmounts){
       }
     }
   }
-
   return slotArray
 }
-
 dataToFramer.slotsCollective = fillSlots(calccomponentAmounts(totalSlotAmount))
-console.log(fillSlots(calccomponentAmounts(totalSlotAmount)))
+
 //#########################socketServer#########################################
 io.sockets.on("connection",function(socket){
-  console.log("happend")
   /*Associating the callback function to be executed when client visits the page and
   websocket connection is made */
 
@@ -283,9 +280,11 @@ io.sockets.on("connection",function(socket){
 
     }
     socket.send(JSON.stringify(dataToFramer));
+    console.log("dataToFramer")
     /*Sending the Acknowledgement back to the client , this will trigger "message" event on the clients side*/
   });
   //still necessary then?
   socket.send(JSON.stringify(dataToFramer));
+  console.log("dataToFramer")
 
 });
