@@ -37,11 +37,10 @@ var votingFramer ={
 var app = express();
 app.use(express.static('./Scenarios.framer'));
 //Specifying the public folder of the server to make the html accesible using the static middleware
-var server =http.createServer(app).listen(port);
+var server = http.createServer(app).listen(port);
 //Server listens on the port 3000
 io = io.listen(server);
 /*initializing the websockets communication , server instance has to be sent as the argument */
-
 
 //#########################functions#########################################
 function calcDiagram(){
@@ -116,11 +115,12 @@ function fillSlots(componentAmounts){
 
   for (var i = 1; i <= totalSlotAmount; i++) { //i == slot
 //height of Elements
-    if (i<=lowElements){
+    var slotHeight = collectiveImages.slotHeight [i]
+    if(collectiveImages.slotHeight[i-1] === "LOW"){
       nextImageFolder = collectiveImages.low
-    }else if(i<=(lowElements+mediumElements)){
+    }else if(collectiveImages.slotHeight[i-1] === "MEDIUM"){
       nextImageFolder = collectiveImages.medium
-    }else if(i<=(lowElements + mediumElements + bigElements)){
+    }else if(collectiveImages.slotHeight[i-1] === "HIGH"){
       nextImageFolder = collectiveImages.big
     }
 
@@ -232,7 +232,7 @@ io.sockets.on("connection",function(socket){
 
 
     //Things done when Kollektives Stadtbild is selected
-    if(data.scenario === "collective"){
+    if(data.scenario === "collective" || data.scenario === ""){
       //checking for changes in objects and updates Scenariofactors
       if(votingFramer.hightech !== "-"){
         scenarioFactors.hightech.votingAverage = newScenarioFactors.hightech.votingAverage;

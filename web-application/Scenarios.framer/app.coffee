@@ -109,15 +109,15 @@ elementSlots = []
 `socket.on("message",function(message){
 dataServer = JSON.parse(message);`
 elementSlots = dataServer.slotsCollective
-print dataServer
+# print dataServer
 fillCollectiveSlots()
 `});`
 
 
 #Voting
 voting = {
-	"scenario":"collective",
-	"votingNumber": "-"}
+	"scenario":"",
+	"votingAmount": "-"}
 myVoting = "-"
 
 #Voting Functions
@@ -260,6 +260,7 @@ animateDiagram = (scenario) ->
 		ScenarioIndex = 1
 		scenarioScales = dataServer.collective
 
+
 	scenarioScalesInner.push scenarioScales.Arbeit.Politik/3*(1-diaCenterScale-diaBorderSize)
 	scenarioScalesInner.push scenarioScales.Umwelt.Politik/3*(1-diaCenterScale-diaBorderSize)
 	scenarioScalesInner.push scenarioScales.sozialG.Politik/3*(1-diaCenterScale-diaBorderSize)
@@ -301,6 +302,8 @@ setDiaPieces = (ScenarioIndex, scenarioScales) ->
 
 
 diagramFlip = (scenarioColor, scenario) ->
+	# City_All.animate
+	# 	z: -100
 	for layer, index in flipArray
 		layer.backgroundColor = scenarioColor
 		layer.visible = true
@@ -313,6 +316,7 @@ diagramFlip = (scenarioColor, scenario) ->
 				time: flipAnimationTime
 				delay: index*flipAnimationTime
 fourthFliplayer.onAnimationEnd ->
+	# City_All.z = 0
 	FallingDrop()
 
 
@@ -409,7 +413,7 @@ Trend = new Layer
 	x : Screen.width - trendwidth - horizontalMargin
 	y : verticalMargin
 	superLayer: sketch.MyWire
-	backgroundColor: myTransparent
+	backgroundColor: "transparent"
 	width : trendwidth
 	style:
 		"color": trendFontColor
@@ -429,7 +433,6 @@ Title_Regional = sketch.Title_Regional
 Title_Fortress = sketch.Title_Fortress
 Title_Robotic = sketch.Title_Robotic
 Title_Virtual = sketch.Title_Virtual
-Title_Collective = Title_Virtual.copy()
 
 City_Screensaver = new Layer
 	backgroundColor: "black"
@@ -446,6 +449,8 @@ City_Collective = new Layer
 	height: 1080
 	image: "/images/collectivesStadtbild.png"
 
+Title_Collective = Title_Virtual.copy()
+
 for index, i in slotProperties.x
 	collectiveElement = new Layer
 		# backgroundColor: "transparent"
@@ -458,7 +463,49 @@ for index, i in slotProperties.x
 City_Collective.index = 1
 
 
-#Default All Scenarios Invisible
+# # Test settings
+# print City_Regional.width
+# print City_Fortress.width
+# print City_Robotic.width
+# print City_Virtual.width
+# print City_Collective.width
+#
+# print City_Regional.height
+# print City_Fortress.height
+# print City_Robotic.height
+# print City_Virtual.height
+# print City_Collective.height
+
+
+# City_All = new Layer
+# 	backgroundColor: "transparent"
+# 	x: 0
+# 	y: 0
+# 	width: 1920
+# 	height: 1080
+# 	index: 1
+
+# #Put all CityElements into City_All
+# Description_Regional.superLayer = City_All
+# Description_Fortress.superLayer = City_All
+# Description_Robotic.superLayer = City_All
+# Description_Virtual.superLayer = City_All
+# Description_Collective.superLayer = City_All
+#
+# Title_Regional.superLayer = City_All
+# Title_Fortress.superLayer = City_All
+# Title_Robotic.superLayer = City_All
+# Title_Virtual.superLayer = City_All
+# Title_Collective.superLayer = City_All
+#
+# City_Regional.superLayer = City_All
+# City_Fortress.superLayer = City_All
+# City_Robotic.superLayer = City_All
+# City_Virtual.superLayer = City_All
+# City_Collective.superLayer = City_All
+# City_Screensaver.superLayer = City_All
+
+# Default All Scenarios Invisible
 Description_Regional.visible = false
 Description_Fortress.visible = false
 Description_Robotic.visible = false
@@ -503,9 +550,8 @@ sceneHandler = (selectedScenario) ->
 		diagramReset()
 		animateDiagram(selectedScenario)
 		voting.scenario = selectedScenario
-
-	Utils.delay showScenarioDelay, ->
-		showScenario(selectedScenario)
+		Utils.delay showScenarioDelay, ->
+			showScenario(selectedScenario)
 
 showScenario = (selectedScenario) ->
 	if selectedScenario is "regional"
@@ -550,12 +596,10 @@ showScenario = (selectedScenario) ->
 
 	else if selectedScenario is "collective"
 		sendVotings("-")
-		print "collective Entered"
 		display(Description_Collective, Title_Collective, City_Collective)
 		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
 		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
 		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Screensaver)
-		print "hello"
 
 
 
@@ -584,11 +628,8 @@ generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 		trendStates.push(["stateNumber" + i])
 
 fillCollectiveSlots = ->
-	print "fillslots"
-	print City_Collective
 	for layer, i in City_Collective.subLayers
 		layer.image = elementSlots[i]
-		print layer
 
 
 remove = (element1, element2, element3, element4, element5) ->
