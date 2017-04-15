@@ -38,6 +38,7 @@ verticalMargin = 41
 borderWidth = 3
 
 #Colors
+blendingColor = "white"
 myTransparent = "rgba(0)"
 trendFontColor = "#404040"
 colorRegional = "#F1F5F3"
@@ -75,14 +76,13 @@ showScenarioDelay = 2
 #################################################################
 
 Events.wrap(window).addEventListener "keydown", (event) ->
-	if 49 <= event.keyCode <= 53 or event.keyCode is 32
+	if 49 <= event.keyCode <= 53
 		switch event.keyCode
 			when 49 then selectedScenario = "regional"
 			when 50 then selectedScenario = "fortress"
 			when 51 then selectedScenario = "hightech"
 			when 52 then selectedScenario = "virtual"
 			when 53 then selectedScenario = "collective"
-			when 32 then selectedScenario = "screensaver"
 		sceneHandler(selectedScenario)
 
 	else if 54 <= event.keyCode <= 58
@@ -94,7 +94,8 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 			when 58 then myVoting = 2
 		sendVotings(myVoting)
 
-
+	else if event.keyCode is 32
+		showScreensaver()
 
 
 #################################################################
@@ -127,6 +128,27 @@ sendVotings = (myVoting)->
 	#message
 	`socket.send(JSON.stringify(voting))`
 
+#################################################################
+#SCREENSAVER
+#################################################################
+
+showScreensaver = ()->
+	selectedScenario = "screensaver"
+	whiteBlender = new Layer
+		backgroundColor: blendingColor
+		width: 1920
+		height: 1080
+		opacity: 0
+	whiteBlender.animate
+		opacity: 1
+	whiteBlender.onAnimationEnd ->
+		if whiteBlender.opacity != 0
+			whiteBlender.animate
+				opacity: 0
+		else
+			whiteBlender.destroy()
+	Utils.delay 1, ->
+		showScenario(selectedScenario)
 
 #################################################################
 #DIAGRAM_BLOCK
@@ -433,12 +455,26 @@ Title_Regional = sketch.Title_Regional
 Title_Fortress = sketch.Title_Fortress
 Title_Robotic = sketch.Title_Robotic
 Title_Virtual = sketch.Title_Virtual
+Title_Collective = Title_Virtual.copy()
 
 City_Screensaver = new Layer
-	backgroundColor: "black"
 	width: 1920
-	height: 1920
-	visible: false
+	height: 1080
+	backgroundColor:'#fff'
+	shadowBlur:2
+	shadowColor:'rgba(0,0,0,0.24)'
+
+# create the video layer
+videoLayer = new VideoLayer
+	width: 1920
+	height: 1080
+	video: "/video/animation_ursprungszustand_1.mp4"
+	superLayer: City_Screensaver
+
+videoLayer.player.loop = true
+
+# center everything on screen
+City_Screensaver.center()
 
 City_Regional = sketch.City_Regional
 City_Fortress = sketch.City_Fortress
@@ -448,8 +484,6 @@ City_Collective = new Layer
 	width: 1920
 	height: 1080
 	image: "/images/collectivesStadtbild.png"
-
-Title_Collective = Title_Virtual.copy()
 
 for index, i in slotProperties.x
 	collectiveElement = new Layer
@@ -461,6 +495,7 @@ for index, i in slotProperties.x
 		superLayer: City_Collective
 
 City_Collective.index = 1
+City_Screensaver.index = 2
 
 
 # # Test settings
@@ -537,23 +572,25 @@ Trend.on Events.AnimationEnd, ->
 		Trend.stateCycle(trendStates[trendStateIndex])
 
 
-
 #Functions
 
 sceneHandler = (selectedScenario) ->
 	if selectedScenario is "screensaver"
-		# voting.scenario = "screensavers"
 		showScenario(selectedScenario)
 	else if voting.scenario is selectedScenario
 		showDiagram()
 	else
 		diagramReset()
 		animateDiagram(selectedScenario)
-		voting.scenario = selectedScenario
 		Utils.delay showScenarioDelay, ->
 			showScenario(selectedScenario)
+	voting.scenario = selectedScenario
+
 
 showScenario = (selectedScenario) ->
+	isDefault = true
+	videoLayer.player.pause()
+
 	if selectedScenario is "regional"
 		trendStates = []
 		lastSceneTrends = currentSceneTrends
@@ -595,23 +632,26 @@ showScenario = (selectedScenario) ->
 		display(Description_Virtual, Title_Virtual, City_Virtual, Trend)
 
 	else if selectedScenario is "collective"
+		isDefault = false
 		sendVotings("-")
-		display(Description_Collective, Title_Collective, City_Collective)
 		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
 		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
 		remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Screensaver)
+		display(Description_Collective, Title_Collective, City_Collective)
 
 
 
 	#
-	# else if selectedScenario is "screensaver"
-	# 	City_Screensaver.opacity = 0
-	# 	City_Screensaver.visible = true
-	# 	City_Screensaver.animate.opacity = 1
-	# 	remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual, Description_Collective)
-	# 	remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
-	# 	remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Collective)
-	# 	sendVotings("-")
+	else if selectedScenario is "screensaver"
+		sendVotings("-")
+		isDefault = false
+		City_Screensaver.visible = true
+		videoLayer.player.play()
+		# City_Screensaver.opacity = 0
+		# City_Screensaver.animate.opacity = 1
+		# remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual, Description_Collective)
+		# remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
+		# remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Collective)
 
 	if isDefault is true
 		Trend.stateCycle(trendStates[trendStateIndex])
