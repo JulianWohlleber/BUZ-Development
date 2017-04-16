@@ -42,8 +42,8 @@ blendingColor = "white"
 myTransparent = "rgba(0)"
 trendFontColor = "#404040"
 colorRegional = "#F1F5F3"
-colorFestung = "#EFEDEF"
-colorKnotenpunkt = "#FEF0EC"
+colorFortress = "#EFEDEF"
+colorHightech = "#FEF0EC"
 colorVirtual = "#F0F3F7"
 colorCollective = "#EEEEEE"
 
@@ -110,13 +110,13 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 dataServer=""
 elementSlots = []
 # Voting RecieveServer
-`var socket = io.connect("/");`
-`socket.on("message",function(message){
-dataServer = JSON.parse(message);`
-elementSlots = dataServer.slotsCollective
-# print dataServer
-fillCollectiveSlots()
-`});`
+# `var socket = io.connect("/");`
+# `socket.on("message",function(message){
+# dataServer = JSON.parse(message);`
+# elementSlots = dataServer.slotsCollective
+# # print dataServer
+# fillCollectiveSlots()
+# `});`
 
 
 #Voting
@@ -270,11 +270,11 @@ animateDiagram = (scenario) ->
 		ScenarioIndex = 3
 		scenarioScales = dataServer.regional
 	else if scenario is "fortress"
-		scenarioColor = colorFestung
+		scenarioColor = colorFortress
 		ScenarioIndex = 2
 		scenarioScales = dataServer.fortress
 	else if scenario is "hightech"
-		scenarioColor = colorKnotenpunkt
+		scenarioColor = colorHightech
 		ScenarioIndex = 5
 		scenarioScales = dataServer.hightech
 	else if scenario is "virtual"

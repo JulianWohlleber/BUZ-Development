@@ -1,6 +1,9 @@
 app.coffee
 data/data.json
+data/scenarioLayer.json
+data/slots.json
 fonts/CothamSans.otf
+fonts/ShareTechMono-Regular.ttf
 framer/backups/backup-2017-03-28 13.14.45.coffee
 framer/backups/backup-2017-03-28 18.41.57.coffee
 framer/backups/backup-2017-03-28 18.47.57.coffee
@@ -20,8 +23,8 @@ framer/backups/backup-2017-04-05 17.22.32.coffee
 framer/backups/backup-2017-04-05 19.43.49.coffee
 framer/backups/backup-2017-04-05 20.09.18.coffee
 framer/backups/backup-2017-04-05 20.32.18.coffee
-framer/backups/backup-2017-04-05 20.50.34.coffee
-framer/backups/backup-2017-04-05 21.20.35.coffee
+framer/backups/backup-2017-04-16 18.11.37.coffee
+framer/backups/backup-2017-04-16 18.12.37.coffee
 framer/coffee-script.js
 framer/config.json
 framer/framer.generated.js
@@ -43,6 +46,61 @@ framer/metadata.json
 framer/preview.png
 framer/style.css
 framer/version
+images/collectivesStadtbild.pdf
+images/collectivesStadtbild.png
+images/MyScenarioLayer/animation-bus1.png
+images/MyScenarioLayer/animation-bus2.png
+images/MyScenarioLayer/animation-car1.png
+images/MyScenarioLayer/animation-car2.png
+images/MyScenarioLayer/animation-car3.png
+images/MyScenarioLayer/animation-car4.png
+images/MyScenarioLayer/animation-tank1.png
+images/MyScenarioLayer/animation-tank2-.png
+images/MyScenarioLayer/animation-train1.png
+images/MyScenarioLayer/animation-train2.png
+images/MyScenarioLayer/festung-1-11.png
+images/MyScenarioLayer/festung-4-11.png
+images/MyScenarioLayer/festung-overlay.png
+images/MyScenarioLayer/festung-title.png
+images/MyScenarioLayer/knotenpunkt-1-16.png
+images/MyScenarioLayer/knotenpunkt-10-16.png
+images/MyScenarioLayer/knotenpunkt-5-16.png
+images/MyScenarioLayer/knotenpunkt-7-16.png
+images/MyScenarioLayer/knotenpunkt-overlay.png
+images/MyScenarioLayer/knotenpunkt-title.png
+images/MyScenarioLayer/regional-1-5.png
+images/MyScenarioLayer/regional-3-5.png
+images/MyScenarioLayer/regional-5-5.png
+images/MyScenarioLayer/regional-overlay.png
+images/MyScenarioLayer/regional-title.png
+images/MyScenarioLayer/virtuell-1-7.png
+images/MyScenarioLayer/virtuell-4-7.png
+images/MyScenarioLayer/virtuell-overlay.png
+images/MyScenarioLayer/virtuell-title.png
+images/slots/FestungStadt_1_A.png
+images/slots/FestungStadt_1_B.png
+images/slots/FestungStadt_2_A.png
+images/slots/FestungStadt_2_B.png
+images/slots/FestungStadt_3_A.png
+images/slots/FestungStadt_3_B.png
+images/slots/KnotenpunktStadt_1_A.png
+images/slots/KnotenpunktStadt_1_B.png
+images/slots/KnotenpunktStadt_2_A.png
+images/slots/KnotenpunktStadt_2_B.png
+images/slots/KnotenpunktStadt_3_A.png
+images/slots/KnotenpunktStadt_3_B.png
+images/slots/RegionaleStadt_1_A.png
+images/slots/RegionaleStadt_1_B.png
+images/slots/RegionaleStadt_2_A.png
+images/slots/RegionaleStadt_2_B.png
+images/slots/RegionaleStadt_3_A.png
+images/slots/RegionaleStadt_3_B.png
+images/slots/VirtuelleStadt_1_A.png
+images/slots/VirtuelleStadt_1_B.png
+images/slots/VirtuelleStadt_2_A.png
+images/slots/VirtuelleStadt_2_B.png
+images/slots/VirtuelleStadt_3_A.png
+images/slots/VirtuelleStadt_3_B.png
 imported/Diagramme/images/Layer-dia1Arbeit-qtm4rdu0.png
 imported/Diagramme/images/Layer-dia1Bildung-quy4rkfg.png
 imported/Diagramme/images/Layer-dia1Center-nddbmee0.png
@@ -540,3 +598,4 @@ imported/Visual-Design-Screen-Framer@1x/layers.json
 imported/Visual-Design-Screen-Framer@1x/layers.json.js
 index.html
 modules/myModule.coffee
+video/animation_ursprungszustand_1.mp4
