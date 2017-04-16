@@ -42,8 +42,8 @@ blendingColor = "white"
 myTransparent = "rgba(0)"
 trendFontColor = "#404040"
 colorRegional = "#F1F5F3"
-colorFestung = "#EFEDEF"
-colorKnotenpunkt = "#FEF0EC"
+colorFortress = "#EFEDEF"
+colorHightech = "#FEF0EC"
 colorVirtual = "#F0F3F7"
 colorCollective = "#EEEEEE"
 
@@ -59,7 +59,6 @@ pieceAnimTime = 2
 diaBorderSize = 0.1
 
 #Trends
-isDefault = true
 trendwidth = 600
 trendFontSize = "30px"
 trendFont = "ShareTechMono-Regular"
@@ -67,7 +66,7 @@ trendLineHeight = "40px"
 trendAnimationDelay = 7
 
 #Scenarios
-showScenarioDelay = 7
+showScenarioDelay = 2
 
 
 #Presets
@@ -111,13 +110,13 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 dataServer=""
 elementSlots = []
 # Voting RecieveServer
-`var socket = io.connect("/");`
-`socket.on("message",function(message){
-dataServer = JSON.parse(message);`
-elementSlots = dataServer.slotsCollective
-# print dataServer
-fillCollectiveSlots()
-`});`
+# `var socket = io.connect("/");`
+# `socket.on("message",function(message){
+# dataServer = JSON.parse(message);`
+# elementSlots = dataServer.slotsCollective
+# # print dataServer
+# fillCollectiveSlots()
+# `});`
 
 
 #Voting
@@ -191,7 +190,6 @@ flipArray.push fourthFliplayer
 
 for layer, index in flipArray
 	layer.x = -1920/4 + 1920/4*index
-	layer.index = 10
 
 #FallingDroplet
 blackDrop = new Layer
@@ -272,11 +270,11 @@ animateDiagram = (scenario) ->
 		ScenarioIndex = 3
 		scenarioScales = dataServer.regional
 	else if scenario is "fortress"
-		scenarioColor = colorFestung
+		scenarioColor = colorFortress
 		ScenarioIndex = 2
 		scenarioScales = dataServer.fortress
 	else if scenario is "hightech"
-		scenarioColor = colorKnotenpunkt
+		scenarioColor = colorHightech
 		ScenarioIndex = 5
 		scenarioScales = dataServer.hightech
 	else if scenario is "virtual"
@@ -432,13 +430,13 @@ fadeOutDiagram = () ->
 trendStateIndex = 0
 trendStates = []
 currentSceneTrends = ""
+isDefault = true
 lastSceneTrends = ""
 
 background = new Layer
 	width: 1920
 	height: 1080
 	backgroundColor: "white"
-	index: 0
 
 scenarios = (thisLayer, thisWidth, thisHeight, thisPath, thisSuperLayer, thisIndex) ->
 	window["#{thisLayer}"] = new Layer
@@ -466,7 +464,6 @@ Trend = new Layer
 		"font-family": trendFont
 		"line-height": trendLineHeight
 	visible: true
-	index: 9
 
 # Description_Regional = sketch.Description_Regional
 # Description_Fortress = sketch.Description_Fortress
@@ -661,8 +658,6 @@ remove = (element1, element2, element3, element4, element5) ->
 display = (scenario) ->
 	if scenario != "collective" and scenario != "screensaver"
 		Trend.visible = true
-		City_Screensaver.visible = false
-		City_Collective.visible = false
 		for layer in myScenarios.layer
 			if layer.superlayer == scenario
 				window["#{layer.name}"].visible = true
@@ -671,20 +666,15 @@ display = (scenario) ->
 	else if scenario == "collective"
 		Trend.visible = false
 		City_Collective.visible = true
-		for layer in myScenarios.layer
-			if layer.superlayer == scenario
-				window["#{layer.name}"].visible = true
-			else
-				window["#{layer.name}"].visible = false
 	else
 		Trend.visible = false
 		City_Screensaver.visible = true
 		videoLayer.player.play()
 
-# display = (element1, element2, element3, element4) ->
-# 	Trend.visible = true
-# 	element1.visible = true
-# 	element2.visible = true
-# 	element3.visible = true
-# 	if element4 != undefined
-# 		element4.visible = true
+display = (element1, element2, element3, element4) ->
+	Trend.visible = true
+	element1.visible = true
+	element2.visible = true
+	element3.visible = true
+	if element4 != undefined
+		element4.visible = true
