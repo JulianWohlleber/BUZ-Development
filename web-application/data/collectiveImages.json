@@ -1,0 +1,20 @@
+{"low":{
+    "hightech":{"A": "/images/slots/KnotenpunktStadt_1_A.png", "B": "/images/slots/KnotenpunktStadt_1_B.png"},
+    "virtual":{"A": "/images/slots/VirtuelleStadt_1_A.png", "B": "/images/slots/VirtuelleStadt_1_B.png"},
+    "regional":{"A": "/images/slots/RegionaleStadt_1_A.png", "B": "/images/slots/RegionaleStadt_1_B.png"},
+    "fortress":{"A": "/images/slots/FestungStadt_1_A.png", "B": "/images/slots/FestungStadt_1_B.png"}
+},
+  "medium":{
+    "hightech":{"A": "/images/slots/KnotenpunktStadt_2_A.png", "B": "/images/slots/KnotenpunktStadt_2_B.png"},
+    "virtual":{"A": "/images/slots/VirtuelleStadt_2_A.png", "B": "/images/slots/VirtuelleStadt_2_B.png"},
+    "regional":{"A": "/images/slots/RegionaleStadt_2_A.png", "B": "/images/slots/RegionaleStadt_2_B.png"},
+    "fortress":{"A": "/images/slots/FestungStadt_2_A.png", "B": "/images/slots/FestungStadt_2_B.png"}
+  },
+  "big":{
+    "hightech":{"A": "/images/slots/KnotenpunktStadt_3_A.png", "B": "/images/slots/KnotenpunktStadt_3_B.png"},
+    "virtual":{"A": "/images/slots/VirtuelleStadt_3_A.png", "B": "/images/slots/VirtuelleStadt_3_B.png"},
+    "regional":{"A": "/images/slots/RegionaleStadt_3_A.png", "B": "/images/slots/RegionaleStadt_3_B.png"},
+    "fortress":{"A": "/images/slots/FestungStadt_3_A.png", "B": "/images/slots/FestungStadt_3_B.png"}
+  },
+  "slotHeight": ["HIGH", "MEDIUM", "MEDIUM", "MEDIUM", "LOW", "LOW", "LOW", "HIGH", "HIGH", "HIGH", "MEDIUM", "MEDIUM", "MEDIUM", "LOW","LOW","LOW"]
+}

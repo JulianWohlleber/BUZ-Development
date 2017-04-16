@@ -1,0 +1,236 @@
+{
+  "layer": [
+    {
+      "name": "regional_1_5",
+      "path": "images/MyScenarioLayer/regional-1-5.png",
+      "superlayer": "regional",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "regional_3_5",
+      "path": "images/MyScenarioLayer/regional-3-5.png",
+      "superlayer": "regional",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "regional_5_5",
+      "path": "images/MyScenarioLayer/regional-5-5.png",
+      "superlayer": "regional",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "regional_overlay",
+      "path": "images/MyScenarioLayer/regional-overlay.png",
+      "superlayer": "regional",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "regional_title",
+      "path": "images/MyScenarioLayer/regional-title.png",
+      "superlayer": "regional",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "festung_1_11",
+      "path": "images/MyScenarioLayer/festung-1-11.png",
+      "superlayer": "fortress",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "festung_4_11",
+      "path": "images/MyScenarioLayer/festung-4-11.png",
+      "superlayer": "fortress",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "festung_overlay",
+      "path": "images/MyScenarioLayer/festung-overlay.png",
+      "superlayer": "fortress",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "festung_title",
+      "path": "images/MyScenarioLayer/festung-title.png",
+      "superlayer": "fortress",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "knotenpunkt_1_16",
+      "path": "images/MyScenarioLayer/knotenpunkt-1-16.png",
+      "superlayer": "hightech",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "knotenpunkt_5_16",
+      "path": "images/MyScenarioLayer/knotenpunkt-5-16.png",
+      "superlayer": "hightech",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "knotenpunkt_7_16",
+      "path": "images/MyScenarioLayer/knotenpunkt-7-16.png",
+      "superlayer": "hightech",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "knotenpunkt_12_16",
+      "path": "images/MyScenarioLayer/knotenpunkt-12-16.png",
+      "superlayer": "hightech",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "knotenpunkt_overlay",
+      "path": "images/MyScenarioLayer/knotenpunkt-overlay.png",
+      "superlayer": "hightech",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "knotenpunkt_title",
+      "path": "images/MyScenarioLayer/knotenpunkt-title.png",
+      "superlayer": "hightech",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "virtuell_1_7",
+      "path": "images/MyScenarioLayer/virtuell-1-7.png",
+      "superlayer": "virtual",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "virtuell_4_7",
+      "path": "images/MyScenarioLayer/virtuell-4-7.png",
+      "superlayer": "virtual",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "virtuell_overlay",
+      "path": "images/MyScenarioLayer/virtuell-overlay.png",
+      "superlayer": "virtual",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "virtuell_title",
+      "path": "images/MyScenarioLayer/virtuell-title.png",
+      "superlayer": "virtual",
+      "width": 1920,
+      "height": 1080,
+      "index": 2
+    },
+    {
+      "name": "animation_train2",
+      "path": "images/MyScenarioLayer/animation-train2.png",
+      "superlayer": "animations",
+      "width": 258,
+      "height": 104,
+      "index": 2
+    },
+    {
+      "name": "animation_bus2",
+      "path": "images/MyScenarioLayer/animation-bus2.png",
+      "superlayer": "animations",
+      "width": 91,
+      "height": 51,
+      "index": 2
+    },
+    {
+      "name": "animation_bus1",
+      "path": "images/MyScenarioLayer/animation-bus1.png",
+      "superlayer": "animations",
+      "width": 91,
+      "height": 50,
+      "index": 2
+    },
+    {
+      "name": "animation_car4",
+      "path": "images/MyScenarioLayer/animation-car4.png",
+      "superlayer": "animations",
+      "width": 73,
+      "height": 43,
+      "index": 2
+    },
+    {
+      "name": "animation_car3",
+      "path": "images/MyScenarioLayer/animation-car3.png",
+      "superlayer": "animations",
+      "width": 75,
+      "height": 43,
+      "index": 2
+    },
+    {
+      "name": "animation_car2",
+      "path": "images/MyScenarioLayer/animation-car2.png",
+      "superlayer": "animations",
+      "width": 73,
+      "height": 43,
+      "index": 2
+    },
+    {
+      "name": "animation_car1",
+      "path": "images/MyScenarioLayer/animation-car1.png",
+      "superlayer": "animations",
+      "width": 75,
+      "height": 43,
+      "index": 2
+    },
+    {
+      "name": "animation_tank2",
+      "path": "images/MyScenarioLayer/animation-tank2.png",
+      "superlayer": "animations",
+      "width": 66,
+      "height": 31,
+      "index": 2
+    },
+    {
+      "name": "animation_tank1",
+      "path": "images/MyScenarioLayer/animation-tank1-.png",
+      "superlayer": "animations",
+      "width": 71,
+      "height": 31,
+      "index": 2
+    },
+    {
+      "name": "animation_train1",
+      "path": "images/MyScenarioLayer/animation-train1.png",
+      "superlayer": "animations",
+      "width": 257,
+      "height": 104,
+      "index": 2
+    }
+  ]
+}
