@@ -59,6 +59,7 @@ pieceAnimTime = 2
 diaBorderSize = 0.1
 
 #Trends
+isDefault = true
 trendwidth = 600
 trendFontSize = "30px"
 trendFont = "ShareTechMono-Regular"
@@ -66,7 +67,7 @@ trendLineHeight = "40px"
 trendAnimationDelay = 7
 
 #Scenarios
-showScenarioDelay = 2
+showScenarioDelay = 7
 
 
 #Presets
@@ -431,7 +432,6 @@ allScenes = sketch.MyWire
 trendStateIndex = 0
 trendStates = []
 currentSceneTrends = ""
-isDefault = true
 lastSceneTrends = ""
 
 Trend = new Layer
