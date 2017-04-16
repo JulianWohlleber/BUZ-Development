@@ -69,7 +69,9 @@ trendAnimationDelay = 7
 showScenarioDelay = 2
 
 
-
+#Presets
+selectedScenario = ""
+rerenderCollective = true
 
 #################################################################
 #Keydown
@@ -92,7 +94,9 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 			when 56 then myVoting = 0
 			when 57 then myVoting = 1
 			when 58 then myVoting = 2
-		sendVotings(myVoting)
+		if selectedScenario != "collective"
+			sendVotings(myVoting)
+			rerenderCollective = true
 
 	else if event.keyCode is 32
 		showScreensaver()
@@ -424,7 +428,6 @@ fadeOutDiagram = () ->
 #Presets
 
 allScenes = sketch.MyWire
-selectedScenario = ""
 trendStateIndex = 0
 trendStates = []
 currentSceneTrends = ""
@@ -588,7 +591,6 @@ sceneHandler = (selectedScenario) ->
 
 
 showScenario = (selectedScenario) ->
-	isDefault = true
 	videoLayer.player.pause()
 
 	if selectedScenario is "regional"
@@ -632,7 +634,6 @@ showScenario = (selectedScenario) ->
 		display(Description_Virtual, Title_Virtual, City_Virtual, Trend)
 
 	else if selectedScenario is "collective"
-		isDefault = false
 		sendVotings("-")
 		remove(Description_Regional, Description_Fortress, Description_Robotic, Description_Virtual)
 		remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual)
@@ -640,11 +641,9 @@ showScenario = (selectedScenario) ->
 		display(Description_Collective, Title_Collective, City_Collective)
 
 
-
 	#
 	else if selectedScenario is "screensaver"
 		sendVotings("-")
-		isDefault = false
 		City_Screensaver.visible = true
 		videoLayer.player.play()
 		# City_Screensaver.opacity = 0
@@ -653,9 +652,9 @@ showScenario = (selectedScenario) ->
 		# remove(Title_Regional, Title_Fortress, Title_Robotic, Title_Virtual, Title_Collective)
 		# remove(City_Regional, City_Fortress, City_Robotic, City_Virtual, City_Collective)
 
-	if isDefault is true
+	if isDefault is true and selectedScenario != "collective" and selectedScenario != "screensaver"
 		Trend.stateCycle(trendStates[trendStateIndex])
-	isDefault = false
+		isDefault = false
 
 
 generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
@@ -668,8 +667,10 @@ generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 		trendStates.push(["stateNumber" + i])
 
 fillCollectiveSlots = ->
-	for layer, i in City_Collective.subLayers
-		layer.image = elementSlots[i]
+	if rerenderCollective is true
+		for layer, i in City_Collective.subLayers
+			layer.image = elementSlots[i]
+			rerenderCollective = false
 
 
 remove = (element1, element2, element3, element4, element5) ->
