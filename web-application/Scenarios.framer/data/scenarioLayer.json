@@ -43,7 +43,7 @@
     {
       "name": "festung_1_11",
       "path": "images/MyScenarioLayer/festung-1-11.png",
-      "superlayer": "festung",
+      "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -51,7 +51,7 @@
     {
       "name": "festung_4_11",
       "path": "images/MyScenarioLayer/festung-4-11.png",
-      "superlayer": "festung",
+      "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -59,7 +59,7 @@
     {
       "name": "festung_overlay",
       "path": "images/MyScenarioLayer/festung-overlay.png",
-      "superlayer": "festung",
+      "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -67,7 +67,7 @@
     {
       "name": "festung_title",
       "path": "images/MyScenarioLayer/festung-title.png",
-      "superlayer": "festung",
+      "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -75,7 +75,7 @@
     {
       "name": "knotenpunkt_1_16",
       "path": "images/MyScenarioLayer/knotenpunkt-1-16.png",
-      "superlayer": "knotenpunkt",
+      "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -83,7 +83,7 @@
     {
       "name": "knotenpunkt_5_16",
       "path": "images/MyScenarioLayer/knotenpunkt-5-16.png",
-      "superlayer": "knotenpunkt",
+      "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -91,7 +91,7 @@
     {
       "name": "knotenpunkt_7_16",
       "path": "images/MyScenarioLayer/knotenpunkt-7-16.png",
-      "superlayer": "knotenpunkt",
+      "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -99,7 +99,7 @@
     {
       "name": "knotenpunkt_12_16",
       "path": "images/MyScenarioLayer/knotenpunkt-12-16.png",
-      "superlayer": "knotenpunkt",
+      "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -107,7 +107,7 @@
     {
       "name": "knotenpunkt_overlay",
       "path": "images/MyScenarioLayer/knotenpunkt-overlay.png",
-      "superlayer": "knotenpunkt",
+      "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -115,7 +115,7 @@
     {
       "name": "knotenpunkt_title",
       "path": "images/MyScenarioLayer/knotenpunkt-title.png",
-      "superlayer": "knotenpunkt",
+      "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -123,7 +123,7 @@
     {
       "name": "virtuell_1_7",
       "path": "images/MyScenarioLayer/virtuell-1-7.png",
-      "superlayer": "virtuell",
+      "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -131,7 +131,7 @@
     {
       "name": "virtuell_4_7",
       "path": "images/MyScenarioLayer/virtuell-4-7.png",
-      "superlayer": "virtuell",
+      "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -139,7 +139,7 @@
     {
       "name": "virtuell_overlay",
       "path": "images/MyScenarioLayer/virtuell-overlay.png",
-      "superlayer": "virtuell",
+      "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
       "index": 2
@@ -147,7 +147,7 @@
     {
       "name": "virtuell_title",
       "path": "images/MyScenarioLayer/virtuell-title.png",
-      "superlayer": "virtuell",
+      "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
       "index": 2
