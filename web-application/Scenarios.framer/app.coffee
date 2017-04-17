@@ -2,7 +2,7 @@
 # Define and set custom device
 #################################################################
 Framer.Extras.Preloader.enable()
-Framer.Extras.Preloader.setLogo("/images/collectivesStadtbild.png") #custom loading image
+Framer.Extras.Preloader.setLogo("/images/loadingicon.png") #custom loading image
 Canvas.backgroundColor = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
@@ -115,7 +115,6 @@ elementSlots = []
 `socket.on("message",function(message){
 dataServer = JSON.parse(message);`
 elementSlots = dataServer.slotsCollective
-# print dataServer
 fillCollectiveSlots()
 `});`
 
@@ -511,8 +510,8 @@ City_Collective = new Layer
 for index, i in slotProperties.x
 	collectiveElement = new Layer
 		# backgroundColor: "transparent"
-		width: slotProperties.width
-		height: slotProperties.height
+		width: slotProperties.width[i]
+		height: slotProperties.height[i]
 		x: slotProperties.x[i]
 		y: slotProperties.y[i]
 		superLayer: City_Collective
@@ -520,28 +519,6 @@ for index, i in slotProperties.x
 City_Collective.index = 1
 City_Screensaver.index = 2
 
-
-# # Test settings
-# print City_Regional.width
-# print City_Fortress.width
-# print City_Robotic.width
-# print City_Virtual.width
-# print City_Collective.width
-#
-# print City_Regional.height
-# print City_Fortress.height
-# print City_Robotic.height
-# print City_Virtual.height
-# print City_Collective.height
-
-
-# City_All = new Layer
-# 	backgroundColor: "transparent"
-# 	x: 0
-# 	y: 0
-# 	width: 1920
-# 	height: 1080
-# 	index: 1
 
 # #Put all CityElements into City_All
 # Description_Regional.superLayer = City_All
@@ -671,6 +648,7 @@ display = (scenario) ->
 	else if scenario == "collective"
 		Trend.visible = false
 		City_Collective.visible = true
+		City_Screensaver.visible = false
 		for layer in myScenarios.layer
 			if layer.superlayer == scenario
 				window["#{layer.name}"].visible = true
@@ -688,3 +666,5 @@ display = (scenario) ->
 # 	element3.visible = true
 # 	if element4 != undefined
 # 		element4.visible = true
+
+display("screensaver")
