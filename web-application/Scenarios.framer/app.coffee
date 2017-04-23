@@ -52,7 +52,8 @@ flipAnimationTime = 0.34 #time/flip
 dropAnimationTime = 0.55 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.2
-diaCenterScale = 0.2 # Bars defaultsize
+diaCenterScale = 0.14 # Bars defaultsize
+diaCenterSize = diaCenterScale * sketch1.diaBubble.width
 diagramFadeOutDelay = 6
 diagramFadeOutTime = 1
 pieceAnimTime = 2
@@ -177,6 +178,28 @@ Fliplayer = new Layer
 	height: 1080
 	rotationY: 100
 	opacity: 0
+	# image: "/images/Fliplayer.png"
+
+#diagram center
+diaCenter = new Layer
+	backgroundColor: "white"
+	width: diaCenterSize
+	height: diaCenterSize
+	borderRadius: diaCenterSize
+	superLayer: sketch1.KnotenpunktStadt
+	shadowX: 3
+	shadowY: 4
+	shadowBlur: 50
+
+diaCenter.center()
+
+# diaCenterC = diaCenter.copy()
+# diaCenterC.width = diaCenterSize-10
+# diaCenterC.height = diaCenterSize-10
+# diaCenterC.backgroundColor = "#FEF0EC"
+# diaCenterC.superLayer = sketch1.KnotenpunktStadt
+# diaCenterC.center()
+sketch1.diaCenter.visible = false
 
 firstFliplayer = Fliplayer.copy()
 secondFliplayer = Fliplayer.copy()
@@ -188,9 +211,9 @@ flipArray.push secondFliplayer
 flipArray.push thirdFliplayer
 flipArray.push fourthFliplayer
 
-for layer, index in flipArray
-	layer.x = -1920/4 + 1920/4*index
-	layer.index = 10
+for flipLayer, index in flipArray
+	flipLayer.x = -1920/4 + 1920/4*index
+	flipLayer.index = 10
 
 #FallingDroplet
 blackDrop = new Layer
@@ -204,6 +227,10 @@ blackDrop.visible = false
 
 #sketch1
 sketch1.KnotenpunktStadt.bringToFront()
+sketch1.dia1Fonts.x = 0
+sketch1.dia1Fonts.y = 0
+sketch1.dia1Fonts.width = 1920
+sketch1.dia1Fonts.height = 1080
 
 fadeOut = new Animation sketch1.KnotenpunktStadt,
 	opacity: 0
@@ -270,22 +297,27 @@ animateDiagram = (scenario) ->
 		scenarioColor = colorRegional
 		ScenarioIndex = 3
 		scenarioScales = dataServer.regional
+		scenarioTitle = "images/overlays/Regional.png"
 	else if scenario is "fortress"
 		scenarioColor = colorFestung
 		ScenarioIndex = 2
 		scenarioScales = dataServer.fortress
+		scenarioTitle = "images/overlays/Fortress.png"
 	else if scenario is "hightech"
 		scenarioColor = colorKnotenpunkt
 		ScenarioIndex = 5
 		scenarioScales = dataServer.hightech
+		scenarioTitle = "images/overlays/Hightech.png"
 	else if scenario is "virtual"
 		scenarioColor = colorVirtual
 		ScenarioIndex = 4
 		scenarioScales = dataServer.virtual
+		scenarioTitle = "images/overlays/Virtual.png"
 	else if scenario is "collective"
 		scenarioColor = colorCollective
 		ScenarioIndex = 1
 		scenarioScales = dataServer.collective
+		scenarioTitle = "images/overlays/Collective.png"
 
 
 	scenarioScalesInner.push scenarioScales.Arbeit.Politik/3*(1-diaCenterScale-diaBorderSize)
@@ -307,7 +339,7 @@ animateDiagram = (scenario) ->
 	scenarioScalesOuter.push scenarioScales.Wohnen.Gesellschaft/3*(1-diaCenterScale-diaBorderSize)
 
 	setDiaPieces(ScenarioIndex, scenarioScales)
-	diagramFlip(scenarioColor, scenario)
+	diagramFlip(scenarioColor, scenario, scenarioTitle)
 
 
 setDiaPieces = (ScenarioIndex, scenarioScales) ->
@@ -328,15 +360,16 @@ setDiaPieces = (ScenarioIndex, scenarioScales) ->
 				child.visible = true
 
 
-diagramFlip = (scenarioColor, scenario) ->
+diagramFlip = (scenarioColor, scenario, scenarioTitle) ->
 	# City_All.animate
 	# 	z: -100
-	for layer, index in flipArray
-		layer.backgroundColor = scenarioColor
-		layer.visible = true
-		# layer.opacity = 1
-		# layer.rotationY = 0
-		layer.animate
+	sketch1.KnotenpunktStadt.backgroundColor = scenarioColor
+	diaCenter.backgroundColor = scenarioColor
+	sketch1.dia1Fonts.image = scenarioTitle
+	for flipLayer, index in flipArray
+		flipLayer.backgroundColor = scenarioColor
+		flipLayer.visible = true
+		flipLayer.animate
 			rotationY: 0
 			opacity: 1
 			options:
@@ -414,8 +447,8 @@ FallingDrop = () ->
 
 fadeOutDiagram = () ->
 	fadeOut.start()
-	for layer, index in flipArray
-		layer.visible = false
+	for flipLayer, index in flipArray
+		flipLayer.visible = false
 	diagramAnimating = false
 
 
@@ -467,18 +500,6 @@ Trend = new Layer
 	visible: true
 	index: 9
 
-# Description_Regional = sketch.Description_Regional
-# Description_Fortress = sketch.Description_Fortress
-# Description_Robotic = sketch.Description_Robotic
-# Description_Virtual = sketch.Description_Virtual
-# Description_Collective = Description_Virtual.copy()
-#
-# Title_Regional = sketch.Title_Regional
-# Title_Fortress = sketch.Title_Fortress
-# Title_Robotic = sketch.Title_Robotic
-# Title_Virtual = sketch.Title_Virtual
-# Title_Collective = Title_Virtual.copy()
-
 City_Screensaver = new Layer
 	width: 1920
 	height: 1080
@@ -498,10 +519,6 @@ videoLayer.player.loop = true
 # center everything on screen
 City_Screensaver.center()
 
-# City_Regional = sketch.City_Regional
-# City_Fortress = sketch.City_Fortress
-# City_Robotic = sketch.City_Robotic
-# City_Virtual = sketch.City_Virtual
 City_Collective = new Layer
 	width: 1920
 	height: 1080
@@ -518,47 +535,6 @@ for index, i in slotProperties.x
 
 City_Collective.index = 1
 City_Screensaver.index = 2
-
-
-# #Put all CityElements into City_All
-# Description_Regional.superLayer = City_All
-# Description_Fortress.superLayer = City_All
-# Description_Robotic.superLayer = City_All
-# Description_Virtual.superLayer = City_All
-# Description_Collective.superLayer = City_All
-#
-# Title_Regional.superLayer = City_All
-# Title_Fortress.superLayer = City_All
-# Title_Robotic.superLayer = City_All
-# Title_Virtual.superLayer = City_All
-# Title_Collective.superLayer = City_All
-#
-# City_Regional.superLayer = City_All
-# City_Fortress.superLayer = City_All
-# City_Robotic.superLayer = City_All
-# City_Virtual.superLayer = City_All
-# City_Collective.superLayer = City_All
-# City_Screensaver.superLayer = City_All
-
-# Default All Scenarios Invisible
-# Description_Regional.visible = false
-# Description_Fortress.visible = false
-# Description_Robotic.visible = false
-# Description_Virtual.visible = false
-# Description_Collective.visible = false
-#
-# Title_Regional.visible = false
-# Title_Fortress.visible = false
-# Title_Robotic.visible = false
-# Title_Virtual.visible = false
-# Title_Collective.visible = false
-#
-# City_Regional.visible = false
-# City_Fortress.visible = false
-# City_Robotic.visible = false
-# City_Virtual.visible = false
-# City_Collective.visible = false
-# City_Screensaver.visible = false
 
 Trend.states.animationOptions =
 	delay: trendAnimationDelay
