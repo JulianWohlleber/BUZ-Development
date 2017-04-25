@@ -16,5 +16,23 @@
     "regional":{"A": "/images/slots/RegionaleStadt_3_A.png", "B": "/images/slots/RegionaleStadt_3_B.png"},
     "fortress":{"A": "/images/slots/FestungStadt_3_A.png", "B": "/images/slots/FestungStadt_3_B.png"}
   },
-  "slotHeight": ["HIGH", "MEDIUM", "MEDIUM", "MEDIUM", "LOW", "LOW", "LOW", "HIGH", "HIGH", "HIGH", "MEDIUM", "MEDIUM", "MEDIUM", "LOW","LOW","LOW"]
+  "ol":{
+    "hightech":{"A": "/images/slots/Ecke_OL_A.png", "B": "/images/slots/Ecke_OL_B.png"},
+    "virtual":{"A": "/images/slots/Ecke_OL_A.png", "B": "/images/slots/Ecke_OL_B.png"},
+    "regional":{"A": "/images/slots/Ecke_OL_B.png", "B": "/images/slots/Ecke_OL_B.png"},
+    "fortress":{"A": "/images/slots/Ecke_OL_A.png", "B": "/images/slots/Ecke_OL_A.png"}
+  },
+  "ul":{
+    "hightech":{"A": "/images/slots/Ecke_UL_A.png", "B": "/images/slots/Ecke_UL_A.png"},
+    "virtual":{"A": "/images/slots/Ecke_UL_A.png", "B": "/images/slots/Ecke_UL_B.png"},
+    "regional":{"A": "/images/slots/Ecke_UL_A.png", "B": "/images/slots/Ecke_UL_A.png"},
+    "fortress":{"A": "/images/slots/Ecke_UL_B.png", "B": "/images/slots/Ecke_UL_B.png"}
+  },
+  "ur":{
+    "hightech":{"A": "/images/slots/Ecke_UR_A.png", "B": "/images/slots/Ecke_UR_A.png"},
+    "virtual":{"A": "/images/slots/Ecke_UR_A.png", "B": "/images/slots/VirtuelleStadt_3_B.png"},
+    "regional":{"A": "/images/slots/Ecke_UR_A.png", "B": "/images/slots/Ecke_UR_A.png"},
+    "fortress":{"A": "/images/slots/Ecke_UR_B.png", "B": "/images/slots/Ecke_UR_B.png"}
+  },
+  "slotType": ["HIGH", "MIDDLE", "MIDDLE", "MIDDLE", "LOW", "LOW", "LOW", "OL", "HIGH", "HIGH", "MIDDLE", "MIDDLE", "LOW","LOW", "UR", "UL"]
 }
