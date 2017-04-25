@@ -21,10 +21,7 @@ var maxVotingValue = 2
 var maxVotingProportion = 20; //votingamount on which above persentage is used (1/minVotingAmount)
 
 //CollectiveImageRendering
-var lowElements = 6 //amount of low height Elements in scenario
-var mediumElements = 6 //amount of medium height Elements in scenario
-var bigElements = 4 //amount of big height Elements in scenario
-var totalSlotAmount = lowElements + mediumElements + bigElements
+var totalSlotAmount = collectiveImages.slotType.length + 1
 
 var votingFramer ={
   "hightech": "-",
@@ -43,46 +40,57 @@ io = io.listen(server);
 /*initializing the websockets communication , server instance has to be sent as the argument */
 
 //#########################functions#########################################
+function calcChartvalue(hightech, virtual, regional, fortress){
+    value = (hightech * hightechFactor + virtual * virtualFactor + regional * regionalFactor + fortress * fortressFactor)/factorSum
+    if (value<0){
+      value = 0
+    }else if(value>1){
+      value = 1
+    }
+  console.log("active");
+  return value
+}
+
 function calcDiagram(){
   hightechFactor = newScenarioFactors.hightech.votingAverage;
   virtualFactor = newScenarioFactors.virtual.votingAverage;
   regionalFactor = newScenarioFactors.regional.votingAverage;
   fortressFactor = newScenarioFactors.fortress.votingAverage;
   factorSum = hightechFactor + virtualFactor+regionalFactor+fortressFactor;
-  if(factorSum === 0){
+  if(factorSum => 0){
     factorSum = 1;
   }
 
   //Arbeit
-  dataToFramer.collective.Arbeit.Gesellschaft = (dataToFramer.hightech.Arbeit.Gesellschaft * hightechFactor + dataToFramer.virtual.Arbeit.Gesellschaft * virtualFactor + dataToFramer.regional.Arbeit.Gesellschaft * regionalFactor + dataToFramer.fortress.Arbeit.Gesellschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Arbeit.Politik = (dataToFramer.hightech.Arbeit.Politik * hightechFactor + dataToFramer.virtual.Arbeit.Politik * virtualFactor + dataToFramer.regional.Arbeit.Politik * regionalFactor + dataToFramer.fortress.Arbeit.Politik * fortressFactor)/factorSum;
-  dataToFramer.collective.Arbeit.Wirtschaft = (dataToFramer.hightech.Arbeit.Wirtschaft * hightechFactor + dataToFramer.virtual.Arbeit.Wirtschaft * virtualFactor + dataToFramer.regional.Arbeit.Wirtschaft * regionalFactor + dataToFramer.fortress.Arbeit.Wirtschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Arbeit.all = (dataToFramer.collective.Arbeit.Gesellschaft+dataToFramer.collective.Arbeit.Politik+dataToFramer.collective.Arbeit.Wirtschaft)/3;
+  dataToFramer.collective.Arbeit.Gesellschaft = calcChartvalue(dataToFramer.hightech.Arbeit.Gesellschaft, dataToFramer.virtual.Arbeit.Gesellschaft, dataToFramer.regional.Arbeit.Gesellschaft, dataToFramer.fortress.Arbeit.Gesellschaft)
+  dataToFramer.collective.Arbeit.Politik = calcChartvalue(dataToFramer.hightech.Arbeit.Politik, dataToFramer.virtual.Arbeit.Politik, dataToFramer.regional.Arbeit.Politik, dataToFramer.fortress.Arbeit.Politik)
+  dataToFramer.collective.Arbeit.Wirtschaft = calcChartvalue(dataToFramer.hightech.Arbeit.Wirtschaft, dataToFramer.virtual.Arbeit.Wirtschaft, dataToFramer.regional.Arbeit.Wirtschaft, dataToFramer.fortress.Arbeit.Wirtschaft)
+  // dataToFramer.collective.Arbeit.all = (dataToFramer.collective.Arbeit.Gesellschaft+dataToFramer.collective.Arbeit.Politik+dataToFramer.collective.Arbeit.Wirtschaft)/3;
 
   //Umwelt
-  dataToFramer.collective.Umwelt.Gesellschaft = (dataToFramer.hightech.Umwelt.Gesellschaft * hightechFactor + dataToFramer.virtual.Umwelt.Gesellschaft * virtualFactor + dataToFramer.regional.Umwelt.Gesellschaft * regionalFactor + dataToFramer.fortress.Umwelt.Gesellschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Umwelt.Politik = (dataToFramer.hightech.Umwelt.Politik * hightechFactor + dataToFramer.virtual.Umwelt.Politik * virtualFactor + dataToFramer.regional.Umwelt.Politik * regionalFactor + dataToFramer.fortress.Umwelt.Politik * fortressFactor)/factorSum;
-  dataToFramer.collective.Umwelt.Wirtschaft = (dataToFramer.hightech.Umwelt.Wirtschaft * hightechFactor + dataToFramer.virtual.Umwelt.Wirtschaft * virtualFactor + dataToFramer.regional.Umwelt.Wirtschaft * regionalFactor + dataToFramer.fortress.Umwelt.Wirtschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Umwelt.all = (dataToFramer.collective.Umwelt.Gesellschaft+dataToFramer.collective.Umwelt.Politik+dataToFramer.collective.Umwelt.Wirtschaft)/3;
+  dataToFramer.collective.Umwelt.Gesellschaft = calcChartvalue(dataToFramer.hightech.Umwelt.Gesellschaft, dataToFramer.virtual.Umwelt.Gesellschaft, dataToFramer.regional.Umwelt.Gesellschaft, dataToFramer.fortress.Umwelt.Gesellschaft)
+  dataToFramer.collective.Umwelt.Politik = calcChartvalue(dataToFramer.hightech.Umwelt.Politik, dataToFramer.virtual.Umwelt.Politik, dataToFramer.regional.Umwelt.Politik, dataToFramer.fortress.Umwelt.Politik)
+  dataToFramer.collective.Umwelt.Wirtschaft = calcChartvalue(dataToFramer.hightech.Umwelt.Wirtschaft, dataToFramer.virtual.Umwelt.Wirtschaft, dataToFramer.regional.Umwelt.Wirtschaft, dataToFramer.fortress.Umwelt.Wirtschaft)
+  // dataToFramer.collective.Umwelt.all = (dataToFramer.collective.Umwelt.Gesellschaft+dataToFramer.collective.Umwelt.Politik+dataToFramer.collective.Umwelt.Wirtschaft)/3;
 
   //Bildung
-  dataToFramer.collective.Bildung.Gesellschaft = (dataToFramer.hightech.Bildung.Gesellschaft * hightechFactor + dataToFramer.virtual.Bildung.Gesellschaft * virtualFactor + dataToFramer.regional.Bildung.Gesellschaft * regionalFactor + dataToFramer.fortress.Bildung.Gesellschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Bildung.Politik = (dataToFramer.hightech.Bildung.Politik * hightechFactor + dataToFramer.virtual.Bildung.Politik * virtualFactor + dataToFramer.regional.Bildung.Politik * regionalFactor + dataToFramer.fortress.Bildung.Politik * fortressFactor)/factorSum;
-  dataToFramer.collective.Bildung.Wirtschaft = (dataToFramer.hightech.Bildung.Wirtschaft * hightechFactor + dataToFramer.virtual.Bildung.Wirtschaft * virtualFactor + dataToFramer.regional.Bildung.Wirtschaft * regionalFactor + dataToFramer.fortress.Bildung.Wirtschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Bildung.all = (dataToFramer.collective.Bildung.Gesellschaft + dataToFramer.collective.Bildung.Politik+dataToFramer.collective.Bildung.Wirtschaft)/3;
-
-  //sozialG
-  dataToFramer.collective.sozialG.Gesellschaft = (dataToFramer.hightech.sozialG.Gesellschaft * hightechFactor + dataToFramer.virtual.sozialG.Gesellschaft * virtualFactor + dataToFramer.regional.sozialG.Gesellschaft * regionalFactor + dataToFramer.fortress.sozialG.Gesellschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.sozialG.Politik = (dataToFramer.hightech.sozialG.Politik * hightechFactor + dataToFramer.virtual.sozialG.Politik * virtualFactor + dataToFramer.regional.sozialG.Politik * regionalFactor + dataToFramer.fortress.sozialG.Politik * fortressFactor)/factorSum;
-  dataToFramer.collective.sozialG.Wirtschaft = (dataToFramer.hightech.sozialG.Wirtschaft * hightechFactor + dataToFramer.virtual.sozialG.Wirtschaft * virtualFactor + dataToFramer.regional.sozialG.Wirtschaft * regionalFactor + dataToFramer.fortress.sozialG.Wirtschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.sozialG.all = (dataToFramer.collective.sozialG.Gesellschaft+dataToFramer.collective.sozialG.Politik+dataToFramer.collective.sozialG.Wirtschaft)/3;
+  dataToFramer.collective.Bildung.Gesellschaft = calcChartvalue(dataToFramer.hightech.Bildung.Gesellschaft, dataToFramer.virtual.Bildung.Gesellschaft, dataToFramer.regional.Bildung.Gesellschaft, dataToFramer.fortress.Bildung.Gesellschaft)
+  dataToFramer.collective.Bildung.Politik = calcChartvalue(dataToFramer.hightech.Bildung.Politik, dataToFramer.virtual.Bildung.Politik, dataToFramer.regional.Bildung.Politik, dataToFramer.fortress.Bildung.Politik)
+  dataToFramer.collective.Bildung.Wirtschaft = calcChartvalue(dataToFramer.hightech.Bildung.Wirtschaft, dataToFramer.virtual.Bildung.Wirtschaft, dataToFramer.regional.Bildung.Wirtschaft, dataToFramer.fortress.Bildung.Wirtschaft)
+  // dataToFramer.collective.Bildung.all = (dataToFramer.collective.Bildung.Gesellschaft + dataToFramer.collective.Bildung.Politik+dataToFramer.collective.Bildung.Wirtschaft)/3;
 
   //Wohnen
-  dataToFramer.collective.Wohnen.Gesellschaft = (dataToFramer.hightech.Wohnen.Gesellschaft * hightechFactor + dataToFramer.virtual.Wohnen.Gesellschaft * virtualFactor + dataToFramer.regional.Wohnen.Gesellschaft * regionalFactor + dataToFramer.fortress.Wohnen.Gesellschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Wohnen.Politik = (dataToFramer.hightech.Wohnen.Politik * hightechFactor + dataToFramer.virtual.Wohnen.Politik * virtualFactor + dataToFramer.regional.Wohnen.Politik * regionalFactor + dataToFramer.fortress.Wohnen.Politik * fortressFactor)/factorSum;
-  dataToFramer.collective.Wohnen.Wirtschaft = (dataToFramer.hightech.Wohnen.Wirtschaft * hightechFactor + dataToFramer.virtual.Wohnen.Wirtschaft * virtualFactor + dataToFramer.regional.Wohnen.Wirtschaft * regionalFactor + dataToFramer.fortress.Wohnen.Wirtschaft * fortressFactor)/factorSum;
-  dataToFramer.collective.Wohnen.all = (dataToFramer.collective.Wohnen.Gesellschaft+dataToFramer.collective.Wohnen.Politik+dataToFramer.collective.Wohnen.Wirtschaft)/3;
-}
+  dataToFramer.collective.sozialG.Gesellschaft = calcChartvalue(dataToFramer.hightech.sozialG.Gesellschaft, dataToFramer.virtual.sozialG.Gesellschaft, dataToFramer.regional.sozialG.Gesellschaft, dataToFramer.fortress.sozialG.Gesellschaft)
+  dataToFramer.collective.sozialG.Politik = calcChartvalue(dataToFramer.hightech.sozialG.Politik, dataToFramer.virtual.sozialG.Politik, dataToFramer.regional.sozialG.Politik, dataToFramer.fortress.sozialG.Politik)
+  dataToFramer.collective.sozialG.Wirtschaft = calcChartvalue(dataToFramer.hightech.sozialG.Wirtschaft, dataToFramer.virtual.sozialG.Wirtschaft, dataToFramer.regional.sozialG.Wirtschaft, dataToFramer.fortress.sozialG.Wirtschaft)
+  // dataToFramer.collective.sozialG.all = (dataToFramer.collective.sozialG.Gesellschaft+dataToFramer.collective.sozialG.Politik+dataToFramer.collective.sozialG.Wirtschaft)/3;
+
+  //Wohnen
+  dataToFramer.collective.Wohnen.Gesellschaft = calcChartvalue(dataToFramer.hightech.Wohnen.Gesellschaft, dataToFramer.virtual.Wohnen.Gesellschaft, dataToFramer.regional.Wohnen.Gesellschaft, dataToFramer.fortress.Wohnen.Gesellschaft)
+  dataToFramer.collective.Wohnen.Politik = calcChartvalue(dataToFramer.hightech.Wohnen.Politik, dataToFramer.virtual.Wohnen.Politik, dataToFramer.regional.Wohnen.Politik, dataToFramer.fortress.Wohnen.Politik)
+  dataToFramer.collective.Wohnen.Wirtschaft = calcChartvalue(dataToFramer.hightech.Wohnen.Wirtschaft, dataToFramer.virtual.Wohnen.Wirtschaft, dataToFramer.regional.Wohnen.Wirtschaft, dataToFramer.fortress.Wohnen.Wirtschaft)
+//   dataToFramer.collective.Wohnen.all = (dataToFramer.collective.Wohnen.Gesellschaft+dataToFramer.collective.Wohnen.Politik+dataToFramer.collective.Wohnen.Wirtschaft)/3;
+  }
 
 //mapFunction
 function map_range(value, low1, high1, low2, high2) {
@@ -111,17 +119,24 @@ function fillSlots(componentAmounts){
   var nextImageFolder = {}
   var nextScenarioFolder = {}
   var activeScenarioIndex = 1
-  var activeScenarioAmounts = {}
 
-  for (var i = 1; i <= totalSlotAmount; i++) { //i == slot
-//height of Elements
-    var slotHeight = collectiveImages.slotHeight [i]
-    if(collectiveImages.slotHeight[i-1] === "LOW"){
+  for (var i = 0; i < totalSlotAmount; i++) { //i == slot
+
+    //type of Elements
+    var slotType = collectiveImages.slotType[i]
+
+    if(slotType === "LOW"){
       nextImageFolder = collectiveImages.low
-    }else if(collectiveImages.slotHeight[i-1] === "MEDIUM"){
+    }else if(slotType === "MEDIUM"){
       nextImageFolder = collectiveImages.medium
-    }else if(collectiveImages.slotHeight[i-1] === "HIGH"){
+    }else if(slotType === "HIGH"){
       nextImageFolder = collectiveImages.big
+    }else if(slotType === "OL"){
+      nextImageFolder = collectiveImages.ol
+    }else if(slotType === "UL"){
+      nextImageFolder = collectiveImages.ul
+    }else if(slotType === "UR"){
+      nextImageFolder = collectiveImages.ur
     }
 
 //Scenario of Elements
