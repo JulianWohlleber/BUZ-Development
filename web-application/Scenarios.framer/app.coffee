@@ -80,22 +80,22 @@ rerenderCollective = true
 #################################################################
 
 Events.wrap(window).addEventListener "keydown", (event) ->
-	if 49 <= event.keyCode <= 53
+	if 48 <= event.keyCode <= 52
 		switch event.keyCode
-			when 49 then selectedScenario = "regional"
-			when 50 then selectedScenario = "fortress"
-			when 51 then selectedScenario = "hightech"
-			when 52 then selectedScenario = "virtual"
-			when 53 then selectedScenario = "collective"
+			when 48 then selectedScenario = "regional"
+			when 49 then selectedScenario = "fortress"
+			when 50 then selectedScenario = "hightech"
+			when 51 then selectedScenario = "virtual"
+			when 52 then selectedScenario = "collective"
 		sceneHandler(selectedScenario)
 
-	else if 54 <= event.keyCode <= 58
+	else if 53 <= event.keyCode <= 57
 		switch event.keyCode
-			when 54 then myVoting = -2
-			when 55 then myVoting = -1
-			when 56 then myVoting = 0
-			when 57 then myVoting = 1
-			when 58 then myVoting = 2
+			when 53 then myVoting = -2
+			when 54 then myVoting = -1
+			when 55 then myVoting = 0
+			when 56 then myVoting = 1
+			when 57 then myVoting = 2
 		if selectedScenario != "collective"
 			sendVotings(myVoting)
 			rerenderCollective = true
