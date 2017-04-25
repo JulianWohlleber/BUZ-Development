@@ -58,3 +58,5 @@ todos
 
   IDEE:
   die Stimme des momentan Bewertenden zählt immer mind [x]%?
+
+	[change to commit]
