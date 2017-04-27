@@ -6,7 +6,7 @@
       "superlayer": "regional",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 1
     },
     {
       "name": "regional_3_5",
@@ -14,7 +14,7 @@
       "superlayer": "regional",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 60
     },
     {
       "name": "regional_5_5",
@@ -22,7 +22,7 @@
       "superlayer": "regional",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 118
     },
     {
       "name": "regional_overlay",
@@ -30,7 +30,7 @@
       "superlayer": "regional",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 119
     },
     {
       "name": "regional_title",
@@ -38,7 +38,7 @@
       "superlayer": "regional",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 120
     },
     {
       "name": "festung_1_11",
@@ -46,7 +46,7 @@
       "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 1
     },
     {
       "name": "festung_4_11",
@@ -54,7 +54,7 @@
       "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 48
     },
     {
       "name": "festung_overlay",
@@ -62,7 +62,7 @@
       "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 119
     },
     {
       "name": "festung_title",
@@ -70,7 +70,7 @@
       "superlayer": "fortress",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 120
     },
     {
       "name": "knotenpunkt_1_16",
@@ -78,7 +78,7 @@
       "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 1
     },
     {
       "name": "knotenpunkt_5_16",
@@ -86,7 +86,7 @@
       "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 40
     },
     {
       "name": "knotenpunkt_7_16",
@@ -94,7 +94,7 @@
       "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 56
     },
     {
       "name": "knotenpunkt_12_16",
@@ -102,7 +102,7 @@
       "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 96
     },
     {
       "name": "knotenpunkt_overlay",
@@ -110,7 +110,7 @@
       "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 119
     },
     {
       "name": "knotenpunkt_title",
@@ -118,7 +118,7 @@
       "superlayer": "hightech",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 120
     },
     {
       "name": "virtuell_1_7",
@@ -126,7 +126,7 @@
       "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 1
     },
     {
       "name": "virtuell_4_7",
@@ -134,7 +134,7 @@
       "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 40
     },
     {
       "name": "virtuell_overlay",
@@ -142,7 +142,7 @@
       "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 119
     },
     {
       "name": "virtuell_title",
@@ -150,7 +150,7 @@
       "superlayer": "virtual",
       "width": 1920,
       "height": 1080,
-      "index": 2
+      "index": 120
     },
     {
       "name": "animation_train2",
@@ -158,7 +158,12 @@
       "superlayer": "animations",
       "width": 258,
       "height": 104,
-      "index": 2
+      "index": 200,
+      "startX": 0,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0
+
     },
     {
       "name": "animation_bus2",
@@ -166,7 +171,11 @@
       "superlayer": "animations",
       "width": 91,
       "height": 51,
-      "index": 2
+      "index": 200,
+      "startX": 0,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0
     },
     {
       "name": "animation_bus1",
@@ -174,7 +183,11 @@
       "superlayer": "animations",
       "width": 91,
       "height": 50,
-      "index": 2
+      "index": 200,
+      "startX": 0,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0
     },
     {
       "name": "animation_car4",
@@ -182,7 +195,11 @@
       "superlayer": "animations",
       "width": 73,
       "height": 43,
-      "index": 2
+      "index": 80,
+      "startX": -73,
+      "startY": 615,
+      "endX": 1920,
+      "endY": 1270
     },
     {
       "name": "animation_car3",
@@ -190,7 +207,11 @@
       "superlayer": "animations",
       "width": 75,
       "height": 43,
-      "index": 2
+      "index": 40,
+      "startX": 2420,
+      "startY": 1320,
+      "endX": -75,
+      "endY": 520
     },
     {
       "name": "animation_car2",
@@ -198,7 +219,11 @@
       "superlayer": "animations",
       "width": 73,
       "height": 43,
-      "index": 2
+      "index": 200,
+      "startX": 0,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0
     },
     {
       "name": "animation_car1",
@@ -206,7 +231,11 @@
       "superlayer": "animations",
       "width": 75,
       "height": 43,
-      "index": 2
+      "index": 200,
+      "startX": 0,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0
     },
     {
       "name": "animation_tank2",
@@ -214,15 +243,23 @@
       "superlayer": "animations",
       "width": 66,
       "height": 31,
-      "index": 2
+      "index": 200,
+      "startX": 0,
+      "startY": 500,
+      "endX": 0,
+      "endY": 0
     },
     {
       "name": "animation_tank1",
-      "path": "images/MyScenarioLayer/animation-tank1-.png",
+      "path": "images/MyScenarioLayer/animation-tank1.png",
       "superlayer": "animations",
       "width": 71,
       "height": 31,
-      "index": 2
+      "index": 200,
+      "startX": 500,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0
     },
     {
       "name": "animation_train1",
@@ -230,7 +267,11 @@
       "superlayer": "animations",
       "width": 257,
       "height": 104,
-      "index": 2
+      "index": 200,
+      "startX": 0,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0
     }
   ]
 }

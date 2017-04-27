@@ -54,7 +54,7 @@ fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.2
 diaCenterScale = 0.17 # Bars defaultsize
 diaCenterSize = diaCenterScale * sketch1.diaBubble.width
-diagramFadeOutDelay = 6
+diagramFadeOutDelay = 8
 diagramFadeOutTime = 1
 pieceAnimTime = 2
 diaBorderSize = 0.1
@@ -65,7 +65,7 @@ trendwidth = 600
 trendFontSize = "30px"
 trendFont = "ShareTechMono-Regular"
 trendLineHeight = "40px"
-trendAnimationDelay = 7
+trendAnimationDelay = 6
 
 #Scenarios
 showScenarioDelay = 7
@@ -213,7 +213,7 @@ flipArray.push fourthFliplayer
 
 for flipLayer, index in flipArray
 	flipLayer.x = -1920/4 + 1920/4*index
-	flipLayer.index = 10
+	flipLayer.index = 150
 
 #FallingDroplet
 blackDrop = new Layer
@@ -376,7 +376,7 @@ diagramFlip = (scenarioColor, scenario, scenarioTitle) ->
 				time: flipAnimationTime
 				delay: index*flipAnimationTime
 fourthFliplayer.onAnimationEnd ->
-	# City_All.z = 0
+	videoScreenSaver.player.pause()
 	FallingDrop()
 
 
@@ -498,7 +498,7 @@ Trend = new Layer
 		"font-family": trendFont
 		"line-height": trendLineHeight
 	visible: true
-	index: 9
+	index: 130
 
 City_Screensaver = new Layer
 	width: 1920
@@ -508,13 +508,13 @@ City_Screensaver = new Layer
 	shadowColor:'rgba(0,0,0,0.24)'
 
 # create the video layer
-videoLayer = new VideoLayer
+videoScreenSaver = new VideoLayer
 	width: 1920
 	height: 1080
 	video: "/video/animation_ursprungszustand_1.mp4"
 	superLayer: City_Screensaver
 
-videoLayer.player.loop = true
+videoScreenSaver.player.loop = true
 
 # center everything on screen
 City_Screensaver.center()
@@ -534,7 +534,7 @@ for index, i in slotProperties.x
 		superLayer: City_Collective
 
 City_Collective.index = 1
-City_Screensaver.index = 2
+City_Screensaver.index = 140
 
 Trend.states.animationOptions =
 	delay: trendAnimationDelay
@@ -558,14 +558,12 @@ sceneHandler = (selectedScenario) ->
 	else
 		diagramReset()
 		animateDiagram(selectedScenario)
-		Utils.delay showScenarioDelay, ->
-			showScenario(selectedScenario)
+
+		showScenario(selectedScenario)
 	voting.scenario = selectedScenario
 
 
 showScenario = (selectedScenario) ->
-	videoLayer.player.pause()
-
 	trendStates = []
 	lastSceneTrends = currentSceneTrends
 
@@ -576,8 +574,12 @@ showScenario = (selectedScenario) ->
 		when "virtual" then currentSceneTrends = myTrends.virtual
 		when "collective" then sendVotings("-")
 		when "screensaver" then sendVotings("-")
-	generateTrendStates(lastSceneTrends, currentSceneTrends)
-	display(selectedScenario)
+
+	if selectedScenario != "collective" and selectedScenario != "screensaver"
+		generateTrendStates(lastSceneTrends, currentSceneTrends)
+		Trend.visible = true
+	Utils.delay showScenarioDelay, ->
+		display(selectedScenario)
 
 	if isDefault is true and selectedScenario != "collective" and selectedScenario != "screensaver"
 		Trend.stateCycle(trendStates[trendStateIndex])
@@ -600,16 +602,6 @@ fillCollectiveSlots = ->
 			rerenderCollective = false
 
 
-remove = (element1, element2, element3, element4, element5) ->
-	element1.visible = false
-	element2.visible = false
-	element3.visible = false
-	element4.visible  = false
-	if element5 != undefined
-		element5.visible = false
-	if selectedScenario is "collective" or "screensaver"
-		Trend.visible = false
-
 
 display = (scenario) ->
 	if scenario != "collective" and scenario != "screensaver"
@@ -620,7 +612,8 @@ display = (scenario) ->
 			if layer.superlayer == scenario
 				window["#{layer.name}"].visible = true
 			else
-				window["#{layer.name}"].visible = false
+				if layer.superlayer != "animations"
+					window["#{layer.name}"].visible = false
 	else if scenario == "collective"
 		Trend.visible = false
 		City_Collective.visible = true
@@ -633,14 +626,75 @@ display = (scenario) ->
 	else
 		Trend.visible = false
 		City_Screensaver.visible = true
-		videoLayer.player.play()
+		videoScreenSaver.player.play()
 
-# display = (element1, element2, element3, element4) ->
-# 	Trend.visible = true
-# 	element1.visible = true
-# 	element2.visible = true
-# 	element3.visible = true
-# 	if element4 != undefined
-# 		element4.visible = true
+	handleAnimations(scenario)
+
+animation_train2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[19].name, 19, 5)
+
+animation_bus2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[20].name, 20, 5)
+
+animation_bus1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[21].name, 21, 5)
+
+animation_car4.onAnimationEnd ->
+	startAnimation(myScenarios.layer[22].name, 22, 7)
+
+animation_car3.onAnimationEnd ->
+	startAnimation(myScenarios.layer[23].name, 23, 8)
+
+animation_car2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[24].name, 24, 5)
+
+animation_car1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[25].name, 25, 5)
+
+animation_tank2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[26].name, 26, 5)
+
+animation_tank1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[27].name, 27, 5)
+
+animation_train1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[28].name, 28, 5)
+
+
+
+startAnimation = (element, index, time) ->
+	window["#{element}"].visible = true
+	window["#{element}"].x = myScenarios.layer[index].startX
+	window["#{element}"].y = myScenarios.layer[index].startY
+	window["#{element}"].animate
+		x: myScenarios.layer[index].endX
+		y: myScenarios.layer[index].endY
+		options:
+			curve: "linear"
+			time: time
+
+stopAnimation = (element) ->
+	window["#{element}"].animateStop()
+	window["#{element}"].visible = false
+
+handleAnimations = (scenario) ->
+	if scenario == "regional"
+		startAnimation("animation_car4", 22, 7)
+		startAnimation("animation_car3", 23, 8)
+	else if scenario == "fortress"
+		stopAnimation("animation_car4")
+		stopAnimation("animation_car3")
+		startAnimation("animation_tank1", 27, 5)
+
+# animation_tank1.visible = true
+# animation_tank1.x= 1000
+# animation_tank1.y= 500
+# animation_tank1.index=1000000
+# print animation_tank1
+
+		# startAnimation("animation_tank2", 26, 7)
+		# startAnimation("animation_tank1", 27, 5)
+
+
 
 display("screensaver")
