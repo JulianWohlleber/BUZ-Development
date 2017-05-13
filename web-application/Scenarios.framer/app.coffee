@@ -3,7 +3,7 @@
 #################################################################
 Framer.Extras.Preloader.enable()
 Framer.Extras.Preloader.setLogo("/images/loadingicon.png") #custom loading image
-Canvas.backgroundColor = "#000000"
+Canvas.dColor = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
 	screenHeight: 1080
@@ -54,7 +54,7 @@ fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.2
 diaCenterScale = 0.17 # Bars defaultsize
 diaCenterSize = diaCenterScale * sketch1.diaBubble.width
-diagramFadeOutDelay = 6
+diagramFadeOutDelay = 8
 diagramFadeOutTime = 1
 pieceAnimTime = 2
 diaBorderSize = 0.1
@@ -65,7 +65,7 @@ trendwidth = 600
 trendFontSize = "30px"
 trendFont = "ShareTechMono-Regular"
 trendLineHeight = "40px"
-trendAnimationDelay = 7
+trendAnimationDelay = 6
 
 #Scenarios
 showScenarioDelay = 7
@@ -80,22 +80,22 @@ rerenderCollective = true
 #################################################################
 
 Events.wrap(window).addEventListener "keydown", (event) ->
-	if 49 <= event.keyCode <= 53
+	if 48 <= event.keyCode <= 52
 		switch event.keyCode
-			when 49 then selectedScenario = "regional"
-			when 50 then selectedScenario = "fortress"
-			when 51 then selectedScenario = "hightech"
-			when 52 then selectedScenario = "virtual"
-			when 53 then selectedScenario = "collective"
+			when 48 then selectedScenario = "regional"
+			when 49 then selectedScenario = "fortress"
+			when 50 then selectedScenario = "hightech"
+			when 51 then selectedScenario = "virtual"
+			when 52 then selectedScenario = "collective"
 		sceneHandler(selectedScenario)
 
-	else if 54 <= event.keyCode <= 58
+	else if 53 <= event.keyCode <= 57
 		switch event.keyCode
-			when 54 then myVoting = -2
-			when 55 then myVoting = -1
-			when 56 then myVoting = 0
-			when 57 then myVoting = 1
-			when 58 then myVoting = 2
+			when 53 then myVoting = -2
+			when 54 then myVoting = -1
+			when 55 then myVoting = 0
+			when 56 then myVoting = 1
+			when 57 then myVoting = 2
 		if selectedScenario != "collective"
 			sendVotings(myVoting)
 			rerenderCollective = true
@@ -213,7 +213,7 @@ flipArray.push fourthFliplayer
 
 for flipLayer, index in flipArray
 	flipLayer.x = -1920/4 + 1920/4*index
-	flipLayer.index = 10
+	flipLayer.index = 150
 
 #FallingDroplet
 blackDrop = new Layer
@@ -376,7 +376,7 @@ diagramFlip = (scenarioColor, scenario, scenarioTitle) ->
 				time: flipAnimationTime
 				delay: index*flipAnimationTime
 fourthFliplayer.onAnimationEnd ->
-	# City_All.z = 0
+	videoScreenSaver.player.pause()
 	FallingDrop()
 
 
@@ -498,7 +498,7 @@ Trend = new Layer
 		"font-family": trendFont
 		"line-height": trendLineHeight
 	visible: true
-	index: 9
+	index: 130
 
 City_Screensaver = new Layer
 	width: 1920
@@ -508,13 +508,13 @@ City_Screensaver = new Layer
 	shadowColor:'rgba(0,0,0,0.24)'
 
 # create the video layer
-videoLayer = new VideoLayer
+videoScreenSaver = new VideoLayer
 	width: 1920
 	height: 1080
 	video: "/video/animation_ursprungszustand_1.mp4"
 	superLayer: City_Screensaver
 
-videoLayer.player.loop = true
+videoScreenSaver.player.loop = true
 
 # center everything on screen
 City_Screensaver.center()
@@ -534,7 +534,7 @@ for index, i in slotProperties.x
 		superLayer: City_Collective
 
 City_Collective.index = 1
-City_Screensaver.index = 2
+City_Screensaver.index = 140
 
 Trend.states.animationOptions =
 	delay: trendAnimationDelay
@@ -558,14 +558,12 @@ sceneHandler = (selectedScenario) ->
 	else
 		diagramReset()
 		animateDiagram(selectedScenario)
-		Utils.delay showScenarioDelay, ->
-			showScenario(selectedScenario)
+
+		showScenario(selectedScenario)
 	voting.scenario = selectedScenario
 
 
 showScenario = (selectedScenario) ->
-	videoLayer.player.pause()
-
 	trendStates = []
 	lastSceneTrends = currentSceneTrends
 
@@ -576,8 +574,12 @@ showScenario = (selectedScenario) ->
 		when "virtual" then currentSceneTrends = myTrends.virtual
 		when "collective" then sendVotings("-")
 		when "screensaver" then sendVotings("-")
-	generateTrendStates(lastSceneTrends, currentSceneTrends)
-	display(selectedScenario)
+
+	if selectedScenario != "collective" and selectedScenario != "screensaver"
+		generateTrendStates(lastSceneTrends, currentSceneTrends)
+		Trend.visible = true
+	Utils.delay showScenarioDelay, ->
+		display(selectedScenario)
 
 	if isDefault is true and selectedScenario != "collective" and selectedScenario != "screensaver"
 		Trend.stateCycle(trendStates[trendStateIndex])
@@ -600,16 +602,6 @@ fillCollectiveSlots = ->
 			rerenderCollective = false
 
 
-remove = (element1, element2, element3, element4, element5) ->
-	element1.visible = false
-	element2.visible = false
-	element3.visible = false
-	element4.visible  = false
-	if element5 != undefined
-		element5.visible = false
-	if selectedScenario is "collective" or "screensaver"
-		Trend.visible = false
-
 
 display = (scenario) ->
 	if scenario != "collective" and scenario != "screensaver"
@@ -620,7 +612,8 @@ display = (scenario) ->
 			if layer.superlayer == scenario
 				window["#{layer.name}"].visible = true
 			else
-				window["#{layer.name}"].visible = false
+				if layer.superlayer != "animations"
+					window["#{layer.name}"].visible = false
 	else if scenario == "collective"
 		Trend.visible = false
 		City_Collective.visible = true
@@ -633,14 +626,106 @@ display = (scenario) ->
 	else
 		Trend.visible = false
 		City_Screensaver.visible = true
-		videoLayer.player.play()
+		videoScreenSaver.player.play()
 
-# display = (element1, element2, element3, element4) ->
-# 	Trend.visible = true
-# 	element1.visible = true
-# 	element2.visible = true
-# 	element3.visible = true
-# 	if element4 != undefined
-# 		element4.visible = true
+	handleAnimations(scenario)
+
+
+
+animation_train2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[19].name, 19, myScenarios.layer[19].time)
+
+animation_bus2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[20].name, 20, myScenarios.layer[20].time)
+
+animation_bus1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[21].name, 21, myScenarios.layer[21].time)
+
+animation_car4.onAnimationEnd ->
+	startAnimation(myScenarios.layer[22].name, 22, myScenarios.layer[22].time)
+
+animation_car3.onAnimationEnd ->
+	startAnimation(myScenarios.layer[23].name, 23, myScenarios.layer[23].time)
+
+animation_car2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[24].name, 24, myScenarios.layer[24].time)
+
+animation_car1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[25].name, 25, myScenarios.layer[25].time)
+
+animation_tank2.onAnimationEnd ->
+	animation_tank1.visible = true
+	animation_tank2.visible = false
+	startAnimation(myScenarios.layer[27].name, 27, myScenarios.layer[27].time)
+
+animation_tank1.onAnimationEnd ->
+	animation_tank2.visible = true
+	animation_tank1.visible = false
+	startAnimation(myScenarios.layer[26].name, 26, myScenarios.layer[26].time)
+
+animation_train1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[28].name, 28, myScenarios.layer[28].time)
+
+
+
+
+########delete following after using
+
+testoverlay = new Layer
+	x: 0
+	y: 0
+	width: Screen.width
+	height: Screen.height
+	opacity: 0
+mousePos = (mouse) ->
+	print "x", mouse.x, "y", mouse.y
+testoverlay.onMouseMove(mousePos)
+
+########delete above after using
+
+
+
+
+
+startAnimation = (element, index, time) ->
+	window["#{element}"].visible = true
+	window["#{element}"].x = myScenarios.layer[index].startX
+	window["#{element}"].y = myScenarios.layer[index].startY
+	window["#{element}"].animate
+		x: myScenarios.layer[index].endX
+		y: myScenarios.layer[index].endY
+		options:
+			curve: "linear"
+			time: time
+
+stopAnimation = (element) ->
+	window["#{element}"].animateStop()
+	window["#{element}"].visible = false
+
+stopAllAnimations = () ->
+	for layer in myScenarios.layer
+		if layer.superlayer is "animations"
+			window["#{layer.name}"].animateStop()
+			window["#{layer.name}"].visible = false
+
+handleAnimations = (scenario) ->
+	if scenario == "regional"
+		stopAllAnimations()
+		startAnimation("animation_car4", 22, myScenarios.layer[22].time)
+		startAnimation("animation_car3", 23, myScenarios.layer[23].time)
+	else if scenario == "fortress"
+		stopAllAnimations()
+		startAnimation("animation_tank1", 27, myScenarios.layer[27].time)
+
+# animation_tank1.visible = true
+# animation_tank1.x= 1000
+# animation_tank1.y= 500
+# animation_tank1.index=1000000
+# print animation_tank1
+
+		# startAnimation("animation_tank2", 26, 7)
+		# startAnimation("animation_tank1", 27, 5)
+
+
 
 display("screensaver")
