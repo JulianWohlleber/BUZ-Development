@@ -162,7 +162,8 @@
       "startX": 0,
       "startY": 0,
       "endX": 0,
-      "endY": 0
+      "endY": 0,
+      "time": 30
 
     },
     {
@@ -175,7 +176,8 @@
       "startX": 0,
       "startY": 0,
       "endX": 0,
-      "endY": 0
+      "endY": 0,
+      "time": 30
     },
     {
       "name": "animation_bus1",
@@ -187,7 +189,8 @@
       "startX": 0,
       "startY": 0,
       "endX": 0,
-      "endY": 0
+      "endY": 0,
+      "time": 30
     },
     {
       "name": "animation_car4",
@@ -199,7 +202,8 @@
       "startX": -73,
       "startY": 615,
       "endX": 1920,
-      "endY": 1270
+      "endY": 1270,
+      "time": 7
     },
     {
       "name": "animation_car3",
@@ -211,7 +215,8 @@
       "startX": 2420,
       "startY": 1320,
       "endX": -75,
-      "endY": 520
+      "endY": 520,
+      "time": 9
     },
     {
       "name": "animation_car2",
@@ -223,7 +228,8 @@
       "startX": 0,
       "startY": 0,
       "endX": 0,
-      "endY": 0
+      "endY": 0,
+      "time": 30
     },
     {
       "name": "animation_car1",
@@ -235,7 +241,8 @@
       "startX": 0,
       "startY": 0,
       "endX": 0,
-      "endY": 0
+      "endY": 0,
+      "time": 30
     },
     {
       "name": "animation_tank2",
@@ -243,11 +250,12 @@
       "superlayer": "animations",
       "width": 66,
       "height": 31,
-      "index": 200,
-      "startX": 0,
-      "startY": 500,
-      "endX": 0,
-      "endY": 0
+      "index": 24,
+      "startX": 650,
+      "startY": 660,
+      "endX": 1220,
+      "endY": 475,
+      "time": 25
     },
     {
       "name": "animation_tank1",
@@ -255,11 +263,12 @@
       "superlayer": "animations",
       "width": 71,
       "height": 31,
-      "index": 200,
-      "startX": 500,
-      "startY": 0,
-      "endX": 0,
-      "endY": 0
+      "index": 24,
+      "startX": 1220,
+      "startY": 475,
+      "endX": 650,
+      "endY": 660,
+      "time": 25
     },
     {
       "name": "animation_train1",
@@ -271,7 +280,8 @@
       "startX": 0,
       "startY": 0,
       "endX": 0,
-      "endY": 0
+      "endY": 0,
+      "time": 30
     }
   ]
 }

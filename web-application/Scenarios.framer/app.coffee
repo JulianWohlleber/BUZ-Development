@@ -3,7 +3,7 @@
 #################################################################
 Framer.Extras.Preloader.enable()
 Framer.Extras.Preloader.setLogo("/images/loadingicon.png") #custom loading image
-Canvas.backgroundColor = "#000000"
+Canvas.dColor = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
 	screenHeight: 1080
@@ -630,35 +630,60 @@ display = (scenario) ->
 
 	handleAnimations(scenario)
 
+
+
 animation_train2.onAnimationEnd ->
-	startAnimation(myScenarios.layer[19].name, 19, 5)
+	startAnimation(myScenarios.layer[19].name, 19, myScenarios.layer[19].time)
 
 animation_bus2.onAnimationEnd ->
-	startAnimation(myScenarios.layer[20].name, 20, 5)
+	startAnimation(myScenarios.layer[20].name, 20, myScenarios.layer[20].time)
 
 animation_bus1.onAnimationEnd ->
-	startAnimation(myScenarios.layer[21].name, 21, 5)
+	startAnimation(myScenarios.layer[21].name, 21, myScenarios.layer[21].time)
 
 animation_car4.onAnimationEnd ->
-	startAnimation(myScenarios.layer[22].name, 22, 7)
+	startAnimation(myScenarios.layer[22].name, 22, myScenarios.layer[22].time)
 
 animation_car3.onAnimationEnd ->
-	startAnimation(myScenarios.layer[23].name, 23, 8)
+	startAnimation(myScenarios.layer[23].name, 23, myScenarios.layer[23].time)
 
 animation_car2.onAnimationEnd ->
-	startAnimation(myScenarios.layer[24].name, 24, 5)
+	startAnimation(myScenarios.layer[24].name, 24, myScenarios.layer[24].time)
 
 animation_car1.onAnimationEnd ->
-	startAnimation(myScenarios.layer[25].name, 25, 5)
+	startAnimation(myScenarios.layer[25].name, 25, myScenarios.layer[25].time)
 
 animation_tank2.onAnimationEnd ->
-	startAnimation(myScenarios.layer[26].name, 26, 5)
+	animation_tank1.visible = true
+	animation_tank2.visible = false
+	startAnimation(myScenarios.layer[27].name, 27, myScenarios.layer[27].time)
 
 animation_tank1.onAnimationEnd ->
-	startAnimation(myScenarios.layer[27].name, 27, 5)
+	animation_tank2.visible = true
+	animation_tank1.visible = false
+	startAnimation(myScenarios.layer[26].name, 26, myScenarios.layer[26].time)
 
 animation_train1.onAnimationEnd ->
-	startAnimation(myScenarios.layer[28].name, 28, 5)
+	startAnimation(myScenarios.layer[28].name, 28, myScenarios.layer[28].time)
+
+
+
+
+########delete following after using
+
+testoverlay = new Layer
+	x: 0
+	y: 0
+	width: Screen.width
+	height: Screen.height
+	opacity: 0
+mousePos = (mouse) ->
+	print "x", mouse.x, "y", mouse.y
+testoverlay.onMouseMove(mousePos)
+
+########delete above after using
+
+
 
 
 
@@ -677,14 +702,20 @@ stopAnimation = (element) ->
 	window["#{element}"].animateStop()
 	window["#{element}"].visible = false
 
+stopAllAnimations = () ->
+	for layer in myScenarios.layer
+		if layer.superlayer is "animations"
+			window["#{layer.name}"].animateStop()
+			window["#{layer.name}"].visible = false
+
 handleAnimations = (scenario) ->
 	if scenario == "regional"
-		startAnimation("animation_car4", 22, 7)
-		startAnimation("animation_car3", 23, 8)
+		stopAllAnimations()
+		startAnimation("animation_car4", 22, myScenarios.layer[22].time)
+		startAnimation("animation_car3", 23, myScenarios.layer[23].time)
 	else if scenario == "fortress"
-		stopAnimation("animation_car4")
-		stopAnimation("animation_car3")
-		startAnimation("animation_tank1", 27, 5)
+		stopAllAnimations()
+		startAnimation("animation_tank1", 27, myScenarios.layer[27].time)
 
 # animation_tank1.visible = true
 # animation_tank1.x= 1000
