@@ -669,25 +669,7 @@ animation_train1.onAnimationEnd ->
 
 
 
-########delete following after using
-
-testoverlay = new Layer
-	x: 0
-	y: 0
-	width: Screen.width
-	height: Screen.height
-	opacity: 0
-mousePos = (mouse) ->
-	print "x", mouse.x, "y", mouse.y
-testoverlay.onMouseMove(mousePos)
-
-########delete above after using
-
-
-
-
-
-startAnimation = (element, index, time) ->
+startAnimation = (element, index) ->
 	window["#{element}"].visible = true
 	window["#{element}"].x = myScenarios.layer[index].startX
 	window["#{element}"].y = myScenarios.layer[index].startY
@@ -696,7 +678,7 @@ startAnimation = (element, index, time) ->
 		y: myScenarios.layer[index].endY
 		options:
 			curve: "linear"
-			time: time
+			time: myScenarios.layer[index].time
 
 stopAnimation = (element) ->
 	window["#{element}"].animateStop()
@@ -709,22 +691,18 @@ stopAllAnimations = () ->
 			window["#{layer.name}"].visible = false
 
 handleAnimations = (scenario) ->
+	stopAllAnimations()
 	if scenario == "regional"
-		stopAllAnimations()
-		startAnimation("animation_car4", 22, myScenarios.layer[22].time)
-		startAnimation("animation_car3", 23, myScenarios.layer[23].time)
+		startAnimation("animation_car4", 22)
+		startAnimation("animation_car3", 23)
 	else if scenario == "fortress"
-		stopAllAnimations()
-		startAnimation("animation_tank1", 27, myScenarios.layer[27].time)
+		startAnimation("animation_tank1", 27)
+	else if scenario == "hightech"
+		startAnimation("animation_car4", 22)
+		startAnimation("animation_car3", 23)
+		startAnimation("animation_train2", 19)
+		startAnimation("animation_train1", 28)
 
-# animation_tank1.visible = true
-# animation_tank1.x= 1000
-# animation_tank1.y= 500
-# animation_tank1.index=1000000
-# print animation_tank1
-
-		# startAnimation("animation_tank2", 26, 7)
-		# startAnimation("animation_tank1", 27, 5)
 
 
 
