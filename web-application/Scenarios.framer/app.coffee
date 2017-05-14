@@ -540,6 +540,7 @@ Trend.states.animationOptions =
 	delay: trendAnimationDelay
 
 Trend.on Events.AnimationEnd, ->
+	print selectedScenario, trendStateIndex
 	if trendStateIndex < (currentSceneTrends.length - 1)
 		trendStateIndex++
 		Trend.stateCycle(trendStates[trendStateIndex])
@@ -566,7 +567,7 @@ sceneHandler = (selectedScenario) ->
 showScenario = (selectedScenario) ->
 	trendStates = []
 	lastSceneTrends = currentSceneTrends
-
+	print "showScenario"
 	switch selectedScenario
 		when "regional" then currentSceneTrends = myTrends.regional
 		when "fortress" then currentSceneTrends = myTrends.fortress
@@ -575,9 +576,8 @@ showScenario = (selectedScenario) ->
 		when "collective" then sendVotings("-")
 		when "screensaver" then sendVotings("-")
 
-	if selectedScenario != "collective" and selectedScenario != "screensaver"
+	if selectedScenario and selectedScenario != "screensaver"
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
-		Trend.visible = true
 	Utils.delay showScenarioDelay, ->
 		display(selectedScenario)
 
@@ -702,8 +702,6 @@ handleAnimations = (scenario) ->
 		startAnimation("animation_car3", 23)
 		startAnimation("animation_train2", 19)
 		startAnimation("animation_train1", 28)
-
-
 
 
 display("screensaver")
