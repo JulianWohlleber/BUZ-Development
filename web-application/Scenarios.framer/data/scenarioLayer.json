@@ -158,13 +158,12 @@
       "superlayer": "animations",
       "width": 258,
       "height": 104,
-      "index": 200,
-      "startX": 0,
-      "startY": 0,
-      "endX": 0,
-      "endY": 0,
-      "time": 30
-
+      "index": 79,
+      "startX": -2200,
+      "startY": -155,
+      "endX": 17000,
+      "endY": 6000,
+      "time": 20
     },
     {
       "name": "animation_bus2",
@@ -276,12 +275,12 @@
       "superlayer": "animations",
       "width": 257,
       "height": 104,
-      "index": 200,
-      "startX": 0,
-      "startY": 0,
-      "endX": 0,
-      "endY": 0,
-      "time": 30
+      "index": 20,
+      "startX": 17000,
+      "startY": 5400,
+      "endX": -200,
+      "endY": -220,
+      "time": 15
     }
   ]
 }
