@@ -524,6 +524,8 @@ City_Collective = new Layer
 	height: 1080
 	image: "/images/collectivesStadtbild.png"
 
+
+
 for index, i in slotProperties.x
 	collectiveElement = new Layer
 		# backgroundColor: "transparent"
@@ -532,6 +534,89 @@ for index, i in slotProperties.x
 		x: slotProperties.x[i]
 		y: slotProperties.y[i]
 		superLayer: City_Collective
+		index: i*4
+
+
+car3 = myScenarios.layer[23]
+car2 = myScenarios.layer[24]
+car1 = myScenarios.layer[25]
+
+collective_car3 = new Layer
+	width: car3.width
+	height: car3.height
+	index: 13
+	superLayer: City_Collective
+	visible: false
+
+collective_car2 = new Layer
+	width: car2.width
+	height: car2.height
+	index: 9
+	superLayer: City_Collective
+	visible: false
+
+collective_car1 = new Layer
+	width: car1.width
+	height: car1.height
+	index: 9
+	superLayer: City_Collective
+	visible: false
+
+collective_car3.onAnimationEnd ->
+	startCar3Animation()
+
+collective_car2.onAnimationEnd ->
+	startCar2Animation()
+
+collective_car1.onAnimationEnd ->
+	startCar1Animation()
+
+
+startCar3Animation = ->
+	collective_car3.visible = true
+	collective_car3.x = myScenarios.layer[23].startX
+	collective_car3.y = myScenarios.layer[23].startY
+	collective_car3.image = myScenarios.layer[23].path
+	collective_car3.animate
+		x: myScenarios.layer[23].endX
+		y: myScenarios.layer[23].endY
+		options:
+			curve: "linear"
+			time: myScenarios.layer[23].time
+
+startCar2Animation = ->
+	collective_car2.visible = true
+	collective_car2.x = myScenarios.layer[24].startX
+	collective_car2.y = myScenarios.layer[24].startY
+	collective_car2.image = myScenarios.layer[24].path
+	collective_car2.animate
+		x: myScenarios.layer[24].endX
+		y: myScenarios.layer[24].endY
+		options:
+			curve: "linear"
+			time: myScenarios.layer[24].time
+
+startCar1Animation = ->
+	collective_car1.visible = true
+	collective_car1.x = myScenarios.layer[25].startX
+	collective_car1.y = myScenarios.layer[25].startY
+	collective_car1.image = myScenarios.layer[25].path
+	collective_car1.animate
+		x: myScenarios.layer[25].endX
+		y: myScenarios.layer[25].endY
+		options:
+			curve: "linear"
+			time: myScenarios.layer[25].time
+
+
+stopCollectiveAnimations = ->
+	collective_car3.animateStop()
+	collective_car3.visible = false
+	collective_car2.animateStop()
+	collective_car2.visible = false
+	collective_car1.animateStop()
+	collective_car1.visible = false
+
 
 City_Collective.index = 1
 City_Screensaver.index = 140
@@ -540,7 +625,6 @@ Trend.states.animationOptions =
 	delay: trendAnimationDelay
 
 Trend.on Events.AnimationEnd, ->
-	print selectedScenario, trendStateIndex
 	if trendStateIndex < (currentSceneTrends.length - 1)
 		trendStateIndex++
 		Trend.stateCycle(trendStates[trendStateIndex])
@@ -567,7 +651,6 @@ sceneHandler = (selectedScenario) ->
 showScenario = (selectedScenario) ->
 	trendStates = []
 	lastSceneTrends = currentSceneTrends
-	print "showScenario"
 	switch selectedScenario
 		when "regional" then currentSceneTrends = myTrends.regional
 		when "fortress" then currentSceneTrends = myTrends.fortress
@@ -598,8 +681,9 @@ generateTrendStates = (lastSceneTrends, currentSceneTrends) ->
 fillCollectiveSlots = ->
 	if rerenderCollective is true
 		for layer, i in City_Collective.subLayers
-			layer.image = elementSlots[i]
-			rerenderCollective = false
+			if i < elementSlots.length
+				layer.image = elementSlots[i]
+				rerenderCollective = false
 
 
 
@@ -666,10 +750,29 @@ animation_tank1.onAnimationEnd ->
 animation_train1.onAnimationEnd ->
 	startAnimation(myScenarios.layer[28].name, 28, myScenarios.layer[28].time)
 
+animation_drone_cam.onAnimationEnd ->
+	startAnimation(myScenarios.layer[29].name, 29)
+animation_drone_goods1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[30].name, 30)
+animation_drone_goods2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[31].name, 31)
+animation_drone_goods3.onAnimationEnd ->
+	startAnimation(myScenarios.layer[32].name, 32)
+animation_drone_person.onAnimationEnd ->
+	startAnimation(myScenarios.layer[33].name, 33)
+animation_drone_persons1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[34].name, 34)
+animation_drone_persons2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[35].name, 35)
+animation_drones1.onAnimationEnd ->
+	startAnimation(myScenarios.layer[36].name, 36)
+animation_drones2.onAnimationEnd ->
+	startAnimation(myScenarios.layer[37].name, 37)
 
 
 
 startAnimation = (element, index) ->
+	print element, "#{element}", window["#{element}"]
 	window["#{element}"].visible = true
 	window["#{element}"].x = myScenarios.layer[index].startX
 	window["#{element}"].y = myScenarios.layer[index].startY
@@ -680,9 +783,8 @@ startAnimation = (element, index) ->
 			curve: "linear"
 			time: myScenarios.layer[index].time
 
-stopAnimation = (element) ->
-	window["#{element}"].animateStop()
-	window["#{element}"].visible = false
+
+
 
 stopAllAnimations = () ->
 	for layer in myScenarios.layer
@@ -692,16 +794,45 @@ stopAllAnimations = () ->
 
 handleAnimations = (scenario) ->
 	stopAllAnimations()
+	stopCollectiveAnimations()
 	if scenario == "regional"
 		startAnimation("animation_car4", 22)
 		startAnimation("animation_car3", 23)
 	else if scenario == "fortress"
 		startAnimation("animation_tank1", 27)
+		startAnimation("animation_drone_cam", 29)
+		startAnimation("animation_drone_goods1", 30)
+		startAnimation("animation_drone_goods2", 31)
+		startAnimation("animation_drone_goods3", 32)
+		startAnimation("animation_drone_persons1", 34)
+		startAnimation("animation_drone_persons2", 35)
+		startAnimation("animation_drones2", 37)
 	else if scenario == "hightech"
 		startAnimation("animation_car4", 22)
 		startAnimation("animation_car3", 23)
+		startAnimation("animation_car2", 24)
+		startAnimation("animation_car1", 25)
 		startAnimation("animation_train2", 19)
 		startAnimation("animation_train1", 28)
-
+		startAnimation("animation_drone_persons1", 34)
+		startAnimation("animation_drone_persons2", 35)
+		startAnimation("animation_drones2", 37)
+	else if scenario == "virtual"
+		startAnimation("animation_car3", 23)
+		startAnimation("animation_drone_cam", 29)
+		startAnimation("animation_drone_goods1", 30)
+		startAnimation("animation_drone_goods2", 31)
+		startAnimation("animation_drone_goods3", 32)
+		startAnimation("animation_drones1", 36)
+		startAnimation("animation_drones2", 37)
+	else if scenario == "collective"
+		startCar3Animation()
+		startCar2Animation()
+		startCar1Animation()
+		startAnimation("animation_drones2", 37)
+		startAnimation("animation_drone_persons1", 34)
+		startAnimation("animation_drone_persons2", 35)
+		startAnimation("animation_drone_cam", 29)
+		startAnimation("animation_drone_goods3", 32)
 
 display("screensaver")

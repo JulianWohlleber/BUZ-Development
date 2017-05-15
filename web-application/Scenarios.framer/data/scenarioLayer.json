@@ -22,7 +22,7 @@
       "superlayer": "regional",
       "width": 1920,
       "height": 1080,
-      "index": 118
+      "index": 117
     },
     {
       "name": "regional_overlay",
@@ -210,7 +210,7 @@
       "superlayer": "animations",
       "width": 75,
       "height": 43,
-      "index": 40,
+      "index": 39,
       "startX": 2420,
       "startY": 1320,
       "endX": -75,
@@ -223,12 +223,12 @@
       "superlayer": "animations",
       "width": 73,
       "height": 43,
-      "index": 200,
-      "startX": 0,
-      "startY": 0,
-      "endX": 0,
-      "endY": 0,
-      "time": 30
+      "index": 22,
+      "startX": -200,
+      "startY": -85,
+      "endX": 4000,
+      "endY": 1265,
+      "time": 13
     },
     {
       "name": "animation_car1",
@@ -236,12 +236,12 @@
       "superlayer": "animations",
       "width": 75,
       "height": 43,
-      "index": 200,
-      "startX": 0,
-      "startY": 0,
-      "endX": 0,
-      "endY": 0,
-      "time": 30
+      "index": 21,
+      "startX": 4000,
+      "startY": 1230,
+      "endX": -200,
+      "endY": -140,
+      "time": 13
     },
     {
       "name": "animation_tank2",
@@ -281,6 +281,123 @@
       "endX": -200,
       "endY": -220,
       "time": 15
+    },
+    {
+      "name": "animation_drone_cam",
+      "path": "images/MyScenarioLayer/animation_drone_cam.png",
+      "superlayer": "animations",
+      "width": 25,
+      "height": 23,
+      "index": 118,
+      "startX": -1000,
+      "startY": 1000,
+      "endX": 3000,
+      "endY": -200,
+      "time": 37
+    },
+    {
+      "name": "animation_drone_goods1",
+      "path": "images/MyScenarioLayer/animation_drone_goods1.png",
+      "superlayer": "animations",
+      "width": 38,
+      "height": 33,
+      "index": 118,
+      "startX": -200,
+      "startY": 0,
+      "endX": 8000,
+      "endY": 700,
+      "time": 37
+    },
+    {
+      "name": "animation_drone_goods2",
+      "path": "images/MyScenarioLayer/animation_drone_goods2.png",
+      "superlayer": "animations",
+      "width": 38,
+      "height": 33,
+      "index": 118,
+      "startX": -8000,
+      "startY": -10000,
+      "endX": 10000,
+      "endY": 10000,
+      "time": 61
+    },
+    {
+      "name": "animation_drone_goods3",
+      "path": "images/MyScenarioLayer/animation_drone_goods3.png",
+      "superlayer": "animations",
+      "width": 26,
+      "height": 15,
+      "index": 118,
+      "startX": 11000,
+      "startY": -5000,
+      "endX": -100,
+      "endY": 1200,
+      "time": 25
+    },
+    {
+      "name": "animation_drone_person",
+      "path": "images/MyScenarioLayer/animation_drone_person.png",
+      "superlayer": "animations",
+      "width": 37,
+      "height": 24,
+      "index": 118,
+      "startX": 0,
+      "startY": 0,
+      "endX": 0,
+      "endY": 0,
+      "time": 5
+    },
+    {
+      "name": "animation_drone_persons1",
+      "path": "images/MyScenarioLayer/animation_drone_persons1.png",
+      "superlayer": "animations",
+      "width": 90,
+      "height": 60,
+      "index": 118,
+      "startX": -1000,
+      "startY": -500,
+      "endX": 16000,
+      "endY": 7000,
+      "time": 31
+    },
+    {
+      "name": "animation_drone_persons2",
+      "path": "images/MyScenarioLayer/animation_drone_persons2.png",
+      "superlayer": "animations",
+      "width": 80,
+      "height": 53,
+      "index": 118,
+      "startX": -7000,
+      "startY": 3100,
+      "endX": 5000,
+      "endY": -1300,
+      "time": 23
+    },
+    {
+      "name": "animation_drones1",
+      "path": "images/MyScenarioLayer/animation_drones1.png",
+      "superlayer": "animations",
+      "width": 133,
+      "height": 98,
+      "index": 118,
+      "startX": -2000,
+      "startY": 200,
+      "endX": 20000,
+      "endY": 2000,
+      "time": 100
+    },
+    {
+      "name": "animation_drones2",
+      "path": "images/MyScenarioLayer/animation_drones2.png",
+      "superlayer": "animations",
+      "width": 191,
+      "height": 98,
+      "index": 118,
+      "startX": 8000,
+      "startY": 0,
+      "endX": -5000,
+      "endY": 1000,
+      "time": 45
     }
   ]
 }
