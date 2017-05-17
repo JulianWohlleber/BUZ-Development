@@ -686,9 +686,19 @@ fillCollectiveSlots = ->
 				rerenderCollective = false
 
 
+collectiveOverlay = new Layer
+	x: 0
+	y: 0
+	index: 119
+	width: Screen.width
+	height: Screen.height
+	image: "images/MyScenarioLayer/collective-overlay.png"
+	visible: false
+
 
 display = (scenario) ->
 	if scenario != "collective" and scenario != "screensaver"
+		collectiveOverlay.visible = false
 		Trend.visible = true
 		City_Screensaver.visible = false
 		City_Collective.visible = false
@@ -699,6 +709,7 @@ display = (scenario) ->
 				if layer.superlayer != "animations"
 					window["#{layer.name}"].visible = false
 	else if scenario == "collective"
+		collectiveOverlay.visible = true
 		Trend.visible = false
 		City_Collective.visible = true
 		City_Screensaver.visible = false
@@ -772,7 +783,6 @@ animation_drones2.onAnimationEnd ->
 
 
 startAnimation = (element, index) ->
-	print element, "#{element}", window["#{element}"]
 	window["#{element}"].visible = true
 	window["#{element}"].x = myScenarios.layer[index].startX
 	window["#{element}"].y = myScenarios.layer[index].startY
