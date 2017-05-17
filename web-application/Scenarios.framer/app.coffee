@@ -783,7 +783,6 @@ animation_drones2.onAnimationEnd ->
 
 
 startAnimation = (element, index) ->
-	print element, "#{element}", window["#{element}"]
 	window["#{element}"].visible = true
 	window["#{element}"].x = myScenarios.layer[index].startX
 	window["#{element}"].y = myScenarios.layer[index].startY
