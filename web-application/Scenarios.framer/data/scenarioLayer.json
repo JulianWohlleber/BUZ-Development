@@ -163,7 +163,7 @@
       "startY": -155,
       "endX": 17000,
       "endY": 6000,
-      "time": 20
+      "time": 30
     },
     {
       "name": "animation_bus2",
@@ -176,7 +176,7 @@
       "startY": 0,
       "endX": 0,
       "endY": 0,
-      "time": 30
+      "time": 50
     },
     {
       "name": "animation_bus1",
@@ -189,7 +189,7 @@
       "startY": 0,
       "endX": 0,
       "endY": 0,
-      "time": 30
+      "time": 50
     },
     {
       "name": "animation_car4",
@@ -202,7 +202,7 @@
       "startY": 615,
       "endX": 1920,
       "endY": 1270,
-      "time": 7
+      "time": 10
     },
     {
       "name": "animation_car3",
@@ -215,7 +215,7 @@
       "startY": 1320,
       "endX": -75,
       "endY": 520,
-      "time": 9
+      "time": 13
     },
     {
       "name": "animation_car2",
@@ -228,7 +228,7 @@
       "startY": -85,
       "endX": 4000,
       "endY": 1265,
-      "time": 13
+      "time": 17
     },
     {
       "name": "animation_car1",
@@ -241,7 +241,7 @@
       "startY": 1230,
       "endX": -200,
       "endY": -140,
-      "time": 13
+      "time": 17
     },
     {
       "name": "animation_tank2",
@@ -280,7 +280,7 @@
       "startY": 5400,
       "endX": -200,
       "endY": -220,
-      "time": 15
+      "time": 27
     },
     {
       "name": "animation_drone_cam",
@@ -293,7 +293,7 @@
       "startY": 1000,
       "endX": 3000,
       "endY": -200,
-      "time": 37
+      "time": 53
     },
     {
       "name": "animation_drone_goods1",
@@ -306,7 +306,7 @@
       "startY": 0,
       "endX": 8000,
       "endY": 700,
-      "time": 37
+      "time": 51
     },
     {
       "name": "animation_drone_goods2",
@@ -319,7 +319,7 @@
       "startY": -10000,
       "endX": 10000,
       "endY": 10000,
-      "time": 61
+      "time": 71
     },
     {
       "name": "animation_drone_goods3",
@@ -332,7 +332,7 @@
       "startY": -5000,
       "endX": -100,
       "endY": 1200,
-      "time": 25
+      "time": 31
     },
     {
       "name": "animation_drone_person",
@@ -345,7 +345,7 @@
       "startY": 0,
       "endX": 0,
       "endY": 0,
-      "time": 5
+      "time": 11
     },
     {
       "name": "animation_drone_persons1",
@@ -358,7 +358,7 @@
       "startY": -500,
       "endX": 16000,
       "endY": 7000,
-      "time": 31
+      "time": 41
     },
     {
       "name": "animation_drone_persons2",
@@ -371,7 +371,7 @@
       "startY": 3100,
       "endX": 5000,
       "endY": -1300,
-      "time": 23
+      "time": 33
     },
     {
       "name": "animation_drones1",
@@ -384,7 +384,7 @@
       "startY": 200,
       "endX": 20000,
       "endY": 2000,
-      "time": 100
+      "time": 123
     },
     {
       "name": "animation_drones2",
@@ -397,7 +397,7 @@
       "startY": 0,
       "endX": -5000,
       "endY": 1000,
-      "time": 45
+      "time": 71
     }
   ]
 }

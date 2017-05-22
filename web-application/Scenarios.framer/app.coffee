@@ -3,7 +3,7 @@
 #################################################################
 Framer.Extras.Preloader.enable()
 Framer.Extras.Preloader.setLogo("/images/loadingicon.png") #custom loading image
-Canvas.dColor = "#000000"
+Canvas.Color = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
 	screenHeight: 1080
@@ -11,6 +11,7 @@ Framer.Device.customize
 	# deviceImageWidth: 2020
 	# deviceImageHeight: 1480
 
+document.body.style.cursor = "none"
 
 
 #################################################################
@@ -48,8 +49,8 @@ colorVirtual = "#F0F3F7"
 colorCollective = "#EEEEEE"
 
 #Diagrams
-flipAnimationTime = 0.34 #time/flip
-dropAnimationTime = 0.55 #time for drop to fall down
+flipAnimationTime = 0.4 #time/flip
+dropAnimationTime = 1 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.2
 diaCenterScale = 0.17 # Bars defaultsize

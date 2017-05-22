@@ -13,7 +13,7 @@ var newScenarioFactors = JSON.parse(JSON.stringify(scenarioFactors));
 var collectiveImages = JSON.parse(fs.readFileSync('./data/collectiveImages.json', 'utf8'));
 
 //Serversettings
-var port = 9470
+var port = 3000
 
 //Voting
 var minVotingValue = -2
