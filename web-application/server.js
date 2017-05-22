@@ -13,7 +13,7 @@ var newScenarioFactors = JSON.parse(JSON.stringify(scenarioFactors));
 var collectiveImages = JSON.parse(fs.readFileSync('./data/collectiveImages.json', 'utf8'));
 
 //Serversettings
-var port = 3000
+var port = 9470
 
 //Voting
 var minVotingValue = -2
@@ -57,7 +57,7 @@ function calcDiagram(){
   regionalFactor = newScenarioFactors.regional.votingAverage;
   fortressFactor = newScenarioFactors.fortress.votingAverage;
   factorSum = hightechFactor + virtualFactor+regionalFactor+fortressFactor;
-  if(factorSum => 0){
+  if(factorSum <= 0){
     factorSum = 1;
   }
 

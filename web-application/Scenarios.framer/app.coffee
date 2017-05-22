@@ -83,12 +83,14 @@ rerenderCollective = true
 Events.wrap(window).addEventListener "keydown", (event) ->
 	if 48 <= event.keyCode <= 52
 		switch event.keyCode
-			when 48 then selectedScenario = "regional"
-			when 49 then selectedScenario = "fortress"
-			when 50 then selectedScenario = "hightech"
-			when 51 then selectedScenario = "virtual"
-			when 52 then selectedScenario = "collective"
+			when 48 then selectedScenario = "collective"
+			when 49 then selectedScenario = "hightech"
+			when 50 then selectedScenario = "virtual"
+			when 51 then selectedScenario = "regional"
+			when 52 then selectedScenario = "fortress"
 		sceneHandler(selectedScenario)
+		if selectedScenario is "collective"
+			sendVotings("-")
 
 	else if 53 <= event.keyCode <= 57
 		switch event.keyCode
@@ -103,6 +105,7 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 
 	else if event.keyCode is 32
 		showScreensaver()
+		sendVotings("-")
 
 
 #################################################################
@@ -131,6 +134,7 @@ myVoting = "-"
 sendVotings = (myVoting)->
 	#voting
 	voting.votingAmount = myVoting
+	print voting
 	#message
 	`socket.send(JSON.stringify(voting))`
 
@@ -637,16 +641,14 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 
 sceneHandler = (selectedScenario) ->
-	if selectedScenario is "screensaver"
-		showScenario(selectedScenario)
-	else if voting.scenario is selectedScenario
+	if voting.scenario is selectedScenario
 		showDiagram()
 	else
 		diagramReset()
 		animateDiagram(selectedScenario)
-
 		showScenario(selectedScenario)
-	voting.scenario = selectedScenario
+		voting.scenario = selectedScenario
+
 
 
 showScenario = (selectedScenario) ->
@@ -657,8 +659,6 @@ showScenario = (selectedScenario) ->
 		when "fortress" then currentSceneTrends = myTrends.fortress
 		when "hightech" then currentSceneTrends = myTrends.robotic
 		when "virtual" then currentSceneTrends = myTrends.virtual
-		when "collective" then sendVotings("-")
-		when "screensaver" then sendVotings("-")
 
 	if selectedScenario and selectedScenario != "screensaver"
 		generateTrendStates(lastSceneTrends, currentSceneTrends)
