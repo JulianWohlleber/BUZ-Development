@@ -134,7 +134,6 @@ myVoting = "-"
 sendVotings = (myVoting)->
 	#voting
 	voting.votingAmount = myVoting
-	print voting
 	#message
 	`socket.send(JSON.stringify(voting))`
 
