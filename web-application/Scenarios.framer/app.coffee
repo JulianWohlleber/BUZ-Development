@@ -14,6 +14,7 @@ Framer.Device.customize
 document.body.style.cursor = "none"
 
 
+
 #################################################################
 #Imports
 #################################################################
@@ -75,6 +76,7 @@ showScenarioDelay = 7
 #Presets
 selectedScenario = ""
 rerenderCollective = true
+screensaverMode = true
 
 #################################################################
 #Keydown
@@ -104,6 +106,7 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 			rerenderCollective = true
 
 	else if event.keyCode is 32
+		screensaverMode = true
 		showScreensaver()
 		sendVotings("-")
 
@@ -154,6 +157,8 @@ showScreensaver = ()->
 		if whiteBlender.opacity != 0
 			whiteBlender.animate
 				opacity: 0
+				options:
+					time: 1.5
 		else
 			whiteBlender.destroy()
 	Utils.delay 1, ->
@@ -389,6 +394,7 @@ fourthFliplayer.onAnimationEnd ->
 #################################################################
 
 diagramReset()
+
 blackDrop.onAnimationEnd ->
 	blackDrop.visible = false
 	sketch1.dia1Labels.animate
@@ -640,12 +646,13 @@ Trend.on Events.AnimationEnd, ->
 #Functions
 
 sceneHandler = (selectedScenario) ->
-	if voting.scenario is selectedScenario
+	if voting.scenario is selectedScenario && !screensaverMode
 		showDiagram()
 	else
 		diagramReset()
 		animateDiagram(selectedScenario)
 		showScenario(selectedScenario)
+		screensaverMode = false
 		voting.scenario = selectedScenario
 
 
@@ -659,9 +666,11 @@ showScenario = (selectedScenario) ->
 		when "hightech" then currentSceneTrends = myTrends.robotic
 		when "virtual" then currentSceneTrends = myTrends.virtual
 
-	if selectedScenario and selectedScenario != "screensaver"
-		generateTrendStates(lastSceneTrends, currentSceneTrends)
-	Utils.delay showScenarioDelay, ->
+	generateTrendStates(lastSceneTrends, currentSceneTrends)
+	if selectedScenario != "screensaver"
+		Utils.delay showScenarioDelay, ->
+			display(selectedScenario)
+	else
 		display(selectedScenario)
 
 	if isDefault is true and selectedScenario != "collective" and selectedScenario != "screensaver"
