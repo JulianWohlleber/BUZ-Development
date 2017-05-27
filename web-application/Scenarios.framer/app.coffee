@@ -50,15 +50,15 @@ colorVirtual = "#F0F3F7"
 colorCollective = "#EEEEEE"
 
 #Diagrams
-flipAnimationTime = 0.4 #time/flip
+flipAnimationTime = 0.3 #time/flip
 dropAnimationTime = 1 #time for drop to fall down
 fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.2
 diaCenterScale = 0.17 # Bars defaultsize
 diaCenterSize = diaCenterScale * sketch1.diaBubble.width
-diagramFadeOutDelay = 8
+diagramFadeOutDelay = 4
 diagramFadeOutTime = 1
-pieceAnimTime = 2
+pieceAnimTime = 1.5
 diaBorderSize = 0.1
 
 #Trends
@@ -67,10 +67,10 @@ trendwidth = 600
 trendFontSize = "30px"
 trendFont = "ShareTechMono-Regular"
 trendLineHeight = "40px"
-trendAnimationDelay = 6
+trendAnimationDelay = 4
 
 #Scenarios
-showScenarioDelay = 7
+showScenarioDelay = 4
 
 
 #Presets
