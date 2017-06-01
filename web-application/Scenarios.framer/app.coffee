@@ -7,10 +7,6 @@ Canvas.Color = "#000000"
 Framer.Device.customize
 	screenWidth: 1920
 	screenHeight: 1080
-	# deviceImage: "http://previews.123rf.com/images/jules_kitano/jules_kitano1004/jules_kitano100400016/6771018-Nahaufnahme-der-Pressspan-Textur--Lizenzfreie-Bilder.jpg"
-	# deviceImageWidth: 2020
-	# deviceImageHeight: 1480
-
 document.body.style.cursor = "none"
 
 
@@ -194,13 +190,6 @@ showVotingFeedback = (currentVoting) ->
 
 
 
-makeOtherVotingsInvisible = () ->
-	votingNeg2.opacity = 0
-	votingNeg1.opacity = 0
-	voting0.opacity = 0
-	votingPos1.opacity = 0
-	votingPos2.opacity = 0
-
 #################################################################
 #SCREENSAVER
 #################################################################
@@ -237,10 +226,6 @@ flipArray = []
 diagramParts = []
 diagramAnimating = false
 
-#Parentlayer
-# DiagramLayer = new Layer
-# 	backgroundColor: "transparent"
-# 	width:
 
 #Flipping Paper
 Fliplayer = new Layer
@@ -263,12 +248,6 @@ diaCenter = new Layer
 
 diaCenter.center()
 
-# diaCenterC = diaCenter.copy()
-# diaCenterC.width = diaCenterSize-10
-# diaCenterC.height = diaCenterSize-10
-# diaCenterC.backgroundColor = "#FEF0EC"
-# diaCenterC.superLayer = sketch1.KnotenpunktStadt
-# diaCenterC.center()
 sketch1.diaCenter.visible = false
 
 firstFliplayer = Fliplayer.copy()
