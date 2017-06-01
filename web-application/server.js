@@ -13,7 +13,7 @@ var newScenarioFactors = JSON.parse(JSON.stringify(scenarioFactors));
 var collectiveImages = JSON.parse(fs.readFileSync('./data/collectiveImages.json', 'utf8'));
 
 //Serversettings
-var port = 9470
+var port = 3000
 
 //Voting
 var minVotingValue = -2
@@ -47,7 +47,7 @@ function calcChartvalue(hightech, virtual, regional, fortress){
     }else if(value>1){
       value = 1
     }
-  console.log("active");
+  // console.log("active");
   return value
 }
 
@@ -58,6 +58,7 @@ function calcDiagram(){
   fortressFactor = newScenarioFactors.fortress.votingAverage;
   factorSum = hightechFactor + virtualFactor+regionalFactor+fortressFactor;
   if(factorSum <= 0){
+    console.log(factorSum);
     factorSum = 1;
   }
 
@@ -94,7 +95,9 @@ function calcDiagram(){
 
 //mapFunction
 function map_range(value, low1, high1, low2, high2) {
-    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+    totalValue = low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+    // console.log(totalValue);
+    return totalValue
 }
 
 function calccomponentAmounts(totalSlotAmount){
@@ -105,12 +108,14 @@ function calccomponentAmounts(totalSlotAmount){
   var virtualValue = map_range(scenarioFactors.virtual.votingAverage, minVotingValue, maxVotingValue, 0, 1)
   var sumValues = regionalValue + hightechValue + fortressValue + virtualValue
   var componentAmounts = {}
-
   //amount of slots/Scenario
   componentAmounts.Regional = Math.round(map_range(regionalValue, 0, sumValues, 0, totalSlotAmount))
   componentAmounts.Hightech = Math.round(map_range(hightechValue, 0, sumValues, 0, totalSlotAmount))
   componentAmounts.Fortress = Math.round(map_range(fortressValue, 0, sumValues, 0, totalSlotAmount))
   componentAmounts.Virtual = Math.round(map_range(virtualValue, 0, sumValues, 0, totalSlotAmount))
+  if((componentAmounts.Regional + componentAmounts.Hightech + componentAmounts.Fortress + componentAmounts.Virtual)<totalSlotAmount){
+    componentAmounts.Hightech++
+  }
   return componentAmounts
 }
 
@@ -142,7 +147,6 @@ function fillSlots(componentAmounts){
 //Scenario of Elements
     activeScenarioIndex = Math.floor((Math.random() * 4) + 1) //this Random Value defines the Element of the leftover Elements
     activeVariante = Math.floor((Math.random() * 2) + 1) //this Random Value defines the variant of the selected Element
-
     if (activeScenarioIndex === 1){
       if(componentAmounts.Hightech > 0){
         nextScenarioFolder = nextImageFolder.hightech
@@ -195,7 +199,11 @@ function fillSlots(componentAmounts){
   }
   return slotArray
 }
+
+
+//#########################Setup#########################################
 dataToFramer.slotsCollective = fillSlots(calccomponentAmounts(totalSlotAmount))
+
 
 //#########################socketServer#########################################
 io.sockets.on("connection",function(socket){

@@ -74,7 +74,7 @@ showScenarioDelay = 4
 
 
 #Presets
-selectedScenario = ""
+selectedScenario = "screensaver"
 rerenderCollective = true
 screensaverMode = true
 
@@ -101,6 +101,7 @@ Events.wrap(window).addEventListener "keydown", (event) ->
 			when 55 then myVoting = 0
 			when 56 then myVoting = 1
 			when 57 then myVoting = 2
+		showVotingFeedback(myVoting)
 		if selectedScenario != "collective"
 			sendVotings(myVoting)
 			rerenderCollective = true
@@ -140,11 +141,71 @@ sendVotings = (myVoting)->
 	#message
 	`socket.send(JSON.stringify(voting))`
 
+
+votingFeedback = new Layer
+	x: 0
+	y: 0
+	opacity: 0
+	width: Screen.width
+	height: Screen.height
+	image: "/images/votingLayer/votingOverlay.png"
+	index: 149
+
+votingNumber = new Layer
+	backgroundColor: "transparent"
+	x: -20
+	y: Screen.height/2 -70
+	width: Screen.width
+	opacity: 0
+	style:
+		"color": "white"
+		"font-size": "220px"
+		"text-align": "center"
+		"font-family": trendFont
+
+showVotingFeedback = (currentVoting) ->
+	if selectedScenario != "screensaver" and selectedScenario != "collective"
+		if currentVoting is 1
+			currentVoting = "+1"
+		else if currentVoting is 2
+			currentVoting = "+2"
+		else if currentVoting is 0
+			currentVoting = "±0"
+		votingFeedback.animate
+			opacity: 1
+			options:
+				time: 0.5
+		votingNumber.html = currentVoting
+		votingNumber.animate
+			opacity: 1
+			options:
+				time: 0.5
+		votingNumber.onAnimationEnd ->
+			votingNumber.animate
+				opacity: 0
+				options:
+					time: 1
+					delay: 2
+			votingFeedback.animate
+				opacity: 0
+				options:
+					time: 1
+					delay: 2
+
+
+
+makeOtherVotingsInvisible = () ->
+	votingNeg2.opacity = 0
+	votingNeg1.opacity = 0
+	voting0.opacity = 0
+	votingPos1.opacity = 0
+	votingPos2.opacity = 0
+
 #################################################################
 #SCREENSAVER
 #################################################################
 
-showScreensaver = ()->
+showScreensaver = () ->
 	selectedScenario = "screensaver"
 	whiteBlender = new Layer
 		backgroundColor: blendingColor
