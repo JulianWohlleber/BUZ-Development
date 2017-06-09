@@ -52,7 +52,8 @@ fontScalingAnimationTime = 3 #time for scenariofonts to
 diaPieceDelay = 0.2
 diaCenterScale = 0.17 # Bars defaultsize
 diaCenterSize = diaCenterScale * sketch1.diaBubble.width
-diagramFadeOutDelay = 4
+diagramFadeOut1Delay = 4
+diagramFadeOut2Delay = 10
 diagramFadeOutTime = 1
 pieceAnimTime = 1.5
 diaBorderSize = 0.1
@@ -281,17 +282,24 @@ sketch1.dia1Fonts.y = 0
 sketch1.dia1Fonts.width = 1920
 sketch1.dia1Fonts.height = 1080
 
-fadeOut = new Animation sketch1.KnotenpunktStadt,
+fadeOut1 = new Animation sketch1.KnotenpunktStadt,
 	opacity: 0
 	options:
-		delay: diagramFadeOutDelay
+		delay: diagramFadeOut1Delay
+		time: diagramFadeOutTime
+
+fadeOut2 = new Animation sketch1.KnotenpunktStadt,
+	opacity: 0
+	options:
+		delay: diagramFadeOut2Delay
 		time: diagramFadeOutTime
 
 #Diagram Functions
 #################################################################
 
 diagramReset = () ->
-	fadeOut.stop()
+	fadeOut1.stop()
+	fadeOut2.stop()
 	for child in flipArray
 			child.animateStop()
 			child.opacity = 0
@@ -330,7 +338,7 @@ showDiagram = ->
 			options:
 				time: 0.4
 		sketch1.KnotenpunktStadt.onAnimationEnd ->
-			fadeOut.start()
+			fadeOut2.start()
 
 
 
@@ -496,7 +504,7 @@ FallingDrop = () ->
 
 
 fadeOutDiagram = () ->
-	fadeOut.start()
+	fadeOut1.start()
 	for flipLayer, index in flipArray
 		flipLayer.visible = false
 	diagramAnimating = false
